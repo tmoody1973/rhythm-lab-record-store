@@ -68,3 +68,36 @@ These are published values, spread across fields. A wrong one means the gate nee
 ## Country filter threshold
 
 The pilot reached **26%** country coverage against a 30% bar. **Tarik lowered the bar to 20%** (2026-10-19) so the filter appears once the full run lands.
+
+# Full run (all 1,215 records)
+
+Run: 2026-10-19/20 · `npm run enrich` · 62 minutes, 6,489 requests (Apple 1,164 · MusicBrainz 2,443 · Discogs 2,882), **0 failures**, 118 MusicBrainz rate-limit retries. Later re-runs replay from the local cache in about a second with no requests.
+
+## What was published
+
+| Field | Records (of 1,215) |
+|---|---|
+| Release date | 654 |
+| Label | 482 |
+| Artist country + area | 257 (21.2%) |
+| Catalog number | 148 |
+| Bandcamp page link | 142 |
+| Styles | 118 |
+
+**738 records** have at least one published value; **726** have something waiting in `data/enrichment-review.md`.
+
+## What the stricter gate cost
+
+The final review tightened the gate to match decision 004 exactly: a value is published only when *every* source that has it agrees (a 2-against-1 majority, or a confident match over a less confident one, no longer wins). On the same cached data:
+
+| | Before | After |
+|---|---|---|
+| Records with any value | 713 | 701 |
+| Labels | 541 | 482 |
+| Release dates | 692 | 654 |
+
+The 59 labels and 38 dates are not lost: they are in the review list, where Tarik can accept any of them through `content/overrides.json`.
+
+## Country: 14.3% → 21.2%
+
+The gate alone gave a country to 174 records (14.3%), all of them multi-song: only MusicBrainz has artist country, and a one-song record needs two agreeing sources, so 0 of 761 one-song records could get one. **Tarik chose to reuse a confirmed artist country across that artist's other records** (decision 005), which added 83 records with no conflicts. Coverage is 257 / 1,215 = **21.2%**, over the 20% bar, so the Country filter shows. 21 countries; US 86 and GB 48 lead (counts before reuse).

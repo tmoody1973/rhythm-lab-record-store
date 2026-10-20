@@ -6,7 +6,7 @@ import type { PublicAlbum } from '../../src/catalog/schema.ts';
 import { EnrichmentFileSchema } from '../../src/catalog/enrichment.ts';
 import { AuthError } from '../../pipeline/enrich/http.ts';
 import type { Candidate } from '../../pipeline/enrich/match.ts';
-import { pilotSample, runEnrichment, writeBlocker, writeOutputs, type EnrichSource } from '../../pipeline/enrich/run.ts';
+import { pilotSample, runEnrichment, shareArtistCountry, writeBlocker, writeOutputs, type EnrichSource } from '../../pipeline/enrich/run.ts';
 
 const rec = (n: number, songCount: number, kind: 'album' | 'track' = 'album'): PublicAlbum => ({
   id: `bandcamp:${kind}:${n}`, kind, bandcampId: n, title: `Title ${n}`, artist: `Artist ${n}`, genre: null, cover: null, songCount, durationSec: 100,
@@ -72,6 +72,38 @@ describe('writeOutputs', () => {
     expect(Object.keys(written.entries).sort()).toEqual(['bandcamp:album:1', 'bandcamp:album:2']);
     expect(readFileSync(overrides, 'utf8')).toBe(before);
     expect(readdirSync(dir).filter((f) => f.includes('.tmp-'))).toEqual([]);
+  });
+});
+
+describe('shareArtistCountry', () => {
+  const album = { ...rec(101, 10), artist: 'Café Tacvba' };
+  const single = { ...rec(1, 1), artist: 'CAFE TACVBA' };
+  const confirmed = { [album.id]: { label: 'L', artistCountry: 'MX', artistArea: 'Ciudad Satélite', sources: ['musicbrainz' as const] } };
+
+  test("a country confirmed on an artist's album is reused for the same artist's singles", () => {
+    const out = shareArtistCountry([album, single], { ...confirmed, [single.id]: { label: 'S', sources: ['apple' as const] } }, [], {});
+    expect(out[single.id]).toEqual({ label: 'S', artistCountry: 'MX', artistArea: 'Ciudad Satélite', sources: ['apple', 'musicbrainz'] });
+    expect(out[album.id]).toBe(confirmed[album.id]);
+  });
+
+  test('a single with no entry yet gets one', () => {
+    expect(shareArtistCountry([album, single], confirmed, [], {})[single.id]).toEqual({ artistCountry: 'MX', artistArea: 'Ciudad Satélite', sources: ['musicbrainz'] });
+  });
+
+  test('an artist with two different confirmed countries shares nothing', () => {
+    const other = { ...rec(102, 10), artist: 'Café Tacvba' };
+    const entries = { ...confirmed, [other.id]: { artistCountry: 'US', sources: ['musicbrainz' as const] } };
+    expect(shareArtistCountry([album, other, single], entries, [], {})[single.id]).toBeUndefined();
+  });
+
+  test('an override that clears the country wins', () => {
+    expect(shareArtistCountry([album, single], confirmed, [], { [single.id]: { artistCountry: null } })[single.id]).toBeUndefined();
+  });
+
+  test("MusicBrainz naming a different country for the single blocks it; the same country doesn't", () => {
+    const said = (value: string) => [{ record: single, entries: [{ field: 'artistCountry', values: [{ source: 'musicbrainz', value }] }] }];
+    expect(shareArtistCountry([album, single], confirmed, said('GB'), {})[single.id]).toBeUndefined();
+    expect(shareArtistCountry([album, single], confirmed, said('MX'), {})[single.id]?.artistCountry).toBe('MX');
   });
 });
 

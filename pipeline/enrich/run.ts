@@ -3,11 +3,11 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { EnrichmentFileSchema, type EnrichmentFile, type Overrides } from '../../src/catalog/enrichment.ts';
+import { EnrichmentFileSchema, type Enriched, type EnrichmentFile, type Overrides } from '../../src/catalog/enrichment.ts';
 import type { PublicAlbum } from '../../src/catalog/schema.ts';
 import { writeJsonAtomic } from '../report.ts';
 import { AuthError } from './http.ts';
-import { gate, type Candidate, type ReviewEntry } from './match.ts';
+import { gate, normalize, type Candidate, type ReviewEntry } from './match.ts';
 
 export type EnrichSource = { name: Candidate['source']; candidates(r: PublicAlbum): Promise<Candidate[]> };
 export type RunResult = {
@@ -34,9 +34,8 @@ export async function runEnrichment(
 ): Promise<RunResult> {
   const disabled = new Set<string>();
   const errors: Record<string, number> = {};
-  const entries: EnrichmentFile['entries'] = {};
+  const gated: EnrichmentFile['entries'] = {};
   const review: RunResult['review'] = [];
-  const perField: Record<string, number> = {};
 
   for (const [i, record] of records.entries()) {
     const best = await Promise.all(sources.filter((s) => !disabled.has(s.name)).map(async (s) => {
@@ -51,20 +50,55 @@ export async function runEnrichment(
       }
     }));
     const { published, review: open } = gate(record, best.filter((c): c is Candidate => c !== null), overrides[record.id]);
-    if (published) {
-      entries[record.id] = published;
-      for (const f of Object.keys(published)) if (f !== 'sources') perField[f] = (perField[f] ?? 0) + 1;
-    }
+    if (published) gated[record.id] = published;
     if (open.length) review.push({ record, entries: open });
     if ((i + 1) % 10 === 0) say(`${i + 1}/${records.length} records`);
   }
 
+  const entries = shareArtistCountry(records, gated, review, overrides);
+  const perField: Record<string, number> = {};
+  for (const e of Object.values(entries)) for (const f of Object.keys(e)) if (f !== 'sources') perField[f] = (perField[f] ?? 0) + 1;
   return {
     file: { schemaVersion: 1, generatedAt: new Date().toISOString(), entries },
     review,
     processed: records.map((r) => r.id),
     stats: { records: records.length, published: Object.keys(entries).length, perField, disabled: [...disabled], errors },
   };
+}
+
+/**
+ * Country belongs to the artist, not the release, and only MusicBrainz knows it; a one-song record can never
+ * pass the gate on one source. So a country the gate confirmed on one record is reused for the same artist's
+ * other records, unless the artist has two confirmed countries, an override clears it, or MusicBrainz named a
+ * different country for that record. Area is reused only when the artist has a single confirmed area.
+ */
+export function shareArtistCountry(
+  records: PublicAlbum[], entries: EnrichmentFile['entries'], review: RunResult['review'], overrides: Record<string, Overrides>,
+): EnrichmentFile['entries'] {
+  const known = new Map<string, { countries: Set<string>; areas: Set<string> }>();
+  for (const r of records) {
+    const e = entries[r.id];
+    if (!e?.artistCountry) continue;
+    const k = known.get(normalize(r.artist)) ?? { countries: new Set(), areas: new Set() };
+    k.countries.add(e.artistCountry);
+    if (e.artistArea) k.areas.add(e.artistArea);
+    known.set(normalize(r.artist), k);
+  }
+  const said = new Map(review.map(({ record, entries: open }) => [record.id, open.find((x) => x.field === 'artistCountry')?.values ?? []]));
+
+  const out = { ...entries };
+  for (const r of records) {
+    const k = known.get(normalize(r.artist));
+    const prev = entries[r.id];
+    if (!k || k.countries.size !== 1 || prev?.artistCountry || overrides[r.id]?.artistCountry === null) continue;
+    const [country] = k.countries;
+    if ((said.get(r.id) ?? []).some((v) => v.value !== country)) continue;
+    const area = k.areas.size === 1 && !prev?.artistArea && overrides[r.id]?.artistArea !== null ? [...k.areas][0] : undefined;
+    const sources: Enriched['sources'] = [...(prev?.sources ?? [])];
+    if (!sources.includes('musicbrainz')) sources.push('musicbrainz');
+    out[r.id] = { ...prev, artistCountry: country, ...(area ? { artistArea: area } : {}), sources };
+  }
+  return out;
 }
 
 /**
