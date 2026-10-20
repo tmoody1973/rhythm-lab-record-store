@@ -38,7 +38,8 @@ const STEPS: ReactNode[] = [
     every record links back to Bandcamp, where buying supports the artists.
   </>,
   <>
-    <strong className="text-ink">A 3D record shop is next.</strong> A walk-in record-shop view is in progress.
+    <strong className="text-ink">Walk into the shop.</strong> The front page is a 3D record shop you can turn around, step into and
+    dig through, crate by crate. Phones get it too; browsers that can't draw 3D get the cover grid.
   </>,
 ];
 
@@ -120,6 +121,10 @@ export function AboutPage() {
                 <A href="https://www.discogs.com">Discogs</A>.
               </li>
               <li>Album art © its owners. Powered by Bandcamp.</li>
+              <li>
+                The tribute posters are original typographic designs. Full licence texts:{' '}
+                <A href="https://github.com/tmoody1973/rhythm-lab-record-store/blob/main/THIRD_PARTY_NOTICES.md">third-party notices</A>.
+              </li>
             </ul>
           </Section>
         </div>

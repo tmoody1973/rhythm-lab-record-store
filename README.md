@@ -32,8 +32,8 @@ The public site never talks to Subsonic. It can't leak credentials, and it never
 | Feasibility probe for Bandcamp's Subsonic beta ([report](docs/IMPORT-COVERAGE.md)) | Done |
 | Catalog pipeline: 1,215 records (1,088 albums, 127 single tracks), self-hosted WebP covers, colour palettes ([guide](docs/CATALOG.md)) | Done |
 | Website: cover grid, album pop-up with Bandcamp's player, visitor hearts and crates with share links, Tarik's crates | Done (local, not deployed) |
-| Enrichment: label, country, styles from Apple Music, MusicBrainz, Discogs | Designed, not built |
-| 3D record-shop room (Three.js) | Planned |
+| Enrichment: label, country, styles from Apple Music, MusicBrainz, Discogs ([coverage](docs/ENRICHMENT-COVERAGE.md)) | Done |
+| 3D record shop as the front page: eight sections, cratedigger-style digging, 3D My crates, phones ([design](docs/superpowers/specs/2026-10-20-record-shop-design.md)) | Done (local, not deployed) |
 
 ## Quick start
 
@@ -70,7 +70,17 @@ To curate a crate of your own picks: build it in the site (Add to crate), click 
 npm run import-crate -- "<share link>" --into staff-picks --name "Staff Picks"
 ```
 
-That writes `content/crates.json`; a one-line note per record can go in `content/notes.json`.
+That writes `content/crates.json`; a one-line note per record can go in `content/notes.json`. A crate with the id `staff-picks` hangs face-out on the shop's staff-picks wall.
+
+### The 3D shop
+
+The front page is a 3D record shop (React Three Fiber). Its furnishing is free CC0 art from Poly Haven, downloaded and slimmed once:
+
+```bash
+npm run decor                # brick, planks, walnut and two plants → public/decor/ (~2.8 MB, not committed)
+```
+
+Without it the shop still works in flat colours. Phones and low-memory devices get a lighter version; browsers that can't draw 3D (or whose graphics give out mid-visit) get the cover grid. `/?view=grid` always opens the grid.
 
 ## Environment variables
 
@@ -105,6 +115,9 @@ docs/                build plan, specs, plans, decisions, design mockups, report
 ## Credits
 
 - Inspired by and partly adapted from [chrija76/bookshelf](https://github.com/chrija76/bookshelf) (MIT, Copyright (c) 2026 chrija76), a Goodreads library as a 3D room. The cover colour extraction in `pipeline/palette.ts` is adapted from it.
+- The shop's crate-digging motion is ported from [risq/cratedigger](https://github.com/risq/cratedigger) (MIT, Copyright (c) 2015 Oz Conseil, Copyright (c) 2014 Daniel Tello).
+- Textures and plants: [Poly Haven](https://polyhaven.com) (CC0). Font: Inter Tight (SIL OFL 1.1).
+- Full licence texts: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - Built with [Claude Code](https://claude.com/claude-code).
 
 ## License
