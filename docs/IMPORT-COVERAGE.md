@@ -104,5 +104,5 @@ Local player at `127.0.0.1:4173`, track `t:1816891202` ("Edge Conditions", 265 s
 ## Next checks
 
 1. Optional, any later day: `node --env-file=.env.local scripts/subsonic-probe.mts enumerate --ids-only` re-checks ID stability (criterion 15 is already closed on same-day evidence).
-2. Before relying on embeds everywhere, Tarik opens 3–5 more embed URLs in his own browser: a package (Cuban Beat & Fantasia, `album=3961164446`), a 1-song album, and an older release. Claude can list candidate URLs from `out/ids-2026-10-19.json`.
+2. ✅ Done 2026-10-19: Tarik opened embeds for a 1-song item (`album=2682884431`, "42H" by TTeo), the oldest dated purchase (`album=2035267472`, 2010) and the package (`album=3961164446`). All three showed the right record, so the `a:` → embed mapping now holds on 4 of 4 record types.
 3. Optional: Curandera's artist, to investigate the ≈81-item gap.
