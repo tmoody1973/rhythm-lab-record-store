@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { fromCompact, toCompact } from './catalog/ids.ts';
-import { useCatalog, type LoadFailure } from './catalog/load.ts';
+import { useCatalog, useEnrichment, type LoadFailure } from './catalog/load.ts';
 import type { PublicAlbum } from './catalog/schema.ts';
 import { crateMembers, cratesContaining, TARIK_CRATES, TARIK_NOTES } from './crates/curation.ts';
 import { decodeShare } from './crates/share.ts';
@@ -37,6 +37,11 @@ export function App() {
   const catalog = useCatalog();
   const [state, patch] = useAppState();
   const visitor = useVisitor();
+  const enrichment = useEnrichment();
+  const credits = useMemo(() => {
+    const used = new Set(Object.values(enrichment).flatMap((e) => e.sources));
+    return [['apple', 'Apple Music'], ['musicbrainz', 'MusicBrainz'], ['discogs', 'Discogs']].filter(([k]) => used.has(k as never)).map(([, n]) => n);
+  }, [enrichment]);
   const [notice, setNotice] = useState<string | null>(null);
   const [cratesOpen, setCratesOpen] = useState(false);
   const pushed = useRef(false); // true when the open record added a history entry (so Back closes it)
@@ -135,13 +140,14 @@ export function App() {
             patch={patch}
             crates={TARIK_CRATES}
             crateMembers={(id) => crateMembers(TARIK_CRATES, id)}
+            enrichment={enrichment}
             onOpen={openRecord}
           />
         )}
       </main>
       <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 pb-10 text-sm text-ink-soft sm:px-8">
         <span>A personal collection. Powered by Bandcamp.</span>
-        <span>Album art © its owners.</span>
+        <span>Album art © its owners.{credits.length > 0 && ` Metadata: ${credits.join(', ')}.`}</span>
       </footer>
       {open && (
         <AlbumDialog
@@ -149,6 +155,7 @@ export function App() {
           record={open}
           cratesContaining={cratesContaining(TARIK_CRATES, open.id)}
           note={TARIK_NOTES[open.id] ?? null}
+          enriched={enrichment[open.id] ?? null}
           onClose={close}
           actions={<RecordActions record={open} data={visitor.data} update={visitor.update} />}
         />

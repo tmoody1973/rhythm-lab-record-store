@@ -24,7 +24,7 @@ export function useAppState(): [UrlState, Patch] {
 
   const update: Patch = useCallback((patch, opts) => {
     const prev = current.current;
-    const filterChanged = ['q', 'genres', 'crate', 'sort'].some((k) => k in patch);
+    const filterChanged = ['q', 'genres', 'crate', 'country', 'sort'].some((k) => k in patch);
     const next = { ...prev, ...(filterChanged && !('page' in patch) ? { page: 1 } : {}), ...patch };
     current.current = next;
     const url = `${window.location.pathname}${toSearch(next)}`;

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { genreChips } from '../catalog/genres.ts';
 import { applyQuery, firstIndexForLetter, letters, pageCount, pageOf, pageSlice, PER_PAGE } from '../catalog/query.ts';
+import type { EnrichmentMap } from '../catalog/load.ts';
 import type { Catalog, PublicAlbum } from '../catalog/schema.ts';
 import type { UrlState } from '../state/url.ts';
 import { ChipRow } from './ChipRow.tsx';
@@ -13,17 +14,31 @@ type Props = {
   patch: (p: Partial<UrlState>, opts?: { push?: boolean }) => void;
   crates?: { id: string; name: string }[];
   crateMembers?: (crateId: string) => Set<string> | null;
+  enrichment?: EnrichmentMap;
   onOpen?: (record: PublicAlbum, el: HTMLButtonElement) => void;
 };
 
 const fmt = (n: number) => n.toLocaleString('en-US');
+const regionName = (code: string) => { try { return new Intl.DisplayNames(['en'], { type: 'region' }).of(code) ?? code; } catch { return code; } };
+/** Show the Country filter only once enrichment covers enough of the catalog to be useful. */
+export const COUNTRY_MIN_SHARE = 0.3;
 
-export function Collection({ catalog, state, patch, crates = [], crateMembers = () => null, onOpen }: Props) {
+export function Collection({ catalog, state, patch, crates = [], crateMembers = () => null, enrichment = {}, onOpen }: Props) {
   const chips = useMemo(() => genreChips(catalog.albums), [catalog]);
   const sorted = useMemo(
-    () => applyQuery(catalog.albums, state, state.crate ? crateMembers(state.crate) : null),
-    [catalog, state.q, state.genres, state.crate, state.sort], // eslint-disable-line react-hooks/exhaustive-deps
+    () => applyQuery(catalog.albums, state, state.crate ? crateMembers(state.crate) : null, (id) => enrichment[id]?.artistCountry),
+    [catalog, enrichment, state.q, state.genres, state.crate, state.country, state.sort], // eslint-disable-line react-hooks/exhaustive-deps
   );
+  const countries = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const a of catalog.albums) {
+      const c = enrichment[a.id]?.artistCountry;
+      if (c) counts.set(c, (counts.get(c) ?? 0) + 1);
+    }
+    const covered = [...counts.values()].reduce((x, y) => x + y, 0);
+    if (covered < catalog.albums.length * COUNTRY_MIN_SHARE) return [];
+    return [...counts.keys()].map((code) => ({ code, name: regionName(code), n: counts.get(code)! })).sort((a, b) => a.name.localeCompare(b.name));
+  }, [catalog, enrichment]);
   const pages = pageCount(sorted.length);
   const page = Math.min(state.page, pages);
   const visible = pageSlice(sorted, page);
@@ -75,7 +90,23 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-y border-line py-3">
-        <SortSelect value={state.sort} onChange={(sort) => patch({ sort })} />
+        <div className="flex flex-wrap items-center gap-4">
+          <SortSelect value={state.sort} onChange={(sort) => patch({ sort })} />
+          {countries.length > 0 && (
+            <label className="flex items-center gap-2 text-sm text-ink-soft">
+              Country
+              <select
+                aria-label="Country"
+                value={state.country ?? ''}
+                onChange={(e) => patch({ country: e.target.value || null })}
+                className="rounded-full border border-ink/25 bg-card px-3 py-1.5 text-ink focus-visible:outline-2 focus-visible:outline-forest"
+              >
+                <option value="">All countries</option>
+                {countries.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
+              </select>
+            </label>
+          )}
+        </div>
         <LetterStrip available={letters(sorted, state.sort)} onJump={jump} />
       </div>
 
@@ -86,7 +117,7 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
       {sorted.length === 0 ? (
         <div className="mt-10 text-center">
           <p className="font-serif text-2xl">No records match.</p>
-          <button type="button" onClick={() => patch({ q: '', genres: [], crate: null })} className="mt-4 rounded-full bg-forest px-5 py-2 text-card">Clear filters</button>
+          <button type="button" onClick={() => patch({ q: '', genres: [], crate: null, country: null })} className="mt-4 rounded-full bg-forest px-5 py-2 text-card">Clear filters</button>
         </div>
       ) : (
         <ul aria-label="Records" className="mt-4 grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">

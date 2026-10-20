@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { EnrichmentFileSchema, type Enriched } from './enrichment.ts';
 import { CatalogSchema, type Catalog } from './schema.ts';
 
 export type LoadFailure = 'missing' | 'invalid' | 'network';
@@ -34,4 +35,28 @@ export function useCatalog(): CatalogState {
     return () => { live = false; };
   }, []);
   return state;
+}
+
+export type EnrichmentMap = Record<string, Enriched>;
+
+/** Optional extra data from `npm run enrich`. Missing or invalid → none; never an error for visitors. */
+export async function loadEnrichment(fetchImpl: typeof fetch = fetch): Promise<EnrichmentMap> {
+  try {
+    const res = await fetchImpl('/enrichment.json');
+    if (!res.ok || res.headers.get('content-type')?.includes('text/html')) return {};
+    const parsed = EnrichmentFileSchema.safeParse(JSON.parse(await res.text()));
+    return parsed.success ? parsed.data.entries : {};
+  } catch {
+    return {};
+  }
+}
+
+export function useEnrichment(): EnrichmentMap {
+  const [map, setMap] = useState<EnrichmentMap>({});
+  useEffect(() => {
+    let live = true;
+    loadEnrichment().then((m) => live && setMap(m));
+    return () => { live = false; };
+  }, []);
+  return map;
 }

@@ -5,7 +5,7 @@ import type { PublicAlbum } from './schema.ts';
 
 export type SortKey = 'artist-asc' | 'artist-desc' | 'title-asc' | 'title-desc';
 export const SORT_KEYS: readonly SortKey[] = ['artist-asc', 'artist-desc', 'title-asc', 'title-desc'];
-export type Query = { q: string; genres: string[]; crate: string | null; sort: SortKey; page: number };
+export type Query = { q: string; genres: string[]; crate: string | null; country: string | null; sort: SortKey; page: number };
 export const PER_PAGE = 48;
 
 const collator = new Intl.Collator(undefined, { sensitivity: 'base', numeric: true });
@@ -21,13 +21,16 @@ function compare(sort: SortKey) {
     dir * (collator.compare(x[primary], y[primary]) || collator.compare(x[secondary], y[secondary]) || collator.compare(x.id, y.id));
 }
 
-export function applyQuery(albums: PublicAlbum[], query: Query, crateMembers: Set<string> | null): PublicAlbum[] {
+export function applyQuery(
+  albums: PublicAlbum[], query: Query, crateMembers: Set<string> | null, countryOf: (id: string) => string | undefined = () => undefined,
+): PublicAlbum[] {
   const wanted = new Set(query.genres);
   const q = fold(query.q.trim());
   return albums
     .filter((a) => (wanted.size === 0 || wanted.has(genreOf(a.genre).slug))
       && (!q || fold(`${a.artist} ${a.title}`).includes(q))
-      && (!query.crate || !crateMembers || crateMembers.has(a.id)))
+      && (!query.crate || !crateMembers || crateMembers.has(a.id))
+      && (!query.country || countryOf(a.id) === query.country))
     .sort(compare(query.sort));
 }
 

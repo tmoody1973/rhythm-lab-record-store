@@ -3,7 +3,7 @@
 import { SORT_KEYS, type Query, type SortKey } from '../catalog/query.ts';
 
 export type UrlState = Query & { record: string | null; shared: string | null };
-export const DEFAULT_STATE: UrlState = { q: '', genres: [], crate: null, sort: 'artist-asc', page: 1, record: null, shared: null };
+export const DEFAULT_STATE: UrlState = { q: '', genres: [], crate: null, country: null, sort: 'artist-asc', page: 1, record: null, shared: null };
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -14,10 +14,12 @@ export function parseUrl(search: string): UrlState {
   const crate = p.get('crate');
   const record = p.get('record');
   const shared = p.get('shared');
+  const country = p.get('country');
   return {
     q: (p.get('q') ?? '').slice(0, 100),
     genres: [...new Set((p.get('genre') ?? '').split(',').filter((g) => SLUG.test(g)))],
     crate: crate && SLUG.test(crate) ? crate : null,
+    country: country && /^[A-Z]{2}$/.test(country) ? country : null,
     sort: SORT_KEYS.includes(sort as SortKey) ? (sort as SortKey) : 'artist-asc',
     page: Number.isInteger(page) && page >= 1 ? page : 1,
     // Kept as given (when short) so the UI can say "that record link didn't match anything".
@@ -31,6 +33,7 @@ export function toSearch(s: UrlState): string {
   if (s.q) p.set('q', s.q);
   if (s.genres.length) p.set('genre', s.genres.join(','));
   if (s.crate) p.set('crate', s.crate);
+  if (s.country) p.set('country', s.country);
   if (s.sort !== DEFAULT_STATE.sort) p.set('sort', s.sort);
   if (s.page !== 1) p.set('page', String(s.page));
   if (s.record) p.set('record', s.record);
