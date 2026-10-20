@@ -2,7 +2,7 @@
 
 > Tarik Moody's Bandcamp collection as a record shop you can browse: genre crates, real album art, and Bandcamp's own player.
 
-**Status: early build.** The catalog (1,215 records with real covers and colours) and the website (cover grid, album pop-up with Bandcamp's player, visitor crates with share links) work locally. The 3D shop room (milestone 3) and enrichment are designed but not built yet. Nothing is deployed.
+**Live:** https://rhythm-lab-record-store.vercel.app — a 3D record shop with all 1,215 records (real covers and colours), a cover grid one tap away, album pop-ups with Bandcamp's player, and visitor crates with share links.
 
 ## What this is
 
@@ -20,7 +20,7 @@ Bandcamp's official Subsonic service ──► npm run catalog (on Tarik's Mac)
                      public/catalog.json + public/covers/   (no credentials, no private links)
                                             │
                                             ▼
-                     static website (milestone 2): grid, album pop-up, Bandcamp's player
+                     static website on Vercel: 3D shop, cover grid, album pop-up, Bandcamp's player
 ```
 
 The public site never talks to Subsonic. It can't leak credentials, and it never streams Tarik's purchased files to visitors. Playback goes through Bandcamp's own embedded player, so every play also points back to the artist's page.
@@ -31,13 +31,14 @@ The public site never talks to Subsonic. It can't leak credentials, and it never
 | --- | --- |
 | Feasibility probe for Bandcamp's Subsonic beta ([report](docs/IMPORT-COVERAGE.md)) | Done |
 | Catalog pipeline: 1,215 records (1,088 albums, 127 single tracks), self-hosted WebP covers, colour palettes ([guide](docs/CATALOG.md)) | Done |
-| Website: cover grid, album pop-up with Bandcamp's player, visitor hearts and crates with share links, Tarik's crates | Done (local, not deployed) |
+| Website: cover grid, album pop-up with Bandcamp's player, visitor hearts and crates with share links, Tarik's crates | Live |
 | Enrichment: label, country, styles from Apple Music, MusicBrainz, Discogs ([coverage](docs/ENRICHMENT-COVERAGE.md)) | Done |
-| 3D record shop as the front page: eight sections, cratedigger-style digging, 3D My crates, phones ([design](docs/superpowers/specs/2026-10-20-record-shop-design.md)) | Done (local, not deployed) |
+| 3D record shop as the front page: eight sections, cratedigger-style digging, 3D My crates, phones ([design](docs/superpowers/specs/2026-10-20-record-shop-design.md)) | Live |
+| Hosting: Vercel builds from GitHub; CI guards `main` ([decision 007](docs/decisions/007-deploy-from-github-to-vercel.md)) | Live |
 
 ## Quick start
 
-Needs Node.js 26 (TypeScript files run directly; no build step for the pipeline).
+Needs Node.js 24 or later (TypeScript files run directly; no build step for the pipeline). CI and development use 26; Vercel builds on 24.
 
 ```bash
 git clone https://github.com/tmoody1973/rhythm-lab-record-store.git
@@ -89,16 +90,18 @@ All live in `.env.local` (git-ignored). The site never sees them.
 | Variable | Used by | Purpose |
 | --- | --- | --- |
 | `SUBSONIC_URL`, `SUBSONIC_USER`, `SUBSONIC_PASSWORD` | catalog | Dedicated Bandcamp Subsonic credentials (never your main Bandcamp password) |
-| `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY_PATH` | enrichment (planned) | Apple Music API (MusicKit key kept outside the repo) |
-| `DISCOGS_KEY`, `DISCOGS_SECRET` | enrichment (planned) | Discogs consumer key and secret |
-| `MUSICBRAINZ_CONTACT` | enrichment (planned) | Contact address MusicBrainz requires in requests |
+| `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY_PATH` | enrichment | Apple Music API (MusicKit key kept outside the repo) |
+| `DISCOGS_KEY`, `DISCOGS_SECRET` | enrichment | Discogs consumer key and secret |
+| `MUSICBRAINZ_CONTACT` | enrichment | Contact address MusicBrainz requires in requests |
 
 ## Project structure
 
 ```text
-pipeline/            catalog step: Subsonic → catalog.json, covers, palettes
-scripts/             Subsonic feasibility probe (read-only, with its own tests)
+pipeline/            catalog and enrichment steps: Subsonic → catalog.json, covers, palettes, credits
+scripts/             Subsonic probe, check-secrets, decor download (fetch-decor)
 src/                 the website: catalog logic, URL state, crates, UI components
+src/shop/            the 3D shop: sections, layout, digging, camera, scene (React Three Fiber)
+public/              catalog.json, enrichment.json, covers/ (committed), posters, font; decor/ is downloaded
 tests/               unit tests (Vitest) and browser tests (Playwright)
 fixtures/            sample catalog for development
 content/             Tarik's crates and notes (hand-editable)
@@ -110,7 +113,7 @@ docs/                build plan, specs, plans, decisions, design mockups, report
 - Only Bandcamp's official Subsonic service or Tarik's own files. No scraping, no browser cookies, no undocumented endpoints.
 - Credentials never appear in code, logs, the catalog, or git. A `check-secrets` command verifies that after every run.
 - Read-only access to Bandcamp: no playlist writes, no audio downloads.
-- Album artwork belongs to its owners. Covers aren't committed to this repo; the site credits and links back to Bandcamp.
+- Album artwork belongs to its owners. Covers are committed only so the site can be built ([decision 007](docs/decisions/007-deploy-from-github-to-vercel.md)); the site credits and links back to Bandcamp.
 
 ## Credits
 
@@ -122,7 +125,7 @@ docs/                build plan, specs, plans, decisions, design mockups, report
 
 ## Deploy
 
-Vercel builds the site from GitHub: every pull request gets a preview link, and every merge to `main` (after CI passes) goes live. The build runs `npm run decor && npm run build` (see `vercel.json`): it fetches the CC0 decor from Poly Haven, then builds into `dist/`. The catalog, credits and covers are committed in `public/`; refresh them locally (`npm run catalog`, `npm run enrich`), run `npm run check-secrets`, and open a pull request. Why: [decision 007](docs/decisions/007-deploy-from-github-to-vercel.md).
+Vercel builds the site from GitHub: every pull request gets a preview link, and every merge to `main` goes live. CI (typecheck, unit tests, probe tests, build, browser tests) runs on every pull request, and `main` only accepts changes that pass it. The build runs `npm run decor && npm run build` (see `vercel.json`): it fetches the CC0 decor from Poly Haven, then builds into `dist/`. The catalog, credits and covers are committed in `public/`; refresh them locally (`npm run catalog`, `npm run enrich`), run `npm run check-secrets`, and open a pull request. Why: [decision 007](docs/decisions/007-deploy-from-github-to-vercel.md).
 
 ## License
 
