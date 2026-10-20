@@ -24,6 +24,7 @@ What makes it special: Tarik's curation and voice (his crates and notes) on top 
 
 - Subsonic `getAlbumList2` returns all **1,215 records** (1,088 albums `a:<n>` + 127 single-track purchases `t:<n>`, found by the first catalog run) (899 artists, ~4,287 songs) with IDs like `a:3274104668`, artist IDs `b:2239178`, cover IDs `ca:3951378974`. 90% of albums have a Bandcamp top-level genre (`electronic` 295, `r&b soul` 182, `hip hop rap` 169, `jazz` 148, `world` 52, `experimental` 50, `funk` 45, … ; 118 have none).
 - **`a:<n>` is the Bandcamp album ID** (verified on 4 records: a full album, a 1-song item "42H" by TTeo `album=2682884431`, the oldest dated purchase "New Love" by Mike Swoop from 2010 `album=2035267472`, and the package "Cuban Beat & Fantasia" `album=3961164446`; Tarik confirmed each embed showed the right record on 2026-10-19. Not recorded: whether the 1-song embed showed one track or a full parent album). First check: `https://bandcamp.com/EmbeddedPlayer/album=3274104668/size=large/` showed Edge Conditions by Jeremiah Chiu, and its title linked to `https://intlanthem.bandcamp.com/album/edge-conditions?from=embed`.
+- **`t:<n>` is the Bandcamp track ID** (verified 2026-10-19): `https://bandcamp.com/EmbeddedPlayer/track=45593149/size=large/` showed "This Love" by Kadhja Bonet.
 - **`ca:<n>` is the Bandcamp public art ID** (verified on 1 album): `https://f4.bcbits.com/img/a3951378974_10.jpg` showed the Edge Conditions cover.
 - No place/country data, no record label, no canonical URL, no wishlist in Subsonic.
 
