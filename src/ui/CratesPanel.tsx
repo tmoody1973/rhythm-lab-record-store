@@ -48,7 +48,7 @@ export function CratesPanel({ data, update, byId, place, onPlace, onOpenRecord, 
   // Left/right arrows dig, except while typing (renaming a crate, the share link field).
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
-      if (typing(e.target) || (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight')) return;
+      if (typing(e.target) || e.altKey || e.metaKey || e.ctrlKey || e.shiftKey || (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight')) return;
       e.preventDefault();
       const next = index + (e.key === 'ArrowRight' ? 1 : -1);
       if (next >= 0 && next < records.length) at(next);

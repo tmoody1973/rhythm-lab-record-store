@@ -166,3 +166,10 @@ test('arrow keys do not flip while renaming a crate', async () => {
   await user.type(within(panel).getByRole('textbox', { name: 'Rename Late Night' }), '{ArrowRight}{ArrowRight}');
   expect(panel).toHaveTextContent('1 of 2');
 });
+
+test("arrow keys with a modifier are left to the browser (Alt/⌘+Arrow is Back/Forward)", async () => {
+  seed();
+  const { user, panel } = await openCrates();
+  await user.keyboard('{Alt>}{ArrowRight}{/Alt}{Meta>}{ArrowRight}{/Meta}');
+  expect(panel).toHaveTextContent('1 of 2');
+});
