@@ -2,7 +2,7 @@
 
 > Tarik Moody's Bandcamp collection as a record shop you can browse: genre crates, real album art, and Bandcamp's own player.
 
-**Status: early build.** The data side works: 1,215 records, real covers and colours. The website itself (milestone 2) and the 3D shop room (milestone 3) are designed but not built yet. Nothing is deployed.
+**Status: early build.** The catalog (1,215 records with real covers and colours) and the website (cover grid, album pop-up with Bandcamp's player, visitor crates with share links) work locally. The 3D shop room (milestone 3) and enrichment are designed but not built yet. Nothing is deployed.
 
 ## What this is
 
@@ -31,7 +31,7 @@ The public site never talks to Subsonic. It can't leak credentials, and it never
 | --- | --- |
 | Feasibility probe for Bandcamp's Subsonic beta ([report](docs/IMPORT-COVERAGE.md)) | Done |
 | Catalog pipeline: 1,215 records (1,088 albums, 127 single tracks), self-hosted WebP covers, colour palettes ([guide](docs/CATALOG.md)) | Done |
-| Website: cover grid, album pop-up, visitor crates with share links | Designed, not built |
+| Website: cover grid, album pop-up with Bandcamp's player, visitor hearts and crates with share links, Tarik's crates | Done (local, not deployed) |
 | Enrichment: label, country, styles from Apple Music, MusicBrainz, Discogs | Designed, not built |
 | 3D record-shop room (Three.js) | Planned |
 
@@ -43,9 +43,10 @@ Needs Node.js 26 (TypeScript files run directly; no build step for the pipeline)
 git clone https://github.com/tmoody1973/rhythm-lab-record-store.git
 cd rhythm-lab-record-store
 npm install
-npm test             # pipeline unit tests (offline)
+npm test             # unit tests (offline)
 npm run test:probe   # Subsonic probe tests (offline)
 npm run typecheck
+npm run e2e          # browser tests (uses the sample catalog, offline)
 ```
 
 Building the real catalog needs Bandcamp Subsonic credentials (Bandcamp → Fan Settings → Subsonic), which only work for your own collection:
@@ -55,7 +56,21 @@ cp .env.example .env.local   # then fill in the SUBSONIC_* values
 npm run catalog              # first run ~9 minutes (downloads every cover once), later runs ~3 seconds
 ```
 
+Then run the site:
+
+```bash
+npm run dev                  # http://localhost:5173
+```
+
 `fixtures/catalog-sample.json` holds 20 real records without artwork, for development without credentials.
+
+To curate a crate of your own picks: build it in the site (Add to crate), click **Copy share link** under My crates, then:
+
+```bash
+npm run import-crate -- "<share link>" --into staff-picks --name "Staff Picks"
+```
+
+That writes `content/crates.json`; a one-line note per record can go in `content/notes.json`.
 
 ## Environment variables
 
@@ -73,9 +88,10 @@ All live in `.env.local` (git-ignored). The site never sees them.
 ```text
 pipeline/            catalog step: Subsonic → catalog.json, covers, palettes
 scripts/             Subsonic feasibility probe (read-only, with its own tests)
-src/catalog/         catalog schema shared by the pipeline and the future site
-tests/pipeline/      pipeline tests (Vitest)
+src/                 the website: catalog logic, URL state, crates, UI components
+tests/               unit tests (Vitest) and browser tests (Playwright)
 fixtures/            sample catalog for development
+content/             Tarik's crates and notes (hand-editable)
 docs/                build plan, specs, plans, decisions, design mockups, reports
 ```
 
