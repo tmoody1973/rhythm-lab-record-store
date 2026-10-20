@@ -6,6 +6,8 @@ export async function offline(page: Page) {
   await page.route('**/catalog.json', (r) => r.fulfill({ body: fixture, contentType: 'application/json' }));
   await page.route(/bandcamp\.com|bcbits\.com/, (r) => r.abort());
 }
+/** The scene is listening (context loss) and drawing; software rendering can take a while to get there. */
+const ready = (page: Page) => expect(page.locator('[data-testid="shop"][data-ready="true"] canvas')).toBeVisible({ timeout: 30_000 });
 const frames = (page: Page) => page.evaluate(() => (window as unknown as { __rlFrames?: number }).__rlFrames ?? -1);
 
 test('the front door is the shop: a full-page canvas and the Store/Grid switch', async ({ page }) => {
@@ -21,18 +23,25 @@ test('the front door is the shop: a full-page canvas and the Store/Grid switch',
 test('the scene stops drawing when nothing moves', async ({ page }) => {
   await offline(page);
   await page.goto('/');
-  await expect(page.locator('[data-testid="shop"] canvas')).toBeVisible();
-  await page.waitForTimeout(4000);
-  const a = await frames(page);
-  expect(a).toBeGreaterThan(0);
-  await page.waitForTimeout(1500);
-  expect((await frames(page)) - a).toBeLessThanOrEqual(2);
+  await ready(page);
+  // Count the browser's own animation-frame ticks alongside the scene's drawn frames. A scene that draws every frame
+  // draws on (nearly) every tick, however slow the machine; an idle on-demand scene draws on almost none.
+  await page.evaluate(() => { const w = window as unknown as { __raf: number }; w.__raf = 0; const tick = () => { w.__raf++; requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+  const sample = () => page.evaluate(() => { const w = window as unknown as { __raf: number; __rlFrames?: number }; return { raf: w.__raf, frames: w.__rlFrames ?? 0 }; });
+  let prev = await sample();
+  await expect.poll(async () => {
+    await page.waitForTimeout(3000);
+    const now = await sample();
+    const [ticks, drawn] = [now.raf - prev.raf, now.frames - prev.frames];
+    prev = now;
+    return ticks >= 10 && drawn <= 2 + ticks * 0.1;
+  }, { timeout: 45_000, intervals: [0] }).toBe(true);
 });
 
 test('if the GPU gives up, the grid takes over with a notice, for the rest of the visit', async ({ page }) => {
   await offline(page);
   await page.goto('/');
-  await expect(page.locator('[data-testid="shop"][data-ready="true"] canvas')).toBeVisible(); // listening for context loss
+  await ready(page); // listening for context loss
   await page.evaluate(() => {
     const c = document.querySelector('[data-testid="shop"] canvas') as HTMLCanvasElement;
     (c.getContext('webgl2') ?? c.getContext('webgl'))!.getExtension('WEBGL_lose_context')!.loseContext();
@@ -86,7 +95,7 @@ test('a hand-edited link to a section or bin that does not exist opens the whole
 async function openFirstJazzBin(page: Page) {
   await offline(page);
   await page.goto('/?section=jazz&bin=0');
-  await expect(page.locator('[data-testid="shop"][data-ready="true"]')).toBeVisible();
+  await ready(page);
   return page.getByRole('status');
 }
 

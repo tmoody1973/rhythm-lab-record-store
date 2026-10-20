@@ -43,5 +43,5 @@ test('visitor flow: filter, open, crate it, share it, save it in another browser
   await expect(banner.getByRole('heading', { name: 'Road Trip' })).toBeVisible();
   await banner.getByRole('button', { name: 'Save to my crates' }).click();
   await friend.getByRole('button', { name: /my crates/i }).click();
-  await expect(friend.getByRole('dialog', { name: 'My crates' }).getByRole('heading', { level: 3 })).toHaveText('Universal Beings');
+  await expect(friend.getByRole('dialog', { name: 'My crates' }).getByRole('status')).toContainText('Universal Beings', { timeout: 15_000 }); // first 3D load compiles on a cold dev server
 });

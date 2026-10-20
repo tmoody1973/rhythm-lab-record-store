@@ -122,7 +122,7 @@ function WallCover({ url, y, z, onPick }: { url: string; y: number; z: number; o
   );
 }
 
-function Plant({ url, position, scale, turn }: { url: string; position: [number, number, number]; scale: number; turn: number }) {
+export function Plant({ url, position, scale, turn }: { url: string; position: [number, number, number]; scale: number; turn: number }) {
   const { scene } = useGLTF(url);
   return <Clone object={scene} position={position} scale={scale} rotation={[0, turn, 0]} castShadow receiveShadow />;
 }
