@@ -19,6 +19,7 @@ import { ShopMaterials, useDecor, useMats } from './scene/Materials.tsx';
 import { Plant } from './scene/Room.tsx';
 import { qualityFor } from './quality.ts';
 import { give3DUp } from './support.ts';
+import { steadyClock } from './scene/steadyClock.ts';
 import { toBins } from './sections.ts';
 
 const PER_BIN = 48;
@@ -138,7 +139,7 @@ export default function CrateStage({ data, update, byId, place, onPlace, onOpenR
         onPointerCancel={() => { drag.current = null; }}
         onLostPointerCapture={() => { setTimeout(() => { drag.current = null; }, 0); }}
       >
-        <Canvas frameloop="demand" shadows dpr={quality.dpr} camera={{ position: [1.2, 2.1, 2.8], fov: 40, near: 0.05, far: 60 }} onCreated={({ gl }) => { gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}>
+        <Canvas frameloop="demand" shadows dpr={quality.dpr} camera={{ position: [1.2, 2.1, 2.8], fov: 40, near: 0.05, far: 60 }} onCreated={({ gl, clock }) => { steadyClock(clock); gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}>
           <color attach="background" args={['#1a1411']} />
           <fog attach="fog" args={['#1a1411', 6, 16]} />
           <CameraRig aim={digAim(bin, sel, shown, aspect)} interactive={false} minDistance={0.5} />

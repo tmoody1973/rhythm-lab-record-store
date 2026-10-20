@@ -12,6 +12,7 @@ import { qualityFor } from './quality.ts';
 import { RoomLights } from './scene/Lights.tsx';
 import { BinBox, BrassPlaque, DividerTabs, FrontCovers, reducedMotion, SectionLight, Sleeves } from './scene/Bins.tsx';
 import { CameraRig } from './scene/CameraRig.tsx';
+import { steadyClock } from './scene/steadyClock.ts';
 import { DigBin } from './scene/DigBin.tsx';
 import { ShopMaterials } from './scene/Materials.tsx';
 import { Room, StaffPicksWall } from './scene/Room.tsx';
@@ -37,9 +38,10 @@ export const GAVE_UP_NOTICE = "The 3D shop stopped working in this browser, so h
 
 /** Development builds expose frames drawn, camera position and GPU textures, so tests can check idle, recentring and memory. */
 function DevProbe() {
-  useFrame(({ camera, gl }) => {
-    const w = window as unknown as { __rlFrames?: number; __rlCamera?: number[]; __rlTextures?: number };
+  useFrame(({ camera, gl }, delta) => {
+    const w = window as unknown as { __rlFrames?: number; __rlCamera?: number[]; __rlTextures?: number; __rlDeltas?: number[] };
     w.__rlFrames = (w.__rlFrames ?? 0) + 1;
+    w.__rlDeltas = [...(w.__rlDeltas ?? []).slice(-199), delta];
     w.__rlCamera = camera.position.toArray();
     w.__rlTextures = gl.info.memory.textures;
   });
@@ -178,7 +180,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
         shadows
         dpr={quality.dpr}
         camera={{ position: aim.position, fov: 40, near: 0.1, far: 200 }}
-        onCreated={({ gl }) => { gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}
+        onCreated={({ gl, clock }) => { steadyClock(clock); gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}
       >
         <color attach="background" args={['#1a1411']} />
         <fog attach="fog" args={['#1a1411', ...fogFor(aim)]} />

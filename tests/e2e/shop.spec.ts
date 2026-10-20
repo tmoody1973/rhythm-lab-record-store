@@ -210,3 +210,17 @@ test('"Whole shop" brings the camera back after you have orbited away', async ({
   await page.getByRole('navigation', { name: 'Shop sections' }).getByRole('button', { name: 'Whole shop' }).click();
   await expect.poll(offAim, { timeout: 45_000 }).toBeLessThan(0.5);
 });
+
+test('after the shop sits idle, Next eases the records instead of jumping (Tarik: "it glitches")', async ({ page }) => {
+  await offline(page);
+  await page.goto('/?section=jazz&bin=0');
+  await ready(page);
+  let last = await frames(page);
+  await expect.poll(async () => { await page.waitForTimeout(1500); const now = await frames(page); const d = now - last; last = now; return d; }, { timeout: 45_000, intervals: [0] }).toBe(0);
+  await page.evaluate(() => { (window as unknown as { __rlDeltas: number[] }).__rlDeltas = []; });
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await page.waitForTimeout(1500);
+  const deltas = await page.evaluate(() => (window as unknown as { __rlDeltas: number[] }).__rlDeltas);
+  expect(deltas.length).toBeGreaterThan(0);
+  expect(Math.max(...deltas)).toBeLessThanOrEqual(1 / 30 + 1e-6); // no frame is told seconds have passed
+});
