@@ -120,6 +120,10 @@ docs/                build plan, specs, plans, decisions, design mockups, report
 - Full licence texts: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - Built with [Claude Code](https://claude.com/claude-code).
 
+## Deploy
+
+Vercel builds the site from GitHub: every pull request gets a preview link, and every merge to `main` (after CI passes) goes live. The build runs `npm run decor && npm run build` (see `vercel.json`): it fetches the CC0 decor from Poly Haven, then builds into `dist/`. The catalog, credits and covers are committed in `public/`; refresh them locally (`npm run catalog`, `npm run enrich`), run `npm run check-secrets`, and open a pull request. Why: [decision 007](docs/decisions/007-deploy-from-github-to-vercel.md).
+
 ## License
 
-[MIT](LICENSE) © 2026 Tarik Moody. Album artwork, music and Bandcamp's player are not covered by this license.
+[MIT](LICENSE) © 2026 Tarik Moody. Album artwork (`public/covers/`), music and Bandcamp's player are not covered by this license; the artwork belongs to its artists and labels and is shown only to identify each record.

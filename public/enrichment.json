@@ -1,0 +1,7131 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T05:54:05.878Z",
+  "entries": {
+    "bandcamp:album:1001502126": {
+      "releaseDate": "2011-10-31",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1002197686": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2023-02-17",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1014822888": {
+      "label": "Hospital Records",
+      "releaseDate": "2021-02-26",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Drum n Bass"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1022260798": {
+      "releaseDate": "2020-08-28",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1046372352": {
+      "label": "Critical Music",
+      "catalogNumber": "CRIT181",
+      "releaseDate": "2021-10-15",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1050087914": {
+      "label": "BMM Records",
+      "releaseDate": "2022-05-11",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:105032558": {
+      "releaseDate": "2021-11-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1053276559": {
+      "label": "Wednesday Sound",
+      "catalogNumber": "WSLX04",
+      "releaseDate": "2018-09-05",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Experimental"
+      ],
+      "bandcampUrl": "https://lorn.bandcamp.com/album/remnant",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1059062676": {
+      "label": "International Anthem",
+      "releaseDate": "2018-10-26",
+      "artistCountry": "US",
+      "artistArea": "Chicago",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1078658689": {
+      "releaseDate": "2015-04-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1080643356": {
+      "releaseDate": "2020-05-29",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1086693794": {
+      "label": "Memphis Industries",
+      "releaseDate": "2021-10-29",
+      "artistCountry": "SE",
+      "artistArea": "Sweden",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1093596950": {
+      "releaseDate": "2014-06-06",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Psychedelic Rock"
+      ],
+      "bandcampUrl": "https://calliope-mke.bandcamp.com/album/orbis",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:110360987": {
+      "releaseDate": "2023-06-23",
+      "artistCountry": "CA",
+      "artistArea": "Saskatoon",
+      "styles": [
+        "Neo Soul",
+        "Rhythm & Blues",
+        "Indie Pop"
+      ],
+      "bandcampUrl": "https://katietupper.bandcamp.com/album/where-to-find-me",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1104065583": {
+      "label": "Mister Saturday Night Records",
+      "releaseDate": "2017-02-24",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:111597763": {
+      "releaseDate": "2021-03-05",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1117911961": {
+      "label": "Beat Machine Records",
+      "catalogNumber": "BMR027",
+      "releaseDate": "2021-05-13",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Drum n Bass",
+        "Abstract"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:112342984": {
+      "label": "First Word Records",
+      "releaseDate": "2022-10-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1127037243": {
+      "label": "Division 81 Records",
+      "releaseDate": "2025-09-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1139243812": {
+      "label": "Raw Tapes",
+      "releaseDate": "2021-11-12",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1144519262": {
+      "label": "Tropicalistmo Records",
+      "catalogNumber": "TPO-001",
+      "releaseDate": "2026-02-10",
+      "styles": [
+        "Jazz-Funk"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1147382475": {
+      "label": "Records We Release Records",
+      "releaseDate": "2022-12-16",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1150881396": {
+      "releaseDate": "2020-10-16",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1165666247": {
+      "label": "Secret Stash Records",
+      "releaseDate": "2015-06-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1168197660": {
+      "label": "Stone Pixels",
+      "releaseDate": "2024-05-24",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1169523403": {
+      "catalogNumber": "LCD7306",
+      "releaseDate": "2019-03-22",
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:1171847452": {
+      "releaseDate": "2016-09-01",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1191959366": {
+      "label": "Counter Records",
+      "releaseDate": "2015-06-01",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1202539849": {
+      "releaseDate": "2015-02-11",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1206399284": {
+      "label": "Toy Tonics",
+      "releaseDate": "2021-02-12",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "styles": [
+        "House",
+        "Future Jazz"
+      ],
+      "bandcampUrl": "https://toytonics.bandcamp.com/album/moves-ep",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1208482837": {
+      "label": "Day Dreamer",
+      "releaseDate": "2026-09-25",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:121655017": {
+      "label": "Mello Music Group",
+      "releaseDate": "2015-06-23",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1222375760": {
+      "label": "mini50records",
+      "releaseDate": "2015-02-23",
+      "artistCountry": "US",
+      "artistArea": "Milwaukee",
+      "bandcampUrl": "https://altos.bandcamp.com/album/r-u-person-or-not",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1224480438": {
+      "label": "Soul Supreme Records",
+      "catalogNumber": "SSR45005",
+      "releaseDate": "2022-04-01",
+      "artistCountry": "NL",
+      "artistArea": "Amsterdam",
+      "styles": [
+        "Jazz-Funk",
+        "Jazzy Hip-Hop",
+        "Instrumental"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1230019751": {
+      "label": "On The Corner",
+      "catalogNumber": "OTCRLP011",
+      "releaseDate": "2020-11-13",
+      "styles": [
+        "Freestyle",
+        "Leftfield",
+        "Future Jazz"
+      ],
+      "bandcampUrl": "https://thediabolicalliberties.bandcamp.com/album/high-protection-the-sportswear-mystics",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1233011151": {
+      "releaseDate": "2011-02-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1239400537": {
+      "label": "XL Recordings",
+      "catalogNumber": "XL1188DA",
+      "releaseDate": "2021-08-13",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "House",
+        "Bass Music",
+        "UK Garage",
+        "Downtempo"
+      ],
+      "bandcampUrl": "https://tossportal.bandcamp.com/album/still-slipping-vol-1",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1244099731": {
+      "label": "Madlib Invazion",
+      "catalogNumber": "MMS 042",
+      "releaseDate": "2020-11-27",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "bandcampUrl": "https://jaharimassambaunit.bandcamp.com/album/pardon-my-french",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1246560818": {
+      "catalogNumber": "1-695226",
+      "releaseDate": "2022-09-23",
+      "artistCountry": "US",
+      "artistArea": "Chicago",
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1248437059": {
+      "label": "Boogie Angst",
+      "releaseDate": "2018-03-09",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:1253663383": {
+      "label": "What Rules Recordings",
+      "releaseDate": "2021-06-11",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:1254000377": {
+      "label": "LIKEWISE",
+      "releaseDate": "2025-08-01",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1255172718": {
+      "label": "G.E.D. Soul Records",
+      "releaseDate": "2014-01-21",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1281946148": {
+      "releaseDate": "2023-10-06",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://knxwledge.bandcamp.com/album/vgm-28",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1287322541": {
+      "label": "Concord Jazz",
+      "releaseDate": "2023-07-14",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:129873619": {
+      "label": "Elis Records",
+      "catalogNumber": "ELS008",
+      "releaseDate": "2020-10-16",
+      "artistCountry": "CO",
+      "artistArea": "Colombia",
+      "styles": [
+        "Cumbia"
+      ],
+      "bandcampUrl": "https://jimenaangel.bandcamp.com/album/aire",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1302738982": {
+      "label": "First Word Records",
+      "releaseDate": "2017-07-20",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1308385904": {
+      "catalogNumber": "C-1001",
+      "releaseDate": "1976-01-01",
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:132547761": {
+      "label": "Rough Trade",
+      "catalogNumber": "RTRADSCD639",
+      "releaseDate": "2011",
+      "styles": [
+        "Rhythm & Blues"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1331881212": {
+      "label": "Soulection",
+      "catalogNumber": "S027",
+      "releaseDate": "2013-03-22",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Experimental",
+        "Hip Hop",
+        "Rhythm & Blues"
+      ],
+      "bandcampUrl": "https://soulection.bandcamp.com/album/pictures-on-silence",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1331886187": {
+      "label": "The North Quarter",
+      "catalogNumber": "NQ026",
+      "releaseDate": "2021-07-02",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://foxmcr.bandcamp.com/album/squang-dangs-in-the-key-of-vibes",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1333610748": {
+      "label": "Rough Trade",
+      "catalogNumber": "RT0303LPE",
+      "releaseDate": "2022-11-04",
+      "artistCountry": "US",
+      "artistArea": "New Orleans",
+      "styles": [
+        "Post-Punk",
+        "Alternative Rock"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1333805905": {
+      "label": "Caits Meissner",
+      "releaseDate": "2010-05-01",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:1335537080": {
+      "label": "LMP Recordings",
+      "releaseDate": "2023-07-28",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1337955276": {
+      "label": "Fresh Selects",
+      "releaseDate": "2014-04-29",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Tribal"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1340407152": {
+      "label": "Heavy Sheet",
+      "releaseDate": "2022-11-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1345178368": {
+      "label": "City Slang",
+      "releaseDate": "2016-11-18",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1356672899": {
+      "label": "Tea Sea Records",
+      "catalogNumber": "TC59",
+      "releaseDate": "2022-03-04",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://tomcaruana-teasea.bandcamp.com/album/strange-planet",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1360531200": {
+      "releaseDate": "2018-01-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:136095045": {
+      "label": "International Anthem",
+      "releaseDate": "2020-06-19",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1371221785": {
+      "releaseDate": "2017-11-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1392443346": {
+      "label": "Heavenly Sweetness",
+      "releaseDate": "2021-07-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1392715143": {
+      "label": "Not On Label (LSDXOXO Self-released)",
+      "releaseDate": "2018-01-11",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Baltimore Club",
+        "Breaks",
+        "Ghetto House",
+        "Techno"
+      ],
+      "bandcampUrl": "https://lsdxoxo.bandcamp.com/album/body-mods",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:139620042": {
+      "label": "Jalapeno Records",
+      "releaseDate": "2021-04-16",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1398830967": {
+      "label": "Darling Recordings",
+      "releaseDate": "2016-02-08",
+      "artistCountry": "US",
+      "artistArea": "Indianapolis",
+      "styles": [
+        "Dark Ambient",
+        "Experimental",
+        "Trap"
+      ],
+      "bandcampUrl": "https://flanch.bandcamp.com/album/flanch",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1418024943": {
+      "releaseDate": "2021-10-01",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1436528188": {
+      "label": "Mello Music Group",
+      "releaseDate": "2019-05-17",
+      "artistCountry": "ZA",
+      "artistArea": "Cape Town",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1444041922": {
+      "label": "One-Handed Music",
+      "releaseDate": "2016-08-13",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1445124821": {
+      "label": "Edition Records",
+      "releaseDate": "2014-01-27",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://slowlyrollingcamera.bandcamp.com/album/slowly-rolling-camera-2",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1445362761": {
+      "label": "AGAINST GIANTS",
+      "releaseDate": "2020-06-12",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Contemporary R&B",
+        "Neo Soul"
+      ],
+      "bandcampUrl": "https://duasaleh.bandcamp.com/album/rosetta",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1446354159": {
+      "label": "Stones Throw Records",
+      "catalogNumber": "STH2445",
+      "releaseDate": "2021-04-30",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1449279904": {
+      "label": "Heavenly",
+      "releaseDate": "2024-02-28",
+      "artistCountry": "AU",
+      "artistArea": "Melbourne",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1462676655": {
+      "releaseDate": "2023-09-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1473101807": {
+      "releaseDate": "2018-04-06",
+      "styles": [
+        "Contemporary Jazz"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1494080690": {
+      "releaseDate": "2016-08-17",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1508849269": {
+      "releaseDate": "2018-11-09",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1519491455": {
+      "label": "Crammed Discs",
+      "releaseDate": "2019-04-26",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1526914432": {
+      "label": "Strut",
+      "releaseDate": "2023-01-27",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1531897689": {
+      "label": "Concord Jazz",
+      "releaseDate": "2023-10-06",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1535164825": {
+      "label": "ATA Records",
+      "releaseDate": "2019-05-23",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1537033371": {
+      "label": "Rebecca's Records",
+      "releaseDate": "2021-06-04",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1537652557": {
+      "label": "Big Crown Records",
+      "catalogNumber": "BC202-LP",
+      "releaseDate": "2026-05-22",
+      "artistCountry": "ID",
+      "artistArea": "Indonesia",
+      "styles": [
+        "Soul"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1538922128": {
+      "label": "Arbutus Records",
+      "releaseDate": "2018-10-19",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1544479758": {
+      "label": "BBE",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1559370508": {
+      "label": "Brownswood Recordings",
+      "releaseDate": "2024-03-08",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1561838079": {
+      "label": "Not On Label",
+      "releaseDate": "2015-06-02",
+      "artistCountry": "US",
+      "artistArea": "Oakland",
+      "styles": [
+        "Psychedelic"
+      ],
+      "bandcampUrl": "https://bellsatlas.bandcamp.com/album/hyperlust-ep",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1568012521": {
+      "label": "Doomtree Records",
+      "releaseDate": "2013-04-09",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1573499273": {
+      "label": "Heavenly Sweetness",
+      "releaseDate": "2021-05-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1591663213": {
+      "releaseDate": "2022-07-01",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1595172568": {
+      "releaseDate": "2024-05-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1606111626": {
+      "releaseDate": "2020-12-04",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1607370489": {
+      "label": "OVN Records",
+      "releaseDate": "2023-01-13",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:160929952": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2025-01-31",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1613065984": {
+      "label": "Strut",
+      "releaseDate": "2021-03-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1621429170": {
+      "releaseDate": "2021-03-05",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://knxwledge.bandcamp.com/album/hx-16",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1625707333": {
+      "releaseDate": "2019-09-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:163374664": {
+      "releaseDate": "2026-10-02",
+      "artistCountry": "DE",
+      "artistArea": "Köln",
+      "styles": [
+        "Contemporary Jazz",
+        "Contemporary R&B",
+        "Neo Soul"
+      ],
+      "bandcampUrl": "https://salomeasaywhat.bandcamp.com/album/axxxis",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1643724585": {
+      "artistCountry": "NZ",
+      "artistArea": "New Zealand",
+      "bandcampUrl": "https://ogjessb.bandcamp.com/album/3-nights-in-amsterdam",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1647752510": {
+      "label": "BBE Music",
+      "releaseDate": "2024-08-02",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:16637215": {
+      "label": "3 Palm Records",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:166556545": {
+      "label": "Ninja Tune",
+      "releaseDate": "2017-09-22",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1667832544": {
+      "label": "Sassyblack",
+      "releaseDate": "2022-02-22",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:1672665907": {
+      "label": "Jakarta",
+      "releaseDate": "2023-08-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1680767925": {
+      "releaseDate": "2024-05-31",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1681816269": {
+      "label": "Numero Group",
+      "releaseDate": "2025-07-11",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1689316418": {
+      "label": "Middle Name Records",
+      "releaseDate": "2021-09-03",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1705676560": {
+      "label": "Evar Records",
+      "releaseDate": "2021-09-17",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1707178331": {
+      "label": "Not On Label",
+      "releaseDate": "2013-02-18",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "styles": [
+        "Soul",
+        "Vocal"
+      ],
+      "bandcampUrl": "https://niaandrews.bandcamp.com/album/colours",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1719664105": {
+      "label": "City Slang",
+      "releaseDate": "2017-03-10",
+      "artistCountry": "SE",
+      "artistArea": "Sweden",
+      "bandcampUrl": "https://sirwas.bandcamp.com/album/digging-a-tunnel",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1722400202": {
+      "label": "Colemine Records",
+      "catalogNumber": "CLMN-204",
+      "styles": [
+        "Gospel"
+      ],
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1726925043": {
+      "label": "Because Music",
+      "catalogNumber": "BEC5610770",
+      "releaseDate": "2022-10-14",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Soul",
+        "Soul-Jazz",
+        "Contemporary R&B"
+      ],
+      "bandcampUrl": "https://charlottedossantos.bandcamp.com/album/morfo",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:172911903": {
+      "label": "Computer Ugly",
+      "releaseDate": "2016-04-04",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1758750411": {
+      "releaseDate": "2017-06-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1760897914": {
+      "releaseDate": "2020-05-29",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1777768901": {
+      "label": "Future Classic",
+      "releaseDate": "2023-08-25",
+      "artistCountry": "AU",
+      "artistArea": "Perth",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1778226705": {
+      "label": "Vulf Records",
+      "releaseDate": "2015-10-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1779661940": {
+      "label": "Lukktone",
+      "releaseDate": "2015-03-29",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1784868892": {
+      "label": "Counter Records",
+      "releaseDate": "2016-02-19",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1785937830": {
+      "label": "Gearbox Records",
+      "releaseDate": "2020-08-21",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1786920669": {
+      "label": "KDJ",
+      "catalogNumber": "KDJ​-​49",
+      "releaseDate": "2020-05-21",
+      "artistCountry": "US",
+      "artistArea": "Detroit",
+      "styles": [
+        "Beatdown",
+        "Deep House",
+        "Funk",
+        "Soul"
+      ],
+      "bandcampUrl": "https://moodymann.bandcamp.com/album/taken-away",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1808295717": {
+      "label": "TEEF",
+      "releaseDate": "2017-03-03",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1814157858": {
+      "label": "BBE Music",
+      "releaseDate": "2024-02-02",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1815777000": {
+      "releaseDate": "2014-01-23",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://sango.bandcamp.com/album/da-rocinha-2",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1816916219": {
+      "releaseDate": "2021-12-03",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://knxwledge.bandcamp.com/album/vgm-15",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1819308388": {
+      "label": "1359729 Records DK2",
+      "releaseDate": "2021-02-05",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:1841959426": {
+      "label": "Brownswood Recordings",
+      "releaseDate": "2016-11-04",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1842387703": {
+      "label": "GODMODE",
+      "releaseDate": "2020-10-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:185343123": {
+      "label": "Sekito",
+      "releaseDate": "2023-03-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1854234388": {
+      "releaseDate": "2017-09-15",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1870180837": {
+      "label": "Indigo Soul",
+      "releaseDate": "2022-11-16",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1873411623": {
+      "label": "Not On Label (Canopies Self-released)",
+      "releaseDate": "2011-05-21",
+      "styles": [
+        "Indie Pop",
+        "Indie Rock",
+        "Synth-pop"
+      ],
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:188618245": {
+      "label": "La Tempesta International",
+      "releaseDate": "2023-10-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1893196742": {
+      "releaseDate": "2013-07-16",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1896301531": {
+      "label": "Valley of Search",
+      "releaseDate": "2021-01-15",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1896685739": {
+      "releaseDate": "2021-10-08",
+      "artistCountry": "NG",
+      "artistArea": "Nigeria",
+      "bandcampUrl": "https://bbemusic.bandcamp.com/album/the-red-line",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1901396490": {
+      "catalogNumber": "LCR 039",
+      "releaseDate": "2013-08-23",
+      "artistCountry": "NZ",
+      "artistArea": "Auckland",
+      "styles": [
+        "Indie Pop",
+        "Indie Rock"
+      ],
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1905694832": {
+      "label": "Extra Soul Perception",
+      "releaseDate": "2021-05-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:190993840": {
+      "label": "Division 81 Records",
+      "releaseDate": "2024-04-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1913693890": {
+      "label": "IAMNOBODI",
+      "releaseDate": "2023-06-14",
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1915963711": {
+      "label": "Dirt Tech Reck",
+      "catalogNumber": "DTR18",
+      "releaseDate": "2020-12-11",
+      "styles": [
+        "House",
+        "Deep House"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1916787340": {
+      "label": "Concord Jazz",
+      "releaseDate": "2020-08-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:19173550": {
+      "label": "Brownswood Recordings",
+      "releaseDate": "2019-03-08",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Afrobeat",
+        "Contemporary Jazz"
+      ],
+      "bandcampUrl": "https://kokoroko.bandcamp.com/album/kokoroko",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1919481571": {
+      "label": "First Word Records",
+      "releaseDate": "2025-10-10",
+      "artistCountry": "GB",
+      "artistArea": "Glasgow",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1927529862": {
+      "label": "Not On Label (Kadhja Bonet Self-released)",
+      "releaseDate": "2025-09-18",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Indie Pop"
+      ],
+      "bandcampUrl": "https://kadhjabonet.bandcamp.com/album/battlewear-demo-ep",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1928646295": {
+      "label": "Colorful World",
+      "releaseDate": "2018-04-23",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1932392411": {
+      "label": "International Anthem",
+      "catalogNumber": "IARC0027",
+      "releaseDate": "2019-10-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1941566308": {
+      "label": "First Word Records",
+      "artistCountry": "GB",
+      "artistArea": "Glasgow",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1945639883": {
+      "label": "Too Good",
+      "catalogNumber": "TG018",
+      "releaseDate": "2021-01-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1952977740": {
+      "label": "Ensoul Records",
+      "releaseDate": "2022-08-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1954803498": {
+      "releaseDate": "2014-01-14",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1954886619": {
+      "releaseDate": "2016-06-17",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1967058312": {
+      "label": "BBE",
+      "releaseDate": "2022-02-18",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:197330774": {
+      "label": "Mashibeats",
+      "catalogNumber": "MBMS01",
+      "releaseDate": "2021-04-16",
+      "styles": [
+        "Broken Beat",
+        "House",
+        "Future Jazz"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:197703089": {
+      "label": "Darker Than Wax",
+      "releaseDate": "2017-10-27",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1978047252": {
+      "label": "Brownswood Recordings",
+      "releaseDate": "2022-11-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1979088438": {
+      "releaseDate": "2014-02-11",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://gabrielgarzonmontano.bandcamp.com/album/bishoun-alma-del-huila",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:199347541": {
+      "bandcampUrl": "https://qvoiceofq.bandcamp.com/album/the-voice-of-q",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1995703143": {
+      "label": "Nyasha",
+      "releaseDate": "2018-03-08",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1996244551": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2008117058": {
+      "label": "Fat Possum",
+      "releaseDate": "2017-05-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2023741274": {
+      "releaseDate": "1970",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2024372711": {
+      "label": "Arch Hill Recordings",
+      "catalogNumber": "AHR060",
+      "releaseDate": "2014-06-10",
+      "artistCountry": "NZ",
+      "artistArea": "Christchurch",
+      "styles": [
+        "Trip Hop"
+      ],
+      "bandcampUrl": "https://doprah.bandcamp.com/album/doprah-2",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2029079967": {
+      "label": "Mr Bongo",
+      "releaseDate": "2017-11-03",
+      "bandcampUrl": "https://mrbongo.bandcamp.com/album/mr-bongo-record-club-volume-two",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2033614853": {
+      "label": "Record Makers",
+      "releaseDate": "2020-05-29",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2035267472": {
+      "label": "New Love Music",
+      "catalogNumber": "NLM001",
+      "releaseDate": "2010-02-02",
+      "artistCountry": "US",
+      "artistArea": "Brooklyn",
+      "styles": [
+        "Instrumental",
+        "Jazzy Hip-Hop"
+      ],
+      "bandcampUrl": "https://mikeswoop.bandcamp.com/album/new-love-2",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2048117272": {
+      "releaseDate": "2019-06-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2054213772": {
+      "label": "Ghostly International",
+      "releaseDate": "2020-07-22",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2054268561": {
+      "label": "Infinite Best",
+      "catalogNumber": "BEST-008",
+      "releaseDate": "2012-02-28",
+      "artistCountry": "US",
+      "artistArea": "Brooklyn",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:205642646": {
+      "label": "A Travelling Light",
+      "releaseDate": "2023-08-25",
+      "artistCountry": "CA",
+      "artistArea": "Toronto",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2061304615": {
+      "label": "Bridge The Gap",
+      "releaseDate": "2026-04-24",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://nanarizinni.bandcamp.com/album/epiblast",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2066687570": {
+      "label": "Beat Machine Records",
+      "releaseDate": "2021-03-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:206671372": {
+      "label": "HAUS of ALTR",
+      "releaseDate": "2021-06-04",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:2067557104": {
+      "label": "Omniverse",
+      "releaseDate": "2021-03-19",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://marc4hero.bandcamp.com/album/ja-maye-ka",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2071270859": {
+      "label": "Jazz re:freshed",
+      "releaseDate": "2024-01-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2080544706": {
+      "label": "Razor-N-Tape",
+      "releaseDate": "2022-08-05",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2082323051": {
+      "label": "KASSA OVERALL LLC",
+      "catalogNumber": "KASSA001",
+      "releaseDate": "2019-01-11",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "bandcampUrl": "https://kassaoverall.bandcamp.com/album/go-get-ice-cream-and-listen-to-jazz",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2084312016": {
+      "label": "Big Dada",
+      "releaseDate": "2017-11-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2084848359": {
+      "label": "Proppa P",
+      "releaseDate": "2024-04-19",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2085108890": {
+      "label": "Batov Records",
+      "releaseDate": "2021-06-03",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2089773212": {
+      "releaseDate": "2019-09-27",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:210440890": {
+      "releaseDate": "2021-02-05",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://knxwledge.bandcamp.com/album/vgm-9",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2109682753": {
+      "label": "Tru Thoughts",
+      "catalogNumber": "TRUCD309",
+      "releaseDate": "2015-06-08",
+      "artistCountry": "GB",
+      "artistArea": "Glasgow",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2110073885": {
+      "label": "890243 Records DK",
+      "releaseDate": "2020-05-08",
+      "artistCountry": "US",
+      "artistArea": "Phoenix",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2111696550": {
+      "label": "Mais Um Discos",
+      "releaseDate": "2016-06-10",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2111887795": {
+      "label": "Not On Label (Sango (4) Self-released)",
+      "releaseDate": "2012-10-24",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Bachata",
+        "Reggaeton",
+        "Cumbia"
+      ],
+      "bandcampUrl": "https://sango.bandcamp.com/album/otra-vez-ep",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2115474357": {
+      "label": "Ruby Yacht",
+      "releaseDate": "2017-08-11",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Conscious"
+      ],
+      "bandcampUrl": "https://miloraps.bandcamp.com/album/who-told-you-to-think",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2115675981": {
+      "label": "Project: Mooncircle",
+      "releaseDate": "2011-11-07",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "bandcampUrl": "https://projectmooncircle.bandcamp.com/album/carving-away-the-clay",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2116235512": {
+      "releaseDate": "2025-02-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2121366666": {
+      "label": "B3SCI Records",
+      "releaseDate": "2016-09-16",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2154516431": {
+      "label": "Ropeadope",
+      "releaseDate": "2021-12-17",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:2180520550": {
+      "label": "Total Refreshment Centre",
+      "catalogNumber": "TRC007",
+      "releaseDate": "2022-03-25",
+      "artistCountry": "FR",
+      "artistArea": "France",
+      "styles": [
+        "Broken Beat",
+        "House"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2187643561": {
+      "label": "The Vinyl Factory",
+      "releaseDate": "2019-04-26",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "bandcampUrl": "https://wu-lu.bandcamp.com/album/s-u-f-o-s",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2195051168": {
+      "label": "Edition Records",
+      "catalogNumber": "EDN1055",
+      "releaseDate": "2014-11-10",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Future Jazz",
+        "Soul-Jazz",
+        "Downtempo"
+      ],
+      "bandcampUrl": "https://slowlyrollingcamera.bandcamp.com/album/into-the-shadow-2",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2196083165": {
+      "label": "Tech Afrique",
+      "releaseDate": "2020-10-02",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2216913667": {
+      "label": "Stay The Course Records",
+      "catalogNumber": "STCLP-01",
+      "releaseDate": "2020-09-25",
+      "styles": [
+        "Soul",
+        "Soul-Jazz"
+      ],
+      "bandcampUrl": "https://staythecourserecords.bandcamp.com/album/bless-the-mad",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2219493347": {
+      "label": "International Anthem",
+      "releaseDate": "2025-06-06",
+      "artistCountry": "US",
+      "artistArea": "Chicago",
+      "styles": [
+        "Free Jazz",
+        "Avant-garde Jazz",
+        "Psychedelic"
+      ],
+      "bandcampUrl": "https://intlanthem.bandcamp.com/album/yowzers",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2220074960": {
+      "releaseDate": "1975-01-01",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2224556901": {
+      "label": "Strut",
+      "releaseDate": "2026-02-13",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2229641498": {
+      "releaseDate": "2023-11-10",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2241324352": {
+      "label": "Fire Records",
+      "releaseDate": "2021-10-15",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2243573952": {
+      "label": "Sonar Kollektiv",
+      "releaseDate": "2023-10-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2263853779": {
+      "releaseDate": "2022-12-23",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2265864189": {
+      "label": "Planet Mu",
+      "catalogNumber": "ZIQ481",
+      "releaseDate": "2026-02-27",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2273259744": {
+      "label": "Touching Bass",
+      "releaseDate": "2023-11-24",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2277550019": {
+      "label": "International Anthem",
+      "releaseDate": "2020-03-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2277781459": {
+      "label": "The Full Well Project",
+      "releaseDate": "2020-01-26",
+      "artistCountry": "US",
+      "artistArea": "Washington, D.C.",
+      "bandcampUrl": "https://aleciarenece.bandcamp.com/album/play-vol-1",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2286170052": {
+      "label": "Soundway",
+      "releaseDate": "2024-11-22",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2288097821": {
+      "label": "Heavenly",
+      "catalogNumber": "HVNLP181C",
+      "releaseDate": "2021-04-09",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Indie Rock"
+      ],
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2293961361": {
+      "label": "Astigmatic Records",
+      "releaseDate": "2021-06-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2296361307": {
+      "releaseDate": "2026-03-05",
+      "bandcampUrl": "https://echojuliet.bandcamp.com/album/lift-your-face-to-the-sun",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2297050051": {
+      "label": "Def Pressé",
+      "releaseDate": "2020-10-02",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "styles": [
+        "Abstract",
+        "Future Jazz"
+      ],
+      "bandcampUrl": "https://panamsterdam.bandcamp.com/album/ha-chu",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2303654056": {
+      "releaseDate": "2019-01-08",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://knxwledge.bandcamp.com/album/meek-vol4",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2313265626": {
+      "label": "Hospital Records",
+      "catalogNumber": "NHS439",
+      "releaseDate": "2021-11-12",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Drum n Bass"
+      ],
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2314195166": {
+      "releaseDate": "2017-07-18",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2329210630": {
+      "label": "Futuristica",
+      "releaseDate": "2021-03-19",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2330333824": {
+      "label": "Freak Press",
+      "releaseDate": "2019-05-01",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2331588867": {
+      "label": "Not On Label (Bells Atlas Self-released)",
+      "releaseDate": "2013-06-18",
+      "artistCountry": "US",
+      "artistArea": "Oakland",
+      "styles": [
+        "Soul-Jazz"
+      ],
+      "bandcampUrl": "https://bellsatlas.bandcamp.com/album/bells-atlas-3",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2332694121": {
+      "releaseDate": "2018-12-29",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:23408144": {
+      "releaseDate": "2015-03-23",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2345072284": {
+      "label": "Enchufada",
+      "releaseDate": "2024-03-29",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2345574879": {
+      "label": "Karma Chief Records",
+      "releaseDate": "2022-10-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2346630212": {
+      "releaseDate": "2021-02-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2353351848": {
+      "releaseDate": "2013-12-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2358374589": {
+      "label": "S76",
+      "releaseDate": "2020-12-02",
+      "artistCountry": "FR",
+      "artistArea": "Paris",
+      "bandcampUrl": "https://15-15.bandcamp.com/album/le-jeune",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2361194198": {
+      "label": "HQI",
+      "catalogNumber": "HQI003",
+      "releaseDate": "2021-02-17",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "styles": [
+        "Synth-pop",
+        "Experimental",
+        "Indie Pop"
+      ],
+      "bandcampUrl": "https://haichberna.bandcamp.com/album/from-then-til-now",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2364761148": {
+      "label": "Frederiksberg Records",
+      "catalogNumber": "FRB018",
+      "releaseDate": "2023-11-03",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2364912065": {
+      "catalogNumber": "IR5263CD",
+      "releaseDate": "2020-09-25",
+      "artistCountry": "AU",
+      "artistArea": "Melbourne",
+      "styles": [
+        "Disco"
+      ],
+      "bandcampUrl": "https://mildlife.bandcamp.com/album/automatic",
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2365145112": {
+      "label": "Ene Record Label",
+      "catalogNumber": "ERLLP001",
+      "releaseDate": "2023-01-06",
+      "styles": [
+        "Post-Punk",
+        "Synth-pop"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2368644986": {
+      "label": "Preference Records",
+      "releaseDate": "2022-02-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:237461454": {
+      "label": "Concord Jazz",
+      "releaseDate": "2020-09-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2375449388": {
+      "label": "Not On Label (Omega Clash Self-released)",
+      "releaseDate": "2009-09-09",
+      "styles": [
+        "Breakbeat",
+        "Hip Hop",
+        "Experimental"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2375527560": {
+      "releaseDate": "2021-04-06",
+      "bandcampUrl": "https://bodymeat.bandcamp.com/album/year-of-the-orc-ep",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2380447784": {
+      "catalogNumber": "AJXCD494",
+      "releaseDate": "2020-07-10",
+      "artistCountry": "US",
+      "artistArea": "Atlanta",
+      "styles": [
+        "Afrobeat",
+        "Psychedelic",
+        "Funk"
+      ],
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2383800622": {
+      "label": "Nature Sounds",
+      "releaseDate": "2023-06-02",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2384268422": {
+      "label": "Soul Has No Tempo",
+      "catalogNumber": "SHNT005",
+      "releaseDate": "2019-03-29",
+      "artistCountry": "AU",
+      "artistArea": "Brisbane",
+      "styles": [
+        "Neo Soul",
+        "Soul",
+        "Afrobeat"
+      ],
+      "bandcampUrl": "https://tianakhasi.bandcamp.com/album/meghalaya",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2386785430": {
+      "releaseDate": "2015-03-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2388225049": {
+      "releaseDate": "2011-03-11",
+      "artistCountry": "US",
+      "artistArea": "San Jose",
+      "bandcampUrl": "https://blewis.bandcamp.com/album/science-within-reason",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2392041765": {
+      "label": "Sound Records",
+      "catalogNumber": "SNDREC002",
+      "releaseDate": "2023-09-01",
+      "styles": [
+        "Balearic",
+        "Ambient House",
+        "Breakbeat",
+        "Drum n Bass",
+        "Footwork",
+        "House"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2396707822": {
+      "label": "KAGD",
+      "releaseDate": "2015-06-28",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2402200937": {
+      "label": "Headcount Records",
+      "releaseDate": "2020-09-30",
+      "artistCountry": "FR",
+      "artistArea": "France",
+      "bandcampUrl": "https://headcountrecords.bandcamp.com/album/room-77-b-w-lil-bit",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2426947547": {
+      "label": "Athens Of The North",
+      "releaseDate": "2023-06-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2436442933": {
+      "label": "Lex Records",
+      "releaseDate": "2015-08-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2438213396": {
+      "label": "Mello Music Group",
+      "releaseDate": "2021-06-04",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2442420337": {
+      "label": "Forever Living Originals",
+      "releaseDate": "2019-08-16",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2444589435": {
+      "releaseDate": "2020-03-13",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2454114970": {
+      "label": "Big Crown Records",
+      "catalogNumber": "BC064-45-A",
+      "releaseDate": "2018-08-10",
+      "artistCountry": "FI",
+      "artistArea": "Helsinki",
+      "bandcampUrl": "https://bobbyoroza.bandcamp.com/album/this-love-pt-1-b-w-should-i-take-you-home",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2460109030": {
+      "releaseDate": "2021-05-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2460513001": {
+      "label": "Record Kicks",
+      "catalogNumber": "RKX080LP",
+      "releaseDate": "2021-04-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2474656691": {
+      "releaseDate": "2020-06-26",
+      "artistCountry": "CA",
+      "artistArea": "Toronto",
+      "bandcampUrl": "https://idrisxlawal.bandcamp.com/album/young-black-blue",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2475490114": {
+      "label": "Darker Than Wax",
+      "releaseDate": "2019-01-25",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:2479948318": {
+      "releaseDate": "2019-06-21",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2496033409": {
+      "label": "Yoruba Records",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2496573521": {
+      "catalogNumber": "C-473",
+      "releaseDate": "1979-06-05",
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:2503719464": {
+      "label": "Movementt",
+      "catalogNumber": "MVMTT04CD",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2524791284": {
+      "label": "Raw Tapes",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:253966913": {
+      "label": "Príncipe",
+      "releaseDate": "2024-02-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:25475092": {
+      "label": "Indigo Soul",
+      "releaseDate": "2019-07-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2554708865": {
+      "label": "Deekapz",
+      "releaseDate": "2021-03-12",
+      "artistCountry": "BR",
+      "artistArea": "São Paulo",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:256306528": {
+      "label": "TULLE",
+      "releaseDate": "2021-05-07",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2563300439": {
+      "label": "Edition Records",
+      "releaseDate": "2026-09-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2573202474": {
+      "releaseDate": "2017-07-20",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2587042238": {
+      "releaseDate": "2014-04-20",
+      "artistCountry": "US",
+      "artistArea": "California",
+      "bandcampUrl": "https://esta.bandcamp.com/album/so-on",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:259426846": {
+      "releaseDate": "2014-11-03",
+      "artistCountry": "SE",
+      "artistArea": "Sweden",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2601487457": {
+      "releaseDate": "2015-11-10",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Bass Music",
+        "Favela Funk"
+      ],
+      "bandcampUrl": "https://sango.bandcamp.com/album/da-rocinha-3",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2606295954": {
+      "label": "Coalmine Records",
+      "releaseDate": "2021-10-22",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2608306498": {
+      "releaseDate": "2023-06-02",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2608944759": {
+      "label": "Deekapz",
+      "releaseDate": "2021-05-14",
+      "artistCountry": "BR",
+      "artistArea": "São Paulo",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2609148893": {
+      "label": "Art Yard",
+      "catalogNumber": "1772017",
+      "releaseDate": "2017-06-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2626824745": {
+      "label": "La Sape",
+      "releaseDate": "2021-06-04",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2629046557": {
+      "label": "Wah Wah 45s",
+      "releaseDate": "2020-12-04",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:2634814912": {
+      "label": "Jazz Re:freshed",
+      "releaseDate": "2021-02-05",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "bandcampUrl": "https://jazzrefreshed.bandcamp.com/album/jazz-re-freshed-live-volume-one-3",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2641092342": {
+      "label": "Big Crown Records",
+      "releaseDate": "2019-11-15",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2647970124": {
+      "label": "Peacemaker",
+      "releaseDate": "2017-08-11",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2649030166": {
+      "releaseDate": "2014-06-18",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://littlesimz.bandcamp.com/album/e-d-g-e",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2653260885": {
+      "label": "Big Dada",
+      "releaseDate": "2015-09-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2655235239": {
+      "label": "First Word Records",
+      "releaseDate": "2023-07-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2658176801": {
+      "label": "Athens of the North",
+      "catalogNumber": "ATH018",
+      "releaseDate": "2015-08-19",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Soul"
+      ],
+      "bandcampUrl": "https://aotns.bandcamp.com/album/i-think-im-falling-in-love",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:267141156": {
+      "releaseDate": "2020-07-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2675854952": {
+      "label": "DeepMatter Records",
+      "releaseDate": "2022-06-10",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "styles": [
+        "Neo Soul",
+        "UK Street Soul"
+      ],
+      "bandcampUrl": "https://stellatalpo.bandcamp.com/album/fine",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2680674465": {
+      "label": "Mr Bongo",
+      "releaseDate": "2026-10-16",
+      "bandcampUrl": "https://mrbongo.bandcamp.com/album/jamz-supernova-presents-dance-around-the-world",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2682750380": {
+      "label": "Dig That Treasure",
+      "releaseDate": "2021-05-21",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:2691994684": {
+      "label": "Independent",
+      "releaseDate": "2016-03-30",
+      "artistCountry": "US",
+      "artistArea": "Brooklyn",
+      "bandcampUrl": "https://saltcathedral.bandcamp.com/album/homage-ep",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2698147122": {
+      "label": "WotNot Music",
+      "releaseDate": "2015-10-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2704129952": {
+      "releaseDate": "2021-11-05",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:271191620": {
+      "label": "Groggy Pack Entertainment",
+      "releaseDate": "2022-12-16",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2715014125": {
+      "label": "BBE",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:271716012": {
+      "releaseDate": "2022-03-08",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2732137095": {
+      "label": "Outer Note Label",
+      "releaseDate": "2020-07-17",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://oddisee.bandcamp.com/album/odd-cure",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2733632623": {
+      "releaseDate": "2021-09-17",
+      "styles": [
+        "Future Jazz",
+        "House"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2736653142": {
+      "label": "Glitterbeat",
+      "releaseDate": "2018-10-12",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2739052537": {
+      "label": "Strut",
+      "releaseDate": "2024-10-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2740296388": {
+      "label": "Mansions and Millions",
+      "releaseDate": "2019-07-12",
+      "artistCountry": "DE",
+      "artistArea": "Berlin",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2747085998": {
+      "releaseDate": "2022-03-03",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2752464576": {
+      "catalogNumber": "KK004",
+      "releaseDate": "2016-04-15",
+      "artistCountry": "CA",
+      "artistArea": "Canada",
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2752878520": {
+      "label": "Rhythm Section International",
+      "catalogNumber": "RS063LP",
+      "releaseDate": "2024-08-24",
+      "styles": [
+        "Neo Soul",
+        "Broken Beat"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2754775418": {
+      "releaseDate": "2020-03-27",
+      "artistCountry": "US",
+      "artistArea": "Chicago",
+      "styles": [
+        "Neo Soul",
+        "Contemporary R&B"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2757497889": {
+      "label": "Ghost Reporter",
+      "releaseDate": "2025-09-22",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:277021995": {
+      "label": "Ropeadope",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2770836326": {
+      "releaseDate": "2020-05-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2782771395": {
+      "label": "Coalmine Records",
+      "releaseDate": "2013-12-17",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:278950034": {
+      "releaseDate": "2015-05-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2792901264": {
+      "releaseDate": "2018-09-28",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2795701872": {
+      "label": "Big Wednesday",
+      "releaseDate": "2024-11-08",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:28066702": {
+      "label": "Ghostly International",
+      "releaseDate": "2019-09-30",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2807378458": {
+      "label": "Albert's Favourites",
+      "releaseDate": "2021-10-15",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2810347409": {
+      "label": "Kept Records",
+      "releaseDate": "2016-03-11",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:2814648891": {
+      "label": "MANGO HILL RECORDS",
+      "catalogNumber": "MHR-019",
+      "releaseDate": "2020-08-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2822923138": {
+      "label": "Street Corner Music",
+      "releaseDate": "2022-02-28",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2830180107": {
+      "releaseDate": "2022-02-04",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://knxwledge.bandcamp.com/album/v1",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2835069020": {
+      "label": "Sonar Kollektiv",
+      "releaseDate": "2021-01-29",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2840407065": {
+      "label": "Arema Arega & Born74",
+      "releaseDate": "2021-06-07",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:2846148353": {
+      "label": "Jazzman",
+      "releaseDate": "2021-04-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:284690786": {
+      "releaseDate": "2015-06-12",
+      "artistCountry": "AU",
+      "artistArea": "Perth",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2853471209": {
+      "label": "Big Crown Records",
+      "catalogNumber": "BC060-LP",
+      "releaseDate": "2021-03-26",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "bandcampUrl": "https://elmichelsaffair.bandcamp.com/album/yeti-season",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2861137122": {
+      "catalogNumber": "EJRC179",
+      "releaseDate": "2020-10-30",
+      "artistCountry": "CA",
+      "artistArea": "Canada",
+      "styles": [
+        "Dark Jazz",
+        "Soul-Jazz",
+        "Avant-garde Jazz"
+      ],
+      "bandcampUrl": "https://khannibalism.bandcamp.com/album/the-infinite-ones-2",
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2866190121": {
+      "label": "Ampliphonic Records",
+      "releaseDate": "2022-02-11",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2872875646": {
+      "label": "Jazzsticks Recordings",
+      "catalogNumber": "JAZ062",
+      "releaseDate": "2022-02-18",
+      "artistCountry": "AT",
+      "artistArea": "Austria",
+      "styles": [
+        "Drum n Bass"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2874365860": {
+      "label": "Outer South",
+      "releaseDate": "2022-03-04",
+      "artistCountry": "GB",
+      "artistArea": "Reading",
+      "bandcampUrl": "https://timlyre.bandcamp.com/album/worry",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:287555186": {
+      "label": "Stones Throw Records",
+      "catalogNumber": "STH2377",
+      "releaseDate": "2017-02-24",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2884833694": {
+      "releaseDate": "2023-09-19",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2906103771": {
+      "label": "Critical Music",
+      "catalogNumber": "CRIT162",
+      "releaseDate": "2021-02-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2922184725": {
+      "releaseDate": "2018-09-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2924316749": {
+      "label": "Not On Label (Too Many Zooz Self-released)",
+      "releaseDate": "2015-05-01",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "House"
+      ],
+      "bandcampUrl": "https://toomanyzooz.bandcamp.com/album/the-internet-ep",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:29391802": {
+      "label": "Cascade Records",
+      "releaseDate": "2015-04-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2959680951": {
+      "label": "Forever Living Originals",
+      "catalogNumber": "FLO00017LP",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Neo Soul",
+        "Soul"
+      ],
+      "bandcampUrl": "https://cleosol.bandcamp.com/album/heaven",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2981499810": {
+      "label": "Carpark Records",
+      "releaseDate": "2016-05-13",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2988248604": {
+      "label": "Mello Music Group",
+      "releaseDate": "2017-12-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2988576670": {
+      "releaseDate": "2017-03-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2991459535": {
+      "releaseDate": "2015-08-03",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:2994197594": {
+      "catalogNumber": "26 165 XOT",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3014391897": {
+      "label": "Rucksack Records",
+      "releaseDate": "2020-10-23",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3029836862": {
+      "label": "Hardly Art",
+      "catalogNumber": "HAR-135",
+      "releaseDate": "2021-05-21",
+      "styles": [
+        "Alternative Rock"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3030354644": {
+      "label": "Wick Records",
+      "releaseDate": "2021-02-19",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3055682670": {
+      "label": "Dead Oceans",
+      "catalogNumber": "DOC354",
+      "releaseDate": "2024-11-15",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3061967344": {
+      "label": "Future Bounce",
+      "releaseDate": "2020-07-03",
+      "artistCountry": "IT",
+      "artistArea": "Roma",
+      "bandcampUrl": "https://lorenzo-bitw.bandcamp.com/album/basta-timbao",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3069192853": {
+      "label": "HopeStreet Recordings",
+      "releaseDate": "2020-10-09",
+      "artistCountry": "US",
+      "artistArea": "Rochester",
+      "bandcampUrl": "https://danielleponderkarateboogaloo.bandcamp.com/album/look-around-little-bit",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3085110018": {
+      "releaseDate": "2018-11-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3090991127": {
+      "catalogNumber": "FEEDS-25",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3097307146": {
+      "label": "drink sum wtr",
+      "catalogNumber": "DSW006",
+      "releaseDate": "2023-06-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3098855979": {
+      "label": "Selva",
+      "catalogNumber": "SELVA-007",
+      "releaseDate": "2021-06-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3119585346": {
+      "label": "Mad Decent",
+      "releaseDate": "2023-07-07",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://alunaaa.bandcamp.com/album/mycelium",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3129368476": {
+      "releaseDate": "2020-09-18",
+      "styles": [
+        "Trip Hop"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3136934921": {
+      "label": "Mansions and Millions",
+      "catalogNumber": "MAMI28",
+      "releaseDate": "2021-05-14",
+      "artistCountry": "DE",
+      "artistArea": "Berlin",
+      "styles": [
+        "Contemporary R&B"
+      ],
+      "bandcampUrl": "https://magicisland.bandcamp.com/album/so-wrong",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3140235171": {
+      "label": "Ubiquity",
+      "catalogNumber": "URLP353",
+      "releaseDate": "2015-09-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3146681056": {
+      "releaseDate": "2018-09-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3146769088": {
+      "label": "Deep Heads",
+      "releaseDate": "2019-08-23",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3147185034": {
+      "catalogNumber": "FW 241",
+      "artistCountry": "GB",
+      "artistArea": "Glasgow",
+      "styles": [
+        "Broken Beat",
+        "Future Jazz"
+      ],
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3148623061": {
+      "label": "Planet Mu",
+      "releaseDate": "2021-08-13",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3150011121": {
+      "label": "Brownswood Recordings",
+      "releaseDate": "2016-04-01",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3167598457": {
+      "label": "Gearbox Records",
+      "releaseDate": "2020-10-09",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3170444344": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2021-08-27",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3176590992": {
+      "label": "Blu Mar Ten Music",
+      "releaseDate": "2016-11-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3176947686": {
+      "label": "EMI",
+      "catalogNumber": "NEMI (LP) 0290",
+      "releaseDate": "1977",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3177814300": {
+      "releaseDate": "2018-05-21",
+      "styles": [
+        "Trip Hop",
+        "Vocal"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3178069777": {
+      "catalogNumber": "538698721",
+      "releaseDate": "2021-10-29",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Soul-Jazz",
+        "Conscious",
+        "Experimental",
+        "Grime"
+      ],
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3182993885": {
+      "label": "Emmavie",
+      "releaseDate": "2021-07-30",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:3192941575": {
+      "releaseDate": "2019-02-01",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://blockheadnyc.bandcamp.com/album/free-sweatpants",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:319601124": {
+      "label": "TruthTable",
+      "releaseDate": "2019-03-13",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3200733293": {
+      "releaseDate": "2020-10-09",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3207555807": {
+      "label": "Bastard Jazz Recordings",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3208595549": {
+      "label": "Stay True Sounds",
+      "catalogNumber": "STS157",
+      "releaseDate": "2023-04-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3218072284": {
+      "label": "Stones Throw Records",
+      "catalogNumber": "STH7081",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3225444861": {
+      "label": "Not On Label (Sango (4) Self-released)",
+      "releaseDate": "2012-09-14",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Favela Funk",
+        "Bass Music"
+      ],
+      "bandcampUrl": "https://sango.bandcamp.com/album/da-rocinha-outtakes-remixes",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:322987003": {
+      "releaseDate": "2020-08-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3232748137": {
+      "label": "Mashibeats",
+      "releaseDate": "2015-10-02",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3233822413": {
+      "label": "Warp",
+      "releaseDate": "2020-11-13",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3239988609": {
+      "label": "Jazz re:freshed",
+      "releaseDate": "2024-07-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3249142374": {
+      "label": "Hybridity",
+      "catalogNumber": "HYB011",
+      "releaseDate": "2014-02-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3256077678": {
+      "label": "Gemini Gemini",
+      "catalogNumber": "GMN004LP",
+      "releaseDate": "2024-04-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3258336508": {
+      "label": "One-Handed Music",
+      "releaseDate": "2015-09-25",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Downtempo"
+      ],
+      "bandcampUrl": "https://bastienkeb.bandcamp.com/album/dinking-in-the-shadows-of-zizou",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3261264371": {
+      "releaseDate": "2017-03-17",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3267642243": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2025-08-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3271606125": {
+      "label": "Nyege Nyege Tapes",
+      "releaseDate": "2024-10-11",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3274104668": {
+      "label": "International Anthem",
+      "catalogNumber": "IARC0115",
+      "releaseDate": "2026-10-27",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "styles": [
+        "Synth-pop",
+        "Broken Beat",
+        "Breaks"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3305917040": {
+      "label": "RJ's Electrical Connections",
+      "catalogNumber": "RJEC0011",
+      "releaseDate": "2011-02-01",
+      "bandcampUrl": "https://rjd2.bandcamp.com/album/we-are-the-doorways",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3306953421": {
+      "label": "Ruby Yacht",
+      "catalogNumber": "RBYT001",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Conscious",
+        "Jazzy Hip-Hop"
+      ],
+      "bandcampUrl": "https://miloraps.bandcamp.com/album/plain-speaking",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3309739702": {
+      "label": "AllGood Absolute Alternative Records",
+      "releaseDate": "2020-09-11",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3316901940": {
+      "releaseDate": "2023-12-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3320574229": {
+      "label": "First Word Records",
+      "catalogNumber": "FW216",
+      "releaseDate": "2020-09-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3323051717": {
+      "label": "Soy Sauce",
+      "releaseDate": "2021-02-05",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3334466632": {
+      "releaseDate": "2023-07-07",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3335237659": {
+      "label": "Pi Recordings",
+      "releaseDate": "2026-03-27",
+      "bandcampUrl": "https://harriettubman.bandcamp.com/album/electrical-field-of-love",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3337987893": {
+      "label": "Hyperdub",
+      "releaseDate": "2019-05-17",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3339948934": {
+      "label": "Mello Music Group",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3353148364": {
+      "label": "Psychic Hotline",
+      "releaseDate": "2024-03-29",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3354329468": {
+      "releaseDate": "2011-12-05",
+      "artistCountry": "AU",
+      "artistArea": "Perth",
+      "styles": [
+        "Hip Hop"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3354514575": {
+      "label": "True Panther Sounds",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3362869460": {
+      "releaseDate": "2021-03-05",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:33643195": {
+      "label": "Ego Ella May (Canvas Music)",
+      "releaseDate": "2021-10-15",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://egoellamay.bandcamp.com/album/fieldnotes",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3365058173": {
+      "label": "Banger Factory Records",
+      "releaseDate": "2021-09-17",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3366812520": {
+      "label": "Bad Taste",
+      "releaseDate": "2019-04-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3367484645": {
+      "releaseDate": "2017-04-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3390324406": {
+      "label": "Wednesday Sound",
+      "releaseDate": "2014-09-24",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "IDM",
+        "Bass Music",
+        "Ambient"
+      ],
+      "bandcampUrl": "https://lorn.bandcamp.com/album/the-maze-to-nowhere-part-2",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3393237399": {
+      "label": "Ensoul Records",
+      "releaseDate": "2018-02-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:339385865": {
+      "releaseDate": "2018-01-02",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3397983321": {
+      "label": "Ghostly International",
+      "releaseDate": "2015-02-03",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3399710554": {
+      "releaseDate": "2016-02-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3403444975": {
+      "label": "The Jazz Diaries",
+      "releaseDate": "2018-07-18",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:340401444": {
+      "catalogNumber": "DOT 002",
+      "releaseDate": "2022-03-04",
+      "styles": [
+        "Contemporary Jazz",
+        "Fusion"
+      ],
+      "sources": [
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:3417874188": {
+      "label": "First Word Records",
+      "catalogNumber": "FW203",
+      "releaseDate": "2020-01-17",
+      "artistCountry": "GB",
+      "artistArea": "Glasgow",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3434927360": {
+      "label": "First Word Records",
+      "releaseDate": "2017-03-03",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:343659366": {
+      "catalogNumber": "FTR-611",
+      "releaseDate": "2021-06-04",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3441771967": {
+      "label": "Bludot Recordings",
+      "releaseDate": "2021-02-26",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3453492696": {
+      "catalogNumber": "TEXTDDD17",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "House",
+        "Experimental",
+        "Tech House"
+      ],
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3470116534": {
+      "label": "MANGO HILL RECORDS",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3477911999": {
+      "label": "Plug Research",
+      "releaseDate": "2015-10-16",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3483494685": {
+      "releaseDate": "2014-01-21",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3487197937": {
+      "releaseDate": "2024-04-12",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3489095480": {
+      "releaseDate": "2020-10-09",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3490622344": {
+      "releaseDate": "2020-08-14",
+      "styles": [
+        "Instrumental"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3498918419": {
+      "label": "Perpetual Sound",
+      "catalogNumber": "PS003",
+      "releaseDate": "2019-11-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3515495599": {
+      "releaseDate": "2012-07-09",
+      "bandcampUrl": "https://debianblak.bandcamp.com/album/hawks-spies",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3524388493": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2023-10-06",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3524734133": {
+      "label": "Mello Music Group",
+      "releaseDate": "2022-05-13",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3524887134": {
+      "label": "Not On Label (Suzi Analogue Self-released)",
+      "releaseDate": "2016-02-24",
+      "styles": [
+        "Drum n Bass",
+        "Juke"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3532967017": {
+      "label": "Mello Music Group",
+      "releaseDate": "2020-04-24",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://quellechris360.bandcamp.com/album/innocent-country-2-2",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3536973314": {
+      "label": "PAN",
+      "releaseDate": "2018-10-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3542510105": {
+      "releaseDate": "2021-03-15",
+      "artistCountry": "US",
+      "artistArea": "Columbus",
+      "bandcampUrl": "https://miraclenotmiir.bandcamp.com/album/reminiscent-vibes-vol-2",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3547066881": {
+      "label": "Movementt",
+      "catalogNumber": "MVMTT04XBD",
+      "releaseDate": "2022-07-08",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "House",
+        "Deep House",
+        "Downtempo",
+        "Jazz-Funk"
+      ],
+      "bandcampUrl": "https://ejthackray.bandcamp.com/album/yellower-vol-2",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3551255162": {
+      "releaseDate": "2024-04-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3559103663": {
+      "label": "Western Vinyl",
+      "releaseDate": "2017-10-06",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3564476077": {
+      "label": "Leaving Records",
+      "catalogNumber": "LR119",
+      "releaseDate": "2017-10-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3564675197": {
+      "label": "THE RECORD MACHINE",
+      "releaseDate": "2021-09-17",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:356698439": {
+      "label": "Ghostly International",
+      "releaseDate": "2021-08-20",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3567174391": {
+      "releaseDate": "2016-04-01",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3569767742": {
+      "releaseDate": "2021-04-02",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3570113547": {
+      "label": "fabric",
+      "releaseDate": "2019-02-22",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3570178360": {
+      "label": "Kitto Records",
+      "catalogNumber": "KITTO005",
+      "releaseDate": "2023-11-17",
+      "styles": [
+        "Neo Soul",
+        "Contemporary R&B"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3571440382": {
+      "label": "First Word Records",
+      "catalogNumber": "FW154",
+      "releaseDate": "2016-12-06",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3571454682": {
+      "label": "Ninja Tune",
+      "releaseDate": "2018-10-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3572825361": {
+      "releaseDate": "2022-09-16",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3584444911": {
+      "releaseDate": "2026-09-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3588418751": {
+      "releaseDate": "2018-10-19",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:359320330": {
+      "label": "Mr Bongo",
+      "releaseDate": "2021-10-01",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:359396679": {
+      "label": "Bleep",
+      "catalogNumber": "BLP007",
+      "releaseDate": "2015-10-02",
+      "styles": [
+        "Instrumental"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3595872702": {
+      "releaseDate": "2024-10-04",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3597187903": {
+      "releaseDate": "2023-08-18",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3600836658": {
+      "releaseDate": "2021-06-21",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3602619950": {
+      "label": "Ultra Records",
+      "releaseDate": "2021-02-12",
+      "artistCountry": "US",
+      "artistArea": "Brooklyn",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3607153047": {
+      "label": "Ninja Tune",
+      "releaseDate": "2016-02-05",
+      "artistCountry": "GB",
+      "artistArea": "Wolverhampton",
+      "styles": [
+        "House"
+      ],
+      "bandcampUrl": "https://letherettemusic.bandcamp.com/album/refresh",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3612762635": {
+      "label": "Original Cultures",
+      "releaseDate": "2014-09-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3618667075": {
+      "label": "Glitterbeat",
+      "releaseDate": "2026-01-23",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3620641344": {
+      "label": "Fresh Selects",
+      "catalogNumber": "FSX-047",
+      "releaseDate": "2021-03-18",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "styles": [
+        "Psychedelic"
+      ],
+      "bandcampUrl": "https://freshselects.bandcamp.com/album/jumbo-street",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3627980206": {
+      "label": "Fada Records",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3634515592": {
+      "releaseDate": "2023-08-25",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3637729203": {
+      "label": "Not On Label (Too Many Zooz Self-released)",
+      "releaseDate": "2014-09-06",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Brass Band",
+        "Funk",
+        "Experimental",
+        "Avant-garde Jazz",
+        "Jazz-Funk"
+      ],
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3646817787": {
+      "label": "Hush Hush",
+      "catalogNumber": "HH050",
+      "releaseDate": "2015-10-30",
+      "artistCountry": "US",
+      "artistArea": "Madison",
+      "styles": [
+        "Abstract",
+        "Trip Hop"
+      ],
+      "bandcampUrl": "https://hushhushrecords.bandcamp.com/album/we-are-all-underwater",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3648999319": {
+      "releaseDate": "2020-07-31",
+      "styles": [
+        "Hip Hop",
+        "Trap"
+      ],
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:364999228": {
+      "label": "Ninja Tune",
+      "releaseDate": "2015-05-21",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:3651199063": {
+      "label": "Ten Windows Records",
+      "releaseDate": "2019-05-17",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3652862968": {
+      "label": "Dead Oceans",
+      "releaseDate": "2017-07-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3657815531": {
+      "label": "Secretly Canadian",
+      "catalogNumber": "SC396",
+      "releaseDate": "2021-03-26",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Contemporary R&B",
+        "Neo Soul"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3662059482": {
+      "label": "City Slang",
+      "releaseDate": "2017-06-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3662665621": {
+      "label": "Alpha Pup",
+      "catalogNumber": "APR089",
+      "releaseDate": "2016-08-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3665191153": {
+      "releaseDate": "2014-11-28",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3666120137": {
+      "label": "Transgressive",
+      "releaseDate": "2021-10-01",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3669885215": {
+      "label": "Fania",
+      "releaseDate": "2016-09-02",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:3670392462": {
+      "catalogNumber": "EM17",
+      "releaseDate": "2020-07-31",
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:3686412200": {
+      "label": "Joyful Noise Recordings",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3693305044": {
+      "label": "Stones Throw",
+      "catalogNumber": "STH2351",
+      "releaseDate": "2014-12-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3694828424": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2022-04-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3701110145": {
+      "label": "Colemine Records",
+      "catalogNumber": "CLMN-12053",
+      "releaseDate": "2023-02-24",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:370821016": {
+      "label": "Melodies International Ltd.",
+      "catalogNumber": "MRC 1",
+      "releaseDate": "2020-05-14",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://melodiesinternational.bandcamp.com/album/melodies-record-club-001-four-tet-selects",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3710590142": {
+      "releaseDate": "1999-09-27",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:371578337": {
+      "label": "Mello Music Group",
+      "releaseDate": "2021-02-19",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3732274056": {
+      "label": "Atjazz Record Company",
+      "releaseDate": "2026-01-17",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3735865835": {
+      "label": "Black Acre",
+      "releaseDate": "2026-05-29",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3743755087": {
+      "label": "Philophon",
+      "releaseDate": "2025-02-28",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3745084675": {
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "bandcampUrl": "https://louisvi.bandcamp.com/album/sugar-like-salt",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3749337048": {
+      "label": "Indigo Soul",
+      "releaseDate": "2024-07-12",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3751568666": {
+      "releaseDate": "2015-01-19",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3768851732": {
+      "styles": [
+        "Fusion",
+        "Jazz-Funk"
+      ],
+      "bandcampUrl": "https://matsulimusic.bandcamp.com/album/african-spaces",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3776073798": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2022-05-20",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3779994343": {
+      "releaseDate": "2015-02-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3787447711": {
+      "label": "Mello Music Group",
+      "catalogNumber": "MMG7008",
+      "releaseDate": "2013-02-19",
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3804324001": {
+      "releaseDate": "2011-03-07",
+      "artistCountry": "US",
+      "artistArea": "San Jose",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3811584199": {
+      "label": "Enchufada",
+      "catalogNumber": "ENDG102",
+      "releaseDate": "2019-03-01",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3816940691": {
+      "label": "WotNot Music",
+      "releaseDate": "2018-04-02",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3828941869": {
+      "label": "IAMNOBODI",
+      "releaseDate": "2021-02-14",
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:383505464": {
+      "label": "823",
+      "catalogNumber": "823R005",
+      "releaseDate": "2022-01-28",
+      "artistCountry": "AU",
+      "artistArea": "Australia",
+      "styles": [
+        "Instrumental",
+        "Hip Hop"
+      ],
+      "bandcampUrl": "https://cabumusic.bandcamp.com/album/so-far-to-go",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3845712545": {
+      "releaseDate": "2024-10-18",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3847090916": {
+      "label": "Now-Again Records",
+      "catalogNumber": "NA 5190",
+      "releaseDate": "2019-10-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3847166500": {
+      "label": "Forever Living Originals",
+      "catalogNumber": "FLO0006CD",
+      "releaseDate": "2020-09-18",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "styles": [
+        "Soul",
+        "Funk"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3880405592": {
+      "label": "Not On Label (Ego Ella May Self-released)",
+      "releaseDate": "2015-04-08",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Contemporary R&B",
+        "Neo Soul",
+        "Soul",
+        "Trip Hop"
+      ],
+      "bandcampUrl": "https://egoellamay.bandcamp.com/album/zero",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3885591525": {
+      "releaseDate": "2015-03-27",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3890279884": {
+      "releaseDate": "2022-02-23",
+      "styles": [
+        "Indie Pop",
+        "Contemporary R&B",
+        "Neo Soul",
+        "Alternative Rock"
+      ],
+      "bandcampUrl": "https://dreamerisioma.bandcamp.com/album/goodnight-dreamer",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3891619571": {
+      "catalogNumber": "LMP002",
+      "releaseDate": "2021-04-30",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://tyson.bandcamp.com/album/pisces-problems",
+      "sources": [
+        "musicbrainz",
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:389704934": {
+      "label": "narolane",
+      "releaseDate": "2020-10-02",
+      "artistCountry": "IE",
+      "artistArea": "Limerick",
+      "styles": [
+        "Grime",
+        "Afrobeat",
+        "Hip Hop",
+        "Soul"
+      ],
+      "bandcampUrl": "https://denisechaila.bandcamp.com/album/go-bravely",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3898705881": {
+      "label": "Cascine",
+      "releaseDate": "2017-02-24",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3899168184": {
+      "releaseDate": "2017-01-13",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3917299161": {
+      "label": "ÅND&",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3919501065": {
+      "releaseDate": "2011-09-19",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://lowleaf.bandcamp.com/album/chrysalis",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3931211432": {
+      "label": "Not On Label",
+      "releaseDate": "2013-04-13",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "RnB/Swing",
+        "Leftfield"
+      ],
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3934486942": {
+      "label": "Polyvinyl",
+      "catalogNumber": "PRC-271",
+      "releaseDate": "2014-01-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3947649525": {
+      "label": "Hospital Records",
+      "catalogNumber": "NHS418",
+      "releaseDate": "2021-03-26",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3948116852": {
+      "releaseDate": "2015-10-16",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3955653104": {
+      "label": "Dimensions Recordings",
+      "catalogNumber": "DIREC012",
+      "releaseDate": "2021-06-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3955837967": {
+      "label": "1432 R",
+      "releaseDate": "2018-04-30",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3958919932": {
+      "releaseDate": "2024-05-17",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3960316375": {
+      "catalogNumber": "IARC0060",
+      "releaseDate": "2022-11-04",
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:3970597037": {
+      "label": "Columbia",
+      "catalogNumber": "KZ-7502",
+      "releaseDate": "1975",
+      "artistCountry": "JP",
+      "artistArea": "Japan",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3971324285": {
+      "releaseDate": "2018-12-11",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3976995061": {
+      "catalogNumber": "RKX096",
+      "releaseDate": "2024-10-04",
+      "artistCountry": "NG",
+      "artistArea": "Nigeria",
+      "sources": [
+        "musicbrainz",
+        "apple"
+      ]
+    },
+    "bandcamp:album:3977416502": {
+      "label": "Shoebox Treasure",
+      "releaseDate": "2014-07-11",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3983840307": {
+      "label": "Soul Clap Records",
+      "releaseDate": "2020-11-06",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3988435187": {
+      "label": "BBE Music",
+      "releaseDate": "2020-10-09",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:39886020": {
+      "label": "Meduulla",
+      "releaseDate": "2025-09-17",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3991258463": {
+      "releaseDate": "2022-06-21",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3994561472": {
+      "label": "Wandering Eye",
+      "releaseDate": "2018-10-17",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:3998065307": {
+      "label": "Athens Of The North",
+      "releaseDate": "2015-02-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4000961209": {
+      "catalogNumber": "Jam-100",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4010493326": {
+      "catalogNumber": "JNR139",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "styles": [
+        "Experimental"
+      ],
+      "bandcampUrl": "https://sonlux.bandcamp.com/album/alternate-worlds",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4016794512": {
+      "releaseDate": "2020-12-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:403282097": {
+      "label": "KAGD",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Neo Soul",
+        "Rhythm & Blues",
+        "RnB/Swing"
+      ],
+      "bandcampUrl": "https://jeangrae.bandcamp.com/album/5",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4048607530": {
+      "label": "Heavenly Recordings",
+      "releaseDate": "2026-03-06",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://joshuaidehen.bandcamp.com/album/i-know-you-re-hurting-everyone-is-hurting-everyone-is-trying-you-have-got-to-try",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4056352000": {
+      "label": "SDBAN ULTRA",
+      "catalogNumber": "SDBANULP16",
+      "releaseDate": "2021-01-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4060902319": {
+      "releaseDate": "2020-12-18",
+      "artistCountry": "CU",
+      "artistArea": "Cuba",
+      "bandcampUrl": "https://elindividuo.bandcamp.com/album/2020-escribo",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4064040087": {
+      "label": "Hyperdub",
+      "releaseDate": "2023-09-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4064829655": {
+      "label": "UpperRoom Records",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4069510835": {
+      "releaseDate": "2015-05-01",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4072318319": {
+      "label": "MANGO HILL RECORDS",
+      "releaseDate": "2020-08-28",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:4077674076": {
+      "label": "Hospital Records",
+      "releaseDate": "2021-02-05",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:4081035422": {
+      "releaseDate": "2011-08-03",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://littlejackie.bandcamp.com/album/made4tv",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4082799776": {
+      "label": "R&S Records",
+      "releaseDate": "2018-04-27",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4097151600": {
+      "label": "Shifting Paradigm Records",
+      "releaseDate": "2019-10-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4097448061": {
+      "label": "Movementt",
+      "releaseDate": "2020-03-06",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4098799060": {
+      "label": "Big Crown Records",
+      "catalogNumber": "BC117-45-A",
+      "releaseDate": "2021-08-30",
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "bandcampUrl": "https://bacaorhythmandsteelband.bandcamp.com/album/raise-it-up-b-w-space",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4101000047": {
+      "label": "Tru Thoughts",
+      "releaseDate": "2016-10-14",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4101318437": {
+      "label": "Chivi Chivi",
+      "releaseDate": "2024-10-18",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4112020758": {
+      "label": "Creak Inc.",
+      "releaseDate": "2023-09-22",
+      "artistCountry": "DK",
+      "artistArea": "Copenhagen",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4113308018": {
+      "label": "International Anthem",
+      "catalogNumber": "IARC0055",
+      "releaseDate": "2022-09-09",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Soul-Jazz",
+        "Funk"
+      ],
+      "bandcampUrl": "https://intlanthem.bandcamp.com/album/step-on-step",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4118357594": {
+      "label": "Jagjaguwar",
+      "releaseDate": "2017-09-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4118804190": {
+      "catalogNumber": "CR 9003",
+      "releaseDate": "1974",
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:4119447270": {
+      "label": "RHYTHM INCURSIONS / RAID SYSTEM",
+      "releaseDate": "2011-03-18",
+      "bandcampUrl": "https://nihonkizuna.bandcamp.com/album/nihon-kizuna",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4124572376": {
+      "label": "Sonic Messengers",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://acemo.bandcamp.com/album/all-my-life-2-2",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4125141090": {
+      "label": "Asmara Records",
+      "releaseDate": "2024-11-01",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4126038276": {
+      "releaseDate": "2023-07-14",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4141152282": {
+      "label": "Don Giovanni Records",
+      "catalogNumber": "DG-183",
+      "releaseDate": "2019-05-10",
+      "artistCountry": "US",
+      "artistArea": "Cleveland",
+      "bandcampUrl": "https://mourningablkstar.bandcamp.com/album/reckoning-2",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4141716732": {
+      "releaseDate": "2015-08-10",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4148293972": {
+      "label": "Ensoul Records",
+      "releaseDate": "2023-09-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4152535585": {
+      "label": "Creak Inc.",
+      "catalogNumber": "CREAK07",
+      "releaseDate": "2020-09-18",
+      "artistCountry": "DK",
+      "artistArea": "Copenhagen",
+      "styles": [
+        "Contemporary R&B",
+        "Contemporary Jazz",
+        "Soul-Jazz"
+      ],
+      "bandcampUrl": "https://astridengberg.bandcamp.com/album/tulpa",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4153531149": {
+      "releaseDate": "2015-04-15",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4155412025": {
+      "label": "Brownswood Recordings",
+      "releaseDate": "2018-09-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4157580861": {
+      "releaseDate": "2022-03-31",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:416082475": {
+      "label": "One Little Independent Records",
+      "releaseDate": "2021-06-11",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4171934516": {
+      "catalogNumber": "JAKARTA076",
+      "releaseDate": "2014-11-17",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Instrumental",
+        "Trap",
+        "Downtempo"
+      ],
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:4178856121": {
+      "label": "Blu Mar Ten Music",
+      "catalogNumber": "BMT048",
+      "releaseDate": "2021-11-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4189402154": {
+      "label": "Futuristica",
+      "catalogNumber": "FUTCD04",
+      "releaseDate": "2020-10-19",
+      "artistCountry": "GB",
+      "artistArea": "Bournemouth",
+      "styles": [
+        "Neo Soul"
+      ],
+      "bandcampUrl": "https://futuristicamusic.bandcamp.com/album/misunderstood",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4194637008": {
+      "label": "Not On Label",
+      "releaseDate": "2018-08-14",
+      "bandcampUrl": "https://cunninlynguists.bandcamp.com/album/couples-skate",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4195465753": {
+      "label": "April VISTA, LLC",
+      "releaseDate": "2022-10-04",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:4195533533": {
+      "label": "Tea Sea Records",
+      "releaseDate": "2017-09-29",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4199328212": {
+      "label": "International Anthem",
+      "releaseDate": "2020-09-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4200733252": {
+      "label": "First Word Records",
+      "releaseDate": "2011-11-07",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4202900517": {
+      "catalogNumber": "M3H010",
+      "releaseDate": "2022-07-08",
+      "artistCountry": "ZA",
+      "artistArea": "South Africa",
+      "bandcampUrl": "https://tumimogorosi.bandcamp.com/album/group-theory-black-music",
+      "sources": [
+        "musicbrainz",
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:4207097968": {
+      "label": "MadeInChina Productions",
+      "catalogNumber": "MADEINCHINA001",
+      "releaseDate": "2025-10-03",
+      "artistCountry": "FR",
+      "artistArea": "France",
+      "bandcampUrl": "https://chinamoses.bandcamp.com/album/its-complicated",
+      "sources": [
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4209214266": {
+      "label": "Alpha Pup",
+      "releaseDate": "2017-03-31",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4214416974": {
+      "label": "Stones Throw Records",
+      "catalogNumber": "STH2460",
+      "releaseDate": "2021-10-01",
+      "artistCountry": "US",
+      "artistArea": "Chicago",
+      "styles": [
+        "Contemporary R&B",
+        "Neo Soul"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4221021472": {
+      "label": "4AD",
+      "releaseDate": "2015-05-19",
+      "artistCountry": "US",
+      "artistArea": "San Francisco",
+      "styles": [
+        "Experimental",
+        "Synth-pop",
+        "Glitch"
+      ],
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4221229272": {
+      "label": "Agogo Records",
+      "releaseDate": "2014-11-24",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4223795788": {
+      "label": "Stones Throw Records",
+      "catalogNumber": "STH2403",
+      "releaseDate": "2019-02-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4227209110": {
+      "label": "Innovative Leisure",
+      "catalogNumber": "IL2037",
+      "releaseDate": "2016-09-30",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4234383405": {
+      "label": "International Anthem",
+      "releaseDate": "2020-12-04",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4249596902": {
+      "releaseDate": "2021-04-23",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4255861154": {
+      "label": "International Anthem",
+      "releaseDate": "2020-10-31",
+      "bandcampUrl": "https://intlanthem.bandcamp.com/album/live",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4260289123": {
+      "releaseDate": "2010-06-29",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://kendramorris.bandcamp.com/album/kendra-morris",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4274916965": {
+      "label": "Stones Throw Records",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4289348751": {
+      "label": "Stones Throw Records",
+      "catalogNumber": "STH2457",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://djharrison.bandcamp.com/album/tales-from-the-old-dominion",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:4291058132": {
+      "label": "Ubiquity",
+      "releaseDate": "2015-09-25",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4291990319": {
+      "releaseDate": "2023-09-22",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4294780956": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2021-10-29",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:431172208": {
+      "label": "2000 Black",
+      "releaseDate": "2015-05-26",
+      "artistCountry": "US",
+      "artistArea": "Brooklyn",
+      "bandcampUrl": "https://dego.bandcamp.com/album/the-more-things-stay-the-same",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:432101046": {
+      "label": "Atomnation",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:434985579": {
+      "label": "Mexican Summer",
+      "catalogNumber": "MEX263",
+      "releaseDate": "2020-06-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:443825303": {
+      "label": "ATO Records",
+      "releaseDate": "2019-03-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:444298065": {
+      "releaseDate": "2022-11-16",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:450606677": {
+      "label": "Method",
+      "releaseDate": "2019-05-17",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:451652534": {
+      "label": "Edition Records",
+      "releaseDate": "2024-07-26",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:453984195": {
+      "label": "Jordan Stephens",
+      "releaseDate": "2022-02-11",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:457815468": {
+      "label": "Critical Music",
+      "catalogNumber": "CRIT164D",
+      "releaseDate": "2021-03-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:457843155": {
+      "label": "International Anthem",
+      "releaseDate": "2021-07-09",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:459530309": {
+      "label": "Friends Of Friends",
+      "catalogNumber": "FOF128",
+      "releaseDate": "2014-02-04",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "styles": [
+        "House",
+        "UK Garage"
+      ],
+      "bandcampUrl": "https://fofmusic.bandcamp.com/album/deleted-fool",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:461538597": {
+      "label": "Indigo Soul",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:473175380": {
+      "releaseDate": "2019-06-20",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "bandcampUrl": "https://majjamaja.bandcamp.com/album/concrete-roses-ep",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:481574016": {
+      "catalogNumber": "1800",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:483787335": {
+      "label": "Released Records",
+      "releaseDate": "2020-12-18",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:490841218": {
+      "label": "Athens Of The North",
+      "catalogNumber": "AOTNCD031",
+      "releaseDate": "2020-05-27",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:496717960": {
+      "label": "Byrd Out",
+      "releaseDate": "2020-09-04",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:498885266": {
+      "label": "In Real Life",
+      "releaseDate": "2020-07-31",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "bandcampUrl": "https://o-liv.bandcamp.com/album/couldnt-wait-to-tell-you",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:515017081": {
+      "label": "Red Steel Music",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:526897601": {
+      "label": "International Anthem",
+      "releaseDate": "2021-05-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:545858800": {
+      "label": "BBE",
+      "releaseDate": "2021-01-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:547191521": {
+      "releaseDate": "2020-10-30",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:550305336": {
+      "label": "Domino",
+      "releaseDate": "2021-10-01",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:554205520": {
+      "label": "Big Crown Records",
+      "releaseDate": "2022-01-19",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "bandcampUrl": "https://elmichelsaffair.bandcamp.com/album/stack-the-deck-b-w-things-done-changed",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:570613489": {
+      "label": "Higher Education Records",
+      "releaseDate": "2020-05-01",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:581489244": {
+      "releaseDate": "2021-11-12",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:584361689": {
+      "releaseDate": "2025-02-07",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:586609132": {
+      "releaseDate": "2023-03-03",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:591166602": {
+      "label": "Leaving Records",
+      "catalogNumber": "LR081",
+      "releaseDate": "2016-04-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:591803237": {
+      "label": "Mello Music Group",
+      "releaseDate": "2015-04-24",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:592128109": {
+      "releaseDate": "2023-08-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:605462928": {
+      "label": "Born Bad Records",
+      "catalogNumber": "BB125",
+      "releaseDate": "2020-07-17",
+      "styles": [
+        "Bossanova",
+        "Beat"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:60912867": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2021-08-06",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:614160370": {
+      "label": "Hotflush Recordings",
+      "releaseDate": "2020-03-27",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:625664682": {
+      "label": "ZZK Records",
+      "releaseDate": "2026-10-09",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:626105286": {
+      "label": "Ghostly International",
+      "releaseDate": "2018-11-28",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:640159125": {
+      "releaseDate": "2014-09-09",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Dance-pop"
+      ],
+      "bandcampUrl": "https://cookiesvision.bandcamp.com/album/music-for-touching",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:644969942": {
+      "label": "One-Handed Music",
+      "catalogNumber": "HAND7008XX",
+      "releaseDate": "2010-10-27",
+      "styles": [
+        "Instrumental"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:660569778": {
+      "label": "Forever Living Originals",
+      "catalogNumber": "FLO00018LP",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Neo Soul",
+        "Contemporary R&B",
+        "Gospel"
+      ],
+      "bandcampUrl": "https://cleosol.bandcamp.com/album/gold",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:665301932": {
+      "label": "Big Crown Records",
+      "releaseDate": "2023-04-14",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:670935666": {
+      "label": "City Slang",
+      "releaseDate": "2024-12-06",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:673392592": {
+      "releaseDate": "2020-10-22",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:683793170": {
+      "label": "Doomtree Records",
+      "releaseDate": "2021-12-15",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:693227322": {
+      "label": "The North Quarter",
+      "catalogNumber": "NQ025",
+      "releaseDate": "2021-09-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:69415147": {
+      "label": "On The Corner",
+      "releaseDate": "2020-07-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:704971235": {
+      "label": "Illect Recordings",
+      "releaseDate": "2019-02-01",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:70559199": {
+      "releaseDate": "2019-12-07",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:707892415": {
+      "label": "Sub Pop Records",
+      "releaseDate": "2015-02-24",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:708058565": {
+      "releaseDate": "2018-08-31",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:711353246": {
+      "releaseDate": "2021-04-23",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:715518736": {
+      "label": "What Rules",
+      "releaseDate": "2018-03-06",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:716991898": {
+      "label": "Ordinary Love",
+      "releaseDate": "2021-04-09",
+      "bandcampUrl": "https://socialstate.bandcamp.com/album/sacrosanct",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:728470359": {
+      "label": "Tru Thoughts",
+      "releaseDate": "2015-03-30",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:731075493": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2023-01-27",
+      "sources": [
+        "apple"
+      ]
+    },
+    "bandcamp:album:735888941": {
+      "label": "Gearbox Records",
+      "catalogNumber": "GB1573",
+      "releaseDate": "2021-11-12",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Contemporary Jazz",
+        "Soul-Jazz"
+      ],
+      "bandcampUrl": "https://jellycleaver.bandcamp.com/album/forever-presence",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:73592894": {
+      "label": "Top Dawg Entertainment",
+      "releaseDate": "2023-02-10",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:744974378": {
+      "catalogNumber": "NSL 1011",
+      "styles": [
+        "Cape Jazz"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:745437391": {
+      "label": "Gondwana Records",
+      "catalogNumber": "Gondlp065",
+      "releaseDate": "2023-11-30",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:75014706": {
+      "label": "Moshi Moshi Records",
+      "releaseDate": "2021-09-24",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:750951128": {
+      "releaseDate": "2023-06-20",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Conscious",
+        "Boom Bap"
+      ],
+      "bandcampUrl": "https://blackstarnofearoftime.bandcamp.com/album/no-fear-of-time",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:755933711": {
+      "label": "Mr Bongo",
+      "releaseDate": "2022-09-16",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:760247732": {
+      "releaseDate": "2017-07-26",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:760818660": {
+      "releaseDate": "2015-03-30",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:76139378": {
+      "label": "UFFÉ",
+      "releaseDate": "2021-11-12",
+      "artistCountry": "BR",
+      "artistArea": "Brazil",
+      "bandcampUrl": "https://vhoor.bandcamp.com/album/baile",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:766981754": {
+      "releaseDate": "2015-06-23",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:770961976": {
+      "label": "International Anthem Recording Co.",
+      "catalogNumber": "IARC0020",
+      "releaseDate": "2018-07-27",
+      "artistCountry": "US",
+      "artistArea": "Chicago",
+      "bandcampUrl": "https://intlanthem.bandcamp.com/album/where-we-come-from-chicagoxlondon-mixtape",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:7731088": {
+      "label": "Brownswood Recordings",
+      "releaseDate": "2022-08-05",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:779012949": {
+      "label": "Fashionably Early LLC",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:790752701": {
+      "releaseDate": "2026-02-27",
+      "artistCountry": "SE",
+      "artistArea": "Sweden",
+      "bandcampUrl": "https://catbeatsofficial.bandcamp.com/album/all-cats-are-cute",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:794848405": {
+      "label": "Touching Bass",
+      "catalogNumber": "TB 20",
+      "releaseDate": "2026-03-12",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "styles": [
+        "House",
+        "Deep House",
+        "Broken Beat"
+      ],
+      "bandcampUrl": "https://shyone.bandcamp.com/album/mali",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:796139338": {
+      "label": "KAGD",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "styles": [
+        "Jazzy Hip-Hop",
+        "Neo Soul"
+      ],
+      "bandcampUrl": "https://jeangrae.bandcamp.com/album/jeannie",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:822317759": {
+      "label": "Heavy Sheet",
+      "releaseDate": "2021-07-30",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:82657398": {
+      "label": "Movementt",
+      "releaseDate": "2022-05-25",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:831280278": {
+      "label": "Partisan Records",
+      "releaseDate": "2025-11-20",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "bandcampUrl": "https://ezracollective.bandcamp.com/album/joy-to-the-world",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:834686507": {
+      "label": "Soul Mates Records",
+      "releaseDate": "2023-12-06",
+      "artistCountry": "US",
+      "artistArea": "Nashville",
+      "styles": [
+        "Holiday"
+      ],
+      "bandcampUrl": "https://amerigo.bandcamp.com/album/another-christmas-album",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:84256807": {
+      "releaseDate": "2021-07-23",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:859866709": {
+      "label": "ERH",
+      "releaseDate": "2017-12-08",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:859902401": {
+      "catalogNumber": "DLS1",
+      "releaseDate": "2018-11-30",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "styles": [
+        "Indie Rock",
+        "Punk"
+      ],
+      "bandcampUrl": "https://bigjoanie.bandcamp.com/album/sistahs",
+      "sources": [
+        "discogs",
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:862595420": {
+      "label": "Music Is Fun",
+      "releaseDate": "2026-02-06",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:8639420": {
+      "label": "Mello Music Group",
+      "releaseDate": "2019-06-28",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:872106483": {
+      "label": "Ubiquity",
+      "releaseDate": "2019-06-28",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:87431098": {
+      "label": "Skeptic Rock",
+      "releaseDate": "2014-12-13",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:875565819": {
+      "catalogNumber": "TT001",
+      "releaseDate": "2013-02-01",
+      "styles": [
+        "Indie Rock",
+        "Psychedelic Rock"
+      ],
+      "sources": [
+        "discogs",
+        "apple"
+      ]
+    },
+    "bandcamp:album:87716625": {
+      "label": "Disclosure",
+      "releaseDate": "2021-08-16",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:887147304": {
+      "label": "Y U QT",
+      "releaseDate": "2023-01-13",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:893411503": {
+      "releaseDate": "2020-09-18",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:919745740": {
+      "releaseDate": "2021-11-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:92109960": {
+      "releaseDate": "2018-02-23",
+      "artistCountry": "AU",
+      "artistArea": "Melbourne",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:922928731": {
+      "label": "Sub Pop",
+      "catalogNumber": "SP332",
+      "releaseDate": "2018-02-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:923189023": {
+      "catalogNumber": "tbe707",
+      "artistCountry": "NL",
+      "artistArea": "Amsterdam",
+      "styles": [
+        "Boogie",
+        "Funk",
+        "Hip Hop"
+      ],
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:925524645": {
+      "label": "Stones Throw Records",
+      "releaseDate": "2020-11-13",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:945376779": {
+      "label": "First Word Records",
+      "catalogNumber": "FW175",
+      "releaseDate": "2018-06-22",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "styles": [
+        "Neo Soul",
+        "Conscious"
+      ],
+      "bandcampUrl": "https://yazminlacey.bandcamp.com/album/when-the-sun-dips-90-degrees",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:946071686": {
+      "label": "Kiings",
+      "releaseDate": "2015-03-01",
+      "artistCountry": "US",
+      "artistArea": "Brown Deer",
+      "bandcampUrl": "https://kiings.bandcamp.com/album/wwydf",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:946122176": {
+      "label": "R&S Records",
+      "releaseDate": "2015-09-25",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:959630070": {
+      "label": "Mello Music Group",
+      "catalogNumber": "MMG-00154-2",
+      "releaseDate": "2020-11-13",
+      "artistCountry": "ZA",
+      "artistArea": "Cape Town",
+      "styles": [
+        "Neo Soul"
+      ],
+      "bandcampUrl": "https://sebakaapstad.bandcamp.com/album/konke",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:961083259": {
+      "styles": [
+        "Alt-Pop",
+        "Indie Pop",
+        "Soul",
+        "Rhythm & Blues"
+      ],
+      "sources": [
+        "discogs"
+      ]
+    },
+    "bandcamp:album:969634903": {
+      "releaseDate": "2022-10-21",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:981589388": {
+      "label": "Astral Black",
+      "catalogNumber": "AST039",
+      "releaseDate": "2021-10-15",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:996508091": {
+      "releaseDate": "2013-02-02",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:1024210980": {
+      "releaseDate": "2021-09-21",
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:110554472": {
+      "label": "LUCKYME®",
+      "releaseDate": "2024-06-06",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1324757541": {
+      "releaseDate": "2019-05-03",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1504509092": {
+      "releaseDate": "2022-04-08",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:1525374679": {
+      "releaseDate": "2022-08-04",
+      "artistCountry": "US",
+      "artistArea": "Phoenix",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1654011808": {
+      "releaseDate": "2015-07-21",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1870682882": {
+      "releaseDate": "2015-11-27",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:1878387176": {
+      "releaseDate": "2023-10-18",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1910413749": {
+      "releaseDate": "2024-12-20",
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:2182441548": {
+      "label": "Concord Jazz",
+      "releaseDate": "2021-02-05",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:2206407684": {
+      "label": "3 Palm Records",
+      "releaseDate": "2021-02-19",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:2326319903": {
+      "label": "Father/Daughter Records",
+      "releaseDate": "2020-02-20",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:2393537265": {
+      "releaseDate": "2020-06-26",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:2472400942": {
+      "label": "Innovative Leisure",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:2920697166": {
+      "releaseDate": "2024-08-30",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:2968250506": {
+      "releaseDate": "2022-02-14",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3131611568": {
+      "releaseDate": "2026-05-20",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3403772445": {
+      "label": "Paradise Palms Records",
+      "releaseDate": "2020-08-28",
+      "sources": [
+        "apple",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:365472871": {
+      "releaseDate": "2021-01-22",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3835153004": {
+      "releaseDate": "2022-06-11",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3885286624": {
+      "releaseDate": "2018-07-13",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3936269949": {
+      "releaseDate": "2021-10-15",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:4110449531": {
+      "releaseDate": "2020-12-01",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:50014614": {
+      "releaseDate": "2022-04-26",
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "sources": [
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:559816764": {
+      "releaseDate": "2018-10-26",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:560231987": {
+      "label": "Kitsuné Musique Singles",
+      "releaseDate": "2018-04-11",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:570078204": {
+      "label": "LMP Recordings",
+      "releaseDate": "2021-02-17",
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:619945456": {
+      "releaseDate": "2020-07-03",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:70703301": {
+      "releaseDate": "2019-06-26",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "discogs",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:805750147": {
+      "releaseDate": "2019-01-31",
+      "sources": [
+        "apple",
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:855350904": {
+      "releaseDate": "2016-02-08",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:track:98620403": {
+      "label": "AGAINST GIANTS",
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "apple",
+        "musicbrainz",
+        "discogs"
+      ]
+    },
+    "bandcamp:album:1015651995": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1079560567": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1132385482": {
+      "artistCountry": "US",
+      "artistArea": "Cleveland",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1192228030": {
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1258196852": {
+      "artistCountry": "DK",
+      "artistArea": "Copenhagen",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:154110186": {
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1616234528": {
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:1750864854": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2051855431": {
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2138472128": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2584845257": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2659930103": {
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:2931204451": {
+      "artistCountry": "BR",
+      "artistArea": "São Paulo",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3430057788": {
+      "artistCountry": "GB",
+      "artistArea": "Reading",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3900507555": {
+      "artistCountry": "BR",
+      "artistArea": "São Paulo",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:3934210082": {
+      "artistCountry": "NL",
+      "artistArea": "Amsterdam",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4184190873": {
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:4197793439": {
+      "artistCountry": "DE",
+      "artistArea": "Germany",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:631685198": {
+      "artistCountry": "US",
+      "artistArea": "Los Angeles",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:675123997": {
+      "artistCountry": "NG",
+      "artistArea": "Nigeria",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:album:808485824": {
+      "artistCountry": "AU",
+      "artistArea": "Perth",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1133543672": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1136936090": {
+      "artistCountry": "GB",
+      "artistArea": "Reading",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:1284435134": {
+      "artistCountry": "GB",
+      "artistArea": "Glasgow",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:173937383": {
+      "artistCountry": "IE",
+      "artistArea": "Limerick",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:2139046672": {
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:2212454786": {
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:2293293695": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3109358499": {
+      "artistCountry": "GB",
+      "artistArea": "London",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3239086829": {
+      "artistCountry": "US",
+      "artistArea": "New York",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3432087008": {
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3564066754": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3846654364": {
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:3916410855": {
+      "artistCountry": "CA",
+      "artistArea": "Toronto",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:45593149": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:660581084": {
+      "artistCountry": "US",
+      "artistArea": "United States",
+      "sources": [
+        "musicbrainz"
+      ]
+    },
+    "bandcamp:track:842286048": {
+      "artistCountry": "GB",
+      "artistArea": "United Kingdom",
+      "sources": [
+        "musicbrainz"
+      ]
+    }
+  }
+}
