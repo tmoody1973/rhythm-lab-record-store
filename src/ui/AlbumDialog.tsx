@@ -40,15 +40,18 @@ export function AlbumDialog({ record, cratesContaining = [], note, actions, onCl
       className="m-auto w-[min(72rem,calc(100%-2rem))] max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl border border-line bg-card p-0 text-ink shadow-2xl backdrop:bg-ink/55 backdrop:backdrop-blur-[2px] motion-safe:animate-[rise_220ms_ease-out]"
       onClick={(e) => { if (e.target === ref.current) onClose(); }}
     >
-      <div className="relative grid gap-8 p-5 sm:p-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:p-10">
+      {/* Sticky, zero-height row: the close button stays on screen while the pop-up scrolls (phones have no Escape). */}
+      <div className="sticky top-0 z-10 flex h-0 justify-end">
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full border border-ink/40 bg-card text-xl hover:bg-chip focus-visible:outline-2 focus-visible:outline-forest sm:right-6 sm:top-6"
+          className="mr-4 mt-4 grid h-11 w-11 place-items-center rounded-full border border-ink/40 bg-card text-xl shadow-sm hover:bg-chip focus-visible:outline-2 focus-visible:outline-forest sm:mr-6 sm:mt-6"
         >
           <span aria-hidden="true">×</span>
         </button>
+      </div>
+      <div className="grid gap-8 p-5 sm:p-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:p-10">
 
         <div>
           <Sleeve record={record} size="large" />

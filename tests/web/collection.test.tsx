@@ -35,6 +35,7 @@ test('genre chips filter (via More), update the count and the URL', async () => 
   expect(cards()).toHaveLength(3);
   expect(screen.getByRole('status')).toHaveTextContent('of 3 records');
   expect(window.location.search).toBe('?genre=jazz');
+  expect(screen.getByText('More').closest('details')).not.toHaveAttribute('open');
 });
 
 test('a record with no genre is under More → Unclassified', async () => {

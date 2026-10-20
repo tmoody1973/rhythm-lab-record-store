@@ -78,3 +78,15 @@ test('when the browser blocks storage, the site works and says saving is off', a
   expect(screen.getByRole('list', { name: /records/i })).toBeInTheDocument();
   vi.restoreAllMocks();
 });
+
+test('closing a record opened from the shared banner returns focus to that banner button', async () => {
+  window.history.replaceState(null, '', `/?shared=${encodeShare({ name: 'Mix', records: [universal.id] })}`);
+  const user = userEvent.setup();
+  render(<App />);
+  const banner = await screen.findByRole('region', { name: 'Shared crate' });
+  const opener = within(banner).getByRole('button', { name: new RegExp(`^Universal Beings by`) });
+  await user.click(opener);
+  await user.click(within(screen.getByRole('dialog', { name: 'Universal Beings' })).getByRole('button', { name: 'Close' }));
+  await new Promise((r) => setTimeout(r, 30));
+  expect(document.activeElement).toBe(opener);
+});

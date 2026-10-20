@@ -41,6 +41,7 @@ export function App() {
   const [cratesOpen, setCratesOpen] = useState(false);
   const pushed = useRef(false); // true when the open record added a history entry (so Back closes it)
   const lastOpened = useRef<string | null>(null);
+  const opener = useRef<HTMLElement | null>(null); // the control that opened the pop-up, for focus return
 
   const byId = useMemo(
     () => new Map(catalog.status === 'ready' ? catalog.catalog.albums.map((a) => [a.id, a]) : []),
@@ -73,12 +74,16 @@ export function App() {
     }
     pushed.current = false;
     if (lastOpened.current) {
-      document.querySelector<HTMLElement>(`[data-id="${lastOpened.current}"]`)?.focus();
+      const back = opener.current?.isConnected ? opener.current : document.querySelector<HTMLElement>(`[data-id="${lastOpened.current}"]`);
+      back?.focus();
       lastOpened.current = null;
+      opener.current = null;
     }
   }, [open]);
 
   const openRecord = useCallback((r: PublicAlbum) => {
+    const active = document.activeElement;
+    opener.current = active instanceof HTMLElement && active !== document.body ? active : null;
     setNotice(null);
     pushed.current = true;
     patch({ record: toCompact(r.id) }, { push: true });

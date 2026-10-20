@@ -28,6 +28,8 @@ describe('loadCatalog', () => {
   });
   test('missing, broken and offline catalogs are told apart', async () => {
     expect(await loadCatalog(fakeFetch(new Response('', { status: 404 })))).toEqual({ ok: false, reason: 'missing' });
+    // Dev servers and SPA hosts answer a missing file with index.html and status 200.
+    expect(await loadCatalog(fakeFetch(new Response('<!doctype html>', { status: 200, headers: { 'content-type': 'text/html' } })))).toEqual({ ok: false, reason: 'missing' });
     expect(await loadCatalog(fakeFetch(new Response('<html>', { status: 200 })))).toEqual({ ok: false, reason: 'invalid' });
     expect(await loadCatalog(fakeFetch(new Response('{"schemaVersion":2}', { status: 200 })))).toEqual({ ok: false, reason: 'invalid' });
     expect(await loadCatalog(fakeFetch(new TypeError('Failed to fetch')))).toEqual({ ok: false, reason: 'network' });

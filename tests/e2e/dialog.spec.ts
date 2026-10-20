@@ -33,3 +33,12 @@ test('Escape closes; a direct link closes back to the collection, not out of the
   await expect(page).toHaveURL('/');
   await expect(page.getByRole('heading', { name: 'Pull up a crate.' })).toBeVisible();
 });
+
+test('on a phone the close button stays visible while the pop-up scrolls', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`/?record=a${universal.bandcampId}`);
+  const dialog = page.getByRole('dialog', { name: 'Universal Beings' });
+  await expect(dialog).toBeVisible();
+  await dialog.evaluate((d) => d.scrollTo(0, d.scrollHeight));
+  await expect(dialog.getByRole('button', { name: 'Close' })).toBeInViewport();
+});

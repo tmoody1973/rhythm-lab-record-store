@@ -13,6 +13,8 @@ export async function loadCatalog(fetchImpl: typeof fetch = fetch): Promise<Load
     return { ok: false, reason: 'network' };
   }
   if (res.status === 404) return { ok: false, reason: 'missing' };
+  // Dev servers and SPA hosts answer a missing file with the app's index.html (status 200).
+  if (res.headers.get('content-type')?.includes('text/html')) return { ok: false, reason: 'missing' };
   if (!res.ok) return { ok: false, reason: 'network' };
   try {
     const parsed = CatalogSchema.safeParse(JSON.parse(await res.text()));

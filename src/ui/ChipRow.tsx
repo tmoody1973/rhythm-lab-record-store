@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import type { GenreCount } from '../catalog/genres.ts';
 
 type Props = {
@@ -24,6 +25,8 @@ export function ChipRow({ crates, visible, more, genres, crate, onAll, onToggleG
     </button>
   );
   const moreActive = more.some((g) => genres.includes(g.slug));
+  const moreRef = useRef<HTMLDetailsElement>(null);
+  const closeMore = () => { if (moreRef.current) moreRef.current.open = false; };
   return (
     <div className="flex flex-wrap items-center gap-2 sm:gap-3">
       <button type="button" aria-pressed={!genres.length && !crate} onClick={onAll} className={chip(!genres.length && !crate)}>All records</button>
@@ -32,11 +35,15 @@ export function ChipRow({ crates, visible, more, genres, crate, onAll, onToggleG
       ))}
       {visible.map(genreButton)}
       {more.length > 0 && (
-        <details className="relative">
+        <details
+          ref={moreRef}
+          className="relative"
+          onKeyDown={(e) => { if (e.key === 'Escape') { closeMore(); moreRef.current?.querySelector('summary')?.focus(); } }}
+        >
           <summary className={`${chip(moreActive)} cursor-pointer list-none`}><span>More</span> <span aria-hidden="true">▾</span></summary>
           <div className="absolute left-0 z-20 mt-2 flex w-64 flex-wrap gap-2 rounded-2xl border border-line bg-card p-3 shadow-lg">
             {more.map((g) => (
-              <button key={g.slug} type="button" aria-pressed={genres.includes(g.slug)} onClick={() => onToggleGenre(g.slug)} className={chip(genres.includes(g.slug))}>
+              <button key={g.slug} type="button" aria-pressed={genres.includes(g.slug)} onClick={() => { onToggleGenre(g.slug); closeMore(); }} className={chip(genres.includes(g.slug))}>
                 {g.label} <span className="text-xs opacity-70">{g.count}</span>
               </button>
             ))}
