@@ -13,9 +13,11 @@
     "catalog": "node --env-file=.env.local pipeline/catalog.ts",
     "import-crate": "node pipeline/import-crate.ts",
     "enrich": "node --env-file=.env.local pipeline/enrich/index.ts",
-    "check-secrets": "node --env-file=.env.local scripts/check-secrets.mts"
+    "check-secrets": "node --env-file=.env.local scripts/check-secrets.mts",
+    "decor": "node scripts/fetch-decor.mts"
   },
   "devDependencies": {
+    "@gltf-transform/cli": "^4.5.1",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "^7.0.1",
