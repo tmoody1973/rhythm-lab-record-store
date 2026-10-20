@@ -36,7 +36,7 @@ Subsonic returns two kinds of record:
 | `fixtures/catalog-sample.json` | 20 real records (17 albums, 3 tracks) without covers, for development and tests | Yes |
 | `content/*.json` | Your crates and notes | Yes; this step reads them but never writes them |
 
-To force covers to rebuild, delete `public/covers/` (fast, rebuilt from the cache). To re-download them, delete `data/.cache/covers/` (slow; about 1,215 requests).
+To force covers to rebuild, delete `public/covers/` (about 2 minutes, rebuilt from the cache with no downloads). To re-download them, delete `data/.cache/covers/` (slow; about 1,215 requests).
 
 ## The summary
 
