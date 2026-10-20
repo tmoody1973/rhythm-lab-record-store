@@ -12,7 +12,7 @@ import { qualityFor } from './quality.ts';
 import { RoomLights } from './scene/Lights.tsx';
 import { BinBox, BrassPlaque, DividerTabs, FrontCovers, reducedMotion, SectionLight, Sleeves } from './scene/Bins.tsx';
 import { CameraRig } from './scene/CameraRig.tsx';
-import { steadyClock } from './scene/steadyClock.ts';
+import { SteadyClock } from './scene/steadyClock.ts';
 import { DigBin } from './scene/DigBin.tsx';
 import { ShopMaterials } from './scene/Materials.tsx';
 import { Room, StaffPicksWall } from './scene/Room.tsx';
@@ -180,8 +180,9 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
         shadows
         dpr={quality.dpr}
         camera={{ position: aim.position, fov: 40, near: 0.1, far: 200 }}
-        onCreated={({ gl, clock }) => { steadyClock(clock); gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}
+        onCreated={({ gl }) => { gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}
       >
+        <SteadyClock />
         <color attach="background" args={['#1a1411']} />
         <fog attach="fog" args={['#1a1411', ...fogFor(aim)]} />
         {import.meta.env.DEV && <DevProbe />}

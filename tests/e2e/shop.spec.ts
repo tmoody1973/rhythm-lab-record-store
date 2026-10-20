@@ -222,5 +222,6 @@ test('after the shop sits idle, Next eases the records instead of jumping (Tarik
   await page.waitForTimeout(1500);
   const deltas = await page.evaluate(() => (window as unknown as { __rlDeltas: number[] }).__rlDeltas);
   expect(deltas.length).toBeGreaterThan(0);
-  expect(Math.max(...deltas)).toBeLessThanOrEqual(1 / 30 + 1e-6); // no frame is told seconds have passed
+  expect(deltas[0]).toBeLessThanOrEqual(1 / 60 + 1e-6); // the first frame after the pause is one normal step, not seconds
+  expect(Math.max(...deltas)).toBeLessThanOrEqual(0.1 + 1e-6);
 });
