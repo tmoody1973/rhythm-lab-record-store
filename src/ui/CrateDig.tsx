@@ -13,7 +13,7 @@ type Props = {
   index: number;
   onIndex: (i: number) => void;
   onOpen: (r: PublicAlbum) => void;
-  onRemove: (r: PublicAlbum) => void;
+  onRemove?: (r: PublicAlbum) => void;
   emptyHint: string;
 };
 
@@ -84,7 +84,7 @@ export function CrateDig({ name, records, index, onIndex, onOpen, onRemove, empt
           <button type="button" onClick={() => go(index - 1)} disabled={index === 0} className="rounded-full border border-ink/40 px-4 py-2 text-sm hover:bg-chip disabled:opacity-40">Back</button>
           <button type="button" onClick={() => go(index + 1)} disabled={index === n - 1} className="rounded-full border border-ink/40 px-4 py-2 text-sm hover:bg-chip disabled:opacity-40">Flip</button>
           <button type="button" onClick={() => onOpen(r)} className="rounded-full bg-forest px-4 py-2 text-sm text-white hover:bg-forest-ink">Open album</button>
-          <button type="button" onClick={() => onRemove(r)} className="rounded-full px-3 py-2 text-sm text-ink-soft hover:text-ink">Remove</button>
+          {onRemove && <button type="button" onClick={() => onRemove(r)} className="rounded-full px-3 py-2 text-sm text-ink-soft hover:text-ink">Remove</button>}
         </div>
       </div>
     </div>

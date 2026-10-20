@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { genreChips } from '../catalog/genres.ts';
 import { applyQuery, firstIndexForLetter, letters, pageCount, pageOf, pageSlice, PER_PAGE } from '../catalog/query.ts';
 import type { EnrichmentMap } from '../catalog/load.ts';
@@ -7,6 +7,11 @@ import type { UrlState } from '../state/url.ts';
 import { ChipRow } from './ChipRow.tsx';
 import { LetterStrip, Pagination, SortSelect } from './Controls.tsx';
 import { RecordCard } from './RecordCard.tsx';
+import { BinDialog } from '../shop/BinDialog.tsx';
+import type { Bin } from '../shop/sections.ts';
+
+// SPIKE: the 3D shop loads only when someone picks Store.
+const ShopScene = lazy(() => import('../shop/ShopScene.tsx'));
 
 type Props = {
   catalog: Catalog;
@@ -43,6 +48,10 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
   const page = Math.min(state.page, pages);
   const visible = pageSlice(sorted, page);
   const [focusId, setFocusId] = useState<string | null>(null);
+  const [view, setView] = useState<'grid' | 'store'>('grid');
+  const [dig, setDig] = useState<{ bin: Bin; section: string; index: number; open: boolean } | null>(null);
+  // A record opened from a bin hides the bin; closing the record brings the bin back at the same sleeve.
+  useEffect(() => { if (!state.record && dig && !dig.open) setDig({ ...dig, open: true }); }, [state.record]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!focusId) return;
@@ -70,12 +79,30 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
         <div className="flex items-center gap-4">
           <span className="text-sm text-ink-soft">{fmt(catalog.count)} records</span>
           <div className="flex rounded-full border border-ink/25 bg-card p-1" role="group" aria-label="View">
-            <button type="button" disabled title="The 3D record shop is coming soon" className="rounded-full px-4 py-1.5 text-sm text-ink/40">Store</button>
-            <button type="button" aria-pressed="true" className="rounded-full bg-forest px-4 py-1.5 text-sm text-card">Grid</button>
+            {(['store', 'grid'] as const).map((v) => (
+              <button key={v} type="button" aria-pressed={view === v} onClick={() => setView(v)} className="rounded-full px-4 py-1.5 text-sm capitalize text-ink aria-pressed:bg-forest aria-pressed:text-card">{v}</button>
+            ))}
           </div>
         </div>
       </section>
 
+      {view === 'store' ? (
+        <>
+          <Suspense fallback={<div className="mt-8 grid h-[72vh] min-h-[460px] place-items-center rounded-3xl bg-[#171210] text-[#f3e6cf]">Opening the shop…</div>}>
+            <ShopScene albums={catalog.albums} onOpenBin={(bin, section) => setDig({ bin, section, index: 0, open: true })} />
+          </Suspense>
+          {dig?.open && (
+            <BinDialog
+              bin={dig.bin}
+              section={dig.section}
+              index={dig.index}
+              onIndex={(index) => setDig({ ...dig, index })}
+              onOpen={(r) => { setDig({ ...dig, open: false }); onOpen?.(r, document.activeElement as HTMLButtonElement); }}
+              onClose={() => setDig(null)}
+            />
+          )}
+        </>
+      ) : (<>
       <div className="mt-8">
         <ChipRow
           crates={crates}
@@ -126,6 +153,7 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
       )}
 
       <Pagination page={page} pages={pages} onPage={(p) => { patch({ page: p }); window.scrollTo?.({ top: 0 }); }} />
+      </>)}
     </>
   );
 }
