@@ -1,0 +1,720 @@
+{
+  "id": 12716187,
+  "status": "Accepted",
+  "year": 2018,
+  "resource_url": "https://api.discogs.com/releases/12716187",
+  "uri": "https://www.discogs.com/release/12716187-Makaya-McCraven-Universal-Beings",
+  "artists": [
+    {
+      "name": "Makaya McCraven",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 340803,
+      "resource_url": "https://api.discogs.com/artists/340803",
+      "thumbnail_url": "https://i.discogs.com/y5N-EGK7X_mjyTEpZNpPD1annxQV-c1hK8zFPX701X4/rs:fit/g:sm/q:90/h:400/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTM0MDgw/My0xNzYyMTU5MjA2/LTUyMjIuanBlZw.jpeg"
+    }
+  ],
+  "artists_sort": "Makaya McCraven",
+  "labels": [
+    {
+      "name": "International Anthem Recording Company",
+      "catno": "IARC0022",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 799458,
+      "resource_url": "https://api.discogs.com/labels/799458",
+      "thumbnail_url": "https://i.discogs.com/P76VDdCLporLPwFj7uY02qUYRQyjnXWQ4mkgPXQjiNY/rs:fit/g:sm/q:90/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTc5OTQ1/OC0xNDI0OTg5NDUx/LTM3NzguanBlZw.jpeg"
+    }
+  ],
+  "series": [],
+  "companies": [
+    {
+      "name": "GZ Media",
+      "catno": "177736E",
+      "entity_type": "17",
+      "entity_type_name": "Pressed By",
+      "id": 430654,
+      "resource_url": "https://api.discogs.com/labels/430654",
+      "thumbnail_url": "https://i.discogs.com/tsQO8Fa5vPMtcFal_YMkjrAm8fO6g9lwwTSN64t0mo8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTQzMDY1/NC0xNzUzMTExMDY1/LTM2ODcucG5n.jpeg"
+    },
+    {
+      "name": "Pirates Press",
+      "catno": "",
+      "entity_type": "10",
+      "entity_type_name": "Manufactured By",
+      "id": 91504,
+      "resource_url": "https://api.discogs.com/labels/91504",
+      "thumbnail_url": "https://i.discogs.com/GCmkEQTEMMpbnw8588PkRvvJZQPZFMOd0Qtw3V76fbc/rs:fit/g:sm/q:90/h:489/w:400/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTkxNTA0/LTE1NjY2NDgwMzkt/NTMyNi5qcGVn.jpeg"
+    },
+    {
+      "name": "H0L0, Ridgewood, New York",
+      "catno": "",
+      "entity_type": "23",
+      "entity_type_name": "Recorded At",
+      "id": 1769352,
+      "resource_url": "https://api.discogs.com/labels/1769352",
+      "thumbnail_url": "https://i.discogs.com/6BLwaGH7U-5M9BRdE4ox5ISWB8IfL2umziOJgpyg1ro/rs:fit/g:sm/q:90/h:200/w:200/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTE3Njkz/NTItMTU4MTcwMTg1/Ny0zMzIyLnBuZw.jpeg"
+    },
+    {
+      "name": "Total Refreshment Centre",
+      "catno": "",
+      "entity_type": "23",
+      "entity_type_name": "Recorded At",
+      "id": 755637,
+      "resource_url": "https://api.discogs.com/labels/755637",
+      "thumbnail_url": "https://i.discogs.com/o4oCrGWorstNggscb9yPsrQHob_CDQmFyL-KUqtcwwo/rs:fit/g:sm/q:90/h:401/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTc1NTYz/Ny0xNDY1NDY3MjI4/LTYxNzcuanBlZw.jpeg"
+    },
+    {
+      "name": "Co-Prosperity Sphere",
+      "catno": "",
+      "entity_type": "23",
+      "entity_type_name": "Recorded At",
+      "id": 1982799,
+      "resource_url": "https://api.discogs.com/labels/1982799",
+      "thumbnail_url": "https://i.discogs.com/BrU8VpUEFDegIimtE5f6Vrz6ZlJCShSPO2Cqao_PWfw/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTE5ODI3/OTktMTYwODk4Njc3/NC0zMjQ0LmpwZWc.jpeg"
+    }
+  ],
+  "formats": [
+    {
+      "name": "Vinyl",
+      "qty": "2",
+      "descriptions": [
+        "LP",
+        "Album"
+      ]
+    }
+  ],
+  "data_quality": "Needs Vote",
+  "community": {
+    "have": 3238,
+    "want": 1071,
+    "rating": {
+      "count": 274,
+      "average": 4.66
+    },
+    "submitter": {
+      "username": "Frederic1974",
+      "resource_url": "https://api.discogs.com/users/Frederic1974"
+    },
+    "contributors": [
+      {
+        "username": "Frederic1974",
+        "resource_url": "https://api.discogs.com/users/Frederic1974"
+      },
+      {
+        "username": "andjustinforall",
+        "resource_url": "https://api.discogs.com/users/andjustinforall"
+      },
+      {
+        "username": "anotherchina",
+        "resource_url": "https://api.discogs.com/users/anotherchina"
+      },
+      {
+        "username": "Yakwa.Records",
+        "resource_url": "https://api.discogs.com/users/Yakwa.Records"
+      },
+      {
+        "username": "optoman",
+        "resource_url": "https://api.discogs.com/users/optoman"
+      },
+      {
+        "username": "Opdiner",
+        "resource_url": "https://api.discogs.com/users/Opdiner"
+      },
+      {
+        "username": "FrequencesDisquaire",
+        "resource_url": "https://api.discogs.com/users/FrequencesDisquaire"
+      },
+      {
+        "username": "soulvibes88",
+        "resource_url": "https://api.discogs.com/users/soulvibes88"
+      },
+      {
+        "username": "michael_c",
+        "resource_url": "https://api.discogs.com/users/michael_c"
+      },
+      {
+        "username": "TheGlassbee",
+        "resource_url": "https://api.discogs.com/users/TheGlassbee"
+      },
+      {
+        "username": "vp_1974",
+        "resource_url": "https://api.discogs.com/users/vp_1974"
+      }
+    ],
+    "data_quality": "Needs Vote",
+    "status": "Accepted"
+  },
+  "format_quantity": 2,
+  "date_added": "2018-10-26T19:50:42-07:00",
+  "date_changed": "2025-07-12T00:03:59-07:00",
+  "num_for_sale": 21,
+  "lowest_price": 24.82,
+  "master_id": 1444351,
+  "master_url": "https://api.discogs.com/masters/1444351",
+  "title": "Universal Beings",
+  "country": "US",
+  "released": "2018-10-26",
+  "notes": "Packaged in a gatefold sleeve with an Obi strip and a 4-page printed insert booklet.\nEach LP comes in a label-branded inner sleeve.\n\nNew York Side: Recorded August 29th, 2017, at H0I0 in Ridgewood, Queens, New York.\nChicago Side: Recorded September 2nd, 2017, at Co-Prosperity Sphere in Bridgeport, Chicago, Illinois.\nLondon Side: Recorded October 19th, 2017, at Total Refreshment Studios in Stoke Newington, London, UK.\nLos Angeles Side: Recorded January 30th, 2018, at Jeff Parker's house in Altadena, California.",
+  "released_formatted": "26 Oct 2018",
+  "identifiers": [
+    {
+      "type": "Barcode",
+      "value": "603784912066",
+      "description": "Scanned"
+    },
+    {
+      "type": "Barcode",
+      "value": "6 03784 91206 6",
+      "description": "Printed"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "177736E1/A PIRATES PRESS – IARC0022 A",
+      "description": "Runout side A, stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "177736E2/A PIRATES PRESS – IARC0022 B",
+      "description": "Runout side B, stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "177736E3/A PIRATES PRESS – IARC0022 C",
+      "description": "Runout side C, stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "177736E4/A PIRATES PRESS – IARC0022 D",
+      "description": "Runout side D, stamped"
+    }
+  ],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=DaWAjmlzFWU",
+      "title": "Makaya McCraven ‎– Universal Beings (2018)",
+      "description": "https://intlanthem.bandcamp.com/album/universal-beings",
+      "duration": 5013,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Jazz"
+  ],
+  "styles": [],
+  "tracklist": [
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "New York Side",
+      "duration": ""
+    },
+    {
+      "position": "A1",
+      "type_": "track",
+      "title": "A Queen's Intro",
+      "duration": ""
+    },
+    {
+      "position": "A2",
+      "type_": "track",
+      "title": "Holy Lands",
+      "duration": ""
+    },
+    {
+      "position": "A3",
+      "type_": "track",
+      "title": "Young Genius",
+      "duration": ""
+    },
+    {
+      "position": "A4",
+      "type_": "track",
+      "title": "Black Lion",
+      "duration": ""
+    },
+    {
+      "position": "A5",
+      "type_": "track",
+      "title": "Tall Tales",
+      "duration": ""
+    },
+    {
+      "position": "A6",
+      "type_": "track",
+      "title": "Mantra",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Chicago Side",
+      "duration": ""
+    },
+    {
+      "position": "B1",
+      "type_": "track",
+      "title": "Pharaoh's Intro",
+      "duration": ""
+    },
+    {
+      "position": "B2",
+      "type_": "track",
+      "title": "Atlantic Black",
+      "duration": ""
+    },
+    {
+      "position": "B3",
+      "type_": "track",
+      "title": "Inner Flight",
+      "duration": ""
+    },
+    {
+      "position": "B4",
+      "type_": "track",
+      "title": "Wise Man, Wiser Woman",
+      "duration": ""
+    },
+    {
+      "position": "B5",
+      "type_": "track",
+      "title": "Prosperity's Fear",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "London Side",
+      "duration": ""
+    },
+    {
+      "position": "C1",
+      "type_": "track",
+      "title": "Flipped Out",
+      "duration": ""
+    },
+    {
+      "position": "C2",
+      "type_": "track",
+      "title": "Voila",
+      "duration": ""
+    },
+    {
+      "position": "C3",
+      "type_": "track",
+      "title": "Suite Haus",
+      "duration": ""
+    },
+    {
+      "position": "C4",
+      "type_": "track",
+      "title": "The Newbies Lift Off",
+      "duration": ""
+    },
+    {
+      "position": "C5",
+      "type_": "track",
+      "title": "The Royal Outro",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Los Angeles Side",
+      "duration": ""
+    },
+    {
+      "position": "D1",
+      "type_": "track",
+      "title": "The Count Off",
+      "duration": ""
+    },
+    {
+      "position": "D2",
+      "type_": "track",
+      "title": "Butterss's",
+      "duration": ""
+    },
+    {
+      "position": "D3",
+      "type_": "track",
+      "title": "Turtle Tricks",
+      "duration": ""
+    },
+    {
+      "position": "D4",
+      "type_": "track",
+      "title": "The Fifth Monk",
+      "duration": ""
+    },
+    {
+      "position": "D5",
+      "type_": "track",
+      "title": "Brighter Days Beginning",
+      "duration": ""
+    },
+    {
+      "position": "D6",
+      "type_": "track",
+      "title": "Universal Beings",
+      "duration": ""
+    }
+  ],
+  "extraartists": [
+    {
+      "name": "Josh Johnson (13)",
+      "anv": "",
+      "join": "",
+      "role": "Alto Saxophone",
+      "tracks": "D1 to D6",
+      "id": 5599030,
+      "resource_url": "https://api.discogs.com/artists/5599030"
+    },
+    {
+      "name": "Tomeka Reid",
+      "anv": "",
+      "join": "",
+      "role": "Cello",
+      "tracks": "A1 to B5",
+      "id": 839131,
+      "resource_url": "https://api.discogs.com/artists/839131"
+    },
+    {
+      "name": "Damon Locks",
+      "anv": "",
+      "join": "",
+      "role": "Cover [Cover Art], Artwork [Cover Art]",
+      "tracks": "",
+      "id": 734002,
+      "resource_url": "https://api.discogs.com/artists/734002"
+    },
+    {
+      "name": "Craig Hansen (2)",
+      "anv": "",
+      "join": "",
+      "role": "Design [Insert Design]",
+      "tracks": "",
+      "id": 4994850,
+      "resource_url": "https://api.discogs.com/artists/4994850"
+    },
+    {
+      "name": "Anna Butterss",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass",
+      "tracks": "D1 to D6",
+      "id": 6778705,
+      "resource_url": "https://api.discogs.com/artists/6778705"
+    },
+    {
+      "name": "Daniel Casimir (2)",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass",
+      "tracks": "C1 to C5",
+      "id": 5556396,
+      "resource_url": "https://api.discogs.com/artists/5556396"
+    },
+    {
+      "name": "Dezron Douglas",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass",
+      "tracks": "A1 to A6",
+      "id": 3367523,
+      "resource_url": "https://api.discogs.com/artists/3367523"
+    },
+    {
+      "name": "Junius Paul",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass, Percussion",
+      "tracks": "B1 to B5",
+      "id": 2086203,
+      "resource_url": "https://api.discogs.com/artists/2086203"
+    },
+    {
+      "name": "Makaya McCraven",
+      "anv": "",
+      "join": "",
+      "role": "Drums",
+      "tracks": "",
+      "id": 340803,
+      "resource_url": "https://api.discogs.com/artists/340803"
+    },
+    {
+      "name": "Ashley Henry",
+      "anv": "",
+      "join": "",
+      "role": "Electric Piano [Rhodes Piano]",
+      "tracks": "C1 to C5",
+      "id": 4942194,
+      "resource_url": "https://api.discogs.com/artists/4942194"
+    },
+    {
+      "name": "Scott McNiece",
+      "anv": "",
+      "join": "",
+      "role": "Executive-Producer",
+      "tracks": "",
+      "id": 3111006,
+      "resource_url": "https://api.discogs.com/artists/3111006"
+    },
+    {
+      "name": "Jeff Parker",
+      "anv": "",
+      "join": "",
+      "role": "Guitar",
+      "tracks": "D1 to D6",
+      "id": 44570,
+      "resource_url": "https://api.discogs.com/artists/44570"
+    },
+    {
+      "name": "Brandee Younger",
+      "anv": "",
+      "join": "",
+      "role": "Harp",
+      "tracks": "A1 to A6",
+      "id": 717682,
+      "resource_url": "https://api.discogs.com/artists/717682"
+    },
+    {
+      "name": "Carlos Niño",
+      "anv": "",
+      "join": "",
+      "role": "Percussion",
+      "tracks": "D1 to D6",
+      "id": 273087,
+      "resource_url": "https://api.discogs.com/artists/273087"
+    },
+    {
+      "name": "Michael Handler",
+      "anv": "",
+      "join": "",
+      "role": "Photography By [Chicago Side]",
+      "tracks": "",
+      "id": 6778707,
+      "resource_url": "https://api.discogs.com/artists/6778707"
+    },
+    {
+      "name": "Sean Owens",
+      "anv": "",
+      "join": "",
+      "role": "Photography By [Chicago Side]",
+      "tracks": "",
+      "id": 3581612,
+      "resource_url": "https://api.discogs.com/artists/3581612"
+    },
+    {
+      "name": "Fabrice Bourgelle-Pyres",
+      "anv": "Fabrice Bourgelle",
+      "join": "",
+      "role": "Photography By [London Side]",
+      "tracks": "",
+      "id": 3237959,
+      "resource_url": "https://api.discogs.com/artists/3237959"
+    },
+    {
+      "name": "Mark Pallman",
+      "anv": "",
+      "join": "",
+      "role": "Photography By [Los Angeles Side]",
+      "tracks": "",
+      "id": 3111007,
+      "resource_url": "https://api.discogs.com/artists/3111007"
+    },
+    {
+      "name": "Joe Mault",
+      "anv": "",
+      "join": "",
+      "role": "Photography By [New York Side]",
+      "tracks": "",
+      "id": 6778706,
+      "resource_url": "https://api.discogs.com/artists/6778706"
+    },
+    {
+      "name": "Fabrice Bourgelle-Pyres",
+      "anv": "Fabrice Bourgelle",
+      "join": "",
+      "role": "Photography By [Portrait]",
+      "tracks": "",
+      "id": 3237959,
+      "resource_url": "https://api.discogs.com/artists/3237959"
+    },
+    {
+      "name": "Makaya McCraven",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 340803,
+      "resource_url": "https://api.discogs.com/artists/340803"
+    },
+    {
+      "name": "Dave Vettraino",
+      "anv": "",
+      "join": "",
+      "role": "Recorded By, Mixed By",
+      "tracks": "",
+      "id": 1791717,
+      "resource_url": "https://api.discogs.com/artists/1791717"
+    },
+    {
+      "name": "David Allen (10)",
+      "anv": "",
+      "join": "",
+      "role": "Recorded By, Mixed By",
+      "tracks": "",
+      "id": 1454125,
+      "resource_url": "https://api.discogs.com/artists/1454125"
+    },
+    {
+      "name": "Nubya Garcia",
+      "anv": "",
+      "join": "",
+      "role": "Tenor Saxophone",
+      "tracks": "C1 to C5",
+      "id": 5261803,
+      "resource_url": "https://api.discogs.com/artists/5261803"
+    },
+    {
+      "name": "Shabaka Hutchings",
+      "anv": "",
+      "join": "",
+      "role": "Tenor Saxophone",
+      "tracks": "B1 to B5",
+      "id": 1419450,
+      "resource_url": "https://api.discogs.com/artists/1419450"
+    },
+    {
+      "name": "Joel Ross (3)",
+      "anv": "",
+      "join": "",
+      "role": "Vibraphone",
+      "tracks": "A1 to A6",
+      "id": 6778708,
+      "resource_url": "https://api.discogs.com/artists/6778708"
+    },
+    {
+      "name": "Miguel Atwood-Ferguson",
+      "anv": "",
+      "join": "",
+      "role": "Violin",
+      "tracks": "D1 to D6",
+      "id": 506443,
+      "resource_url": "https://api.discogs.com/artists/506443"
+    }
+  ],
+  "images": [
+    {
+      "type": "primary",
+      "uri": "https://i.discogs.com/07wLLVB2HDpKbpYHrAeCQlaoV6v2gurBdrsCgceJJ3Q/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/07wLLVB2HDpKbpYHrAeCQlaoV6v2gurBdrsCgceJJ3Q/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/upevWYRasxYzlH15xAsnWeSev61MfU_UZ4_hu-3pDg4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "width": 600,
+      "height": 590
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/VZ_u-uWtQvOVn7Q6U-Kv4yLUNcxwziRiOkWJh5EdkkE/rs:fit/g:sm/q:90/h:579/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtMzU0My5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/VZ_u-uWtQvOVn7Q6U-Kv4yLUNcxwziRiOkWJh5EdkkE/rs:fit/g:sm/q:90/h:579/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtMzU0My5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/leF0QR2w3L4yjWPKR7tMWol3AXvD-ncRhdlYmfS9Bzw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtMzU0My5qcGVn.jpeg",
+      "width": 600,
+      "height": 579
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/jIy52hZPnJ381FBOMMzTgG6UBIyh_8jVIEw7LXy2CVo/rs:fit/g:sm/q:90/h:572/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtMjUwOC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/jIy52hZPnJ381FBOMMzTgG6UBIyh_8jVIEw7LXy2CVo/rs:fit/g:sm/q:90/h:572/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtMjUwOC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/H0Kp-qyfIsK2lsWGzuhEbWbMQATADGlsQwsPW3qa8Tw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtMjUwOC5qcGVn.jpeg",
+      "width": 600,
+      "height": 572
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/r4L6jqysjuwNdq3jk_sLU0WwuTB81sIGkklaUIoGnF4/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtNDg2OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/r4L6jqysjuwNdq3jk_sLU0WwuTB81sIGkklaUIoGnF4/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtNDg2OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/f81tZDZ0cLpFfAcGg9pCjkw35OUi0xO8PgpD2jRm5wU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtNDg2OC5qcGVn.jpeg",
+      "width": 600,
+      "height": 597
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/mLXJBu0GcXD_HSCwcJB6heZ04qfYIUB0b3r_Ey376YA/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMTg4OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/mLXJBu0GcXD_HSCwcJB6heZ04qfYIUB0b3r_Ey376YA/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMTg4OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/DxWuMp2lSO8xyUqT2PgoqJf7m13S6guEU6QhDs6bEuo/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMTg4OC5qcGVn.jpeg",
+      "width": 600,
+      "height": 595
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/c3xkbrhQL0sbDjkiFfn6GwKMyE8XxD4IcoxPaV4-ndg/rs:fit/g:sm/q:90/h:584/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtOTczOC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/c3xkbrhQL0sbDjkiFfn6GwKMyE8XxD4IcoxPaV4-ndg/rs:fit/g:sm/q:90/h:584/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtOTczOC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/sp_tKLkjeEWtGyBwyVh2B_TYXxYal9kBx4wYoHSgmr4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtOTczOC5qcGVn.jpeg",
+      "width": 600,
+      "height": 584
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/RArBxkusRcyK7rxYeZitV1PcovqiV79DbN9CR5KrmUk/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzctNjU4OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/RArBxkusRcyK7rxYeZitV1PcovqiV79DbN9CR5KrmUk/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzctNjU4OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/W-Ac9DKGit8sG9UV6708_lsUCay3DXfxqx4lJDdEO8U/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzctNjU4OC5qcGVn.jpeg",
+      "width": 594,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/tZ8NHT5LgJvfh6-a-cGUn_3t4jp5AklmzKf_ctbxseU/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjMwNS5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/tZ8NHT5LgJvfh6-a-cGUn_3t4jp5AklmzKf_ctbxseU/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjMwNS5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/fsfo8OsxQsH9UrGTis553D71h5Cp2OdLV3LR2Mzqt-8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjMwNS5qcGVn.jpeg",
+      "width": 598,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/opqa3y7_aKbc9tQZMuJktvgFM2TVbzmxLnTv-2gq2O4/rs:fit/g:sm/q:90/h:568/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtMTE3MS5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/opqa3y7_aKbc9tQZMuJktvgFM2TVbzmxLnTv-2gq2O4/rs:fit/g:sm/q:90/h:568/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtMTE3MS5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/qzZKbutWXKBjOyKYc_rTcWdZn_rO3H40DF6pkJMIoBA/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtMTE3MS5qcGVn.jpeg",
+      "width": 600,
+      "height": 568
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/hahkk5ZPYVEW3V_-SxqKKUMQ5eT0HB6Ca6ro0aWfRpA/rs:fit/g:sm/q:90/h:307/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjg4Mi5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/hahkk5ZPYVEW3V_-SxqKKUMQ5eT0HB6Ca6ro0aWfRpA/rs:fit/g:sm/q:90/h:307/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjg4Mi5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/J_NI6JLF12GgP60xwDFpZy1F_orgkvC-2PGET4E7uoM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjg4Mi5qcGVn.jpeg",
+      "width": 600,
+      "height": 307
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/toOYkaJGqTmmU7GAAY1tQHPEVZajxNZdUXzdm-4fAkM/rs:fit/g:sm/q:90/h:583/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDAtNDcxNi5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/toOYkaJGqTmmU7GAAY1tQHPEVZajxNZdUXzdm-4fAkM/rs:fit/g:sm/q:90/h:583/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDAtNDcxNi5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/9WAi-VE-1nZtAXBOxKvK929E5NP6hrEsqL-xvgb-7kI/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDAtNDcxNi5qcGVn.jpeg",
+      "width": 600,
+      "height": 583
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/VXm6vONYX9VQprtpgQ5GzW12H13HUM5rWApv9CdQ5qk/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtNjI3NC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/VXm6vONYX9VQprtpgQ5GzW12H13HUM5rWApv9CdQ5qk/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtNjI3NC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/m3XhvJ8gYuXedRxEPbieDDf0_iQfUqT2vRLX3QA_FCs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtNjI3NC5qcGVn.jpeg",
+      "width": 598,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/zQLr2QvLizlWz8tsGa9CpBj7lTv-VOSA9EknJBHYdKM/rs:fit/g:sm/q:90/h:444/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE3NTIzMDM4/MzYtNzg2NC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/zQLr2QvLizlWz8tsGa9CpBj7lTv-VOSA9EknJBHYdKM/rs:fit/g:sm/q:90/h:444/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE3NTIzMDM4/MzYtNzg2NC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/y3Geqv0DfmjwPU79ADqHKV9kml9DF7OIkPibgtO9d_w/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE3NTIzMDM4/MzYtNzg2NC5qcGVn.jpeg",
+      "width": 600,
+      "height": 444
+    }
+  ],
+  "thumb": "https://i.discogs.com/upevWYRasxYzlH15xAsnWeSev61MfU_UZ4_hu-3pDg4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+  "estimated_weight": 460,
+  "blocked_from_sale": false,
+  "is_offensive": false
+}

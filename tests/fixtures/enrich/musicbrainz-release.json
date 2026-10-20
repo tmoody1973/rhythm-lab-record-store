@@ -1,0 +1,1326 @@
+{
+  "cover-art-archive": {
+    "back": true,
+    "artwork": true,
+    "front": true,
+    "count": 2,
+    "darkened": false
+  },
+  "date": "2018-10-26",
+  "release-events": [
+    {
+      "date": "2018-10-26",
+      "area": {
+        "type": null,
+        "name": "United States",
+        "iso-3166-1-codes": [
+          "US"
+        ],
+        "id": "489ce91b-6658-3307-9877-795b68554c98",
+        "disambiguation": "",
+        "sort-name": "United States",
+        "type-id": null
+      }
+    }
+  ],
+  "barcode": "603784912073",
+  "id": "e67f258a-3988-4325-823f-c01bbd571baf",
+  "status": "Official",
+  "label-info": [
+    {
+      "label": {
+        "type": "Imprint",
+        "name": "International Anthem Recording Co.",
+        "type-id": "b6285b2a-3514-3d43-80df-fcf528824ded",
+        "sort-name": "International Anthem Recording Co.",
+        "id": "817464f6-8b69-4467-988c-1ce0bc23122e",
+        "disambiguation": "",
+        "label-code": null
+      },
+      "catalog-number": "IARC 0022"
+    },
+    {
+      "label": null,
+      "catalog-number": "IARC 0022"
+    }
+  ],
+  "relations": [
+    {
+      "target-credit": "",
+      "attribute-ids": {},
+      "attributes": [],
+      "source-credit": "",
+      "ended": false,
+      "attribute-values": {},
+      "type": "discography entry",
+      "type-id": "823656dd-0309-4247-b282-b92d287d59c5",
+      "url": {
+        "id": "a2b2ae05-5fdd-4682-a561-4ec497568fca",
+        "resource": "http://www.intlanthem.com/releases/iarc0022"
+      },
+      "target-type": "url",
+      "begin": null,
+      "end": null,
+      "direction": "forward"
+    },
+    {
+      "direction": "forward",
+      "type-id": "4a78823c-1c53-4176-a5f3-58026c76f2bc",
+      "url": {
+        "id": "ecb83a01-233b-4114-95f1-85aa8a222b1d",
+        "resource": "https://www.discogs.com/release/12729647"
+      },
+      "target-type": "url",
+      "end": null,
+      "begin": null,
+      "ended": false,
+      "attribute-values": {},
+      "type": "discogs",
+      "target-credit": "",
+      "attribute-ids": {},
+      "attributes": [],
+      "source-credit": ""
+    },
+    {
+      "url": {
+        "id": "a2b2ae05-5fdd-4682-a561-4ec497568fca",
+        "resource": "http://www.intlanthem.com/releases/iarc0022"
+      },
+      "type-id": "004bd0c3-8a45-4309-ba52-fa99f3aa3d50",
+      "end": null,
+      "begin": null,
+      "target-type": "url",
+      "direction": "forward",
+      "target-credit": "",
+      "attribute-ids": {},
+      "attributes": [],
+      "source-credit": "",
+      "ended": false,
+      "attribute-values": {},
+      "type": "license"
+    }
+  ],
+  "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+  "packaging": "Gatefold Cover",
+  "quality": "normal",
+  "media": [
+    {
+      "track-count": 11,
+      "tracks": [
+        {
+          "artist-credit": [
+            {
+              "artist": {
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "sort-name": "McCraven, Makaya",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "name": "Makaya McCraven",
+                "type": "Person"
+              },
+              "name": "Makaya McCraven",
+              "joinphrase": ""
+            }
+          ],
+          "number": "1",
+          "id": "41807a28-d162-4836-990b-e05576d50f8c",
+          "position": 1,
+          "length": 32706,
+          "recording": {
+            "title": "A Queen’s Intro",
+            "length": 32706,
+            "artist-credit": [
+              {
+                "joinphrase": "",
+                "name": "Makaya McCraven",
+                "artist": {
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "McCraven, Makaya",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": "",
+                  "type": "Person",
+                  "name": "Makaya McCraven"
+                }
+              }
+            ],
+            "id": "23b8cb8b-2f35-4199-b95d-eaeac43c2123",
+            "disambiguation": "",
+            "video": false,
+            "first-release-date": "2018-10-26"
+          },
+          "title": "A Queen’s Intro"
+        },
+        {
+          "position": 2,
+          "id": "cd4d2fdb-dd00-40e2-8959-8bdb6047f9a6",
+          "number": "2",
+          "artist-credit": [
+            {
+              "joinphrase": "",
+              "name": "Makaya McCraven",
+              "artist": {
+                "type": "Person",
+                "name": "Makaya McCraven",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": "",
+                "sort-name": "McCraven, Makaya",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US"
+              }
+            }
+          ],
+          "title": "Holy Land",
+          "recording": {
+            "video": false,
+            "first-release-date": "2018-10-26",
+            "title": "Holy Lands",
+            "length": 314800,
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. ",
+                "artist": {
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": "",
+                  "sort-name": "McCraven, Makaya",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                }
+              },
+              {
+                "name": "Brandee Younger",
+                "joinphrase": "",
+                "artist": {
+                  "id": "61d68647-258e-43e2-942f-11321df5a96a",
+                  "disambiguation": "",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "Younger, Brandee",
+                  "type": "Person",
+                  "name": "Brandee Younger"
+                }
+              }
+            ],
+            "id": "7f2fc728-050d-44fa-97e7-57c8ac7d0eab",
+            "disambiguation": ""
+          },
+          "length": 314800
+        },
+        {
+          "artist-credit": [
+            {
+              "name": "Makaya McCraven",
+              "joinphrase": "",
+              "artist": {
+                "name": "Makaya McCraven",
+                "type": "Person",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": "",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "sort-name": "McCraven, Makaya"
+              }
+            }
+          ],
+          "number": "3",
+          "position": 3,
+          "id": "c461251d-64f9-4af5-a5dc-97d713ee1e5b",
+          "title": "Young Genius",
+          "length": 332226,
+          "recording": {
+            "title": "Young Genius",
+            "length": 332226,
+            "id": "8f04828f-bfaa-4f45-928e-d6e6f9436ebf",
+            "disambiguation": "",
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. ",
+                "artist": {
+                  "type": "Person",
+                  "name": "Makaya McCraven",
+                  "sort-name": "McCraven, Makaya",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff"
+                }
+              },
+              {
+                "artist": {
+                  "name": "Joel Ross",
+                  "type": "Person",
+                  "sort-name": "Ross, Joel",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "disambiguation": "US vibraphonist",
+                  "id": "6d09039b-3e1f-49ef-b8e3-b8b7267a8578"
+                },
+                "name": "Joel Ross",
+                "joinphrase": ""
+              }
+            ],
+            "video": false,
+            "first-release-date": "2018-10-26"
+          }
+        },
+        {
+          "title": "Black Lion",
+          "recording": {
+            "video": false,
+            "first-release-date": "2018-10-26",
+            "title": "Black Lion",
+            "length": 176760,
+            "disambiguation": "",
+            "id": "b5734071-3a5d-4c88-bc38-1429faacc62b",
+            "artist-credit": [
+              {
+                "joinphrase": " feat. ",
+                "name": "Makaya McCraven",
+                "artist": {
+                  "type": "Person",
+                  "name": "Makaya McCraven",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "McCraven, Makaya",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff"
+                }
+              },
+              {
+                "artist": {
+                  "name": "Dezron Douglas",
+                  "type": "Person",
+                  "id": "1335a684-af9f-4c15-9356-9ea3162f52dc",
+                  "disambiguation": "",
+                  "sort-name": "Douglas, Dezron",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US"
+                },
+                "name": "Dezron Douglas",
+                "joinphrase": ""
+              }
+            ]
+          },
+          "length": 176760,
+          "id": "1795b627-06aa-4d06-9801-ff2e2ea26809",
+          "position": 4,
+          "artist-credit": [
+            {
+              "joinphrase": "",
+              "name": "Makaya McCraven",
+              "artist": {
+                "sort-name": "McCraven, Makaya",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": "",
+                "type": "Person",
+                "name": "Makaya McCraven"
+              }
+            }
+          ],
+          "number": "4"
+        },
+        {
+          "title": "Tall Tales",
+          "length": 256146,
+          "recording": {
+            "first-release-date": "2018-10-26",
+            "video": false,
+            "artist-credit": [
+              {
+                "artist": {
+                  "type": "Person",
+                  "name": "Makaya McCraven",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "McCraven, Makaya",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": ""
+                },
+                "joinphrase": " feat. ",
+                "name": "Makaya McCraven"
+              },
+              {
+                "joinphrase": "",
+                "name": "Tomeka Reid",
+                "artist": {
+                  "name": "Tomeka Reid",
+                  "type": "Person",
+                  "disambiguation": "",
+                  "id": "d91d6fca-ea9c-4a5d-a0ba-5a666c81cd51",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "Reid, Tomeka"
+                }
+              }
+            ],
+            "id": "07ff119a-2d4c-47c1-9acc-7529a85d143f",
+            "disambiguation": "",
+            "length": 256146,
+            "title": "Tall Tales"
+          },
+          "artist-credit": [
+            {
+              "artist": {
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "sort-name": "McCraven, Makaya",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "type": "Person",
+                "name": "Makaya McCraven"
+              },
+              "joinphrase": "",
+              "name": "Makaya McCraven"
+            }
+          ],
+          "number": "5",
+          "position": 5,
+          "id": "953a538e-26b6-4e76-b6ae-f35b9dde2059"
+        },
+        {
+          "recording": {
+            "length": 228706,
+            "title": "Mantra",
+            "disambiguation": "",
+            "id": "9ff34b01-49d3-4587-af05-ee9babd5bcf5",
+            "artist-credit": [
+              {
+                "artist": {
+                  "type": "Person",
+                  "name": "Makaya McCraven",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "McCraven, Makaya",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": ""
+                },
+                "joinphrase": "",
+                "name": "Makaya McCraven"
+              }
+            ],
+            "first-release-date": "2018-10-26",
+            "video": false
+          },
+          "length": 228706,
+          "title": "Mantra",
+          "id": "7a5a7d93-e230-4da3-86ab-585507a8b4c7",
+          "position": 6,
+          "artist-credit": [
+            {
+              "artist": {
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "sort-name": "McCraven, Makaya",
+                "name": "Makaya McCraven",
+                "type": "Person"
+              },
+              "joinphrase": "",
+              "name": "Makaya McCraven"
+            }
+          ],
+          "number": "6"
+        },
+        {
+          "title": "Pharaoh’s Intro",
+          "length": 118626,
+          "recording": {
+            "video": false,
+            "first-release-date": "2018-10-26",
+            "id": "e90a646e-2850-49fe-9706-0d79ab9f0f8c",
+            "disambiguation": "",
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": "",
+                "artist": {
+                  "type": "Person",
+                  "name": "Makaya McCraven",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": "",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "McCraven, Makaya"
+                }
+              }
+            ],
+            "title": "Pharaoh’s Intro",
+            "length": 118626
+          },
+          "number": "7",
+          "artist-credit": [
+            {
+              "artist": {
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "sort-name": "McCraven, Makaya",
+                "name": "Makaya McCraven",
+                "type": "Person"
+              },
+              "joinphrase": "",
+              "name": "Makaya McCraven"
+            }
+          ],
+          "id": "6abc6b12-ae91-4de7-b209-cf96514d2f3a",
+          "position": 7
+        },
+        {
+          "id": "1c4eb68f-35ee-4e2a-9460-f1cc32ecd0fd",
+          "position": 8,
+          "number": "8",
+          "artist-credit": [
+            {
+              "name": "Makaya McCraven",
+              "joinphrase": "",
+              "artist": {
+                "type": "Person",
+                "name": "Makaya McCraven",
+                "sort-name": "McCraven, Makaya",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff"
+              }
+            }
+          ],
+          "title": "Atlantic Black",
+          "recording": {
+            "first-release-date": "2018-10-26",
+            "video": false,
+            "length": 550000,
+            "title": "Atlantic Black",
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": "",
+                "artist": {
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "McCraven, Makaya",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                }
+              }
+            ],
+            "id": "5633fb52-3a2f-4377-96c0-c05f1d582897",
+            "disambiguation": ""
+          },
+          "length": 550000
+        },
+        {
+          "number": "9",
+          "artist-credit": [
+            {
+              "name": "Makaya McCraven",
+              "joinphrase": "",
+              "artist": {
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": "",
+                "sort-name": "McCraven, Makaya",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "name": "Makaya McCraven",
+                "type": "Person"
+              }
+            }
+          ],
+          "id": "84c76527-b132-42cd-9c40-978e5082bb06",
+          "position": 9,
+          "title": "Inner Flight",
+          "length": 182946,
+          "recording": {
+            "first-release-date": "2018-10-26",
+            "video": false,
+            "length": 182946,
+            "title": "Inner Flight",
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": "",
+                "artist": {
+                  "sort-name": "McCraven, Makaya",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                }
+              }
+            ],
+            "id": "f805ee24-5070-449d-834e-94f73a38cfc1",
+            "disambiguation": ""
+          }
+        },
+        {
+          "number": "10",
+          "artist-credit": [
+            {
+              "name": "Makaya McCraven",
+              "joinphrase": "",
+              "artist": {
+                "name": "Makaya McCraven",
+                "type": "Person",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "sort-name": "McCraven, Makaya",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df"
+              }
+            }
+          ],
+          "id": "ddb8b56e-dcf5-4521-9d88-29e519f995bb",
+          "position": 10,
+          "length": 193053,
+          "recording": {
+            "disambiguation": "",
+            "id": "2f4e0e5b-2513-42e8-a2fc-67d4e51b08aa",
+            "artist-credit": [
+              {
+                "artist": {
+                  "sort-name": "McCraven, Makaya",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": "",
+                  "type": "Person",
+                  "name": "Makaya McCraven"
+                },
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. "
+              },
+              {
+                "artist": {
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "GB",
+                  "sort-name": "Hutchings, Shabaka",
+                  "disambiguation": "",
+                  "id": "5b0f26cc-1203-49d8-abe2-90bec87a2e71",
+                  "name": "Shabaka Hutchings",
+                  "type": "Person"
+                },
+                "name": "Shabaka Hutchings",
+                "joinphrase": ""
+              }
+            ],
+            "title": "Wise Man, Wiser Woman",
+            "length": 193053,
+            "video": false,
+            "first-release-date": "2018-10-26"
+          },
+          "title": "Wise Man, Wiser Woman"
+        },
+        {
+          "title": "Prosperity’s Fear",
+          "recording": {
+            "disambiguation": "",
+            "id": "7ac5fade-329d-488e-8c63-c265cb3acd6b",
+            "artist-credit": [
+              {
+                "artist": {
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "McCraven, Makaya",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                },
+                "joinphrase": " feat. ",
+                "name": "Makaya McCraven"
+              },
+              {
+                "name": "Junius Paul",
+                "joinphrase": "",
+                "artist": {
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "Paul, Junius",
+                  "disambiguation": "",
+                  "id": "e06be842-299d-4844-a019-fc377748cfdb",
+                  "name": "Junius Paul",
+                  "type": "Person"
+                }
+              }
+            ],
+            "title": "Prosperity’s Fear",
+            "length": 371413,
+            "video": false,
+            "first-release-date": "2018-10-26"
+          },
+          "length": 371413,
+          "id": "9d0cd086-4da0-46fd-84e2-612c79b087b4",
+          "position": 11,
+          "artist-credit": [
+            {
+              "joinphrase": "",
+              "name": "Makaya McCraven",
+              "artist": {
+                "type": "Person",
+                "name": "Makaya McCraven",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "sort-name": "McCraven, Makaya",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": ""
+              }
+            }
+          ],
+          "number": "11"
+        }
+      ],
+      "track-offset": 0,
+      "title": "New York Side",
+      "format-id": "9712d52a-4509-3d4b-a1a2-67c88c643e31",
+      "position": 1,
+      "id": "46fceb90-759e-32ef-8015-cda6dd2e8bb1",
+      "format": "CD"
+    },
+    {
+      "track-offset": 0,
+      "track-count": 11,
+      "tracks": [
+        {
+          "recording": {
+            "first-release-date": "2018-10-26",
+            "video": false,
+            "disambiguation": "",
+            "id": "aacc8087-1103-439a-801c-d427f16beb66",
+            "artist-credit": [
+              {
+                "artist": {
+                  "type": "Person",
+                  "name": "Makaya McCraven",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "McCraven, Makaya",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": ""
+                },
+                "name": "Makaya McCraven",
+                "joinphrase": ""
+              }
+            ],
+            "length": 160493,
+            "title": "Flipped Out"
+          },
+          "length": 160493,
+          "title": "Flipped OUT",
+          "id": "b4dfb6da-da37-4ae0-9612-ada2124296e6",
+          "position": 1,
+          "number": "1",
+          "artist-credit": [
+            {
+              "joinphrase": "",
+              "name": "Makaya McCraven",
+              "artist": {
+                "name": "Makaya McCraven",
+                "type": "Person",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "sort-name": "McCraven, Makaya",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Voila",
+          "recording": {
+            "video": false,
+            "first-release-date": "2018-10-26",
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. ",
+                "artist": {
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": "",
+                  "sort-name": "McCraven, Makaya",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "type": "Person",
+                  "name": "Makaya McCraven"
+                }
+              },
+              {
+                "name": "Daniel Casimir",
+                "joinphrase": "",
+                "artist": {
+                  "sort-name": "Casimir, Daniel",
+                  "country": null,
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "disambiguation": "Musician - Trombone Player",
+                  "id": "2a7df48b-9a4d-4bde-91ce-abc3c780a293",
+                  "name": "Daniel Casimir",
+                  "type": "Person"
+                }
+              }
+            ],
+            "disambiguation": "",
+            "id": "96687f47-7e67-46c4-8e75-f6d3541ced53",
+            "title": "Voila",
+            "length": 300453
+          },
+          "length": 300453,
+          "position": 2,
+          "id": "55730d4e-43e0-437b-8f72-e63ec00cba02",
+          "artist-credit": [
+            {
+              "artist": {
+                "sort-name": "McCraven, Makaya",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "name": "Makaya McCraven",
+                "type": "Person"
+              },
+              "joinphrase": "",
+              "name": "Makaya McCraven"
+            }
+          ],
+          "number": "2"
+        },
+        {
+          "artist-credit": [
+            {
+              "artist": {
+                "sort-name": "McCraven, Makaya",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": "",
+                "type": "Person",
+                "name": "Makaya McCraven"
+              },
+              "name": "Makaya McCraven",
+              "joinphrase": ""
+            }
+          ],
+          "number": "3",
+          "id": "c93ecaca-2860-4a0a-af0b-a812bc800ebb",
+          "position": 3,
+          "title": "Suite Haus",
+          "length": 309013,
+          "recording": {
+            "video": false,
+            "first-release-date": "2018-10-26",
+            "title": "Suite Haus",
+            "length": 309013,
+            "artist-credit": [
+              {
+                "artist": {
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "McCraven, Makaya",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "type": "Person",
+                  "name": "Makaya McCraven"
+                },
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. "
+              },
+              {
+                "artist": {
+                  "sort-name": "Garcia, Nubya",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "GB",
+                  "disambiguation": "English jazz musician",
+                  "id": "42dd1862-7255-47ed-8584-651abce3bf53",
+                  "name": "Nubya Garcia",
+                  "type": "Person"
+                },
+                "joinphrase": "",
+                "name": "Nubya Garcia"
+              }
+            ],
+            "disambiguation": "",
+            "id": "e7fed3f8-78b6-4a6e-85dc-c46e559945f5"
+          }
+        },
+        {
+          "title": "The Newbies Lift Off",
+          "recording": {
+            "length": 379813,
+            "title": "The Newbies Lift Off",
+            "artist-credit": [
+              {
+                "artist": {
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "McCraven, Makaya",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                },
+                "joinphrase": " feat. ",
+                "name": "Makaya McCraven"
+              },
+              {
+                "artist": {
+                  "type": "Person",
+                  "name": "Ashley Henry",
+                  "id": "a1b8ad65-4fa7-40f0-a8a2-4a896723c9b0",
+                  "disambiguation": "UK jazz musician",
+                  "country": "GB",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "Henry, Ashley"
+                },
+                "name": "Ashley Henry",
+                "joinphrase": ""
+              }
+            ],
+            "id": "e5b2371f-13d6-4035-9df6-6f016f78cd58",
+            "disambiguation": "",
+            "first-release-date": "2018-10-26",
+            "video": false
+          },
+          "length": 379813,
+          "id": "9297a584-d886-41ac-827b-eb70efcb6a36",
+          "position": 4,
+          "number": "4",
+          "artist-credit": [
+            {
+              "joinphrase": "",
+              "name": "Makaya McCraven",
+              "artist": {
+                "name": "Makaya McCraven",
+                "type": "Person",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "sort-name": "McCraven, Makaya",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": ""
+              }
+            }
+          ]
+        },
+        {
+          "length": 104146,
+          "recording": {
+            "artist-credit": [
+              {
+                "artist": {
+                  "name": "Makaya McCraven",
+                  "type": "Person",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": "",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "McCraven, Makaya"
+                },
+                "joinphrase": "",
+                "name": "Makaya McCraven"
+              }
+            ],
+            "id": "b780dedb-87f5-4b4b-a3d8-8c04c89c9f0b",
+            "disambiguation": "",
+            "length": 104146,
+            "title": "The Royal Outro",
+            "first-release-date": "2018-10-26",
+            "video": false
+          },
+          "title": "The Royal Outro",
+          "artist-credit": [
+            {
+              "joinphrase": "",
+              "name": "Makaya McCraven",
+              "artist": {
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "sort-name": "McCraven, Makaya",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "name": "Makaya McCraven",
+                "type": "Person"
+              }
+            }
+          ],
+          "number": "5",
+          "position": 5,
+          "id": "f400e3a3-3ad0-4290-858d-ae019d9289e8"
+        },
+        {
+          "recording": {
+            "id": "c4dfbddf-df5c-49c0-989c-2500700cef4f",
+            "disambiguation": "",
+            "artist-credit": [
+              {
+                "joinphrase": " feat. ",
+                "name": "Makaya McCraven",
+                "artist": {
+                  "type": "Person",
+                  "name": "Makaya McCraven",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "McCraven, Makaya",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": ""
+                }
+              },
+              {
+                "name": "Carlos Niño",
+                "joinphrase": "",
+                "artist": {
+                  "name": "Carlos Niño",
+                  "type": "Person",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "sort-name": "Niño, Carlos",
+                  "disambiguation": "Californian music producer, percussionist, and composer",
+                  "id": "f6e8d274-e3f5-4491-bbea-bbf9a2119d95"
+                }
+              }
+            ],
+            "length": 69146,
+            "title": "The Count Off",
+            "first-release-date": "2018-10-26",
+            "video": false
+          },
+          "length": 69146,
+          "title": "The Count Off",
+          "position": 6,
+          "id": "6df26687-56a1-4784-bb7e-8ea6f9b975d4",
+          "artist-credit": [
+            {
+              "artist": {
+                "sort-name": "McCraven, Makaya",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": "",
+                "type": "Person",
+                "name": "Makaya McCraven"
+              },
+              "name": "Makaya McCraven",
+              "joinphrase": ""
+            }
+          ],
+          "number": "6"
+        },
+        {
+          "recording": {
+            "artist-credit": [
+              {
+                "artist": {
+                  "sort-name": "McCraven, Makaya",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                },
+                "joinphrase": " feat. ",
+                "name": "Makaya McCraven"
+              },
+              {
+                "joinphrase": "",
+                "name": "Anna Butterss",
+                "artist": {
+                  "type": "Person",
+                  "name": "Anna Butterss",
+                  "sort-name": "Butterss, Anna",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "id": "022b8522-a7cc-4755-a99f-225107415a45",
+                  "disambiguation": "Los Angeles-based bassist"
+                }
+              }
+            ],
+            "id": "6fbd909a-bf92-412a-856f-2c2d889de5ab",
+            "disambiguation": "",
+            "length": 179506,
+            "title": "Butterss’s",
+            "first-release-date": "2018-10-26",
+            "video": false
+          },
+          "length": 179506,
+          "title": "Butterss’s",
+          "position": 7,
+          "id": "cdee1b40-abcd-4d4a-9ac8-c2078e73b8c0",
+          "number": "7",
+          "artist-credit": [
+            {
+              "name": "Makaya McCraven",
+              "joinphrase": "",
+              "artist": {
+                "name": "Makaya McCraven",
+                "type": "Person",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "disambiguation": "",
+                "sort-name": "McCraven, Makaya",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US"
+              }
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "id": "aced7d24-9fe9-4a89-ad69-869f14799324",
+          "number": "8",
+          "artist-credit": [
+            {
+              "artist": {
+                "type": "Person",
+                "name": "Makaya McCraven",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "sort-name": "McCraven, Makaya",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df"
+              },
+              "joinphrase": "",
+              "name": "Makaya McCraven"
+            }
+          ],
+          "title": "Turtle Tricks",
+          "recording": {
+            "title": "Turtle Tricks",
+            "length": 255733,
+            "artist-credit": [
+              {
+                "artist": {
+                  "name": "Makaya McCraven",
+                  "type": "Person",
+                  "sort-name": "McCraven, Makaya",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff"
+                },
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. "
+              },
+              {
+                "artist": {
+                  "name": "Jeff Parker",
+                  "type": "Person",
+                  "sort-name": "Parker, Jeff",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "country": "US",
+                  "id": "4894f8eb-be75-4bd5-a3a3-7c20894439f9",
+                  "disambiguation": "US jazz and rock guitarist, member of Tortoise"
+                },
+                "joinphrase": "",
+                "name": "Jeff Parker"
+              }
+            ],
+            "disambiguation": "",
+            "id": "6424b72d-dd1c-45de-ac43-f6697f774085",
+            "video": false,
+            "first-release-date": "2018-10-26"
+          },
+          "length": 255733
+        },
+        {
+          "position": 9,
+          "id": "ac916eac-5e00-4d27-8778-0b3ee7a3ffb3",
+          "number": "9",
+          "artist-credit": [
+            {
+              "artist": {
+                "type": "Person",
+                "name": "Makaya McCraven",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "sort-name": "McCraven, Makaya",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff"
+              },
+              "joinphrase": "",
+              "name": "Makaya McCraven"
+            }
+          ],
+          "recording": {
+            "video": false,
+            "first-release-date": "2018-10-26",
+            "disambiguation": "",
+            "id": "e0f6cacc-94ed-4029-b804-42d4fce89ef7",
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": "",
+                "artist": {
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "McCraven, Makaya",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": "",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                }
+              }
+            ],
+            "title": "The Fifth Monk",
+            "length": 481280
+          },
+          "length": 481280,
+          "title": "The Fifth Monk"
+        },
+        {
+          "title": "Brighter Days Beginning",
+          "length": 152626,
+          "recording": {
+            "video": false,
+            "first-release-date": "2018-10-26",
+            "id": "f5ed2458-3f2d-42b5-b50b-12e569949f1f",
+            "disambiguation": "",
+            "artist-credit": [
+              {
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. ",
+                "artist": {
+                  "name": "Makaya McCraven",
+                  "type": "Person",
+                  "sort-name": "McCraven, Makaya",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "disambiguation": ""
+                }
+              },
+              {
+                "artist": {
+                  "type": "Person",
+                  "name": "Josh Johnson",
+                  "id": "37b60764-3b1e-4247-8215-93e579bd7f1b",
+                  "disambiguation": "saxophone, keyboards, composer, USA, member of Holophonor",
+                  "sort-name": "Johnson, Josh",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df"
+                },
+                "joinphrase": "",
+                "name": "Josh Johnson"
+              }
+            ],
+            "title": "Brighter Days Beginning",
+            "length": 152626
+          },
+          "artist-credit": [
+            {
+              "joinphrase": "",
+              "name": "Makaya McCraven",
+              "artist": {
+                "type": "Person",
+                "name": "Makaya McCraven",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "country": "US",
+                "sort-name": "McCraven, Makaya",
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff"
+              }
+            }
+          ],
+          "number": "10",
+          "position": 10,
+          "id": "20067527-fcca-4890-8e57-7dd1dd7361fc"
+        },
+        {
+          "length": 248573,
+          "recording": {
+            "id": "518b0e93-1857-406b-8dd3-deaa38cf125b",
+            "disambiguation": "",
+            "artist-credit": [
+              {
+                "artist": {
+                  "disambiguation": "",
+                  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                  "sort-name": "McCraven, Makaya",
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "name": "Makaya McCraven",
+                  "type": "Person"
+                },
+                "name": "Makaya McCraven",
+                "joinphrase": " feat. "
+              },
+              {
+                "artist": {
+                  "country": "US",
+                  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                  "sort-name": "Atwood‐Ferguson, Miguel",
+                  "disambiguation": "",
+                  "id": "7a313730-0a45-46ae-9ac1-ee8ff700dd7c",
+                  "type": "Person",
+                  "name": "Miguel Atwood‐Ferguson"
+                },
+                "name": "Miguel Atwood‐Ferguson",
+                "joinphrase": ""
+              }
+            ],
+            "title": "Universal Beings",
+            "length": 248573,
+            "video": false,
+            "first-release-date": "2018-10-26"
+          },
+          "title": "Universal Beings",
+          "artist-credit": [
+            {
+              "artist": {
+                "disambiguation": "",
+                "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+                "sort-name": "McCraven, Makaya",
+                "country": "US",
+                "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+                "type": "Person",
+                "name": "Makaya McCraven"
+              },
+              "name": "Makaya McCraven",
+              "joinphrase": ""
+            }
+          ],
+          "number": "11",
+          "id": "39c1036a-794c-4370-9f67-952aaddd92c8",
+          "position": 11
+        }
+      ],
+      "position": 2,
+      "id": "55837e9e-5ed2-3861-ad40-2a37cd6f93ea",
+      "format": "CD",
+      "title": "London Side",
+      "format-id": "9712d52a-4509-3d4b-a1a2-67c88c643e31"
+    }
+  ],
+  "disambiguation": "",
+  "artist-credit": [
+    {
+      "artist": {
+        "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+        "disambiguation": "",
+        "country": "US",
+        "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+        "sort-name": "McCraven, Makaya",
+        "type": "Person",
+        "name": "Makaya McCraven"
+      },
+      "joinphrase": "",
+      "name": "Makaya McCraven"
+    }
+  ],
+  "packaging-id": "e724a489-a7e8-30a1-a17c-30dfd6831202",
+  "text-representation": {
+    "language": "eng",
+    "script": "Latn"
+  },
+  "title": "Universal Beings",
+  "country": "US",
+  "asin": null
+}

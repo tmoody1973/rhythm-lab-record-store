@@ -1,0 +1,248 @@
+{
+  "created": "2026-10-20T03:04:44.950Z",
+  "count": 8,
+  "offset": 0,
+  "releases": [
+    {
+      "id": "e67f258a-3988-4325-823f-c01bbd571baf",
+      "score": 100,
+      "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+      "packaging-id": "e724a489-a7e8-30a1-a17c-30dfd6831202",
+      "artist-credit-id": "c6b64b21-e3c0-317f-ad9d-a733cecb0aaa",
+      "count": 2,
+      "title": "Universal Beings",
+      "status": "Official",
+      "packaging": "Gatefold Cover",
+      "text-representation": {
+        "language": "eng",
+        "script": "Latn"
+      },
+      "artist-credit": [
+        {
+          "name": "Makaya McCraven",
+          "artist": {
+            "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+            "name": "Makaya McCraven",
+            "sort-name": "McCraven, Makaya"
+          }
+        }
+      ],
+      "release-group": {
+        "id": "02bc86ec-e917-4cda-bd15-ffe65e10511a",
+        "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+        "primary-type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+        "title": "Universal Beings",
+        "primary-type": "Album"
+      },
+      "date": "2018-10-26",
+      "country": "US",
+      "release-events": [
+        {
+          "date": "2018-10-26",
+          "area": {
+            "id": "489ce91b-6658-3307-9877-795b68554c98",
+            "name": "United States",
+            "sort-name": "United States",
+            "iso-3166-1-codes": [
+              "US"
+            ]
+          }
+        }
+      ],
+      "barcode": "603784912073",
+      "label-info": [
+        {
+          "catalog-number": "IARC 0022",
+          "label": {
+            "id": "817464f6-8b69-4467-988c-1ce0bc23122e",
+            "name": "International Anthem Recording Co."
+          }
+        },
+        {
+          "catalog-number": "IARC 0022"
+        }
+      ],
+      "track-count": 22,
+      "media": [
+        {
+          "id": "46fceb90-759e-32ef-8015-cda6dd2e8bb1",
+          "format": "CD",
+          "disc-count": 1,
+          "track-count": 11
+        },
+        {
+          "id": "55837e9e-5ed2-3861-ad40-2a37cd6f93ea",
+          "format": "CD",
+          "disc-count": 1,
+          "track-count": 11
+        }
+      ]
+    },
+    {
+      "id": "dc84075b-5a1f-4085-8889-731a3d7df202",
+      "score": 100,
+      "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+      "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+      "artist-credit-id": "c6b64b21-e3c0-317f-ad9d-a733cecb0aaa",
+      "count": 1,
+      "title": "Universal Beings",
+      "status": "Official",
+      "packaging": "None",
+      "text-representation": {
+        "language": "eng",
+        "script": "Latn"
+      },
+      "artist-credit": [
+        {
+          "name": "Makaya McCraven",
+          "artist": {
+            "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+            "name": "Makaya McCraven",
+            "sort-name": "McCraven, Makaya"
+          }
+        }
+      ],
+      "release-group": {
+        "id": "02bc86ec-e917-4cda-bd15-ffe65e10511a",
+        "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+        "primary-type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+        "title": "Universal Beings",
+        "primary-type": "Album"
+      },
+      "date": "2018-10-26",
+      "country": "XW",
+      "release-events": [
+        {
+          "date": "2018-10-26",
+          "area": {
+            "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+            "name": "[Worldwide]",
+            "sort-name": "[Worldwide]",
+            "iso-3166-1-codes": [
+              "XW"
+            ]
+          }
+        }
+      ],
+      "barcode": "603784912073",
+      "label-info": [
+        {
+          "catalog-number": "IARC0022",
+          "label": {
+            "id": "817464f6-8b69-4467-988c-1ce0bc23122e",
+            "name": "International Anthem Recording Co."
+          }
+        }
+      ],
+      "track-count": 22,
+      "media": [
+        {
+          "id": "3c0ba9b8-5392-3748-97f2-b1db58706aab",
+          "format": "Digital Media",
+          "disc-count": 0,
+          "track-count": 22
+        }
+      ],
+      "tags": [
+        {
+          "count": 3,
+          "name": "jazz"
+        },
+        {
+          "count": 3,
+          "name": "soul"
+        },
+        {
+          "count": 3,
+          "name": "psychedelic"
+        },
+        {
+          "count": 2,
+          "name": "no wave"
+        },
+        {
+          "count": 1,
+          "name": "chicago"
+        },
+        {
+          "count": 1,
+          "name": "experimental folk"
+        },
+        {
+          "count": 1,
+          "name": "free improvisation"
+        },
+        {
+          "count": 1,
+          "name": "modern music"
+        }
+      ]
+    },
+    {
+      "id": "f7f67163-350f-4ff9-b88e-85f78b3fe0aa",
+      "score": 100,
+      "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+      "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+      "artist-credit-id": "c6b64b21-e3c0-317f-ad9d-a733cecb0aaa",
+      "count": 1,
+      "title": "Universal Beings",
+      "status": "Official",
+      "packaging": "None",
+      "text-representation": {
+        "language": "eng",
+        "script": "Latn"
+      },
+      "artist-credit": [
+        {
+          "name": "Makaya McCraven",
+          "artist": {
+            "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+            "name": "Makaya McCraven",
+            "sort-name": "McCraven, Makaya"
+          }
+        }
+      ],
+      "release-group": {
+        "id": "02bc86ec-e917-4cda-bd15-ffe65e10511a",
+        "type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+        "primary-type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+        "title": "Universal Beings",
+        "primary-type": "Album"
+      },
+      "date": "2018-10-26",
+      "country": "JP",
+      "release-events": [
+        {
+          "date": "2018-10-26",
+          "area": {
+            "id": "2db42837-c832-3c27-b4a3-08198f75693c",
+            "name": "Japan",
+            "sort-name": "Japan",
+            "iso-3166-1-codes": [
+              "JP"
+            ]
+          }
+        }
+      ],
+      "barcode": "4988044123434",
+      "label-info": [
+        {
+          "catalog-number": "RINC127",
+          "label": {
+            "id": "3deca5df-9ce4-43d5-8574-bd969ec647b7",
+            "name": "rings"
+          }
+        }
+      ],
+      "track-count": 22,
+      "media": [
+        {
+          "id": "687981bb-9934-4f50-b357-d691cb0cfc06",
+          "format": "Digital Media",
+          "disc-count": 0,
+          "track-count": 22
+        }
+      ]
+    }
+  ]
+}

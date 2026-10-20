@@ -18,7 +18,7 @@ export function normalize(s: string): string {
     .normalize('NFD').replace(/\p{M}/gu, '')
     .replace(NOISE, ' ')
     .replace(/\s+(feat\.?|ft\.?|featuring)\s.*$/i, '')
-    .replace(/\s*[-–—]\s*ep\s*$/i, '')
+    .replace(/\s*[-–—]\s*(ep|single)\s*$/i, '')
     .toLowerCase()
     .replace(/&/g, ' and ')
     .replace(/['’]/g, '')
@@ -34,8 +34,17 @@ export function confidence(record: PublicAlbum, c: Candidate): Level {
   return c.trackCount === record.songCount ? 'high' : 'medium';
 }
 
-/** Values count as "the same" after normalizing; dates agree on the year; styles as a set. */
+/** Label names without company words: "International Anthem Recording Co." ≈ "International Anthem". */
+const LABEL_SUFFIX = /\s+(recording|recordings|records|record|company|co|llc|inc|ltd|limited|gmbh|music|label)$/;
+function labelKey(v: string): string {
+  let k = normalize(v);
+  for (let prev = ''; prev !== k; ) { prev = k; k = k.replace(LABEL_SUFFIX, ''); }
+  return k;
+}
+
+/** Values count as "the same" after normalizing; labels without company words; dates on the year; styles as a set. */
 function sameKey(field: string, v: unknown): string {
+  if (field === 'label') return labelKey(String(v));
   if (field === 'releaseDate') return String(v).slice(0, 4);
   if (Array.isArray(v)) return JSON.stringify(v.map((x) => normalize(String(x))).sort());
   return normalize(String(v));
@@ -65,9 +74,10 @@ export function gate(record: PublicAlbum, best: Candidate[], overrides?: Overrid
       review.push({ field, values: values.map(({ source, value }) => ({ source, value })) });
       continue;
     }
-    // Most precise agreeing value (e.g. a full date over a year).
-    const chosen = [...top].sort((a, b) => String(b.value).length - String(a.value).length)[0]!;
-    (out as Record<string, unknown>)[field] = field === 'releaseDate' ? chosen.value : top[0]!.value;
+    // Dates: the most precise agreeing value. Labels: the shortest (cleanest) spelling. Others: first source.
+    const byLength = [...top].sort((a, b) => String(a.value).length - String(b.value).length);
+    const chosen = field === 'releaseDate' ? byLength.at(-1)! : field === 'label' ? byLength[0]! : top[0]!;
+    (out as Record<string, unknown>)[field] = chosen.value;
     top.forEach((v) => credit(v.source));
   }
 
@@ -81,4 +91,14 @@ export function gate(record: PublicAlbum, best: Candidate[], overrides?: Overrid
   }
   const hasFields = FIELDS.some((f) => out[f] !== undefined);
   return { published: hasFields ? { ...out, sources } : null, review };
+}
+
+/** Candidates worth keeping, best first (high before medium); low matches dropped. */
+export function ranked(record: PublicAlbum, candidates: Candidate[]): Candidate[] {
+  const order = { high: 0, medium: 1, low: 2 } as const;
+  return candidates
+    .map((c) => ({ c, level: confidence(record, c) }))
+    .filter((x) => x.level !== 'low')
+    .sort((a, b) => order[a.level] - order[b.level])
+    .map((x) => x.c);
 }

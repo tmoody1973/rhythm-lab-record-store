@@ -1,0 +1,143 @@
+{
+  "results": {
+    "albums": {
+      "href": "/v1/catalog/us/search?limit=5&term=Makaya+McCraven+Universal+Beings&types=albums",
+      "data": [
+        {
+          "id": "1410969638",
+          "type": "albums",
+          "href": "/v1/catalog/us/albums/1410969638",
+          "attributes": {
+            "artistName": "Makaya McCraven",
+            "artwork": {
+              "bgColor": "5f5f5b",
+              "height": 1400,
+              "textColor1": "f1eed5",
+              "textColor2": "e6ddc6",
+              "textColor3": "d4d1bd",
+              "textColor4": "cbc3b0",
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/6c/6b/98/6c6b98d3-6de6-5d2c-ab83-d87377615a26/603784912073.jpg/{w}x{h}bb.jpg",
+              "width": 1400
+            },
+            "copyright": "℗ 2018 International Anthem",
+            "editorialNotes": {
+              "short": "In four cities, a drummer/producer explores the shape of jazz to come.",
+              "standard": "For a jazz drummer, Makaya McCraven has a rather unorthodox way of making albums. Back in 2014, he began hosting a live-improv series with other like-minded Chicago musicians. “We recorded everything, and I started to just mess with it as samples,” McCraven tells Apple Music. He would pluck out the best parts from those extended jams and, with digital editing software, build entirely new tracks. The result—2015’s aptly titled <i>In the Moment</i>—introduced a style of hip-hop-inspired production that owes as much to Madlib as it does Sun Ra. But it still comes down to that source material. “It’s always about playing with lots of people, in lots of situations, and exploring as many avenues as I can to push me to grow as an artist,” he says.<br />\nCulled from what he calls “spontaneous compositions”—recorded live with different ensembles in four cities, then recomposed digitally—<i>Universal Beings</i>, McCraven's third official album, is both a testament to his creative ambitions and a pulse-taking of modern jazz. British tenor heavyweight Shabaka Hutchings, who appears on the Chicago sessions, plays with rhythmic ferocity, while fellow London saxophonist Nubya Garcia offers laidback counterpoint to Ashley Henry’s moody Rhodes piano. \"I think they’re coming from more of a groove sensibility,” McCraven says of his London collaborators, some of whom he met literally moments before they took the stage together for these recordings. “A lot of them are tapping into the diverse fabric of the city, with music from the West Indies, Afrobeat, British soul.”<br />\nWith abundant harp from Brandee Younger and cello from Tomeka Reid, the tracks from New York only hint at conventional jazz idioms, instead leaning more heavily on abstract elements of classical, rock, and R&B. And on the songs made from the LA session at guitarist Jeff Parker’s house, energetic free-jazz flourishes mix with gloriously off-kilter drums and the musicians themselves ruminating on consciousness, happiness, and human potential. When McCraven tells Apple Music, “The music exists in an alternate universe, an alternate reality,” it’s just as much a comment on the album’s sample-based structure as its overarching philosophy."
+            },
+            "genreNames": [
+              "Jazz",
+              "Music",
+              "Classical",
+              "Modern Era"
+            ],
+            "isCompilation": false,
+            "isComplete": true,
+            "isMasteredForItunes": true,
+            "isSingle": false,
+            "name": "Universal Beings",
+            "playParams": {
+              "id": "1410969638",
+              "kind": "album"
+            },
+            "recordLabel": "International Anthem",
+            "releaseDate": "2018-10-26",
+            "trackCount": 22,
+            "upc": "603784912073",
+            "url": "https://music.apple.com/us/album/universal-beings/1410969638"
+          }
+        },
+        {
+          "id": "1858386756",
+          "type": "albums",
+          "href": "/v1/catalog/us/albums/1858386756",
+          "attributes": {
+            "artistName": "Makaya McCraven",
+            "artwork": {
+              "bgColor": "cbcac7",
+              "height": 3000,
+              "textColor1": "0d0d0d",
+              "textColor2": "1e1e1d",
+              "textColor3": "333332",
+              "textColor4": "41403f",
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bd/34/8c/bd348cd3-2aa1-aef9-95d4-ac2b6450691c/121283.jpg/{w}x{h}bb.jpg",
+              "width": 3000
+            },
+            "copyright": "℗ 2025 International Anthem",
+            "genreNames": [
+              "Jazz",
+              "Music"
+            ],
+            "isCompilation": false,
+            "isComplete": true,
+            "isMasteredForItunes": false,
+            "isSingle": false,
+            "name": "Universal Beings (IA11 Edition)",
+            "playParams": {
+              "id": "1858386756",
+              "kind": "album"
+            },
+            "recordLabel": "International Anthem",
+            "releaseDate": "2025-12-04",
+            "trackCount": 23,
+            "upc": "760944510958",
+            "url": "https://music.apple.com/us/album/universal-beings-ia11-edition/1858386756"
+          }
+        },
+        {
+          "id": "1520236671",
+          "type": "albums",
+          "href": "/v1/catalog/us/albums/1520236671",
+          "attributes": {
+            "artistName": "Makaya McCraven",
+            "artwork": {
+              "bgColor": "986b64",
+              "height": 1400,
+              "textColor1": "070000",
+              "textColor2": "070505",
+              "textColor3": "241514",
+              "textColor4": "241918",
+              "url": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/10/85/4e/10854eee-58cd-6b37-f982-90c586f8c353/603784912608.jpg/{w}x{h}bb.jpg",
+              "width": 1400
+            },
+            "copyright": "℗ 2020 International Anthem LLC",
+            "editorialNotes": {
+              "short": "A visionary percussionist stakes out space between rap, improv, and jazz.",
+              "standard": "Jazz, hip-hop, “organic beat music,” as the man himself calls it: Whatever Makaya McCraven is up to, the fact that it doesn’t fit extant taxonomy remains a good sign that it’s moving the needle. Recorded during the same globe-hopping improvisatory sessions that made up 2018’s <i>Universal Beings</i>, <i>E&F Sides</i> spins a simple idea—build a collaborative groove on the spot; sample, loop, and collage the track later—out to elegant ends. You can tune in to it (the fusion of “Dadada,” the free gospel of “The Way Home”), you can tune out (“The Hunt,” “Isms”). Or, as McCraven seems to intend, you can let it all play moon to the mind’s tides, focusing and releasing attention as the music winds on. Easy to listen to but challenging under the surface—this does it."
+            },
+            "genreNames": [
+              "Jazz",
+              "Music",
+              "R&B/Soul",
+              "Classical",
+              "Modern Era"
+            ],
+            "isCompilation": false,
+            "isComplete": true,
+            "isMasteredForItunes": false,
+            "isSingle": false,
+            "name": "Universal Beings E&F Sides",
+            "playParams": {
+              "id": "1520236671",
+              "kind": "album"
+            },
+            "recordLabel": "International Anthem",
+            "releaseDate": "2020-07-31",
+            "trackCount": 14,
+            "upc": "603784912608",
+            "url": "https://music.apple.com/us/album/universal-beings-e-f-sides/1520236671"
+          }
+        }
+      ]
+    }
+  },
+  "meta": {
+    "results": {
+      "order": [
+        "albums"
+      ],
+      "rawOrder": [
+        "albums"
+      ]
+    }
+  }
+}

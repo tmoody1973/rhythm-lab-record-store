@@ -27,6 +27,7 @@ describe('normalize', () => {
     expect(normalize('Days As Echoes - EP')).toBe('days as echoes');
     expect(normalize("Don't Wanna Be Normal (Sunship Remix)")).toBe('dont wanna be normal sunship remix');
     expect(normalize('EP1')).toBe('ep1');
+    expect(normalize('This Love - Single')).toBe('this love');
   });
 });
 
@@ -57,11 +58,20 @@ describe('gate', () => {
   test('two medium matches that agree publish the agreed field only', () => {
     const r = gate(album, [
       cand('apple', { trackCount: 23, fields: { label: 'International Anthem', releaseDate: '2018-10-12' } }),
-      cand('musicbrainz', { trackCount: 23, fields: { label: 'International Anthem Recording Co.' } }),
+      cand('musicbrainz', { trackCount: 23, fields: { label: 'Nonesuch' } }),
       cand('discogs', { trackCount: 23, fields: { label: 'international anthem' } }),
     ]);
     expect(r.published).toEqual({ label: 'International Anthem', sources: ['apple', 'discogs'] });
     expect(r.review.map((x) => x.field)).toContain('releaseDate');
+  });
+  test('label spellings with company words agree, and the shortest spelling is published', () => {
+    const r = gate(album, [
+      cand('apple', { fields: { label: 'International Anthem' } }),
+      cand('musicbrainz', { fields: { label: 'International Anthem Recording Co.' } }),
+      cand('discogs', { fields: { label: 'International Anthem Recording Company' } }),
+    ]);
+    expect(r.published).toEqual({ label: 'International Anthem', sources: ['apple', 'musicbrainz', 'discogs'] });
+    expect(r.review).toEqual([]);
   });
   test('sources that disagree publish nothing for that field and go to review', () => {
     const r = gate(album, [

@@ -80,3 +80,6 @@ export function createSourceFetcher(opts: Opts) {
 
   return { getJson, stats: () => ({ ...stats }) };
 }
+
+/** What adapters need from a fetcher (tests pass a fake that serves recorded responses). */
+export type SourceFetcher = { getJson(url: string): Promise<JsonResult> };
