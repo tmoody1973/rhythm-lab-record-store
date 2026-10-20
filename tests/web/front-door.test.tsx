@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { App } from '../../src/App.tsx';
+import { resetSupportProbe } from '../../src/shop/support.ts';
 import type { Catalog } from '../../src/catalog/schema.ts';
 
 vi.mock('../../src/shop/ShopScene.tsx', () => ({ default: () => <div data-testid="shop" /> }));
@@ -12,16 +13,19 @@ const fixture: Catalog = JSON.parse(readFileSync('fixtures/catalog-sample.json',
 beforeEach(() => {
   window.localStorage.clear();
   window.sessionStorage.clear();
+  resetSupportProbe();
+  vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({ getExtension: () => null } as unknown as RenderingContext);
   window.history.replaceState(null, '', '/');
   vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(fixture), { status: 200 })));
 });
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
 test('with 3D available, the front door is the shop', async () => {
   vi.stubGlobal('WebGLRenderingContext', class {});
   render(<App />);
   expect(await screen.findByTestId('shop')).toBeInTheDocument();
   expect(screen.queryByRole('list', { name: /records/i })).toBeNull();
+  expect(screen.getByRole('heading', { level: 1, name: /record shop/i })).toBeInTheDocument(); // the front page has a heading
 });
 
 test('searching from the shop takes you to the grid', async () => {

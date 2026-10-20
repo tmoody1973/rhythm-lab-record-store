@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 import type { PublicAlbum } from '../../src/catalog/schema.ts';
-import { digAim, sectionAim, storeAim, type Aim } from '../../src/shop/camera.ts';
+import { digAim, fogFor, orbitLimits, sectionAim, storeAim, type Aim } from '../../src/shop/camera.ts';
 import { BW } from '../../src/shop/geometry.ts';
 import type { Placed, Room } from '../../src/shop/layout.ts';
 
@@ -31,4 +31,21 @@ test('the store aim looks at the middle of the room; every aim stays above the f
 
 test('digging follows the current record', () => {
   expect(digAim(p, 10, false, LAPTOP).target[2]).toBeLessThan(digAim(p, 0, false, LAPTOP).target[2]); // deeper = further back
+});
+
+test('fog never swallows what the camera is aimed at, even pulled back for a phone', () => {
+  for (const aim of [storeAim(room, PHONE), storeAim(room, LAPTOP), sectionAim(rect, PHONE), digAim(p, 3, true, PHONE)]) {
+    const [near, far] = fogFor(aim);
+    expect(near).toBeGreaterThan(dist(aim) + 8); // the middle of the room is clear
+    expect(far).toBeGreaterThan(near);
+  }
+});
+
+test('zoom limits always include where the camera was put', () => {
+  for (const aim of [storeAim(room, PHONE), storeAim(room, LAPTOP)]) {
+    const { minDistance, maxDistance } = orbitLimits(aim, 'store');
+    expect(maxDistance).toBeGreaterThanOrEqual(dist(aim));
+    expect(minDistance).toBeLessThan(dist(aim));
+  }
+  expect(orbitLimits(sectionAim(rect, LAPTOP), 'section').minDistance).toBe(3);
 });

@@ -155,3 +155,58 @@ test('with no staff picks yet, there is no Staff picks pill and a link to them o
   await expect(sections.getByRole('button', { name: /^Staff picks/ })).toHaveCount(0);
   await expect(page).not.toHaveURL(/section=/);
 });
+
+// ---- Final-review fixes ----
+
+test('leaving the shop for the grid is not a GPU failure: no notice, and Store still works', async ({ page }) => {
+  await offline(page);
+  await page.goto('/');
+  await ready(page);
+  await page.getByRole('button', { name: 'Grid' }).click();
+  await expect(page.getByRole('list', { name: /records/i })).toBeVisible();
+  await page.waitForTimeout(1500);
+  await expect(page.getByText("The 3D shop stopped working in this browser, so here's the grid.")).toHaveCount(0);
+  expect(await page.evaluate(() => sessionStorage.getItem('rl-no-3d'))).toBeNull();
+  await page.getByRole('button', { name: 'Store' }).click();
+  await ready(page);
+});
+
+test('Enter on a header link still follows it while digging', async ({ page }) => {
+  await offline(page);
+  await page.goto('/?section=jazz&bin=0');
+  await ready(page);
+  await page.getByRole('link', { name: 'About' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/about\.html$/);
+});
+
+test('the bin sways with the mouse even when nothing else moves', async ({ page }) => {
+  await offline(page);
+  await page.goto('/?section=jazz&bin=0');
+  await ready(page);
+  // Wait until the scene is quiet (1.5 s with no frames drawn), then move the mouse.
+  let last = await frames(page);
+  await expect.poll(async () => { await page.waitForTimeout(1500); const now = await frames(page); const d = now - last; last = now; return d; }, { timeout: 45_000, intervals: [0] }).toBe(0);
+  const before = await frames(page);
+  const box = (await page.locator('[data-testid="shop"] canvas').boundingBox())!;
+  for (let i = 0; i < 10; i++) await page.mouse.move(box.x + box.width * (0.2 + i * 0.06), box.y + box.height / 2);
+  await expect.poll(() => frames(page), { timeout: 10_000 }).toBeGreaterThan(before + 2);
+});
+
+test('"Whole shop" brings the camera back after you have orbited away', async ({ page }) => {
+  test.setTimeout(180_000); // three eased camera moves; slow under software rendering
+  await offline(page);
+  await page.goto('/');
+  await ready(page);
+  const read = () => page.evaluate(() => { const w = window as unknown as { __rlCamera?: number[]; __rlAim?: number[] }; return { cam: w.__rlCamera ?? [0, 0, 0], aim: w.__rlAim ?? [9, 9, 9] }; });
+  const offAim = async () => { const { cam, aim } = await read(); return Math.hypot(...cam.map((v, i) => v - aim[i]!)); };
+  await expect.poll(offAim, { timeout: 45_000 }).toBeLessThan(0.5); // settled on the store aim
+  const box = (await page.locator('[data-testid="shop"] canvas').boundingBox())!;
+  await page.mouse.move(box.x + box.width * 0.7, box.y + box.height * 0.6);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.3, box.y + box.height * 0.6, { steps: 10 });
+  await page.mouse.up();
+  await expect.poll(offAim, { timeout: 30_000 }).toBeGreaterThan(2); // orbited away
+  await page.getByRole('navigation', { name: 'Shop sections' }).getByRole('button', { name: 'Whole shop' }).click();
+  await expect.poll(offAim, { timeout: 45_000 }).toBeLessThan(0.5);
+});

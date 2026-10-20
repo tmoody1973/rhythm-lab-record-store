@@ -33,3 +33,16 @@ export function digAim(p: Placed, sel: number, shown: boolean, aspect: number): 
     ? framed([rx + 0.6, 1.55, rz + 2.6], [rx, 1.35, rz + 0.1], aspect)
     : framed([rx + 1, 1.95, rz + 2.1], [rx, 0.6, rz], aspect);
 }
+
+const dist = (a: Aim) => Math.hypot(...a.position.map((v, i) => v - a.target[i]!));
+
+/** Fog that starts past what the camera is aimed at, so a phone's pulled-back view isn't swallowed. */
+export function fogFor(aim: Aim): [number, number] {
+  const d = dist(aim);
+  return [d + 10, d + 45];
+}
+
+/** Zoom limits for orbiting: the store keeps you out of the floor; both always include where the camera was put. */
+export function orbitLimits(aim: Aim, level: 'store' | 'section'): { minDistance: number; maxDistance: number } {
+  return { minDistance: level === 'store' ? 10 : 3, maxDistance: Math.max(42, dist(aim) + 2) };
+}

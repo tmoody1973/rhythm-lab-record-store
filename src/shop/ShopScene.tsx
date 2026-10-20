@@ -4,7 +4,7 @@ import { Canvas, useFrame, type ThreeEvent } from '@react-three/fiber';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import type { UrlState } from '../state/url.ts';
-import { digAim, sectionAim, storeAim } from './camera.ts';
+import { digAim, fogFor, orbitLimits, sectionAim, storeAim } from './camera.ts';
 import { stepSel } from './dig.ts';
 import { BW } from './geometry.ts';
 import { layoutShop, type Placed, type Rect } from './layout.ts';
@@ -35,11 +35,17 @@ const SOLID = 'min-h-11 rounded-full bg-[#f3e6cf] px-5 py-2.5 text-sm font-semib
 
 export const GAVE_UP_NOTICE = "The 3D shop stopped working in this browser, so here's the grid.";
 
-/** Development builds count frames so tests can check that an idle shop stops drawing. */
-function FrameCounter() {
-  useFrame(() => { const w = window as unknown as { __rlFrames?: number }; w.__rlFrames = (w.__rlFrames ?? 0) + 1; });
+/** Development builds expose frames drawn, camera position and GPU textures, so tests can check idle, recentring and memory. */
+function DevProbe() {
+  useFrame(({ camera, gl }) => {
+    const w = window as unknown as { __rlFrames?: number; __rlCamera?: number[]; __rlTextures?: number };
+    w.__rlFrames = (w.__rlFrames ?? 0) + 1;
+    w.__rlCamera = camera.position.toArray();
+    w.__rlTextures = gl.info.memory.textures;
+  });
   return null;
 }
+const interactive = (t: EventTarget | null) => t instanceof Element && !!t.closest('a,button,input,select,textarea,summary,[role="button"]');
 
 function useAspect() {
   const [aspect, setAspect] = useState(() => window.innerWidth / window.innerHeight);
@@ -66,6 +72,10 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
   const [sel, setSel] = useState(-1);
   const [shown, setShown] = useState(false);
   const [ready, setReady] = useState(false);
+  const [recenter, setRecenter] = useState(0);
+  // R3F force-loses the context when the shop unmounts (e.g. switching to the grid); that isn't the GPU giving up.
+  const alive = useRef(true);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
 
   // Where we are comes from the link (section, bin); links that point nowhere are cleaned up, not obeyed.
   const areas = useMemo<Area[]>(() => {
@@ -85,7 +95,11 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
   }, [state.section, state.bin, section, bin, patch]);
   useEffect(() => { setSel(-1); setShown(false); }, [bin?.key]);
 
-  const go = (sectionId: string | null, binIndex: number | null) => { setHover(null); patch({ section: sectionId, bin: binIndex }, { push: true }); };
+  const go = (sectionId: string | null, binIndex: number | null) => {
+    setHover(null);
+    if (sectionId === null && !section) { setRecenter((n) => n + 1); return; } // already in the whole shop: just re-centre
+    patch({ section: sectionId, bin: binIndex }, { push: true });
+  };
   const clicked = (e: ThreeEvent<MouseEvent>) => { if (e.delta > DRAG_PX) return false; e.stopPropagation(); return true; };
 
   // Digging (cratedigger): wheel, vertical drag, arrows or buttons move the standing record; Show lifts it.
@@ -110,7 +124,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
       if (!bin) return;
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); step(1); }
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); step(-1); }
-      if ((e.key === 'Enter' || e.key === ' ') && !(e.target instanceof HTMLButtonElement)) { e.preventDefault(); toggleShow(); }
+      if ((e.key === 'Enter' || e.key === ' ') && !interactive(e.target)) { e.preventDefault(); toggleShow(); }
     };
     document.addEventListener('keydown', key);
     return () => document.removeEventListener('keydown', key);
@@ -130,12 +144,13 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
 
   const aim = bin ? digAim(bin, sel, shown, aspect) : section ? sectionAim(section.rect, aspect) : storeAim(room, aspect);
   const count = (a: Area) => a.bins.reduce((n, b) => n + b.records.length, 0);
-  const hint = current ? <span data-testid="dig-caption">{current.title} — {current.artist} · {sel + 1} of {n}</span> : bin ? 'Scroll, drag or use the arrow keys to dig · Esc steps back' : section ? 'Pick a bin · drag to look around · Esc steps back' : 'Drag to walk around · scroll to step closer · click a section';
+  const hint = current ? <span data-testid="dig-caption" className="hidden sm:inline">{current.title} — {current.artist} · {sel + 1} of {n}</span> : bin ? 'Scroll, drag or use the arrow keys to dig · Esc steps back' : section ? 'Pick a bin · drag to look around · Esc steps back' : 'Drag to walk around · scroll to step closer · click a section';
 
   useEffect(() => { document.body.style.cursor = hover ? 'pointer' : ''; return () => { document.body.style.cursor = ''; }; }, [hover]);
+  if (import.meta.env.DEV) (window as unknown as { __rlAim?: number[] }).__rlAim = aim.position; // tests compare the camera to its aim
 
   // The GPU gave up (driver reset, sleep/wake…): don't show a black page — hand over to the grid for this visit.
-  const lost = (e: Event) => { e.preventDefault(); give3DUp(); onNotice(GAVE_UP_NOTICE); patch({ view: 'grid' }); };
+  const lost = (e: Event) => { if (!alive.current) return; e.preventDefault(); give3DUp(); onNotice(GAVE_UP_NOTICE); patch({ view: 'grid' }); };
 
   return (
     <div
@@ -147,13 +162,16 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
       style={{ touchAction: bin ? 'none' : undefined }}
       onPointerMove={(e) => {
         mouse.current = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight };
+        if (drag.current && e.buttons === 0 && e.pointerType === 'mouse') drag.current = null; // released elsewhere
         if (drag.current && bin) {
           const dy = e.clientY - drag.current.y;
           if (Math.abs(dy) >= 26) { step(dy < 0 ? 1 : -1); drag.current = { y: e.clientY, moved: true }; }
         }
       }}
-      onPointerDown={(e) => { if (bin && e.target instanceof HTMLCanvasElement) drag.current = { y: e.clientY, moved: false }; }}
+      onPointerDown={(e) => { if (bin && e.target instanceof HTMLCanvasElement) { drag.current = { y: e.clientY, moved: false }; e.currentTarget.setPointerCapture?.(e.pointerId); } }}
       onPointerUp={() => { setTimeout(() => { drag.current = null; }, 0); }}
+      onPointerCancel={() => { drag.current = null; }}
+      onLostPointerCapture={() => { setTimeout(() => { drag.current = null; }, 0); }}
     >
       <Canvas
         frameloop="demand"
@@ -163,9 +181,9 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
         onCreated={({ gl }) => { gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}
       >
         <color attach="background" args={['#1a1411']} />
-        <fog attach="fog" args={['#1a1411', 40, 70]} />
-        {import.meta.env.DEV && <FrameCounter />}
-        <CameraRig aim={aim} interactive={!bin} minDistance={section ? 3 : 10} />
+        <fog attach="fog" args={['#1a1411', ...fogFor(aim)]} />
+        {import.meta.env.DEV && <DevProbe />}
+        <CameraRig aim={aim} interactive={!bin} recenter={recenter} {...orbitLimits(aim, section ? 'section' : 'store')} />
         <RoomLights dim={shown} quality={quality} />
         <ShopMaterials room={room}>
           <Suspense fallback={null}><Room room={room} quality={quality} staffPicksWall={<StaffPicksWall records={staffPicks.slice(0, 12)} onPick={() => go(STAFF_PICKS, 0)} />} /></Suspense>
@@ -239,7 +257,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
             {shown && current && (
               <div className="pointer-events-none text-center text-[#f3e6cf] [text-shadow:0_2px_12px_rgb(0_0_0/0.8)]">
                 <p className="text-lg">{current.artist}</p>
-                <p className="font-serif text-4xl font-bold">{current.title}</p>
+                <p data-testid="shown-title" className="line-clamp-2 font-serif text-2xl font-bold sm:text-4xl">{current.title}</p>
               </div>
             )}
             <p role="status" className="sr-only">{current ? `${current.title} by ${current.artist}, ${sel + 1} of ${n}` : ''}</p>

@@ -6,6 +6,7 @@ import { encodeShare } from '../crates/share.ts';
 import { deleteCrate, removeFromCrate, renameCrate, toggleFavorite, type VisitorData } from '../crates/storage.ts';
 import { CrateDig } from './CrateDig.tsx';
 import { has3D } from '../shop/support.ts';
+import { Fallback3D } from '../shop/Fallback3D.tsx';
 
 // My crates as a 3D crate when the browser can draw it (decision 9); this flat dig otherwise.
 const CrateStage = lazy(() => import('../shop/CrateStage.tsx'));
@@ -13,7 +14,7 @@ const CrateStage = lazy(() => import('../shop/CrateStage.tsx'));
 export type CratePlace = { crate: string | null; index: number };
 const FAVORITES = 'favorites';
 
-export type CratesPanelProps = Props;
+export type CratesPanelProps = Props & { onLost?: () => void };
 type Props = {
   data: VisitorData;
   update: (f: (d: VisitorData) => VisitorData) => void;
@@ -28,7 +29,13 @@ const typing = (t: EventTarget | null) =>
   t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName));
 
 export function CratesPanel(props: Props) {
-  return has3D() ? <Suspense fallback={null}><CrateStage {...props} /></Suspense> : <FlatCratesPanel {...props} />;
+  const [use3D, setUse3D] = useState(has3D);
+  if (!use3D) return <FlatCratesPanel {...props} />;
+  return (
+    <Fallback3D onFail={() => setUse3D(false)}>
+      <Suspense fallback={null}><CrateStage {...props} onLost={() => setUse3D(false)} /></Suspense>
+    </Fallback3D>
+  );
 }
 
 function FlatCratesPanel({ data, update, byId, place, onPlace, onOpenRecord, onClose }: Props) {

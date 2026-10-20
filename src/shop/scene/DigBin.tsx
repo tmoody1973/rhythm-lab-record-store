@@ -4,8 +4,8 @@
 //   Copyright (c) 2015 Oz Conseil
 //   Copyright (c) 2014 Daniel Tello
 import { useTexture } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { Suspense, useMemo, useRef, type RefObject } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
+import { Suspense, useEffect, useMemo, useRef, type RefObject } from 'react';
 import * as THREE from 'three';
 import type { PublicAlbum } from '../../catalog/schema.ts';
 import { easeFactor, poseOf, type Pose } from '../dig.ts';
@@ -13,7 +13,8 @@ import { BASE_Y, SLEEVE, THICK, slot } from '../geometry.ts';
 import type { Placed } from '../layout.ts';
 import { BinBox, reducedMotion } from './Bins.tsx';
 
-const SLEEVE_EDGE = '#140b05';
+// One edge material for every sleeve; each sleeve's face material is disposed with it.
+const EDGE = new THREE.MeshStandardMaterial({ color: '#140b05', roughness: 0.7 });
 const UP = 0.18, SHOWN_Y = 0.95;
 const settled = (a: number, b: number) => Math.abs(a - b) < 0.001;
 
@@ -23,11 +24,9 @@ function DigRecord({ record, map, x, z, lean, pose, onPick }: {
   record: PublicAlbum; map?: THREE.Texture; x: number; z: number; lean: { forward: number; back: number }; pose: Pose; onPick: () => void;
 }) {
   const ref = useRef<THREE.Group>(null!);
-  const mats = useMemo(() => {
-    const edge = new THREE.MeshStandardMaterial({ color: SLEEVE_EDGE, roughness: 0.7 });
-    const face = map ? new THREE.MeshStandardMaterial({ map, roughness: 0.5 }) : new THREE.MeshStandardMaterial({ color: record.cover?.dominant ?? '#c9b48a' });
-    return [edge, edge, edge, edge, face, edge];
-  }, [map, record]);
+  const face = useMemo(() => (map ? new THREE.MeshStandardMaterial({ map, roughness: 0.5 }) : new THREE.MeshStandardMaterial({ color: record.cover?.dominant ?? '#c9b48a' })), [map, record]);
+  useEffect(() => () => face.dispose(), [face]);
+  const mats = useMemo(() => [EDGE, EDGE, EDGE, EDGE, face, EDGE], [face]);
   useFrame(({ camera, invalidate }, dt) => {
     const g = ref.current, k = easeFactor(dt, reducedMotion());
     const y = pose === 'shown' ? SHOWN_Y : pose === 'up' ? BASE_Y + UP : BASE_Y;
@@ -50,6 +49,13 @@ function DigRecord({ record, map, x, z, lean, pose, onPick }: {
 
 function Bin({ p, sel, shown, mouse, onPick, maps }: Omit<Props, 'textured'> & { maps: (THREE.Texture | undefined)[] }) {
   const ref = useRef<THREE.Group>(null!);
+  // On-demand rendering only draws when asked: moving the mouse must ask, or the sway never shows.
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => {
+    const on = () => invalidate();
+    window.addEventListener('pointermove', on);
+    return () => window.removeEventListener('pointermove', on);
+  }, [invalidate]);
   useFrame(({ invalidate }, dt) => {
     // cratedigger sways the crate toward the mouse so it never feels frozen.
     const g = ref.current, k = easeFactor(dt, reducedMotion(), 3);
@@ -75,6 +81,8 @@ function Textured(props: Omit<Props, 'textured'>) {
   const loaded = useTexture(urls) as THREE.Texture[];
   const byUrl = new Map(urls.map((u, i) => [u, loaded[i]!]));
   loaded.forEach((t) => { t.colorSpace = THREE.SRGBColorSpace; });
+  // Leaving the bin frees its 48 covers from the GPU and the loader cache (phones run out of WebGL memory).
+  useEffect(() => () => { loaded.forEach((t) => t.dispose()); useTexture.clear(urls); }, [loaded]); // eslint-disable-line react-hooks/exhaustive-deps
   return <Bin {...props} maps={props.p.bin.records.map((r) => (r.cover ? byUrl.get(r.cover.grid) : undefined))} />;
 }
 

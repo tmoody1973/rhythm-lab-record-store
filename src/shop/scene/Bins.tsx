@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import { easeFactor } from '../dig.ts';
 import { BASE_Y, BD, BW, SLEEVE, THICK, slot } from '../geometry.ts';
 import type { Placed, Rect } from '../layout.ts';
+import { initialOf } from '../sections.ts';
 import { useMats, type Mats } from './Materials.tsx';
 
 export const FONT = '/fonts/InterTight.ttf';
@@ -85,7 +86,7 @@ export function DividerTabs({ placed, skip }: { placed: Placed[]; skip: string |
   const tabs = useMemo(() => placed.filter((p) => p.key !== skip).flatMap((p) => p.bin.records.flatMap((r, i) => {
     const s = slotOf(p, i);
     if (s.j === 0 || s.j % 8) return [];
-    const letter = /^[a-z]/i.test(r.artist) ? r.artist[0]!.toUpperCase() : '#';
+    const letter = initialOf(r.artist);
     return [{ key: `${p.key}:${i}`, x: p.x + s.x - 0.3, y: BASE_Y + 0.96 * Math.cos(s.back), z: p.z + s.z - 0.96 * Math.sin(s.back) + 0.008, rx: -s.back, letter }];
   })), [placed, skip]);
   return (

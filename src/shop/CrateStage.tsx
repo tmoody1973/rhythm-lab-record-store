@@ -18,6 +18,7 @@ import { RoomLights } from './scene/Lights.tsx';
 import { ShopMaterials, useDecor, useMats } from './scene/Materials.tsx';
 import { Plant } from './scene/Room.tsx';
 import { qualityFor } from './quality.ts';
+import { give3DUp } from './support.ts';
 import { toBins } from './sections.ts';
 
 const PER_BIN = 48;
@@ -38,7 +39,7 @@ function Floor() {
   );
 }
 
-export default function CrateStage({ data, update, byId, place, onPlace, onOpenRecord, onClose }: CratesPanelProps) {
+export default function CrateStage({ data, update, byId, place, onPlace, onOpenRecord, onClose, onLost }: CratesPanelProps) {
   const dialog = useRef<HTMLDialogElement>(null);
   const box = useRef<HTMLDivElement>(null);
   const mouse = useRef({ x: 0.5, y: 0.5 });
@@ -46,6 +47,10 @@ export default function CrateStage({ data, update, byId, place, onPlace, onOpenR
   const lastWheel = useRef(0);
   const [shown, setShown] = useState(false);
   const [ready, setReady] = useState(false);
+  // Closing My crates force-loses this canvas's context too; only a loss while open means the GPU gave up.
+  const alive = useRef(true);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
+  const lost = (e: Event) => { if (!alive.current) return; e.preventDefault(); give3DUp(); onLost?.(); };
   const [renaming, setRenaming] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
   const [aspect, setAspect] = useState(() => window.innerWidth / window.innerHeight);
@@ -122,15 +127,18 @@ export default function CrateStage({ data, update, byId, place, onPlace, onOpenR
         style={{ touchAction: 'none' }}
         onPointerMove={(e) => {
           mouse.current = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight };
+          if (drag.current && e.buttons === 0 && e.pointerType === 'mouse') drag.current = null; // released elsewhere
           if (drag.current) {
             const dy = e.clientY - drag.current.y;
             if (Math.abs(dy) >= 26) { go(index + (dy < 0 ? 1 : -1)); drag.current = { y: e.clientY, moved: true }; }
           }
         }}
-        onPointerDown={(e) => { if (e.target instanceof HTMLCanvasElement) drag.current = { y: e.clientY, moved: false }; }}
+        onPointerDown={(e) => { if (e.target instanceof HTMLCanvasElement) { drag.current = { y: e.clientY, moved: false }; e.currentTarget.setPointerCapture?.(e.pointerId); } }}
         onPointerUp={() => { setTimeout(() => { drag.current = null; }, 0); }}
+        onPointerCancel={() => { drag.current = null; }}
+        onLostPointerCapture={() => { setTimeout(() => { drag.current = null; }, 0); }}
       >
-        <Canvas frameloop="demand" shadows dpr={quality.dpr} camera={{ position: [1.2, 2.1, 2.8], fov: 40, near: 0.05, far: 60 }} onCreated={() => setReady(true)}>
+        <Canvas frameloop="demand" shadows dpr={quality.dpr} camera={{ position: [1.2, 2.1, 2.8], fov: 40, near: 0.05, far: 60 }} onCreated={({ gl }) => { gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}>
           <color attach="background" args={['#1a1411']} />
           <fog attach="fog" args={['#1a1411', 6, 16]} />
           <CameraRig aim={digAim(bin, sel, shown, aspect)} interactive={false} minDistance={0.5} />

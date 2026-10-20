@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from 'vitest';
 import type { Catalog, PublicAlbum } from '../../src/catalog/schema.ts';
-import { binsBySection, sectionOf } from '../../src/shop/sections.ts';
+import { binsBySection, initialOf, sectionOf } from '../../src/shop/sections.ts';
 
 const fixture: Catalog = JSON.parse(readFileSync('fixtures/catalog-sample.json', 'utf8'));
 let n = 0;
@@ -34,4 +34,11 @@ test('bins hold 48, milk crates 24, A–Z with initial-range labels', () => {
   expect(first.records.map((r) => r.artist)).toEqual([...first.records.map((r) => r.artist)].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' })));
   expect(first.label).toBe('A–L'); // 100 artists cycling A–Z: ~4 per letter, so 48 run A to L
   expect(binsBySection([rec('2Pac', 'hip hop rap'), rec('Zz', 'hip hop rap')]).get('hip-hop')![0]!.label).toBe('#–Z');
+});
+
+test('accented artists file under their letter, not "#"', () => {
+  expect(initialOf('Ólafur Arnalds')).toBe('O');
+  expect(initialOf('Émilie Simon')).toBe('E');
+  expect(initialOf('2Pac')).toBe('#');
+  expect(binsBySection([rec('Ólafur Arnalds', 'jazz'), rec('Pz', 'jazz')]).get('jazz')![0]!.label).toBe('O–P');
 });

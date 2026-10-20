@@ -8,6 +8,7 @@ import { ChipRow } from './ChipRow.tsx';
 import { LetterStrip, Pagination, SortSelect } from './Controls.tsx';
 import { RecordCard } from './RecordCard.tsx';
 import { has3D } from '../shop/support.ts';
+import { Fallback3D } from '../shop/Fallback3D.tsx';
 
 // The 3D shop downloads only when someone is actually in it, so the grid never pays for three.js.
 const ShopScene = lazy(() => import('../shop/ShopScene.tsx'));
@@ -69,9 +70,14 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
 
   if (state.view === 'store' && can3D) {
     return (
-      <Suspense fallback={<p className="fixed inset-0 grid place-items-center bg-[#1a1411] text-[#f3e6cf]">Opening the shop…</p>}>
-        <ShopScene albums={catalog.albums} state={state} patch={patch} onOpenRecord={(r) => onOpen?.(r, document.activeElement as HTMLButtonElement)} onNotice={onNotice} staffPicks={staffPicks} />
-      </Suspense>
+      <>
+        <h1 className="sr-only">Rhythm Lab record shop</h1>
+        <Fallback3D onFail={() => { onNotice("The 3D shop couldn't start in this browser, so here's the grid."); patch({ view: 'grid' }); }}>
+          <Suspense fallback={<p className="fixed inset-0 grid place-items-center bg-[#1a1411] text-[#f3e6cf]">Opening the shop…</p>}>
+            <ShopScene albums={catalog.albums} state={state} patch={patch} onOpenRecord={(r) => onOpen?.(r, document.activeElement as HTMLButtonElement)} onNotice={onNotice} staffPicks={staffPicks} />
+          </Suspense>
+        </Fallback3D>
+      </>
     );
   }
 

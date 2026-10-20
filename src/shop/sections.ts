@@ -27,7 +27,12 @@ export function sectionOf(r: PublicAlbum): SectionId {
 export const PER_BIN = 48;
 export type Bin = { section: string; index: number; label: string; records: PublicAlbum[] };
 
-const initial = (r: PublicAlbum) => (/^[a-z]/i.test(r.artist) ? r.artist[0]!.toUpperCase() : '#');
+/** The letter an artist files under: accents folded (Ólafur → O), anything else is '#'. */
+export function initialOf(artist: string): string {
+  const s = artist.normalize('NFD').replace(/\p{M}/gu, '');
+  return /^[a-z]/i.test(s) ? s[0]!.toUpperCase() : '#';
+}
+const initial = (r: PublicAlbum) => initialOf(r.artist);
 const byArtist = (a: PublicAlbum, b: PublicAlbum) => a.artist.localeCompare(b.artist, 'en', { sensitivity: 'base' });
 
 /** Records cut into bins of `per`, labelled by their first and last artist initials ("A–E"). */

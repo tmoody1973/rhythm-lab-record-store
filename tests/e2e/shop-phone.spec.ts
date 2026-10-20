@@ -52,3 +52,13 @@ test('rotating the phone mid-dig keeps your place and never scrolls sideways', a
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.getByRole('status')).toHaveText(/, 2 of 3$/);
 });
+
+test('a shown record is not buried under its title on a phone', async ({ page }) => {
+  await open(page, '/?section=jazz&bin=0');
+  await page.getByRole('button', { name: 'Next', exact: true }).tap();
+  await page.getByRole('button', { name: 'Show', exact: true }).tap();
+  const title = page.getByTestId('shown-title');
+  await expect(title).toBeVisible();
+  expect((await title.boundingBox())!.height).toBeLessThan(844 * 0.12);
+  await expect(page.getByTestId('dig-caption')).toBeHidden(); // no duplicate title in the corner on small screens
+});

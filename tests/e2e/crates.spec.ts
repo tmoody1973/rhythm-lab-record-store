@@ -73,3 +73,29 @@ test('with reduced motion the crate says so', async ({ page }) => {
   const stage = await openCrates(page);
   await expect(stage.locator('[data-reduced-motion="true"]')).toBeAttached();
 });
+
+test('a drag that ends over a button does not keep digging on plain mouse moves', async ({ page }) => {
+  const stage = await openCrates(page);
+  const status = stage.getByRole('status');
+  await expect(status).toHaveText(/, 1 of 2$/);
+  const canvas = (await stage.locator('canvas').boundingBox())!;
+  const flip = (await stage.getByRole('button', { name: 'Flip' }).boundingBox())!;
+  await page.mouse.move(canvas.x + canvas.width / 2, canvas.y + canvas.height / 3);
+  await page.mouse.down();
+  await page.mouse.move(canvas.x + canvas.width / 2, canvas.y + canvas.height / 3 - 10, { steps: 2 });
+  await page.mouse.move(flip.x + flip.width / 2, flip.y + flip.height / 2, { steps: 4 });
+  await page.mouse.up();
+  // Now move over the open 3D area (not the panels) with no button held.
+  for (const y of [0.25, 0.5, 0.2, 0.55]) await page.mouse.move(canvas.x + canvas.width / 2, canvas.y + canvas.height * y, { steps: 6 });
+  await expect(status).toHaveText(/, 1 of 2$/);
+});
+
+test('if the GPU gives up inside My crates, the flat crate takes over', async ({ page }) => {
+  const stage = await openCrates(page);
+  await page.evaluate(() => {
+    const c = document.querySelector('dialog[open] canvas') as HTMLCanvasElement;
+    (c.getContext('webgl2') ?? c.getContext('webgl'))!.getExtension('WEBGL_lose_context')!.loseContext();
+  });
+  await expect(stage.locator('canvas')).toHaveCount(0);
+  await expect(stage.getByRole('status')).toBeAttached();
+});
