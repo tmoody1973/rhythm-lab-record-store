@@ -95,7 +95,7 @@ function Door({ position }: { position: [number, number, number] }) {
     <group position={position} rotation={[0, Math.PI, 0]}>
       <mesh><boxGeometry args={[1.3, 2.3, 0.12]} /><meshStandardMaterial color="#1e2a23" roughness={0.6} /></mesh>
       <mesh position={[0, 0.2, 0.07]}><planeGeometry args={[0.9, 1.3]} /><meshStandardMaterial color="#d9b77a" emissive="#ffb35a" emissiveIntensity={0.35} /></mesh>
-      <Text font={FONT} position={[0, 0.4, 0.08]} fontSize={0.16} color="#1e2a23">OPEN</Text>
+      <Suspense fallback={null}><Text font={FONT} position={[0, 0.4, 0.08]} fontSize={0.16} color="#1e2a23">OPEN</Text></Suspense>
     </group>
   );
 }
@@ -160,10 +160,12 @@ export function Room({ room, quality, staffPicksWall }: { room: RoomSize; qualit
     <group>
       <mesh position={[0, -0.15, cz]} receiveShadow material={m.floor}><boxGeometry args={[24, 0.3, depth]} /></mesh>
       <Wall position={[0, H / 2, b - 0.1]} size={[24.4, H, 0.2]} normal={[0, 0, -1]} material={m.brick}>
-        <Text font={FONT} position={[-1.5, 1.05, 0.12]} fontSize={0.85} letterSpacing={0.08} anchorX="center">
-          RHYTHM LAB
-          <meshBasicMaterial color={[3.2, 1.2, 0.5]} toneMapped={false} />
-        </Text>
+        <Suspense fallback={null}>
+          <Text font={FONT} position={[-1.5, 1.05, 0.12]} fontSize={0.85} letterSpacing={0.08} anchorX="center">
+            RHYTHM LAB
+            <meshBasicMaterial color={[3.2, 1.2, 0.5]} toneMapped={false} />
+          </Text>
+        </Suspense>
         <pointLight position={[-1.5, 0.9, 1.2]} color="#ff7a3c" intensity={14} distance={8} decay={1.6} />
         <Suspense fallback={null}>
           {POSTERS.map(([slug, x, y]) => <Poster key={slug} url={`/posters/${slug}.webp`} position={[x, y, 0.1]} />)}
@@ -174,7 +176,7 @@ export function Room({ room, quality, staffPicksWall }: { room: RoomSize; qualit
       </Wall>
       <Wall position={[-12.1, H / 2, cz]} size={[0.2, H, depth + 0.4]} normal={[-1, 0, 0]} material={m.plaster}>
         {staffPicksWall}
-        <BrassPlaque position={[0.13, 1.45, 0]} rotation={[0, Math.PI / 2, 0]} label="Staff picks" width={1.6} />
+        <Suspense fallback={null}><BrassPlaque position={[0.13, 1.45, 0]} rotation={[0, Math.PI / 2, 0]} label="Staff picks" width={1.6} /></Suspense>
         <Sconce position={[0.1, 1.2, -4.2]} rotation={[0, Math.PI / 2, 0]} />
         <Sconce position={[0.1, 1.2, 4.2]} rotation={[0, Math.PI / 2, 0]} />
       </Wall>
@@ -185,7 +187,7 @@ export function Room({ room, quality, staffPicksWall }: { room: RoomSize; qualit
       <Rug position={[-10.2, 0.006, cz]} size={[5.2, 1.8]} />
       <group position={[8.8, 0.006, f - 0.7]}>
         <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow><planeGeometry args={[1.4, 0.8]} /><meshStandardMaterial color="#2d3b2f" roughness={1} /></mesh>
-        <Text font={FONT} position={[0, 0.006, 0]} rotation={[-Math.PI / 2, 0, 0]} fontSize={0.12} letterSpacing={0.15} color="#c9a66b">RHYTHM LAB</Text>
+        <Suspense fallback={null}><Text font={FONT} position={[0, 0.006, 0]} rotation={[-Math.PI / 2, 0, 0]} fontSize={0.12} letterSpacing={0.15} color="#c9a66b">RHYTHM LAB</Text></Suspense>
       </group>
       {/* Listening station, back right */}
       <group position={[9.8, 0, b + 1.4]}>
@@ -200,7 +202,7 @@ export function Room({ room, quality, staffPicksWall }: { room: RoomSize; qualit
         {[-0.7, 0, 0.7].map((x) => (
           <mesh key={x} position={[x, 1.4, -0.48]}><torusGeometry args={[0.13, 0.018, 8, 24, Math.PI]} /><meshStandardMaterial color="#111" roughness={0.4} /></mesh>
         ))}
-        <BrassPlaque position={[0, 0.75, 0.66]} label="Listening station" width={2} />
+        <Suspense fallback={null}><BrassPlaque position={[0, 0.75, 0.66]} label="Listening station" width={2} /></Suspense>
       </group>
       {/* Counter by the door */}
       <group position={[10.4, 0, f - 6]}>
