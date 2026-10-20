@@ -55,7 +55,7 @@ describe('buildCatalog', () => {
 
   test('sorts by id, counts, and passes the schema', () => {
     expect(catalog.albums.map((x) => x.id)).toEqual(['bandcamp:album:1', 'bandcamp:album:2']);
-    expect(catalog.count).toBe(3); // deliberately wrong: CI proof
+    expect(catalog.count).toBe(2);
     expect(() => CatalogSchema.parse(catalog)).not.toThrow();
   });
   test('contains nothing that looks like a Subsonic URL or credential', () => {
