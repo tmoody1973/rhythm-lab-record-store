@@ -62,3 +62,13 @@ describe('buildCatalog', () => {
     expect(JSON.stringify(catalog)).not.toMatch(/api\/subsonic|\/rest\/|[?&][utsp]=/);
   });
 });
+
+describe('fixtures/catalog-sample.json', () => {
+  test('is a valid 20-record catalog with tracks and no committed artwork', async () => {
+    const { readFileSync } = await import('node:fs');
+    const fixture = CatalogSchema.parse(JSON.parse(readFileSync('fixtures/catalog-sample.json', 'utf8')));
+    expect(fixture.count).toBe(20);
+    expect(fixture.albums.some((a) => a.kind === 'track')).toBe(true);
+    expect(fixture.albums.every((a) => a.cover === null)).toBe(true);
+  });
+});
