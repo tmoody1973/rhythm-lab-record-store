@@ -134,10 +134,10 @@ export default function CrateStage({ data, update, byId, place, onPlace, onOpenR
             if (Math.abs(dy) >= 26) { go(index + (dy < 0 ? 1 : -1)); drag.current = { y: e.clientY, moved: true }; }
           }
         }}
-        onPointerDown={(e) => { if (e.target instanceof HTMLCanvasElement) { drag.current = { y: e.clientY, moved: false }; e.currentTarget.setPointerCapture?.(e.pointerId); } }}
+        /* No pointer capture: it retargets the click to this div, so R3F never sees it and records can't be picked. */
+        onPointerDown={(e) => { if (e.target instanceof HTMLCanvasElement) { drag.current = { y: e.clientY, moved: false }; } }}
         onPointerUp={() => { setTimeout(() => { drag.current = null; }, 0); }}
         onPointerCancel={() => { drag.current = null; }}
-        onLostPointerCapture={() => { setTimeout(() => { drag.current = null; }, 0); }}
       >
         <Canvas frameloop="demand" shadows dpr={quality.dpr} camera={{ position: [1.2, 2.1, 2.8], fov: 40, near: 0.05, far: 60 }} onCreated={({ gl }) => { gl.domElement.addEventListener('webglcontextlost', lost, { once: true }); setReady(true); }}>
           <SteadyClock />

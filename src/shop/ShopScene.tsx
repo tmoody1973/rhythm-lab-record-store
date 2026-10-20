@@ -2,6 +2,7 @@
 // camera, quality); this file draws it and wires the HTML controls. Lazy-loaded from Collection.
 import { Canvas, useFrame, type ThreeEvent } from '@react-three/fiber';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { Vector3 } from 'three';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import type { UrlState } from '../state/url.ts';
 import { digAim, fogFor, orbitLimits, sectionAim, storeAim } from './camera.ts';
@@ -38,12 +39,18 @@ export const GAVE_UP_NOTICE = "The 3D shop stopped working in this browser, so h
 
 /** Development builds expose frames drawn, camera position and GPU textures, so tests can check idle, recentring and memory. */
 function DevProbe() {
-  useFrame(({ camera, gl }, delta) => {
-    const w = window as unknown as { __rlFrames?: number; __rlCamera?: number[]; __rlTextures?: number; __rlDeltas?: number[] };
+  useFrame(({ camera, gl, scene, size }, delta) => {
+    const w = window as unknown as { __rlFrames?: number; __rlCamera?: number[]; __rlTextures?: number; __rlDeltas?: number[]; __rlScreenOf?: (name: string) => number[] | null };
     w.__rlFrames = (w.__rlFrames ?? 0) + 1;
     w.__rlDeltas = [...(w.__rlDeltas ?? []).slice(-199), delta];
     w.__rlCamera = camera.position.toArray();
     w.__rlTextures = gl.info.memory.textures;
+    w.__rlScreenOf = (name) => { // where a named object (a dug record's id) is on screen, in CSS px
+      const o = scene.getObjectByName(name);
+      if (!o) return null;
+      const v = o.getWorldPosition(new Vector3()).project(camera);
+      return [(v.x + 1) / 2 * size.width, (1 - v.y) / 2 * size.height];
+    };
   });
   return null;
 }
@@ -170,10 +177,10 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
           if (Math.abs(dy) >= 26) { step(dy < 0 ? 1 : -1); drag.current = { y: e.clientY, moved: true }; }
         }
       }}
-      onPointerDown={(e) => { if (bin && e.target instanceof HTMLCanvasElement) { drag.current = { y: e.clientY, moved: false }; e.currentTarget.setPointerCapture?.(e.pointerId); } }}
+      /* No pointer capture: it retargets the click to this div, so R3F never sees it and records can't be picked. */
+      onPointerDown={(e) => { if (bin && e.target instanceof HTMLCanvasElement) { drag.current = { y: e.clientY, moved: false }; } }}
       onPointerUp={() => { setTimeout(() => { drag.current = null; }, 0); }}
       onPointerCancel={() => { drag.current = null; }}
-      onLostPointerCapture={() => { setTimeout(() => { drag.current = null; }, 0); }}
     >
       <Canvas
         frameloop="demand"

@@ -40,7 +40,7 @@ function DigRecord({ record, map, x, z, lean, pose, onPick }: {
   });
   return (
     <group ref={ref} position={[x, BASE_Y, z]} rotation={[-lean.back, 0, 0]}>
-      <mesh position={[0, SLEEVE / 2, 0]} material={mats} castShadow onClick={(e) => { if (e.delta > 6) return; e.stopPropagation(); onPick(); }}>
+      <mesh name={record.id} position={[0, SLEEVE / 2, 0]} material={mats} castShadow onClick={(e) => { if (e.delta > 6) return; e.stopPropagation(); onPick(); }}>
         <boxGeometry args={[SLEEVE, SLEEVE, THICK]} />
       </mesh>
     </group>
