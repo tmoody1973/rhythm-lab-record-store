@@ -2,3 +2,8 @@
 out/
 .superpowers/
 .DS_Store
+node_modules/
+dist/
+public/catalog.json
+public/covers/
+data/.cache/

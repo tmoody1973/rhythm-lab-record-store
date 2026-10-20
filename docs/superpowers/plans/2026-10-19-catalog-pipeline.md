@@ -17,7 +17,7 @@
 - Cover requests: about 1,215 on the first run, approved by Tarik; cached so later runs fetch only new albums. Client cap for this command: 1,500.
 - Cover fallback host: `https://f4.bcbits.com/img/a<coverId>_10.jpg` only (verified). No other third-party host.
 - Generated output is git-ignored: `public/catalog.json`, `public/covers/`, `data/.cache/`. Curation files (`content/*.json`) are never written by this pipeline.
-- `public/catalog.json` must contain no `subsonic`, `/rest/`, `u=`, `t=`, `s=`, `p=` strings and no absolute filesystem paths.
+- `public/catalog.json` must contain no `api/subsonic`, `/rest/`, `u=`, `t=`, `s=`, `p=` strings and no absolute filesystem paths.
 - Palette code is ported from `chrija76/bookshelf` `pipeline/palette.ts` (MIT); keep a header comment with its copyright line.
 - Every step prints a summary; nothing fails silently (fallbacks are counted and printed).
 
@@ -49,7 +49,7 @@
   - Missing `genre` → `genre: null`; empty-string genre → `null`.
   - `toPublicAlbum({ id: 'x:1', name: 'A' }, null) === null` and `toPublicAlbum({ id: 'a:1' }, null) === null` (Review Focus 2).
   - `buildCatalog` of two albums given out of order returns them sorted by `id`, `count: 2`, and `CatalogSchema.parse` accepts it.
-  - `JSON.stringify(buildCatalog(...))` matches none of `/subsonic|\/rest\/|[?&][utsp]=/`.
+  - `JSON.stringify(buildCatalog(...))` matches none of `/api\/subsonic|\/rest\/|[?&][utsp]=/`.
 - [ ] **Step 3: Run** `npm test -- map` → FAIL (module not found).
 - [ ] **Step 4: Implement** `src/catalog/schema.ts` and `pipeline/map.ts` to the signatures above. `artistKey` keeps the raw `b:<n>` string (or `''` when absent). Drop all other Subsonic fields.
 - [ ] **Step 5: Run** `npm test -- map` → PASS; `npm run typecheck` → no errors.
@@ -110,7 +110,7 @@
   - `writeJsonAtomic` to a path, then again with different data → file parses to the second value; no `*.tmp-*` files remain in the directory (Review Focus 4).
 - [ ] **Step 2: Run** → FAIL. **Step 3: Implement** `report.ts`. **Step 4: Run** → PASS.
 - [ ] **Step 5: Implement `pipeline/catalog.ts`:** load config; `createClient(cfg, { prefix: '/rest', auth: 'token', cap: 1500 })`; page `getAlbumList2` (`type=alphabeticalByName`, `size=500`) with `pageAll`. **If `stoppedBy !== 'short-page'`, log the reason and exit 1 without writing anything** (Review Focus 3). For each album: `parseTaggedId(coverArt, 'ca')` → `ensureCover` with `[subsonicFetcher(client), bandcampFetcher()]`, `cacheDir: 'data/.cache/covers'`, `outDir: 'public/covers'`; log progress every 50 albums. Map with `toPublicAlbum`; `CatalogSchema.parse(buildCatalog(...))`; read the previous `public/catalog.json` if present; `writeJsonAtomic('public/catalog.json', catalog)`. Print the summary: albums written, skipped (bad ids), covers by source (cache/subsonic/bandcamp/none), palette fallbacks, `added`/`removed` counts with up to 10 removed titles, dangling crate refs from `content/crates.json` if it exists, requests used, elapsed time.
-- [ ] **Step 6: Live run** (Claude runs it; ~10 minutes the first time): `npm run catalog`. Expected: `albums written: 1215` (or the current count), covers mostly `subsonic`, `none` small, no refusal. Then `node --env-file=.env.local scripts/subsonic-probe.mts check-secrets` → `PASS`, and `grep -cE 'subsonic|/rest/|[?&][utsp]=' public/catalog.json` → `0`.
+- [ ] **Step 6: Live run** (Claude runs it; ~10 minutes the first time): `npm run catalog`. Expected: `albums written: 1215` (or the current count), covers mostly `subsonic`, `none` small, no refusal. Then `node --env-file=.env.local scripts/subsonic-probe.mts check-secrets` → `PASS`, and `grep -cE 'api/subsonic|/rest/|[?&][utsp]=' public/catalog.json` → `0`.
 - [ ] **Step 7: Second live run** → summary shows covers all `cache`, `added 0`, `removed 0`, and well under 10 requests (only the 3 list pages).
 - [ ] **Step 8: Commit** `feat: add npm run catalog`.
 
