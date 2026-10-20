@@ -2,8 +2,8 @@
 // so filters, sort, page and the open record survive reloads, Back, and sharing.
 import { SORT_KEYS, type Query, type SortKey } from '../catalog/query.ts';
 
-export type UrlState = Query & { record: string | null; shared: string | null };
-export const DEFAULT_STATE: UrlState = { q: '', genres: [], crate: null, country: null, sort: 'artist-asc', page: 1, record: null, shared: null };
+export type UrlState = Query & { record: string | null; shared: string | null; view: 'store' | 'grid'; section: string | null; bin: number | null };
+export const DEFAULT_STATE: UrlState = { q: '', genres: [], crate: null, country: null, sort: 'artist-asc', page: 1, record: null, shared: null, view: 'store', section: null, bin: null };
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -15,6 +15,8 @@ export function parseUrl(search: string): UrlState {
   const record = p.get('record');
   const shared = p.get('shared');
   const country = p.get('country');
+  const section = p.get('section');
+  const bin = Number(p.get('bin') ?? NaN);
   return {
     q: (p.get('q') ?? '').slice(0, 100),
     genres: [...new Set((p.get('genre') ?? '').split(',').filter((g) => SLUG.test(g)))],
@@ -25,6 +27,9 @@ export function parseUrl(search: string): UrlState {
     // Kept as given (when short) so the UI can say "that record link didn't match anything".
     record: record && record.length <= 24 ? record : null,
     shared: shared && shared.length <= 16_000 ? shared : null,
+    view: p.get('view') === 'grid' ? 'grid' : 'store',
+    section: section && SLUG.test(section) ? section : null,
+    bin: Number.isInteger(bin) && bin >= 0 && bin < 1000 ? bin : null,
   };
 }
 
@@ -38,6 +43,9 @@ export function toSearch(s: UrlState): string {
   if (s.page !== 1) p.set('page', String(s.page));
   if (s.record) p.set('record', s.record);
   if (s.shared) p.set('shared', s.shared);
+  if (s.view === 'grid') p.set('view', 'grid');
+  if (s.section) p.set('section', s.section);
+  if (s.bin !== null) p.set('bin', String(s.bin));
   const out = p.toString();
   return out ? `?${out}` : '';
 }

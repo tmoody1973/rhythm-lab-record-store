@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { genreChips } from '../catalog/genres.ts';
 import { applyQuery, firstIndexForLetter, letters, pageCount, pageOf, pageSlice, PER_PAGE } from '../catalog/query.ts';
 import type { EnrichmentMap } from '../catalog/load.ts';
@@ -7,6 +7,10 @@ import type { UrlState } from '../state/url.ts';
 import { ChipRow } from './ChipRow.tsx';
 import { LetterStrip, Pagination, SortSelect } from './Controls.tsx';
 import { RecordCard } from './RecordCard.tsx';
+import { has3D } from '../shop/support.ts';
+
+// The 3D shop downloads only when someone is actually in it, so the grid never pays for three.js.
+const ShopScene = lazy(() => import('../shop/ShopScene.tsx'));
 
 type Props = {
   catalog: Catalog;
@@ -16,6 +20,8 @@ type Props = {
   crateMembers?: (crateId: string) => Set<string> | null;
   enrichment?: EnrichmentMap;
   onOpen?: (record: PublicAlbum, el: HTMLButtonElement) => void;
+  onNotice?: (text: string) => void;
+  staffPicks?: PublicAlbum[];
 };
 
 const fmt = (n: number) => n.toLocaleString('en-US');
@@ -23,7 +29,7 @@ const regionName = (code: string) => { try { return new Intl.DisplayNames(['en']
 /** Show the Country filter only once enrichment covers enough of the catalog to be useful. */
 export const COUNTRY_MIN_SHARE = 0.2; // Tarik chose 20% after the pilot reached 26% (docs/ENRICHMENT-COVERAGE.md)
 
-export function Collection({ catalog, state, patch, crates = [], crateMembers = () => null, enrichment = {}, onOpen }: Props) {
+export function Collection({ catalog, state, patch, crates = [], crateMembers = () => null, enrichment = {}, onOpen, onNotice = () => {}, staffPicks = [] }: Props) {
   const chips = useMemo(() => genreChips(catalog.albums), [catalog]);
   const sorted = useMemo(
     () => applyQuery(catalog.albums, state, state.crate ? crateMembers(state.crate) : null, (id) => enrichment[id]?.artistCountry),
@@ -59,6 +65,15 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
   const toggleGenre = (slug: string) =>
     patch({ genres: state.genres.includes(slug) ? state.genres.filter((g) => g !== slug) : [...state.genres, slug] });
   const start = sorted.length ? (page - 1) * PER_PAGE + 1 : 0;
+  const can3D = has3D();
+
+  if (state.view === 'store' && can3D) {
+    return (
+      <Suspense fallback={<p className="fixed inset-0 grid place-items-center bg-[#1a1411] text-[#f3e6cf]">Opening the shop…</p>}>
+        <ShopScene albums={catalog.albums} state={state} patch={patch} onOpenRecord={(r) => onOpen?.(r, document.activeElement as HTMLButtonElement)} onNotice={onNotice} staffPicks={staffPicks} />
+      </Suspense>
+    );
+  }
 
   return (
     <>
@@ -70,7 +85,7 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
         <div className="flex items-center gap-4">
           <span className="text-sm text-ink-soft">{fmt(catalog.count)} records</span>
           <div className="flex rounded-full border border-ink/25 bg-card p-1" role="group" aria-label="View">
-            <button type="button" disabled title="The 3D record shop is coming soon" className="rounded-full px-4 py-1.5 text-sm text-ink/40">Store</button>
+            <button type="button" disabled={!can3D} title={can3D ? undefined : "This browser can't show the 3D shop"} onClick={() => patch({ view: 'store' })} className="rounded-full px-4 py-1.5 text-sm text-ink hover:bg-chip disabled:text-ink/40 disabled:hover:bg-transparent">Store</button>
             <button type="button" aria-pressed="true" className="rounded-full bg-forest px-4 py-1.5 text-sm text-card">Grid</button>
           </div>
         </div>

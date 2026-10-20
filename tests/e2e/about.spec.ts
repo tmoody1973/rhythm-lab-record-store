@@ -16,7 +16,7 @@ test('About: reachable from the header, and "Back to the shop" returns home', as
 
   await page.getByRole('link', { name: /back to the shop/i }).click();
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole('heading', { name: 'Pull up a crate.' })).toBeVisible();
+  await expect(page.getByTestId('shop')).toBeAttached(); // home is the 3D shop now (decision 11)
 });
 
 test('About: no sideways scrolling on a 390px phone', async ({ page }) => {

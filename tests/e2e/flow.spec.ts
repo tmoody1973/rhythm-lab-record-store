@@ -14,7 +14,7 @@ test('visitor flow: filter, open, crate it, share it, save it in another browser
   const page = await mine.newPage();
   await offline(page);
 
-  await page.goto('/');
+  await page.goto('/?view=grid');
   await page.getByText('More', { exact: true }).click();
   await page.getByRole('button', { name: /^Jazz/ }).click();
   await page.getByLabel('Sort by').selectOption('artist-asc');

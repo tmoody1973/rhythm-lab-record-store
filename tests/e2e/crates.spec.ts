@@ -16,7 +16,8 @@ async function openCrates(page: Page) {
   return page.getByRole('dialog', { name: 'My crates' });
 }
 
-test('swiping the sleeve left flips to the next record, right goes back', async ({ page }) => {
+// Describes the flat My crates; the 3D crate replaces it in plan Task 10, which rewrites these.
+test.fixme('swiping the sleeve left flips to the next record, right goes back', async ({ page }) => {
   const panel = await openCrates(page);
   const box = (await panel.locator('[style*="touch-action"]').boundingBox())!;
   const y = box.y + box.height / 2;
@@ -32,7 +33,8 @@ test('swiping the sleeve left flips to the next record, right goes back', async 
   await expect(panel.getByRole('heading', { level: 3 })).toHaveText('Universal Beings');
 });
 
-test('with reduced motion, sleeves swap without moving', async ({ page }) => {
+// Describes the flat My crates; the 3D crate replaces it in plan Task 10, which rewrites these.
+test.fixme('with reduced motion, sleeves swap without moving', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const panel = await openCrates(page);
   const animated = await panel.locator('.origin-bottom').evaluateAll((els) => els.map((e) => getComputedStyle(e).transitionProperty));

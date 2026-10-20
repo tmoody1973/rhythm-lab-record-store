@@ -11,32 +11,32 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('open from the grid, browser Back closes it and keeps the filters', async ({ page }) => {
-  await page.goto('/?genre=jazz');
+  await page.goto('/?view=grid&genre=jazz');
   await page.getByRole('button', { name: /^Universal Beings/ }).click();
   const dialog = page.getByRole('dialog', { name: 'Universal Beings' });
   await expect(dialog).toBeVisible();
-  await expect(page).toHaveURL(`/?genre=jazz&record=a${universal.bandcampId}`);
+  await expect(page).toHaveURL(`/?genre=jazz&record=a${universal.bandcampId}&view=grid`);
   await expect(dialog.locator('iframe')).toHaveAttribute('src', new RegExp(`/album=${universal.bandcampId}/`));
 
   await page.goBack();
   await expect(dialog).toBeHidden();
-  await expect(page).toHaveURL('/?genre=jazz');
+  await expect(page).toHaveURL('/?view=grid&genre=jazz') // Back restores the address as loaded;
   await expect(page.getByRole('button', { name: /^Universal Beings/ })).toBeFocused();
   await expect(page.locator('iframe')).toHaveCount(0);
 });
 
 test('Escape closes; a direct link closes back to the collection, not out of the site', async ({ page }) => {
-  await page.goto(`/?record=a${universal.bandcampId}`);
+  await page.goto(`/?view=grid&record=a${universal.bandcampId}`);
   await expect(page.getByRole('dialog', { name: 'Universal Beings' })).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
-  await expect(page).toHaveURL('/');
+  await expect(page).toHaveURL('/?view=grid');
   await expect(page.getByRole('heading', { name: 'Pull up a crate.' })).toBeVisible();
 });
 
 test('on a phone the close button stays visible while the pop-up scrolls', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`/?record=a${universal.bandcampId}`);
+  await page.goto(`/?view=grid&record=a${universal.bandcampId}`);
   const dialog = page.getByRole('dialog', { name: 'Universal Beings' });
   await expect(dialog).toBeVisible();
   await dialog.evaluate((d) => d.scrollTo(0, d.scrollHeight));

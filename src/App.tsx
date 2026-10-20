@@ -11,6 +11,7 @@ import { AlbumDialog } from './ui/AlbumDialog.tsx';
 import { Collection } from './ui/Collection.tsx';
 import { CratesPanel, type CratePlace } from './ui/CratesPanel.tsx';
 import { Header } from './ui/Header.tsx';
+import { has3D } from './shop/support.ts';
 import { RecordActions } from './ui/RecordActions.tsx';
 import { SharedBanner } from './ui/SharedBanner.tsx';
 
@@ -43,6 +44,7 @@ export function App() {
     return [['apple', 'Apple Music'], ['musicbrainz', 'MusicBrainz'], ['discogs', 'Discogs']].filter(([k]) => used.has(k as never)).map(([, n]) => n);
   }, [enrichment]);
   const [notice, setNotice] = useState<string | null>(null);
+  const inShop = state.view === 'store' && has3D();
   const [cratesOpen, setCratesOpen] = useState(false);
   const [cratePlace, setCratePlace] = useState<CratePlace>(() => ({ crate: loadLastCrate(), index: 0 }));
   const backToCrates = useRef(false); // the open record came from "My crates": closing it returns there
@@ -133,8 +135,11 @@ export function App() {
 
   return (
     <>
-      <Header query={state.q} onQuery={(q) => patch({ q })} onOpenCrates={() => setCratesOpen(true)} />
+      {/* Search lives in the grid: typing while in the shop takes you there. */}
+      <Header query={state.q} onQuery={(q) => patch(q && state.view === 'store' ? { q, view: 'grid' } : { q })} onOpenCrates={() => setCratesOpen(true)} />
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12">
+        {/* relative z-10: notices and the shared-crate banner stay above the full-page shop */}
+        <div className="relative z-10">
         {visitor.notice && <Notice text={STORAGE_NOTICES[visitor.notice]} onDismiss={visitor.dismiss} />}
         {notice && <Notice text={notice} onDismiss={() => setNotice(null)} />}
         {shared?.ok && (
@@ -147,6 +152,7 @@ export function App() {
             onOpen={openRecord}
           />
         )}
+        </div>
         {catalog.status === 'loading' && <p className="text-ink-soft">Pulling up the crates…</p>}
         {catalog.status === 'error' && (
           <div role="alert" className="mx-auto max-w-xl rounded-2xl border border-line bg-card p-6">
@@ -163,13 +169,15 @@ export function App() {
             crateMembers={(id) => crateMembers(TARIK_CRATES, id)}
             enrichment={enrichment}
             onOpen={openRecord}
+            onNotice={setNotice}
+            staffPicks={[]}
           />
         )}
       </main>
-      <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 pb-10 text-sm text-ink-soft sm:px-8">
+      {!inShop && <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 pb-10 text-sm text-ink-soft sm:px-8">
         <span>A personal collection. Powered by Bandcamp.</span>
         <span>Album art © its owners.{credits.length > 0 && ` Metadata: ${credits.join(', ')}.`}</span>
-      </footer>
+      </footer>}
       {open && (
         <AlbumDialog
           key={open.id}

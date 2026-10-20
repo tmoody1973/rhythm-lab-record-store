@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('browse: genre, sort, search and letter jump update the URL and survive a reload', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?view=grid');
   await expect(page.getByRole('heading', { name: 'Pull up a crate.' })).toBeVisible();
   await expect(page.getByRole('status')).toHaveText('Showing 1–20 of 20 records');
 
@@ -17,7 +17,7 @@ test('browse: genre, sort, search and letter jump update the URL and survive a r
   await page.getByRole('button', { name: /^Jazz/ }).click();
   await expect(page.getByRole('status')).toHaveText('Showing 1–3 of 3 records');
   await page.getByLabel('Sort by').selectOption('title-desc');
-  await expect(page).toHaveURL(/\?genre=jazz&sort=title-desc$/);
+  await expect(page).toHaveURL(/\?genre=jazz&sort=title-desc&view=grid$/);
 
   await page.reload();
   await expect(page.getByRole('status')).toHaveText('Showing 1–3 of 3 records');
