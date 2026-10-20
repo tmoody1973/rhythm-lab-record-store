@@ -87,7 +87,6 @@ type PublicAlbum = {
   bandcampId: number;    // <n>; the player is EmbeddedPlayer/album=<n> or EmbeddedPlayer/track=<n>
   title: string;
   artist: string;
-  artistKey: string;     // Subsonic 'b:<n>'
   genre: string | null;  // Bandcamp genre string as given, e.g. 'r&b soul'; null when absent
   cover: { grid: string; large: string; dominant: string; accent: string } | null; // self-hosted WebP paths + palette; null → typographic placeholder
   songCount: number;

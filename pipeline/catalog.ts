@@ -6,7 +6,7 @@ import { createClient, loadConfig, pageAll } from '../scripts/subsonic-probe.mts
 import { CatalogSchema, type PublicAlbum } from '../src/catalog/schema.ts';
 import { bandcampFetcher, ensureCover, subsonicFetcher } from './covers.ts';
 import { buildCatalog, parseTaggedId, recordKey, toPublicAlbum } from './map.ts';
-import { danglingCrateRefs, diffCatalogs, writeJsonAtomic } from './report.ts';
+import { danglingCrateRefs, diffCatalogs, listingComplete, writeJsonAtomic } from './report.ts';
 
 const CATALOG = 'public/catalog.json';
 const CRATES = 'content/crates.json';
@@ -27,7 +27,7 @@ async function main(): Promise<void> {
     500,
     (a: any) => String(a.id),
   );
-  if (listing.stoppedBy !== 'short-page') {
+  if (!listingComplete(listing)) {
     say(`REFUSED: album listing incomplete (${listing.stoppedBy}: ${listing.error}). ${CATALOG} left unchanged.`);
     process.exitCode = 1;
     return;
@@ -37,9 +37,14 @@ async function main(): Promise<void> {
   const sources = { cache: 0, subsonic: 0, bandcamp: 0, none: 0 };
   let paletteFallbacks = 0;
   let fetchFailures = 0;
+  let decodeFailures = 0;
+  let coverErrors = 0;
   const onFallback = (key: string, err: Error) => {
     if (key.startsWith('fetch:')) fetchFailures++;
-    else {
+    else if (key.startsWith('decode:')) {
+      decodeFailures++;
+      say(`unreadable image for ${key.slice(7)}: ${err.message}`);
+    } else {
       paletteFallbacks++;
       say(`palette fallback for ${key}: ${err.message}`);
     }
@@ -55,9 +60,18 @@ async function main(): Promise<void> {
       say(`skipped album with unusable id ${JSON.stringify(raw.id)}`);
       continue;
     }
-    const { cover, source } = await ensureCover(key, parseTaggedId(raw.coverArt, 'ca'), {
-      fetchers, cacheDir: 'data/.cache/covers', outDir: 'public/covers', onFallback,
-    });
+    let result: Awaited<ReturnType<typeof ensureCover>>;
+    try {
+      result = await ensureCover(key, parseTaggedId(raw.coverArt, 'ca'), {
+        fetchers, cacheDir: 'data/.cache/covers', outDir: 'public/covers', onFallback,
+      });
+    } catch (e) {
+      // Safety net: one record's cover problem (e.g. disk error) must not stop the whole refresh.
+      coverErrors++;
+      say(`cover error for ${key}: ${(e as Error).message}`);
+      result = { cover: null, source: 'none' };
+    }
+    const { cover, source } = result;
     sources[source]++;
     const album = toPublicAlbum(raw, cover);
     if (album) albums.push(album);
@@ -79,7 +93,7 @@ async function main(): Promise<void> {
   say(`records written: ${catalog.count} (${catalog.albums.filter((a) => a.kind === 'album').length} albums, ${catalog.albums.filter((a) => a.kind === 'track').length} single tracks) → ${CATALOG}`);
   say(`skipped: ${skipped}`);
   say(`covers: cache ${sources.cache}, subsonic ${sources.subsonic}, bandcamp ${sources.bandcamp}, none ${sources.none}`);
-  say(`cover fetch failures (fell through to next source): ${fetchFailures}; palette fallbacks: ${paletteFallbacks}`);
+  say(`cover fetch failures: ${fetchFailures}; unreadable images: ${decodeFailures}; cover errors: ${coverErrors}; palette fallbacks: ${paletteFallbacks}`);
   say(`vs previous catalog: ${added.length} added, ${removed.length} removed`);
   for (const id of removed.slice(0, 10)) say(`  removed: ${prevTitles.get(id) ?? id}`);
   say(`crate entries pointing at missing albums: ${dangling.length}`);

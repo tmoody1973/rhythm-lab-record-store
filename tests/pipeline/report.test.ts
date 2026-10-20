@@ -3,7 +3,7 @@ import { mkdtempSync, readdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildCatalog, toPublicAlbum } from '../../pipeline/map.ts';
-import { danglingCrateRefs, diffCatalogs, writeJsonAtomic } from '../../pipeline/report.ts';
+import { danglingCrateRefs, diffCatalogs, listingComplete, writeJsonAtomic } from '../../pipeline/report.ts';
 
 const catalogWith = (ids: number[]) =>
   buildCatalog(ids.map((n) => toPublicAlbum({ id: `a:${n}`, name: `Album ${n}` }, null)!), '2026-10-19T00:00:00.000Z');
@@ -36,5 +36,13 @@ describe('writeJsonAtomic', () => {
     await writeJsonAtomic(file, { v: 2 });
     expect(JSON.parse(readFileSync(file, 'utf8'))).toEqual({ v: 2 });
     expect(readdirSync(dir)).toEqual(['catalog.json']);
+  });
+});
+
+describe('listingComplete', () => {
+  test('only a listing that ended on a short page may be written', () => {
+    expect(listingComplete({ stoppedBy: 'short-page' })).toBe(true);
+    expect(listingComplete({ stoppedBy: 'cap' })).toBe(false);
+    expect(listingComplete({ stoppedBy: 'error' })).toBe(false);
   });
 });

@@ -20,6 +20,11 @@ export function danglingCrateRefs(crates: unknown, next: Catalog): { crateId: st
   );
 }
 
+/** Only a listing that ended on a short (last) page is complete enough to publish. */
+export function listingComplete(r: { stoppedBy: string }): boolean {
+  return r.stoppedBy === 'short-page';
+}
+
 /** Write to a temp file, then rename over the target: readers see the old file or the new one, never half of one. */
 export async function writeJsonAtomic(path: string, data: unknown): Promise<void> {
   await mkdir(dirname(path), { recursive: true });

@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { existsSync, mkdtempSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sharp from 'sharp';
@@ -18,11 +18,11 @@ describe('ensureCover', () => {
     const d = deps([async () => jpeg()]);
     const r = await ensureCover('album-7', 99, d);
     expect(r.source).toBe('subsonic');
-    expect(r.cover?.grid).toBe('/covers/album-7-300.webp');
-    expect(r.cover?.large).toBe('/covers/album-7-1000.webp');
+    expect(r.cover?.grid).toBe('/covers/album-7-ca99-300.webp');
+    expect(r.cover?.large).toBe('/covers/album-7-ca99-1000.webp');
     expect(r.cover?.dominant).toMatch(/^#[0-9a-f]{6}$/);
-    expect((await sharp(join(d.outDir, 'album-7-300.webp')).metadata()).width).toBe(300);
-    expect((await sharp(join(d.outDir, 'album-7-1000.webp')).metadata()).width).toBe(1000);
+    expect((await sharp(join(d.outDir, 'album-7-ca99-300.webp')).metadata()).width).toBe(300);
+    expect((await sharp(join(d.outDir, 'album-7-ca99-1000.webp')).metadata()).width).toBe(1000);
   });
 
   test('a second run uses the cache and never calls a fetcher', async () => {
@@ -30,7 +30,7 @@ describe('ensureCover', () => {
     await ensureCover('album-7', 99, deps([async () => jpeg()], d));
     const r = await ensureCover('album-7', 99, deps([never], d));
     expect(r.source).toBe('cache');
-    expect(r.cover?.grid).toBe('/covers/album-7-300.webp');
+    expect(r.cover?.grid).toBe('/covers/album-7-ca99-300.webp');
   });
 
   test('falls back to the second fetcher when the first has no image', async () => {
@@ -45,10 +45,48 @@ describe('ensureCover', () => {
     expect(d.onFallback).toHaveBeenCalledWith('fetch:ca:99', expect.any(Error));
   });
 
+  test('an image that fails to decode is skipped and the next source is tried', async () => {
+    const d = deps([async () => Buffer.from('not an image'), async () => jpeg()]);
+    const r = await ensureCover('album-7', 99, d);
+    expect(r.source).toBe('bandcamp');
+    expect(d.onFallback).toHaveBeenCalledWith('decode:ca:99', expect.any(Error));
+  });
+
+  test('a truncated download leaves no files behind', async () => {
+    const truncated = (await jpeg()).subarray(0, 400);
+    const d = deps([async () => truncated]);
+    expect(await ensureCover('album-7', 99, d)).toEqual({ cover: null, source: 'none' });
+    expect(existsSync(d.outDir) ? readdirSync(d.outDir) : []).toEqual([]);
+    expect(existsSync(join(d.cacheDir, '99.jpg'))).toBe(false);
+  });
+
+  test('a corrupt cached original is deleted and fetched again', async () => {
+    const d = deps([async () => jpeg()]);
+    mkdirSync(d.cacheDir, { recursive: true });
+    writeFileSync(join(d.cacheDir, '99.jpg'), 'garbage');
+    const r = await ensureCover('album-7', 99, d);
+    expect(r.source).toBe('subsonic');
+    expect(r.cover?.grid).toBe('/covers/album-7-ca99-300.webp');
+  });
+
+  test('new cover art gets new file names, so the old image is never served', async () => {
+    const d = dirs();
+    const first = await ensureCover('album-7', 99, deps([async () => jpeg()], d));
+    const second = await ensureCover('album-7', 100, deps([async () => jpeg()], d));
+    expect(second.cover?.grid).toBe('/covers/album-7-ca100-300.webp');
+    expect(second.cover?.grid).not.toBe(first.cover?.grid);
+  });
+
+  test('successful runs leave no temp files', async () => {
+    const d = deps([async () => jpeg()]);
+    await ensureCover('album-7', 99, d);
+    expect([...readdirSync(d.outDir), ...readdirSync(d.cacheDir)].filter((f) => f.includes('.tmp-'))).toEqual([]);
+  });
+
   test('no image anywhere, or no cover id, gives a null cover and writes nothing', async () => {
     const d = deps([async () => null, async () => null]);
     expect(await ensureCover('album-7', 99, d)).toEqual({ cover: null, source: 'none' });
-    expect(existsSync(join(d.outDir, 'album-7-300.webp'))).toBe(false);
+    expect(existsSync(join(d.outDir, 'album-7-ca99-300.webp'))).toBe(false);
     expect(await ensureCover('album-7', null, deps([never]))).toEqual({ cover: null, source: 'none' });
   });
 });

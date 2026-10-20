@@ -24,7 +24,7 @@ describe('toPublicAlbum', () => {
   test('maps a Subsonic album to the public shape and drops everything else', () => {
     expect(toPublicAlbum(edge, null)).toEqual({
       id: 'bandcamp:album:3274104668', kind: 'album', bandcampId: 3274104668, title: 'Edge Conditions', artist: 'Jeremiah Chiu',
-      artistKey: 'b:2239178', genre: 'jazz', cover: null, songCount: 11, durationSec: 2541,
+      genre: 'jazz', cover: null, songCount: 11, durationSec: 2541,
     });
   });
   test('missing or empty genre becomes null', () => {

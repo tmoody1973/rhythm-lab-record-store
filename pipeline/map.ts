@@ -38,7 +38,6 @@ export function toPublicAlbum(raw: Record<string, unknown>, cover: Cover | null)
     bandcampId: rid.n,
     title,
     artist: str(raw.artist),
-    artistKey: str(raw.artistId),
     genre: str(raw.genre) || null,
     cover,
     songCount: num(raw.songCount),

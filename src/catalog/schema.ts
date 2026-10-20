@@ -18,7 +18,6 @@ export const PublicAlbumSchema = z.object({
   bandcampId: z.number().int().positive(), // Bandcamp album or track id, used for the embedded player
   title: z.string().min(1),
   artist: z.string(),
-  artistKey: z.string(),
   genre: z.string().min(1).nullable(),
   cover: CoverSchema.nullable(),
   songCount: z.number().int().nonnegative(),

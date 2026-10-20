@@ -31,7 +31,7 @@ Subsonic returns two kinds of record:
 | Path | What | In git? |
 | --- | --- | --- |
 | `public/catalog.json` | The public catalog (no credentials, no Subsonic addresses) | No, generated |
-| `public/covers/` | 2 WebP files per record (~118 MB) | No, generated; album art isn't committed |
+| `public/covers/` | 2 WebP files per record, named `<kind>-<n>-ca<coverId>-<size>.webp` so new artwork gets new files (~118 MB) | No, generated; album art isn't committed |
 | `data/.cache/covers/` | Original downloads and extracted colours (~96 MB) | No |
 | `fixtures/catalog-sample.json` | 20 real records (17 albums, 3 tracks) without covers, for development and tests | Yes |
 | `content/*.json` | Your crates and notes | Yes; this step reads them but never writes them |
