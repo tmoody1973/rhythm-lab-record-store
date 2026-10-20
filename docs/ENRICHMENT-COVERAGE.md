@@ -65,6 +65,6 @@ These are published values, spread across fields. A wrong one means the gate nee
 
 - **Placeholder values.** MusicBrainz writes `[none]` for "no catalog number"; it was published once. Placeholders (`[none]`, `none`, `N/A`, `-`, `[no label]`, `unknown`) are now rejected for every source and field (test: "placeholder catalog numbers like [none] are never published").
 
-## Open question for the full run
+## Country filter threshold
 
-The Country filter appears at **30%** coverage; the pilot reached **26%**. Options: keep 30% (filter may stay hidden after the full run), lower it to 20%, or always show it with a note that country is known for only some records.
+The pilot reached **26%** country coverage against a 30% bar. **Tarik lowered the bar to 20%** (2026-10-19) so the filter appears once the full run lands.

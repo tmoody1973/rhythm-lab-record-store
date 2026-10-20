@@ -21,7 +21,7 @@ type Props = {
 const fmt = (n: number) => n.toLocaleString('en-US');
 const regionName = (code: string) => { try { return new Intl.DisplayNames(['en'], { type: 'region' }).of(code) ?? code; } catch { return code; } };
 /** Show the Country filter only once enrichment covers enough of the catalog to be useful. */
-export const COUNTRY_MIN_SHARE = 0.3;
+export const COUNTRY_MIN_SHARE = 0.2; // Tarik chose 20% after the pilot reached 26% (docs/ENRICHMENT-COVERAGE.md)
 
 export function Collection({ catalog, state, patch, crates = [], crateMembers = () => null, enrichment = {}, onOpen }: Props) {
   const chips = useMemo(() => genreChips(catalog.albums), [catalog]);

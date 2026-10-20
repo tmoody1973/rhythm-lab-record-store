@@ -68,7 +68,13 @@ test('a Country filter appears when enough records have a country, and filters',
   expect(screen.getByText(/Metadata: MusicBrainz/)).toBeInTheDocument();
 });
 
-test('below 30% coverage the Country filter stays hidden', async () => {
+test('at 25% coverage (above the 20% bar) the Country filter shows', async () => {
+  serve(file(Object.fromEntries(fixture.albums.slice(0, 5).map((a) => [a.id, { artistCountry: 'GB', sources: ['musicbrainz'] }]))));
+  render(<App />);
+  expect(await screen.findByLabelText('Country')).toBeInTheDocument();
+});
+
+test('below 20% coverage the Country filter stays hidden', async () => {
   serve(file({ [fixture.albums[0]!.id]: { artistCountry: 'GB', sources: ['discogs'] } }));
   render(<App />);
   await screen.findByRole('heading', { name: 'Pull up a crate.' });
