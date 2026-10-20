@@ -43,21 +43,21 @@ These are published values, spread across fields. A wrong one means the gate nee
 
 | # | Record | Field | Value | Sources | ✅/❌ |
 |---|---|---|---|---|---|
-| 1 | Wastral — Celia Wa | label | Heavenly Sweetness | Apple + MusicBrainz + Discogs | |
-| 2 | Little Spaces — Nu:Tone | artist country | United Kingdom | Apple + MusicBrainz + Discogs | |
-| 3 | VGM.28 — Knxwledge. | Bandcamp link | https://knxwledge.bandcamp.com/album/vgm-28 | MusicBrainz | |
-| 4 | Little Spaces — Nu:Tone | styles | Drum n Bass | Apple + MusicBrainz + Discogs | |
-| 5 | I Think I'm Falling In Love — Leroy Hutson | catalog number | ATH018 | MusicBrainz + Discogs | |
-| 6 | oneiric — del bel | release date | 2011-10-31 | Apple + MusicBrainz + Discogs | |
-| 7 | Motherless Father — LeFtO Early Bird | label | Brownswood Recordings | Apple + MusicBrainz | |
-| 8 | Cloak — Jordan Rakei | artist country / area | United Kingdom (London) | Apple + MusicBrainz | |
-| 9 | 3 Nights In Amsterdam — JessB | Bandcamp link | https://ogjessb.bandcamp.com/album/3-nights-in-amsterdam | MusicBrainz | |
-| 10 | HA Chu — Pan Amsterdam | styles | Abstract, Future Jazz | Apple + MusicBrainz + Discogs | |
-| 11 | HELLA LOVE — MARINERO | catalog number | HAR-135 | Apple + MusicBrainz + Discogs | |
-| 12 | Wastral — Celia Wa | release date | 2021-07-02 | Apple + MusicBrainz + Discogs | |
-| 13 | Colour Theory — Submotion Orchestra | label | Counter Records | Apple + MusicBrainz + Discogs | |
-| 14 | VGM.28 — Knxwledge. | artist country | United States | MusicBrainz | |
-| 15 | The Voice Of Q — Q | Bandcamp link | https://qvoiceofq.bandcamp.com/album/the-voice-of-q | Apple + MusicBrainz | |
+| 1 | Wastral — Celia Wa | label | Heavenly Sweetness | Apple + MusicBrainz + Discogs | ✅ |
+| 2 | Little Spaces — Nu:Tone | artist country | United Kingdom | Apple + MusicBrainz + Discogs | ✅ |
+| 3 | VGM.28 — Knxwledge. | Bandcamp link | https://knxwledge.bandcamp.com/album/vgm-28 | MusicBrainz | ✅ |
+| 4 | Little Spaces — Nu:Tone | styles | Drum n Bass | Apple + MusicBrainz + Discogs | ✅ |
+| 5 | I Think I'm Falling In Love — Leroy Hutson | catalog number | ATH018 | MusicBrainz + Discogs | ✅ |
+| 6 | oneiric — del bel | release date | 2011-10-31 | Apple + MusicBrainz + Discogs | ✅ |
+| 7 | Motherless Father — LeFtO Early Bird | label | Brownswood Recordings | Apple + MusicBrainz | ✅ |
+| 8 | Cloak — Jordan Rakei | artist country / area | United Kingdom (London) | Apple + MusicBrainz | ✅ |
+| 9 | 3 Nights In Amsterdam — JessB | Bandcamp link | https://ogjessb.bandcamp.com/album/3-nights-in-amsterdam | MusicBrainz | ✅ |
+| 10 | HA Chu — Pan Amsterdam | styles | Abstract, Future Jazz | Apple + MusicBrainz + Discogs | ✅ |
+| 11 | HELLA LOVE — MARINERO | catalog number | HAR-135 | Apple + MusicBrainz + Discogs | ✅ |
+| 12 | Wastral — Celia Wa | release date | 2021-07-02 | Apple + MusicBrainz + Discogs | ✅ |
+| 13 | Colour Theory — Submotion Orchestra | label | Counter Records | Apple + MusicBrainz + Discogs | ✅ |
+| 14 | VGM.28 — Knxwledge. | artist country | United States | MusicBrainz | ✅ |
+| 15 | The Voice Of Q — Q | Bandcamp link | https://qvoiceofq.bandcamp.com/album/the-voice-of-q | Apple + MusicBrainz | ✅ |
 
 "Sources" lists every source that contributed to the record's published values, not necessarily to that one field.
 
