@@ -222,5 +222,26 @@ test('after the shop sits idle, Next eases the records instead of jumping (Tarik
   await page.waitForTimeout(1500);
   const deltas = await page.evaluate(() => (window as unknown as { __rlDeltas: number[] }).__rlDeltas);
   expect(deltas.length).toBeGreaterThan(0);
-  expect(Math.max(...deltas)).toBeLessThanOrEqual(1 / 30 + 1e-6); // no frame is told seconds have passed
+  expect(deltas[0]).toBeLessThanOrEqual(1 / 60 + 1e-6); // the first frame after the pause is one normal step, not seconds
+  expect(Math.max(...deltas)).toBeLessThanOrEqual(0.1 + 1e-6);
+});
+
+test('clicking a record in the right-hand compartment picks it (Tarik: "just the one on the left")', async ({ page }) => {
+  const base = JSON.parse(fixture);
+  const one = base.albums.find((a: { genre: string | null }) => a.genre === 'rock');
+  const albums = Array.from({ length: 30 }, (_, i) => {
+    const n = String(i + 1).padStart(2, '0');
+    return { ...one, id: `bandcamp:album:90${n}`, bandcampId: 9000 + i, title: `Record ${n}`, artist: `Artist ${n}` };
+  });
+  await page.route('**/catalog.json', (r) => r.fulfill({ body: JSON.stringify({ ...base, count: albums.length, albums }), contentType: 'application/json' }));
+  await page.route(/bandcamp\.com|bcbits\.com/, (r) => r.abort());
+  await page.goto('/?section=rock-pop-alt&bin=0');
+  await ready(page);
+  let last = await frames(page);
+  await expect.poll(async () => { await page.waitForTimeout(1500); const now = await frames(page); const d = now - last; last = now; return d; }, { timeout: 45_000, intervals: [0] }).toBe(0);
+  // Record 25 is the front sleeve of the right compartment (24 per compartment).
+  const at = await page.evaluate(() => (window as unknown as { __rlScreenOf: (n: string) => number[] | null }).__rlScreenOf('bandcamp:album:9025'));
+  expect(at).not.toBeNull();
+  await page.mouse.click(at![0]!, at![1]!);
+  await expect(page.getByRole('status')).toHaveText('Record 25 by Artist 25, 25 of 30');
 });
