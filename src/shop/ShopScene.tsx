@@ -6,15 +6,17 @@ import type { PublicAlbum } from '../catalog/schema.ts';
 import type { UrlState } from '../state/url.ts';
 import { digAim, sectionAim, storeAim } from './camera.ts';
 import { stepSel } from './dig.ts';
-import { layoutShop } from './layout.ts';
+import { BW } from './geometry.ts';
+import { layoutShop, type Placed, type Rect } from './layout.ts';
 import { qualityFor } from './quality.ts';
 import { RoomLights } from './scene/Lights.tsx';
 import { BinBox, BrassPlaque, DividerTabs, FrontCovers, reducedMotion, SectionLight, Sleeves } from './scene/Bins.tsx';
 import { CameraRig } from './scene/CameraRig.tsx';
 import { DigBin } from './scene/DigBin.tsx';
 import { ShopMaterials } from './scene/Materials.tsx';
-import { Room } from './scene/Room.tsx';
-import { binsBySection, SECTIONS, type SectionId } from './sections.ts';
+import { Room, StaffPicksWall } from './scene/Room.tsx';
+import { binsBySection, SECTIONS, toBins, type Bin } from './sections.ts';
+import { STAFF_PICKS } from './staffPicks.ts';
 import { ShopOverlay } from './ShopOverlay.tsx';
 import { give3DUp } from './support.ts';
 
@@ -52,7 +54,10 @@ function useAspect() {
 const typing = (t: EventTarget | null) => t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName));
 const DRAG_PX = 6; // pointer moves beyond this are orbit drags, not clicks
 
-export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice }: ShopSceneProps) {
+/** Somewhere you can step into and dig: one of the eight sections, or Tarik's staff picks. */
+type Area = { id: string; name: string; rect: Rect; bins: Bin[]; placed: Placed[] };
+
+export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice, staffPicks }: ShopSceneProps) {
   const quality = useMemo(() => qualityFor(window.innerWidth, (navigator as Navigator & { deviceMemory?: number }).deviceMemory), []);
   const bins = useMemo(() => binsBySection(albums), [albums]);
   const { room, placed, sections } = useMemo(() => layoutShop(bins), [bins]);
@@ -63,8 +68,17 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
   const [ready, setReady] = useState(false);
 
   // Where we are comes from the link (section, bin); links that point nowhere are cleaned up, not obeyed.
-  const section = SECTIONS.find((s) => s.id === state.section && (bins.get(s.id)?.length ?? 0) > 0) ?? null;
-  const bin = section && state.bin !== null ? placed.find((p) => p.key === `${section.id}:${state.bin}`) ?? null : null;
+  const areas = useMemo<Area[]>(() => {
+    const list = SECTIONS.map((s) => ({ id: s.id, name: s.name, rect: sections.get(s.id)!, bins: bins.get(s.id) ?? [], placed: placed.filter((p) => p.bin.section === s.id) }));
+    if (!staffPicks.length) return list;
+    // Staff picks are dug from a crate on the rug in front of their wall.
+    const cz = (room.backZ + room.frontZ) / 2;
+    // Tarik's order, not A–Z, so bins are labelled by position ("1–48"), not by initials.
+    const sb = toBins(STAFF_PICKS, staffPicks).map((b) => ({ ...b, label: `${b.index * 48 + 1}–${b.index * 48 + b.records.length}` }));
+    return [{ id: STAFF_PICKS, name: 'Staff picks', rect: { x: -10.2, z: cz, w: 3, d: 2 }, bins: sb, placed: sb.map((b) => ({ key: `${STAFF_PICKS}:${b.index}`, bin: b, x: -10.2, z: cz, w: BW })) }, ...list];
+  }, [bins, placed, sections, room, staffPicks]);
+  const section = areas.find((a) => a.id === state.section && a.bins.length > 0) ?? null;
+  const bin = section && state.bin !== null ? section.placed.find((p) => p.bin.index === state.bin) ?? null : null;
   useEffect(() => {
     if (state.section && !section) patch({ section: null, bin: null });
     else if (state.bin !== null && section && !bin) patch({ bin: null });
@@ -114,8 +128,8 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
     return () => el.removeEventListener('wheel', wheel);
   });
 
-  const aim = bin ? digAim(bin, sel, shown, aspect) : section ? sectionAim(sections.get(section.id)!, aspect) : storeAim(room, aspect);
-  const count = (id: SectionId) => (bins.get(id) ?? []).reduce((n, b) => n + b.records.length, 0);
+  const aim = bin ? digAim(bin, sel, shown, aspect) : section ? sectionAim(section.rect, aspect) : storeAim(room, aspect);
+  const count = (a: Area) => a.bins.reduce((n, b) => n + b.records.length, 0);
   const hint = current ? <span data-testid="dig-caption">{current.title} — {current.artist} · {sel + 1} of {n}</span> : bin ? 'Scroll, drag or use the arrow keys to dig · Esc steps back' : section ? 'Pick a bin · drag to look around · Esc steps back' : 'Drag to walk around · scroll to step closer · click a section';
 
   useEffect(() => { document.body.style.cursor = hover ? 'pointer' : ''; return () => { document.body.style.cursor = ''; }; }, [hover]);
@@ -154,7 +168,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
         <CameraRig aim={aim} interactive={!bin} minDistance={section ? 3 : 10} />
         <RoomLights dim={shown} quality={quality} />
         <ShopMaterials room={room}>
-          <Suspense fallback={null}><Room room={room} quality={quality} /></Suspense>
+          <Suspense fallback={null}><Room room={room} quality={quality} staffPicksWall={<StaffPicksWall records={staffPicks.slice(0, 12)} onPick={() => go(STAFF_PICKS, 0)} />} /></Suspense>
           {SECTIONS.map((s) => {
             const rect = sections.get(s.id)!;
             const ps = placed.filter((p) => p.bin.section === s.id);
@@ -199,10 +213,10 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
             <nav aria-label="Shop sections" className="max-w-full">
               <ul className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-white/15 bg-[#1a1411]/70 p-1 text-[#f3e6cf] backdrop-blur">
                 <li><button type="button" aria-pressed={!section} onClick={() => go(null, null)} className={PILL}>Whole shop</button></li>
-                {SECTIONS.filter((s) => count(s.id) > 0).map((s) => (
-                  <li key={s.id}>
-                    <button type="button" aria-pressed={section?.id === s.id} onClick={() => go(s.id, null)} onMouseEnter={() => !section && setHover(s.id)} onMouseLeave={() => setHover(null)} className={PILL}>
-                      {s.name} <span className="opacity-60">{count(s.id)}</span>
+                {areas.filter((a) => count(a) > 0).map((a) => (
+                  <li key={a.id}>
+                    <button type="button" aria-pressed={section?.id === a.id} onClick={() => go(a.id, null)} onMouseEnter={() => !section && setHover(a.id)} onMouseLeave={() => setHover(null)} className={PILL}>
+                      {a.name} <span className="opacity-60">{count(a)}</span>
                     </button>
                   </li>
                 ))}
@@ -210,7 +224,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
             </nav>
             {section && (
               <nav aria-label="Bins" className="flex flex-wrap justify-center gap-2">
-                {bins.get(section.id)!.map((b) => (
+                {section.bins.map((b) => (
                   <button key={b.index} type="button" aria-pressed={bin?.bin.index === b.index} onClick={() => go(section.id, b.index)}
                     className="rounded-full border border-white/20 bg-[#1a1411]/70 px-3 py-1 text-xs text-[#f3e6cf] backdrop-blur hover:bg-white/10 aria-pressed:bg-[#cdb27a] aria-pressed:text-[#1a1411]">
                     {b.label} · {b.records.length}

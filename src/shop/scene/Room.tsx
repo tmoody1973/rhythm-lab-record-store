@@ -6,6 +6,7 @@ import { useFrame } from '@react-three/fiber';
 import { Suspense, useMemo, useRef, type ReactNode } from 'react';
 import * as THREE from 'three';
 import { easeFactor } from '../dig.ts';
+import type { PublicAlbum } from '../../catalog/schema.ts';
 import type { Room as RoomSize } from '../layout.ts';
 import type { Quality } from '../quality.ts';
 import { BrassPlaque, FONT, reducedMotion } from './Bins.tsx';
@@ -96,6 +97,28 @@ function Door({ position }: { position: [number, number, number] }) {
       <mesh position={[0, 0.2, 0.07]}><planeGeometry args={[0.9, 1.3]} /><meshStandardMaterial color="#d9b77a" emissive="#ffb35a" emissiveIntensity={0.35} /></mesh>
       <Text font={FONT} position={[0, 0.4, 0.08]} fontSize={0.16} color="#1e2a23">OPEN</Text>
     </group>
+  );
+}
+
+/** Tarik's picks face-out on the left wall (up to 12); clicking one digs them all. Bare when there are none. */
+export function StaffPicksWall({ records, onPick }: { records: PublicAlbum[]; onPick: () => void }) {
+  return (
+    <Suspense fallback={null}>
+      {records.filter((r) => r.cover).map((r, i) => (
+        <WallCover key={r.id} url={r.cover!.grid} y={-0.9 + Math.floor(i / 4) * 1.05} z={-2.4 + (i % 4) * 1.6} onPick={onPick} />
+      ))}
+    </Suspense>
+  );
+}
+
+function WallCover({ url, y, z, onPick }: { url: string; y: number; z: number; onPick: () => void }) {
+  const tex = useTexture(url);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return (
+    <mesh position={[0.12, y, z]} rotation={[0, Math.PI / 2, 0]} onClick={(e) => { if (e.delta > 6) return; e.stopPropagation(); onPick(); }}>
+      <planeGeometry args={[0.9, 0.9]} />
+      <meshStandardMaterial map={tex} roughness={0.5} />
+    </mesh>
   );
 }
 

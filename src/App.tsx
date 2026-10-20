@@ -12,6 +12,7 @@ import { Collection } from './ui/Collection.tsx';
 import { CratesPanel, type CratePlace } from './ui/CratesPanel.tsx';
 import { Header } from './ui/Header.tsx';
 import { has3D } from './shop/support.ts';
+import { staffPicks as staffPicksOf } from './shop/staffPicks.ts';
 import { RecordActions } from './ui/RecordActions.tsx';
 import { SharedBanner } from './ui/SharedBanner.tsx';
 
@@ -170,7 +171,7 @@ export function App() {
             enrichment={enrichment}
             onOpen={openRecord}
             onNotice={setNotice}
-            staffPicks={[]}
+            staffPicks={staffPicksOf(TARIK_CRATES, byId)}
           />
         )}
       </main>

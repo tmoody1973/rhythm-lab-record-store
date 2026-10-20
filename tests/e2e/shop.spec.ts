@@ -137,3 +137,12 @@ test('with reduced motion the shop says so (sleeves snap instead of easing)', as
   await openFirstJazzBin(page);
   await expect(page.getByTestId('shop')).toHaveAttribute('data-reduced-motion', 'true');
 });
+
+test('with no staff picks yet, there is no Staff picks pill and a link to them opens the whole shop', async ({ page }) => {
+  await offline(page);
+  await page.goto('/?section=staff-picks&bin=0');
+  const sections = page.getByRole('navigation', { name: 'Shop sections' });
+  await expect(sections.getByRole('button', { name: 'Whole shop', pressed: true })).toBeVisible();
+  await expect(sections.getByRole('button', { name: /^Staff picks/ })).toHaveCount(0);
+  await expect(page).not.toHaveURL(/section=/);
+});
