@@ -1,20 +1,26 @@
 // The album pop-up from docs/design/rhythm-lab-album-modal.png. Native <dialog> (focus trap, Escape, inert page);
 // the Bandcamp iframe exists only while the dialog is mounted, so closing stops playback.
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import type { Enriched } from '../catalog/enrichment.ts';
 import { genreOf } from '../catalog/genres.ts';
 import { embedHeight, embedUrl } from '../catalog/ids.ts';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import { Sleeve } from './RecordCard.tsx';
 
+/** "International Anthem · 2018 · IARC 0022" from whatever enrichment published. */
+const labelLine = (e: Enriched | null | undefined) =>
+  e ? [e.label, e.releaseDate?.slice(0, 4), e.catalogNumber].filter(Boolean).join(' · ') : '';
+
 type Props = {
   record: PublicAlbum;
   cratesContaining?: string[];
   note?: string | null;
+  enriched?: Enriched | null;
   actions?: ReactNode;
   onClose: () => void;
 };
 
-export function AlbumDialog({ record, cratesContaining = [], note, actions, onClose }: Props) {
+export function AlbumDialog({ record, cratesContaining = [], note, enriched, actions, onClose }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   const [loaded, setLoaded] = useState(false);
   const titleId = `dialog-title-${record.bandcampId}`;
@@ -62,6 +68,7 @@ export function AlbumDialog({ record, cratesContaining = [], note, actions, onCl
         <div className="flex min-w-0 flex-col">
           <p className="pr-14 text-sm font-medium uppercase tracking-[0.3em] text-forest-ink">{record.artist}</p>
           <h2 id={titleId} className="mt-2 font-serif text-4xl font-bold leading-[1.05] sm:text-6xl">{record.title}</h2>
+          {labelLine(enriched) && <p className="mt-3 font-serif text-xl text-ink-soft sm:text-2xl">{labelLine(enriched)}</p>}
           {record.kind === 'track' && <p className="mt-3 text-sm uppercase tracking-[0.2em] text-ink-soft">Single track</p>}
           {note && <p className="mt-4 border-l-2 border-forest pl-4 font-serif text-lg italic">“{note}”<span className="mt-1 block text-sm not-italic text-ink-soft">Tarik</span></p>}
 
@@ -81,6 +88,16 @@ export function AlbumDialog({ record, cratesContaining = [], note, actions, onCl
             </a>
           </div>
 
+          {enriched?.bandcampUrl && (
+            <a
+              href={enriched.bandcampUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl border border-ink/50 px-5 py-3 hover:bg-chip focus-visible:outline-2 focus-visible:outline-forest"
+            >
+              Open on Bandcamp <span aria-hidden="true">↗</span>
+            </a>
+          )}
           {actions && <div className="mt-6 flex flex-wrap items-center gap-3">{actions}</div>}
         </div>
       </div>

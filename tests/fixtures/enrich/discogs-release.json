@@ -1,0 +1,544 @@
+{
+  "id": 12960582,
+  "status": "Accepted",
+  "year": 2018,
+  "resource_url": "https://api.discogs.com/releases/12960582",
+  "uri": "https://www.discogs.com/release/12960582-Makaya-McCraven-Universal-Beings",
+  "artists": [
+    {
+      "name": "Makaya McCraven",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 340803,
+      "resource_url": "https://api.discogs.com/artists/340803",
+      "thumbnail_url": "https://i.discogs.com/y5N-EGK7X_mjyTEpZNpPD1annxQV-c1hK8zFPX701X4/rs:fit/g:sm/q:90/h:400/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTM0MDgw/My0xNzYyMTU5MjA2/LTUyMjIuanBlZw.jpeg"
+    }
+  ],
+  "artists_sort": "Makaya McCraven",
+  "labels": [
+    {
+      "name": "P-Vine Records",
+      "catno": "PCD-18850/1",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 10119,
+      "resource_url": "https://api.discogs.com/labels/10119",
+      "thumbnail_url": "https://i.discogs.com/C3WppJ4OcIIUI2Vfebsvw8a8q2IgFMIlY_PshTe9Ez0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTEwMTE5/LTE0OTc1MzM2Mzkt/NDY5My5wbmc.jpeg"
+    }
+  ],
+  "series": [],
+  "companies": [
+    {
+      "name": "International Anthem LLC",
+      "catno": "",
+      "entity_type": "13",
+      "entity_type_name": "Phonographic Copyright (p)",
+      "id": 1538370,
+      "resource_url": "https://api.discogs.com/labels/1538370"
+    },
+    {
+      "name": "International Anthem LLC",
+      "catno": "",
+      "entity_type": "14",
+      "entity_type_name": "Copyright (c)",
+      "id": 1538370,
+      "resource_url": "https://api.discogs.com/labels/1538370"
+    },
+    {
+      "name": "P-Vine Records",
+      "catno": "",
+      "entity_type": "10",
+      "entity_type_name": "Manufactured By",
+      "id": 10119,
+      "resource_url": "https://api.discogs.com/labels/10119",
+      "thumbnail_url": "https://i.discogs.com/C3WppJ4OcIIUI2Vfebsvw8a8q2IgFMIlY_PshTe9Ez0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTEwMTE5/LTE0OTc1MzM2Mzkt/NDY5My5wbmc.jpeg"
+    },
+    {
+      "name": "P-Vine Records",
+      "catno": "",
+      "entity_type": "9",
+      "entity_type_name": "Distributed By",
+      "id": 10119,
+      "resource_url": "https://api.discogs.com/labels/10119",
+      "thumbnail_url": "https://i.discogs.com/C3WppJ4OcIIUI2Vfebsvw8a8q2IgFMIlY_PshTe9Ez0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTEwMTE5/LTE0OTc1MzM2Mzkt/NDY5My5wbmc.jpeg"
+    }
+  ],
+  "formats": [
+    {
+      "name": "CD",
+      "qty": "2",
+      "descriptions": [
+        "Album"
+      ]
+    }
+  ],
+  "data_quality": "Needs Vote",
+  "community": {
+    "have": 12,
+    "want": 67,
+    "rating": {
+      "count": 1,
+      "average": 5
+    },
+    "submitter": {
+      "username": "guzzer",
+      "resource_url": "https://api.discogs.com/users/guzzer"
+    },
+    "contributors": [
+      {
+        "username": "guzzer",
+        "resource_url": "https://api.discogs.com/users/guzzer"
+      },
+      {
+        "username": "mamamatatabi",
+        "resource_url": "https://api.discogs.com/users/mamamatatabi"
+      },
+      {
+        "username": "Acrylat",
+        "resource_url": "https://api.discogs.com/users/Acrylat"
+      }
+    ],
+    "data_quality": "Needs Vote",
+    "status": "Accepted"
+  },
+  "format_quantity": 2,
+  "date_added": "2018-12-20T23:44:36-08:00",
+  "date_changed": "2021-03-21T09:16:22-07:00",
+  "num_for_sale": 2,
+  "lowest_price": 43.82,
+  "master_id": 1444351,
+  "master_url": "https://api.discogs.com/masters/1444351",
+  "title": "Universal Beings",
+  "country": "Japan",
+  "released": "2018-11-14",
+  "notes": "New York Side: Recorded August 29th, 2017, at H0I0 in Ridgewood, New York.\nChicago Side: Recorded September 2nd, 2017, at Co-Prosperity Sphere in Bridgeport, Chicago, Illinois.\nLondon Side: Recorded October 19th, 2017, at Total Refreshment Studios in Stoke Newington, London, UK.\nLos Angeles Side: Recorded January 30th, 2018, at Jeff Parker's House in Altadena, California.",
+  "released_formatted": "14 Nov 2018",
+  "identifiers": [
+    {
+      "type": "Barcode",
+      "value": "4995879188507",
+      "description": "Obi"
+    }
+  ],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=DaWAjmlzFWU",
+      "title": "Makaya McCraven ‎– Universal Beings (2018)",
+      "description": "https://intlanthem.bandcamp.com/album/universal-beings",
+      "duration": 5013,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Jazz"
+  ],
+  "styles": [],
+  "tracklist": [
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "New York Side",
+      "duration": ""
+    },
+    {
+      "position": "1-1",
+      "type_": "track",
+      "title": "A Queen's Intro",
+      "duration": ""
+    },
+    {
+      "position": "1-2",
+      "type_": "track",
+      "title": "Holy Land",
+      "duration": ""
+    },
+    {
+      "position": "1-3",
+      "type_": "track",
+      "title": "Young Genius",
+      "duration": ""
+    },
+    {
+      "position": "1-4",
+      "type_": "track",
+      "title": "Black Lion",
+      "duration": ""
+    },
+    {
+      "position": "1-5",
+      "type_": "track",
+      "title": "Tall Tales",
+      "duration": ""
+    },
+    {
+      "position": "1-6",
+      "type_": "track",
+      "title": "Mantra",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Chicago Side",
+      "duration": ""
+    },
+    {
+      "position": "1-7",
+      "type_": "track",
+      "title": "Pharaoh's Intro",
+      "duration": ""
+    },
+    {
+      "position": "1-8",
+      "type_": "track",
+      "title": "Atlantic Black",
+      "duration": ""
+    },
+    {
+      "position": "1-9",
+      "type_": "track",
+      "title": "Inner Flight",
+      "duration": ""
+    },
+    {
+      "position": "1-10",
+      "type_": "track",
+      "title": "Wise Man, Wiser Woman",
+      "duration": ""
+    },
+    {
+      "position": "1-11",
+      "type_": "track",
+      "title": "Prosperity's Fear",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "London Side",
+      "duration": ""
+    },
+    {
+      "position": "2-12",
+      "type_": "track",
+      "title": "Flipped OUT",
+      "duration": ""
+    },
+    {
+      "position": "2-13",
+      "type_": "track",
+      "title": "Voila",
+      "duration": ""
+    },
+    {
+      "position": "2-14",
+      "type_": "track",
+      "title": "Suite Haus",
+      "duration": ""
+    },
+    {
+      "position": "2-15",
+      "type_": "track",
+      "title": "The Newbies Lift Off",
+      "duration": ""
+    },
+    {
+      "position": "2-16",
+      "type_": "track",
+      "title": "The Royal Outro",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Los Angeles Side",
+      "duration": ""
+    },
+    {
+      "position": "2-17",
+      "type_": "track",
+      "title": "The Count Off",
+      "duration": ""
+    },
+    {
+      "position": "2-18",
+      "type_": "track",
+      "title": "Butterss's",
+      "duration": ""
+    },
+    {
+      "position": "2-19",
+      "type_": "track",
+      "title": "Turtle Tricks",
+      "duration": ""
+    },
+    {
+      "position": "2-20",
+      "type_": "track",
+      "title": "The Fifth Monk",
+      "duration": ""
+    },
+    {
+      "position": "2-21",
+      "type_": "track",
+      "title": "Brighter Days Beginning",
+      "duration": ""
+    },
+    {
+      "position": "2-22",
+      "type_": "track",
+      "title": "Universal Beings",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Japan Bonus Tracks",
+      "duration": ""
+    },
+    {
+      "position": "2-23",
+      "type_": "track",
+      "title": "Butterss's's",
+      "duration": ""
+    },
+    {
+      "position": "2-24",
+      "type_": "track",
+      "title": "Universal Beings (Outro Cut)",
+      "duration": ""
+    }
+  ],
+  "extraartists": [
+    {
+      "name": "Josh Johnson (13)",
+      "anv": "",
+      "join": "",
+      "role": "Alto Saxophone",
+      "tracks": "2-17 to 2-22",
+      "id": 5599030,
+      "resource_url": "https://api.discogs.com/artists/5599030"
+    },
+    {
+      "name": "Tomeka Reid",
+      "anv": "",
+      "join": "",
+      "role": "Cello",
+      "tracks": "1-1 to 1-11",
+      "id": 839131,
+      "resource_url": "https://api.discogs.com/artists/839131"
+    },
+    {
+      "name": "Damon Locks",
+      "anv": "",
+      "join": "",
+      "role": "Cover, Artwork",
+      "tracks": "",
+      "id": 734002,
+      "resource_url": "https://api.discogs.com/artists/734002"
+    },
+    {
+      "name": "Craig Hansen (2)",
+      "anv": "",
+      "join": "",
+      "role": "Design [Insert]",
+      "tracks": "",
+      "id": 4994850,
+      "resource_url": "https://api.discogs.com/artists/4994850"
+    },
+    {
+      "name": "Anna Butterss",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass",
+      "tracks": "2-17 to 2-22",
+      "id": 6778705,
+      "resource_url": "https://api.discogs.com/artists/6778705"
+    },
+    {
+      "name": "Daniel Casimir (2)",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass",
+      "tracks": "2-12 to 2-16",
+      "id": 5556396,
+      "resource_url": "https://api.discogs.com/artists/5556396"
+    },
+    {
+      "name": "Dezron Douglas",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass",
+      "tracks": "1-1 to 1-6",
+      "id": 3367523,
+      "resource_url": "https://api.discogs.com/artists/3367523"
+    },
+    {
+      "name": "Junius Paul",
+      "anv": "",
+      "join": "",
+      "role": "Double Bass, Percussion",
+      "tracks": "1-7 to 1-11",
+      "id": 2086203,
+      "resource_url": "https://api.discogs.com/artists/2086203"
+    },
+    {
+      "name": "Makaya McCraven",
+      "anv": "",
+      "join": "",
+      "role": "Drums",
+      "tracks": "",
+      "id": 340803,
+      "resource_url": "https://api.discogs.com/artists/340803"
+    },
+    {
+      "name": "Ashley Henry",
+      "anv": "",
+      "join": "",
+      "role": "Electric Piano [Rhodes]",
+      "tracks": "2-12 to 2-16",
+      "id": 4942194,
+      "resource_url": "https://api.discogs.com/artists/4942194"
+    },
+    {
+      "name": "Scott McNiece",
+      "anv": "",
+      "join": "",
+      "role": "Executive-Producer",
+      "tracks": "",
+      "id": 3111006,
+      "resource_url": "https://api.discogs.com/artists/3111006"
+    },
+    {
+      "name": "Jeff Parker",
+      "anv": "",
+      "join": "",
+      "role": "Guitar",
+      "tracks": "2-17 to 2-22",
+      "id": 44570,
+      "resource_url": "https://api.discogs.com/artists/44570"
+    },
+    {
+      "name": "Brandee Younger",
+      "anv": "",
+      "join": "",
+      "role": "Harp",
+      "tracks": "1-1 to 1-6",
+      "id": 717682,
+      "resource_url": "https://api.discogs.com/artists/717682"
+    },
+    {
+      "name": "Carlos Niño",
+      "anv": "",
+      "join": "",
+      "role": "Percussion",
+      "tracks": "2-17 to 2-22",
+      "id": 273087,
+      "resource_url": "https://api.discogs.com/artists/273087"
+    },
+    {
+      "name": "Fabrice Bourgelle-Pyres",
+      "anv": "Fabrice Bourgelle",
+      "join": "",
+      "role": "Photography By [Portrait]",
+      "tracks": "",
+      "id": 3237959,
+      "resource_url": "https://api.discogs.com/artists/3237959"
+    },
+    {
+      "name": "Makaya McCraven",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 340803,
+      "resource_url": "https://api.discogs.com/artists/340803"
+    },
+    {
+      "name": "Dave Vettraino",
+      "anv": "",
+      "join": "",
+      "role": "Recorded By, Mixed By",
+      "tracks": "",
+      "id": 1791717,
+      "resource_url": "https://api.discogs.com/artists/1791717"
+    },
+    {
+      "name": "David Allen (10)",
+      "anv": "",
+      "join": "",
+      "role": "Recorded By, Mixed By",
+      "tracks": "",
+      "id": 1454125,
+      "resource_url": "https://api.discogs.com/artists/1454125"
+    },
+    {
+      "name": "Nubya Garcia",
+      "anv": "",
+      "join": "",
+      "role": "Tenor Saxophone",
+      "tracks": "2-12 to 2-16",
+      "id": 5261803,
+      "resource_url": "https://api.discogs.com/artists/5261803"
+    },
+    {
+      "name": "Shabaka Hutchings",
+      "anv": "",
+      "join": "",
+      "role": "Tenor Saxophone",
+      "tracks": "1-7 to 1-11",
+      "id": 1419450,
+      "resource_url": "https://api.discogs.com/artists/1419450"
+    },
+    {
+      "name": "Joel Ross (3)",
+      "anv": "",
+      "join": "",
+      "role": "Vibraphone",
+      "tracks": "1-1 to 1-6",
+      "id": 6778708,
+      "resource_url": "https://api.discogs.com/artists/6778708"
+    },
+    {
+      "name": "Miguel Atwood-Ferguson",
+      "anv": "",
+      "join": "",
+      "role": "Violin",
+      "tracks": "2-17 to 2-22",
+      "id": 506443,
+      "resource_url": "https://api.discogs.com/artists/506443"
+    }
+  ],
+  "images": [
+    {
+      "type": "primary",
+      "uri": "https://i.discogs.com/X3Mi-U-oXFaP77DMk7L8jq9WOtEW8GBnIJcSq7zgADY/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NjQtOTg2OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/X3Mi-U-oXFaP77DMk7L8jq9WOtEW8GBnIJcSq7zgADY/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NjQtOTg2OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/whMxY7o8kbv1JpOLfVjZuNItUjv4kyWaN3085TZOZTs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NjQtOTg2OC5qcGVn.jpeg",
+      "width": 600,
+      "height": 592
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/m5DGs04VbMGvqQlr7CGn7ybXfxjmlMG3QPadKQ7Xn_A/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE1NDUzNzgz/OTAtNzQ2Ny5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/m5DGs04VbMGvqQlr7CGn7ybXfxjmlMG3QPadKQ7Xn_A/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE1NDUzNzgz/OTAtNzQ2Ny5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/7zqgo__dns-Xa14xT8Swnurn72qFlqaXhA8bcVnczMg/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE1NDUzNzgz/OTAtNzQ2Ny5qcGVn.jpeg",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/ZeD6qwjbzvHwzTAX5mYw6OPgAcU9cASEWjNf1KbILE8/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NzgtMzA3MS5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/ZeD6qwjbzvHwzTAX5mYw6OPgAcU9cASEWjNf1KbILE8/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NzgtMzA3MS5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/LrTC52L_YHo1SgpDiE8nSZrADNIm5xR-p7pPi-DbyYo/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NzgtMzA3MS5qcGVn.jpeg",
+      "width": 590,
+      "height": 600
+    }
+  ],
+  "thumb": "https://i.discogs.com/whMxY7o8kbv1JpOLfVjZuNItUjv4kyWaN3085TZOZTs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NjQtOTg2OC5qcGVn.jpeg",
+  "estimated_weight": 170,
+  "blocked_from_sale": false,
+  "is_offensive": false
+}

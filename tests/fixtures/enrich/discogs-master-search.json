@@ -1,0 +1,98 @@
+{
+  "pagination": {
+    "page": 1,
+    "pages": 1,
+    "per_page": 5,
+    "items": 2,
+    "urls": {}
+  },
+  "results": [
+    {
+      "country": "US",
+      "year": "2018",
+      "format": [
+        "Vinyl",
+        "LP",
+        "Album"
+      ],
+      "label": [
+        "International Anthem Recording Company",
+        "GZ Media",
+        "Pirates Press",
+        "H0L0, Ridgewood, New York",
+        "Total Refreshment Centre",
+        "Co-Prosperity Sphere"
+      ],
+      "type": "master",
+      "genre": [
+        "Jazz"
+      ],
+      "style": [],
+      "id": 1444351,
+      "barcode": [
+        "603784912066",
+        "6 03784 91206 6",
+        "177736E1/A PIRATES PRESS – IARC0022 A",
+        "177736E2/A PIRATES PRESS – IARC0022 B",
+        "177736E3/A PIRATES PRESS – IARC0022 C",
+        "177736E4/A PIRATES PRESS – IARC0022 D"
+      ],
+      "master_id": 1444351,
+      "master_url": "https://api.discogs.com/masters/1444351",
+      "uri": "/master/1444351-Makaya-McCraven-Universal-Beings",
+      "catno": "IARC0022",
+      "title": "Makaya McCraven - Universal Beings",
+      "thumb": "https://i.discogs.com/upevWYRasxYzlH15xAsnWeSev61MfU_UZ4_hu-3pDg4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "cover_image": "https://i.discogs.com/07wLLVB2HDpKbpYHrAeCQlaoV6v2gurBdrsCgceJJ3Q/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "resource_url": "https://api.discogs.com/masters/1444351",
+      "community": {
+        "want": 2412,
+        "have": 6153
+      }
+    },
+    {
+      "country": "US",
+      "year": "2020",
+      "format": [
+        "Vinyl",
+        "LP",
+        "Album"
+      ],
+      "label": [
+        "International Anthem Recording Company",
+        "International Anthem Recording Company",
+        "International Anthem Recording Company",
+        "H010",
+        "Total Refreshment Centre",
+        "Co-Prosperity Sphere",
+        "SST GmbH",
+        "Schallplattenfabrik Pallas GmbH"
+      ],
+      "type": "master",
+      "genre": [
+        "Jazz"
+      ],
+      "style": [
+        "Contemporary Jazz"
+      ],
+      "id": 1807608,
+      "barcode": [
+        "603784912622",
+        "IARCEF 22 LP A -55529- Kr SST",
+        "IARCEF 22 LP B -55529- Kr SST"
+      ],
+      "master_id": 1807608,
+      "master_url": "https://api.discogs.com/masters/1807608",
+      "uri": "/master/1807608-Makaya-McCraven-Universal-Beings-EF-Sides",
+      "catno": "IARC EF22",
+      "title": "Makaya McCraven - Universal Beings E&F Sides",
+      "thumb": "https://i.discogs.com/I5qGs17oFuaeBntl2XDyUATN9dM-dqc0BjJE4xlSdMk/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1OTMy/NjQyLTE2MDA0NDgz/MDYtMzA4NS5qcGVn.jpeg",
+      "cover_image": "https://i.discogs.com/M672krvDojKa-aTsJWZJAscxatcgDfOo3PzFZgmXsN8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1OTMy/NjQyLTE2MDA0NDgz/MDYtMzA4NS5qcGVn.jpeg",
+      "resource_url": "https://api.discogs.com/masters/1807608",
+      "community": {
+        "want": 690,
+        "have": 2351
+      }
+    }
+  ]
+}

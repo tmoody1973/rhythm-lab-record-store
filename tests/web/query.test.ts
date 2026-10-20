@@ -11,7 +11,7 @@ const rec = (artist: string, title: string, genre: string | null = null, kind: '
   n++;
   return { id: `bandcamp:${kind}:${n}`, kind, bandcampId: n, title, artist, genre, cover: null, songCount: 1, durationSec: 60 };
 };
-const base: Query = { q: '', genres: [], crate: null, sort: 'artist-asc', page: 1 };
+const base: Query = { q: '', genres: [], crate: null, country: null, sort: 'artist-asc', page: 1 };
 const order = (xs: PublicAlbum[]) => xs.map((x) => `${x.artist}/${x.title}`);
 
 describe('ids', () => {

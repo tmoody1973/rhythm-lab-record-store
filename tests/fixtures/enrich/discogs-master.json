@@ -1,0 +1,304 @@
+{
+  "id": 1444351,
+  "main_release": 12716187,
+  "most_recent_release": 35914321,
+  "resource_url": "https://api.discogs.com/masters/1444351",
+  "uri": "https://www.discogs.com/master/1444351-Makaya-McCraven-Universal-Beings",
+  "versions_url": "https://api.discogs.com/masters/1444351/versions",
+  "main_release_url": "https://api.discogs.com/releases/12716187",
+  "most_recent_release_url": "https://api.discogs.com/releases/35914321",
+  "num_for_sale": 130,
+  "lowest_price": 6.74,
+  "images": [
+    {
+      "type": "primary",
+      "uri": "https://i.discogs.com/07wLLVB2HDpKbpYHrAeCQlaoV6v2gurBdrsCgceJJ3Q/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/07wLLVB2HDpKbpYHrAeCQlaoV6v2gurBdrsCgceJJ3Q/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/upevWYRasxYzlH15xAsnWeSev61MfU_UZ4_hu-3pDg4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMjk4NC5qcGVn.jpeg",
+      "width": 600,
+      "height": 590
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/VZ_u-uWtQvOVn7Q6U-Kv4yLUNcxwziRiOkWJh5EdkkE/rs:fit/g:sm/q:90/h:579/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtMzU0My5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/VZ_u-uWtQvOVn7Q6U-Kv4yLUNcxwziRiOkWJh5EdkkE/rs:fit/g:sm/q:90/h:579/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtMzU0My5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/leF0QR2w3L4yjWPKR7tMWol3AXvD-ncRhdlYmfS9Bzw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtMzU0My5qcGVn.jpeg",
+      "width": 600,
+      "height": 579
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/jIy52hZPnJ381FBOMMzTgG6UBIyh_8jVIEw7LXy2CVo/rs:fit/g:sm/q:90/h:572/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtMjUwOC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/jIy52hZPnJ381FBOMMzTgG6UBIyh_8jVIEw7LXy2CVo/rs:fit/g:sm/q:90/h:572/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtMjUwOC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/H0Kp-qyfIsK2lsWGzuhEbWbMQATADGlsQwsPW3qa8Tw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtMjUwOC5qcGVn.jpeg",
+      "width": 600,
+      "height": 572
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/r4L6jqysjuwNdq3jk_sLU0WwuTB81sIGkklaUIoGnF4/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtNDg2OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/r4L6jqysjuwNdq3jk_sLU0WwuTB81sIGkklaUIoGnF4/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtNDg2OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/f81tZDZ0cLpFfAcGg9pCjkw35OUi0xO8PgpD2jRm5wU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzYtNDg2OC5qcGVn.jpeg",
+      "width": 600,
+      "height": 597
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/mLXJBu0GcXD_HSCwcJB6heZ04qfYIUB0b3r_Ey376YA/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMTg4OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/mLXJBu0GcXD_HSCwcJB6heZ04qfYIUB0b3r_Ey376YA/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMTg4OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/DxWuMp2lSO8xyUqT2PgoqJf7m13S6guEU6QhDs6bEuo/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzQtMTg4OC5qcGVn.jpeg",
+      "width": 600,
+      "height": 595
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/c3xkbrhQL0sbDjkiFfn6GwKMyE8XxD4IcoxPaV4-ndg/rs:fit/g:sm/q:90/h:584/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtOTczOC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/c3xkbrhQL0sbDjkiFfn6GwKMyE8XxD4IcoxPaV4-ndg/rs:fit/g:sm/q:90/h:584/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtOTczOC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/sp_tKLkjeEWtGyBwyVh2B_TYXxYal9kBx4wYoHSgmr4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtOTczOC5qcGVn.jpeg",
+      "width": 600,
+      "height": 584
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/RArBxkusRcyK7rxYeZitV1PcovqiV79DbN9CR5KrmUk/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzctNjU4OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/RArBxkusRcyK7rxYeZitV1PcovqiV79DbN9CR5KrmUk/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzctNjU4OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/W-Ac9DKGit8sG9UV6708_lsUCay3DXfxqx4lJDdEO8U/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzctNjU4OC5qcGVn.jpeg",
+      "width": 594,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/tZ8NHT5LgJvfh6-a-cGUn_3t4jp5AklmzKf_ctbxseU/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjMwNS5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/tZ8NHT5LgJvfh6-a-cGUn_3t4jp5AklmzKf_ctbxseU/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjMwNS5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/fsfo8OsxQsH9UrGTis553D71h5Cp2OdLV3LR2Mzqt-8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjMwNS5qcGVn.jpeg",
+      "width": 598,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/opqa3y7_aKbc9tQZMuJktvgFM2TVbzmxLnTv-2gq2O4/rs:fit/g:sm/q:90/h:568/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtMTE3MS5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/opqa3y7_aKbc9tQZMuJktvgFM2TVbzmxLnTv-2gq2O4/rs:fit/g:sm/q:90/h:568/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtMTE3MS5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/qzZKbutWXKBjOyKYc_rTcWdZn_rO3H40DF6pkJMIoBA/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzgtMTE3MS5qcGVn.jpeg",
+      "width": 600,
+      "height": 568
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/hahkk5ZPYVEW3V_-SxqKKUMQ5eT0HB6Ca6ro0aWfRpA/rs:fit/g:sm/q:90/h:307/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjg4Mi5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/hahkk5ZPYVEW3V_-SxqKKUMQ5eT0HB6Ca6ro0aWfRpA/rs:fit/g:sm/q:90/h:307/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjg4Mi5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/J_NI6JLF12GgP60xwDFpZy1F_orgkvC-2PGET4E7uoM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/MzktMjg4Mi5qcGVn.jpeg",
+      "width": 600,
+      "height": 307
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/toOYkaJGqTmmU7GAAY1tQHPEVZajxNZdUXzdm-4fAkM/rs:fit/g:sm/q:90/h:583/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDAtNDcxNi5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/toOYkaJGqTmmU7GAAY1tQHPEVZajxNZdUXzdm-4fAkM/rs:fit/g:sm/q:90/h:583/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDAtNDcxNi5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/9WAi-VE-1nZtAXBOxKvK929E5NP6hrEsqL-xvgb-7kI/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDAtNDcxNi5qcGVn.jpeg",
+      "width": 600,
+      "height": 583
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/VXm6vONYX9VQprtpgQ5GzW12H13HUM5rWApv9CdQ5qk/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtNjI3NC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/VXm6vONYX9VQprtpgQ5GzW12H13HUM5rWApv9CdQ5qk/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtNjI3NC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/m3XhvJ8gYuXedRxEPbieDDf0_iQfUqT2vRLX3QA_FCs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE1NDYxOTU1/NDEtNjI3NC5qcGVn.jpeg",
+      "width": 598,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/zQLr2QvLizlWz8tsGa9CpBj7lTv-VOSA9EknJBHYdKM/rs:fit/g:sm/q:90/h:444/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE3NTIzMDM4/MzYtNzg2NC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/zQLr2QvLizlWz8tsGa9CpBj7lTv-VOSA9EknJBHYdKM/rs:fit/g:sm/q:90/h:444/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE3NTIzMDM4/MzYtNzg2NC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/y3Geqv0DfmjwPU79ADqHKV9kml9DF7OIkPibgtO9d_w/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNzE2/MTg3LTE3NTIzMDM4/MzYtNzg2NC5qcGVn.jpeg",
+      "width": 600,
+      "height": 444
+    }
+  ],
+  "genres": [
+    "Jazz"
+  ],
+  "styles": [],
+  "year": 2018,
+  "tracklist": [
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "New York Side",
+      "duration": ""
+    },
+    {
+      "position": "A1",
+      "type_": "track",
+      "title": "A Queen's Intro",
+      "duration": ""
+    },
+    {
+      "position": "A2",
+      "type_": "track",
+      "title": "Holy Lands",
+      "duration": ""
+    },
+    {
+      "position": "A3",
+      "type_": "track",
+      "title": "Young Genius",
+      "duration": ""
+    },
+    {
+      "position": "A4",
+      "type_": "track",
+      "title": "Black Lion",
+      "duration": ""
+    },
+    {
+      "position": "A5",
+      "type_": "track",
+      "title": "Tall Tales",
+      "duration": ""
+    },
+    {
+      "position": "A6",
+      "type_": "track",
+      "title": "Mantra",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Chicago Side",
+      "duration": ""
+    },
+    {
+      "position": "B1",
+      "type_": "track",
+      "title": "Pharaoh's Intro",
+      "duration": ""
+    },
+    {
+      "position": "B2",
+      "type_": "track",
+      "title": "Atlantic Black",
+      "duration": ""
+    },
+    {
+      "position": "B3",
+      "type_": "track",
+      "title": "Inner Flight",
+      "duration": ""
+    },
+    {
+      "position": "B4",
+      "type_": "track",
+      "title": "Wise Man, Wiser Woman",
+      "duration": ""
+    },
+    {
+      "position": "B5",
+      "type_": "track",
+      "title": "Prosperity's Fear",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "London Side",
+      "duration": ""
+    },
+    {
+      "position": "C1",
+      "type_": "track",
+      "title": "Flipped Out",
+      "duration": ""
+    },
+    {
+      "position": "C2",
+      "type_": "track",
+      "title": "Voila",
+      "duration": ""
+    },
+    {
+      "position": "C3",
+      "type_": "track",
+      "title": "Suite Haus",
+      "duration": ""
+    },
+    {
+      "position": "C4",
+      "type_": "track",
+      "title": "The Newbies Lift Off",
+      "duration": ""
+    },
+    {
+      "position": "C5",
+      "type_": "track",
+      "title": "The Royal Outro",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Los Angeles Side",
+      "duration": ""
+    },
+    {
+      "position": "D1",
+      "type_": "track",
+      "title": "The Count Off",
+      "duration": ""
+    },
+    {
+      "position": "D2",
+      "type_": "track",
+      "title": "Butterss's",
+      "duration": ""
+    },
+    {
+      "position": "D3",
+      "type_": "track",
+      "title": "Turtle Tricks",
+      "duration": ""
+    },
+    {
+      "position": "D4",
+      "type_": "track",
+      "title": "The Fifth Monk",
+      "duration": ""
+    },
+    {
+      "position": "D5",
+      "type_": "track",
+      "title": "Brighter Days Beginning",
+      "duration": ""
+    },
+    {
+      "position": "D6",
+      "type_": "track",
+      "title": "Universal Beings",
+      "duration": ""
+    }
+  ],
+  "artists": [
+    {
+      "name": "Makaya McCraven",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 340803,
+      "resource_url": "https://api.discogs.com/artists/340803",
+      "thumbnail_url": "https://i.discogs.com/y5N-EGK7X_mjyTEpZNpPD1annxQV-c1hK8zFPX701X4/rs:fit/g:sm/q:90/h:400/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTM0MDgw/My0xNzYyMTU5MjA2/LTUyMjIuanBlZw.jpeg"
+    }
+  ],
+  "title": "Universal Beings",
+  "data_quality": "Correct",
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=DaWAjmlzFWU",
+      "title": "Makaya McCraven ‎– Universal Beings (2018)",
+      "description": "https://intlanthem.bandcamp.com/album/universal-beings",
+      "duration": 5013,
+      "embed": true
+    }
+  ]
+}

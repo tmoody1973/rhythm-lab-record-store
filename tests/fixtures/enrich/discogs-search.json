@@ -1,0 +1,265 @@
+{
+  "pagination": {
+    "page": 1,
+    "pages": 4,
+    "per_page": 5,
+    "items": 18,
+    "urls": {
+      "last": "https://api.discogs.com/database/search?type=release&per_page=5&artist=Makaya+McCraven&release_title=Universal+Beings&page=4",
+      "next": "https://api.discogs.com/database/search?type=release&per_page=5&artist=Makaya+McCraven&release_title=Universal+Beings&page=2"
+    }
+  },
+  "results": [
+    {
+      "country": "Japan",
+      "year": "2018",
+      "format": [
+        "CD",
+        "Album"
+      ],
+      "label": [
+        "P-Vine Records",
+        "International Anthem LLC",
+        "International Anthem LLC",
+        "P-Vine Records",
+        "P-Vine Records"
+      ],
+      "type": "release",
+      "genre": [
+        "Jazz"
+      ],
+      "style": [],
+      "id": 12960582,
+      "barcode": [
+        "4995879188507"
+      ],
+      "master_id": 1444351,
+      "master_url": "https://api.discogs.com/masters/1444351",
+      "uri": "/release/12960582-Makaya-McCraven-Universal-Beings",
+      "catno": "PCD-18850/1",
+      "title": "Makaya McCraven - Universal Beings",
+      "thumb": "https://i.discogs.com/whMxY7o8kbv1JpOLfVjZuNItUjv4kyWaN3085TZOZTs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NjQtOTg2OC5qcGVn.jpeg",
+      "cover_image": "https://i.discogs.com/X3Mi-U-oXFaP77DMk7L8jq9WOtEW8GBnIJcSq7zgADY/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyOTYw/NTgyLTE2MDE1NDgz/NjQtOTg2OC5qcGVn.jpeg",
+      "resource_url": "https://api.discogs.com/releases/12960582",
+      "community": {
+        "want": 67,
+        "have": 12
+      },
+      "format_quantity": 2,
+      "formats": [
+        {
+          "name": "CD",
+          "qty": "2",
+          "descriptions": [
+            "Album"
+          ]
+        }
+      ]
+    },
+    {
+      "country": "US",
+      "year": "2018",
+      "format": [
+        "CD",
+        "Album",
+        "Promo"
+      ],
+      "label": [
+        "International Anthem Recording Company"
+      ],
+      "type": "release",
+      "genre": [
+        "Jazz"
+      ],
+      "style": [],
+      "id": 15071609,
+      "barcode": [],
+      "master_id": 1444351,
+      "master_url": "https://api.discogs.com/masters/1444351",
+      "uri": "/release/15071609-Makaya-McCraven-Universal-Beings",
+      "catno": "IARC 0022",
+      "title": "Makaya McCraven - Universal Beings",
+      "thumb": "https://i.discogs.com/gBzEM8pcNiPJegN-5sOc_TVxe8PAajrbHVLPTwMNj-Q/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MDcx/NjA5LTE1ODYzMDA5/MTktNTEyMy5qcGVn.jpeg",
+      "cover_image": "https://i.discogs.com/Jiu2eS-Wc0kivSUrEAqsYRipocE8XgOXtWLEt4jU3jc/rs:fit/g:sm/q:90/h:423/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MDcx/NjA5LTE1ODYzMDA5/MTktNTEyMy5qcGVn.jpeg",
+      "resource_url": "https://api.discogs.com/releases/15071609",
+      "community": {
+        "want": 39,
+        "have": 7
+      },
+      "format_quantity": 2,
+      "formats": [
+        {
+          "name": "CD",
+          "qty": "2",
+          "descriptions": [
+            "Album",
+            "Promo"
+          ]
+        }
+      ]
+    },
+    {
+      "country": "US",
+      "year": "2018",
+      "format": [
+        "Vinyl",
+        "LP",
+        "Album",
+        "Test Pressing"
+      ],
+      "label": [
+        "International Anthem Recording Company",
+        "GZ Media",
+        "Pirates Press"
+      ],
+      "type": "release",
+      "genre": [
+        "Jazz"
+      ],
+      "style": [],
+      "id": 32028515,
+      "barcode": [
+        "177736E1/A PIRATES PRESS – IARC0022 A",
+        "177736E2/A PIRATES PRESS – IARC0022 B",
+        "177736E3/A PIRATES PRESS – IARC0022 C",
+        "177736E4/A PIRATES PRESS – IARC0022 D"
+      ],
+      "master_id": 1444351,
+      "master_url": "https://api.discogs.com/masters/1444351",
+      "uri": "/release/32028515-Makaya-McCraven-Universal-Beings",
+      "catno": "IARC0022",
+      "title": "Makaya McCraven - Universal Beings",
+      "thumb": "https://i.discogs.com/2FJnIPTmhCiEVUycRoXYlcXp4HllRATYIYjMrlJZy34/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMDI4/NTE1LTE3MjkxODI1/MDYtODk4MS5wbmc.jpeg",
+      "cover_image": "https://i.discogs.com/CJzwpqNPuJLpdd8L-xpRQy2XACfqlIyvzerbTwekmB8/rs:fit/g:sm/q:90/h:750/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMDI4/NTE1LTE3MjkxODI1/MDYtODk4MS5wbmc.jpeg",
+      "resource_url": "https://api.discogs.com/releases/32028515",
+      "community": {
+        "want": 28,
+        "have": 2
+      },
+      "format_quantity": 2,
+      "formats": [
+        {
+          "name": "Vinyl",
+          "qty": "2",
+          "descriptions": [
+            "LP",
+            "Album",
+            "Test Pressing"
+          ]
+        }
+      ]
+    },
+    {
+      "country": "US",
+      "year": "2019",
+      "format": [
+        "Vinyl",
+        "LP",
+        "Album",
+        "Reissue",
+        "Stereo"
+      ],
+      "label": [
+        "International Anthem Recording Company",
+        "H0L0, Ridgewood, New York",
+        "Total Refreshment Centre",
+        "Co-Prosperity Sphere",
+        "Calyx Mastering",
+        "Calyx Mastering",
+        "Schallplattenfabrik Pallas GmbH",
+        "Schallplattenfabrik Pallas GmbH"
+      ],
+      "type": "release",
+      "genre": [
+        "Jazz"
+      ],
+      "style": [],
+      "id": 14792703,
+      "barcode": [
+        "6 03784 91206 6",
+        "IARC 0022 A 33⅓RPM   FMW ▹ NN ▹ CALYX2019   –51814–",
+        "IARC 0022 A 33⅓RPM   –51814–   FMW ▹ NN ▹ CALYX2019",
+        "IARC 0022 C 33⅓RPM   FMW ▹ NN ▹ CALYX2019   –51823–",
+        "IARC 0022 D 33⅓RPM   –51823–   FMW ▹ NN ▹ CALYX2019"
+      ],
+      "master_id": 1444351,
+      "master_url": "https://api.discogs.com/masters/1444351",
+      "uri": "/release/14792703-Makaya-McCraven-Universal-Beings",
+      "catno": "IARC0022",
+      "title": "Makaya McCraven - Universal Beings",
+      "thumb": "https://i.discogs.com/XmLEnFV96Em2hFlm__8AS5IEh1QmHrb26rtNWQDJ0D0/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Nzky/NzAzLTE1ODIzNzcw/NjAtNDk4NS5qcGVn.jpeg",
+      "cover_image": "https://i.discogs.com/g8XfDnyuC4b45iB5Qtj84IJJEQFNV8Q6K1QYnEQltoY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Nzky/NzAzLTE1ODIzNzcw/NjAtNDk4NS5qcGVn.jpeg",
+      "resource_url": "https://api.discogs.com/releases/14792703",
+      "community": {
+        "want": 374,
+        "have": 1506
+      },
+      "format_quantity": 2,
+      "formats": [
+        {
+          "name": "Vinyl",
+          "qty": "2",
+          "descriptions": [
+            "LP",
+            "Album",
+            "Reissue",
+            "Stereo"
+          ]
+        }
+      ]
+    },
+    {
+      "country": "US",
+      "year": "2018",
+      "format": [
+        "CDr",
+        "Album",
+        "Promo"
+      ],
+      "label": [
+        "International Anthem Recording Company",
+        "International Anthem Recording Company",
+        "International Anthem Recording Company"
+      ],
+      "type": "release",
+      "genre": [
+        "Electronic",
+        "Jazz"
+      ],
+      "style": [
+        "Avant-garde Jazz",
+        "Free Jazz"
+      ],
+      "id": 36403090,
+      "barcode": [
+        "RFD80M-79252 80 P5",
+        "UTA612081806B21.",
+        "RFD80M-79252 80 MK",
+        "UTA612084925F18."
+      ],
+      "master_id": 1444351,
+      "master_url": "https://api.discogs.com/masters/1444351",
+      "uri": "/release/36403090-Makaya-McCraven-Universal-Beings",
+      "catno": "CD-IARC-022",
+      "title": "Makaya McCraven - Universal Beings",
+      "thumb": "https://i.discogs.com/gLlIxQcFuuJxJAICNr1oUpXN8J6QL1VLLnl-lJaYqpU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM2NDAz/MDkwLTE3NzAyMDU3/NzYtNTcyNC5qcGVn.jpeg",
+      "cover_image": "https://i.discogs.com/S6yzkYRIBDuS_1Qoc6oicGOnYfamTq3CdtUl4_iXx4o/rs:fit/g:sm/q:90/h:581/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM2NDAz/MDkwLTE3NzAyMDU3/NzYtNTcyNC5qcGVn.jpeg",
+      "resource_url": "https://api.discogs.com/releases/36403090",
+      "community": {
+        "want": 4,
+        "have": 2
+      },
+      "format_quantity": 2,
+      "formats": [
+        {
+          "name": "CDr",
+          "qty": "2",
+          "descriptions": [
+            "Album",
+            "Promo"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { DEFAULT_STATE, parseUrl, toSearch, type UrlState } from '../../src/stat
 
 describe('URL state', () => {
   test('every field round-trips', () => {
-    const s: UrlState = { q: 'chiu', genres: ['jazz', 'soul-rnb'], crate: 'staff-picks', sort: 'title-desc', page: 3, record: 't45593149', shared: 'eyJu' };
+    const s: UrlState = { q: 'chiu', genres: ['jazz', 'soul-rnb'], crate: 'staff-picks', country: 'GB', sort: 'title-desc', page: 3, record: 't45593149', shared: 'eyJu' };
     expect(parseUrl(toSearch(s))).toEqual(s);
   });
   test('defaults produce an empty query string and invalid values fall back', () => {

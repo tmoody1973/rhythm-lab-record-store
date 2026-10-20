@@ -1,0 +1,40 @@
+{
+  "sort-name": "McCraven, Makaya",
+  "country": "US",
+  "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+  "end-area": null,
+  "gender": "Male",
+  "area": {
+    "name": "Chicago",
+    "sort-name": "Chicago",
+    "type-id": null,
+    "type": null,
+    "disambiguation": "",
+    "id": "29a709d8-0320-493e-8d0c-f2c386662b7f"
+  },
+  "isnis": [
+    "0000000444628211"
+  ],
+  "ipis": [],
+  "life-span": {
+    "end": null,
+    "ended": false,
+    "begin": "1983-10-19"
+  },
+  "disambiguation": "",
+  "name": "Makaya McCraven",
+  "type": "Person",
+  "begin-area": {
+    "iso-3166-2-codes": [
+      "FR-75"
+    ],
+    "id": "dc10c22b-e510-4006-8b7f-fecb4f36436e",
+    "disambiguation": "",
+    "type": null,
+    "sort-name": "Paris",
+    "type-id": null,
+    "name": "Paris"
+  },
+  "id": "59476fae-d0c9-4ebd-b03c-c38b19b30dff",
+  "gender-id": "36d3d30a-839d-3eda-8cb3-29be4384e4a9"
+}
