@@ -1,14 +1,20 @@
 // "My crates": the visitor's favorites and crates as wooden crates to dig through, one tab per crate,
 // with rename, delete and share links for their own crates.
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import { encodeShare } from '../crates/share.ts';
 import { deleteCrate, removeFromCrate, renameCrate, toggleFavorite, type VisitorData } from '../crates/storage.ts';
 import { CrateDig } from './CrateDig.tsx';
+import { has3D } from '../shop/support.ts';
+import { Fallback3D } from '../shop/Fallback3D.tsx';
+
+// My crates as a 3D crate when the browser can draw it (decision 9); this flat dig otherwise.
+const CrateStage = lazy(() => import('../shop/CrateStage.tsx'));
 
 export type CratePlace = { crate: string | null; index: number };
 const FAVORITES = 'favorites';
 
+export type CratesPanelProps = Props & { onLost?: () => void };
 type Props = {
   data: VisitorData;
   update: (f: (d: VisitorData) => VisitorData) => void;
@@ -22,7 +28,17 @@ type Props = {
 const typing = (t: EventTarget | null) =>
   t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName));
 
-export function CratesPanel({ data, update, byId, place, onPlace, onOpenRecord, onClose }: Props) {
+export function CratesPanel(props: Props) {
+  const [use3D, setUse3D] = useState(has3D);
+  if (!use3D) return <FlatCratesPanel {...props} />;
+  return (
+    <Fallback3D onFail={() => setUse3D(false)}>
+      <Suspense fallback={null}><CrateStage {...props} onLost={() => setUse3D(false)} /></Suspense>
+    </Fallback3D>
+  );
+}
+
+function FlatCratesPanel({ data, update, byId, place, onPlace, onOpenRecord, onClose }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   const [copied, setCopied] = useState<string | null>(null);
   const [renaming, setRenaming] = useState<string | null>(null);

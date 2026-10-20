@@ -5,12 +5,23 @@ import { DEFAULT_STATE, parseUrl, toSearch, type UrlState } from '../../src/stat
 
 describe('URL state', () => {
   test('every field round-trips', () => {
-    const s: UrlState = { q: 'chiu', genres: ['jazz', 'soul-rnb'], crate: 'staff-picks', country: 'GB', sort: 'title-desc', page: 3, record: 't45593149', shared: 'eyJu' };
+    const s: UrlState = { q: 'chiu', genres: ['jazz', 'soul-rnb'], crate: 'staff-picks', country: 'GB', sort: 'title-desc', page: 3, record: 't45593149', shared: 'eyJu', view: 'grid', section: 'jazz', bin: 2 };
     expect(parseUrl(toSearch(s))).toEqual(s);
   });
   test('defaults produce an empty query string and invalid values fall back', () => {
     expect(toSearch(DEFAULT_STATE)).toBe('');
     expect(parseUrl('?sort=bogus&page=-3&genre=jazz,%3Cscript%3E&crate=Bad%20Crate')).toEqual({ ...DEFAULT_STATE, genres: ['jazz'] });
+  });
+  test('the store is the default view; only the grid is written to the URL', () => {
+    expect(DEFAULT_STATE.view).toBe('store');
+    expect(toSearch({ ...DEFAULT_STATE, view: 'grid' })).toBe('?view=grid');
+    expect(toSearch({ ...DEFAULT_STATE, section: 'jazz', bin: 0 })).toBe('?section=jazz&bin=0');
+  });
+  test('hand-edited shop links fall back to the store', () => {
+    expect(parseUrl('?view=nonsense&section=%3Cx%3E&bin=-1')).toEqual(DEFAULT_STATE);
+    expect(parseUrl('?bin=99999').bin).toBeNull();
+    expect(parseUrl('?bin=1.5').bin).toBeNull();
+    expect(parseUrl('?section=staff-picks&bin=3')).toMatchObject({ section: 'staff-picks', bin: 3 });
   });
   test('a record param is kept as given so the UI can explain a bad link', () => {
     expect(parseUrl('?record=zzz').record).toBe('zzz');

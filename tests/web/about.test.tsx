@@ -38,3 +38,10 @@ test('About page links to the repo, the show and the projects that inspired it',
   // Descriptive link text, never a bare URL.
   for (const a of screen.getAllByRole('link')) expect(a.textContent).not.toMatch(/^https?:/);
 });
+
+test('How it works says the 3D shop is live, with a link to the third-party notices', () => {
+  render(<AboutPage />);
+  expect(screen.getByText(/the front page is a 3D record shop you can turn around, step into and dig through/i)).toBeInTheDocument();
+  expect(screen.queryByText(/in progress/i)).toBeNull();
+  expect(screen.getByRole('link', { name: /third-party notices/i })).toHaveAttribute('href', 'https://github.com/tmoody1973/rhythm-lab-record-store/blob/main/THIRD_PARTY_NOTICES.md');
+});
