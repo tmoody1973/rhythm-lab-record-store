@@ -76,3 +76,20 @@ export const addToCrate = (d: VisitorData, id: string, recordId: string): Visito
   mapCrate(d, id, (c) => (c.records.includes(recordId) ? c : { ...c, records: [...c.records, recordId] }));
 export const removeFromCrate = (d: VisitorData, id: string, recordId: string): VisitorData =>
   mapCrate(d, id, (c) => ({ ...c, records: c.records.filter((r) => r !== recordId) }));
+
+/** Which crate "My crates" opens on: a per-browser convenience, so failures just fall back to the default. */
+const LAST_CRATE = 'rl-record-store:last-crate';
+export function loadLastCrate(storage: Storage | null = browserStorage()): string | null {
+  try {
+    return storage?.getItem(LAST_CRATE) ?? null;
+  } catch {
+    return null;
+  }
+}
+export function saveLastCrate(id: string, storage: Storage | null = browserStorage()): void {
+  try {
+    storage?.setItem(LAST_CRATE, id);
+  } catch {
+    // Blocked storage: the panel still works, it just won't remember.
+  }
+}
