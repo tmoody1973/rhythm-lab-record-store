@@ -11,7 +11,9 @@
     "e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "catalog": "node --env-file=.env.local pipeline/catalog.ts",
-    "import-crate": "node pipeline/import-crate.ts"
+    "import-crate": "node pipeline/import-crate.ts",
+    "enrich": "node --env-file=.env.local pipeline/enrich/index.ts",
+    "check-secrets": "node --env-file=.env.local scripts/check-secrets.mts"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",
