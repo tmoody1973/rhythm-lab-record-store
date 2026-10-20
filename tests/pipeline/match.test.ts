@@ -94,6 +94,13 @@ describe('gate', () => {
     expect(gate(album, agreed, { label: null })?.published).toEqual({ artistCountry: 'US', sources: ['discogs', 'override'] });
     expect(gate(album, agreed, { label: 'Nonesuch' })?.published).toMatchObject({ label: 'Nonesuch', artistCountry: 'US' });
   });
+  test('placeholder catalog numbers like [none] are never published', () => {
+    for (const placeholder of ['[none]', 'none', 'N/A', '-', '[no label]']) {
+      const r = gate(album, [cand('musicbrainz', { fields: { catalogNumber: placeholder } })]);
+      expect(r.published).toBeNull();
+    }
+    expect(gate(album, [cand('musicbrainz', { fields: { catalogNumber: 'ATH018' } })]).published?.catalogNumber).toBe('ATH018');
+  });
   test('a Bandcamp URL that is not on bandcamp.com is never published', () => {
     const r = gate(album, [cand('musicbrainz', { fields: { bandcampUrl: 'https://evil.example/album/x' } })]);
     expect(r.published).toBeNull();

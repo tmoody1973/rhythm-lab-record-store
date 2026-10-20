@@ -50,7 +50,11 @@ function sameKey(field: string, v: unknown): string {
   return normalize(String(v));
 }
 
-const valid = (field: string, v: unknown) => v !== undefined && v !== null && v !== '' && (field !== 'bandcampUrl' || BANDCAMP_URL.test(String(v)));
+/** Databases write "no value" in different ways (MusicBrainz: "[none]"); none of them is a value. */
+const PLACEHOLDER = /^\[?\s*(none|n\/?a|no label|unknown|-+)\s*\]?$/i;
+const valid = (field: string, v: unknown) =>
+  v !== undefined && v !== null && v !== '' && !(typeof v === 'string' && PLACEHOLDER.test(v.trim()))
+  && (field !== 'bandcampUrl' || BANDCAMP_URL.test(String(v)));
 
 export function gate(record: PublicAlbum, best: Candidate[], overrides?: Overrides): { published: Enriched | null; review: ReviewEntry[] } {
   const scored = best.map((c) => ({ c, level: confidence(record, c) })).filter((x) => x.level !== 'low');
