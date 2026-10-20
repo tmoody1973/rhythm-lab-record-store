@@ -18,7 +18,7 @@ const BRICK = '#6b2e22', SLEEVE_EDGE = '#140b05';
 const reduced = () => typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const LAMBDA = () => (reduced() ? 60 : 6); // ≈ cratedigger's 1s Quartic.Out settle
 
-type Placed = { bin: Bin; x: number; z: number; w: number; key: string };
+export type Placed = { bin: Bin; x: number; z: number; w: number; key: string };
 type View =
   | { level: 'store' }
   | { level: 'section'; section: string }
@@ -38,7 +38,7 @@ function place(s: Section, bins: Bin[]): Placed[] {
 type Mats = ShopMaterials & { green: THREE.Material; natural: THREE.Material };
 const MatsContext = createContext<Mats | null>(null);
 const useMats = () => useContext(MatsContext)!;
-function WithMaterials({ children }: { children: ReactNode }) {
+export function WithMaterials({ children }: { children: ReactNode }) {
   const m = useShopMaterials();
   const value = useMemo(() => ({
     ...m,
@@ -49,7 +49,7 @@ function WithMaterials({ children }: { children: ReactNode }) {
 }
 
 type BinKind = 'walnut' | 'walnutDark' | 'green' | 'natural';
-function BinBox({ w, kind }: { w: number; kind: BinKind }) {
+export function BinBox({ w, kind }: { w: number; kind: BinKind }) {
   const material = useMats()[kind];
   const t = 0.06;
   const parts: [number, number, number, number, number, number][] = [
@@ -127,7 +127,7 @@ function DigRecord({ record, map, x, z, lean, pose, onClick }: {
   );
 }
 
-function DigBin({ p, sel, shown, maps, mouse, onPick }: {
+export function DigBin({ p, sel, shown, maps, mouse, onPick }: {
   p: Placed; sel: number; shown: boolean; maps: (THREE.Texture | undefined)[];
   mouse: React.RefObject<{ x: number; y: number }>; onPick: (i: number, e: ThreeEvent<MouseEvent>) => void;
 }) {
@@ -150,7 +150,7 @@ function DigBin({ p, sel, shown, maps, mouse, onPick }: {
   );
 }
 
-function TexturedDigBin(props: Omit<Parameters<typeof DigBin>[0], 'maps'>) {
+export function TexturedDigBin(props: Omit<Parameters<typeof DigBin>[0], 'maps'>) {
   const urls = props.p.bin.records.map((r) => r.cover?.grid).filter((u): u is string => !!u);
   const loaded = useTexture(urls);
   const byUrl = new Map(urls.map((u, i) => [u, loaded[i]!]));
@@ -285,7 +285,7 @@ function SectionLight({ s, bright }: { s: Section; bright: boolean }) {
 }
 
 /** Ambient light dims while a record is shown, so it stands out like cratedigger's info view. */
-function RoomLights({ dim }: { dim: boolean }) {
+export function RoomLights({ dim }: { dim: boolean }) {
   const amb = useRef<THREE.AmbientLight>(null!), hemi = useRef<THREE.HemisphereLight>(null!), sun = useRef<THREE.DirectionalLight>(null!);
   useFrame((_, dt) => {
     const f = dim ? 0.3 : 1;
@@ -300,6 +300,16 @@ function RoomLights({ dim }: { dim: boolean }) {
       <directionalLight ref={sun} position={[14, 22, 10]} intensity={1.6} color="#ffd2a0" castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-16} shadow-camera-right={16} shadow-camera-top={16} shadow-camera-bottom={-16} />
     </>
   );
+}
+
+/** The camera over a bin being dug: whole bin, then following the record you're on, then close on a shown one. */
+export function aimAtDig(c: CameraControls, p: Placed, sel: number, shown: boolean) {
+  c.smoothTime = reduced() ? 0 : 0.35;
+  if (sel < 0) { void c.setLookAt(p.x + 1.2, 2.1, p.z + 2.8, p.x, 0.35, p.z, true); return; }
+  const s = slot(p, sel);
+  const [rx, rz] = [p.x + s.x, p.z + s.z];
+  if (shown) void c.setLookAt(rx + 0.6, 1.55, rz + 2.6, rx, 1.35, rz + 0.1, true);
+  else void c.setLookAt(rx + 1, 1.95, rz + 2.1, rx, 0.6, rz, true);
 }
 
 type Props = { albums: PublicAlbum[]; onOpenRecord: (r: PublicAlbum) => void; toggle: ReactNode };
@@ -338,15 +348,7 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
     c.smoothTime = reduced() ? 0 : 0.35;
     if (view.level === 'store') void c.setLookAt(17, 15, 21, 0, 0, 0, true);
     else if (view.level === 'section' && section) void c.setLookAt(section.x + 2.5, 5.5, section.z + section.d / 2 + 6.5, section.x, 0.4, section.z, true);
-    else if (digging) {
-      if (sel < 0) void c.setLookAt(digging.x + 1.2, 2.1, digging.z + 2.8, digging.x, 0.35, digging.z, true);
-      else {
-        const s = slot(digging, sel);
-        const [rx, rz] = [digging.x + s.x, digging.z + s.z];
-        if (shown) void c.setLookAt(rx + 0.6, 1.55, rz + 2.6, rx, 1.35, rz + 0.1, true);
-        else void c.setLookAt(rx + 1, 1.95, rz + 2.1, rx, 0.6, rz, true);
-      }
-    }
+    else if (digging) aimAtDig(c, digging, sel, shown);
   }, [view, section, digging, sel, shown]);
 
   const step = (d: 1 | -1) => setView((v) => {

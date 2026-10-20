@@ -1,0 +1,207 @@
+// SPIKE: "My crates" as a real 3D crate (Tarik, 2026-10-20: the flat version "isn't impactful"). Full screen, the
+// shop's walnut bin and cratedigger-style dig; brass tabs switch crates. Loaded only when the browser has WebGL;
+// CratesPanel keeps the flat dig as the fallback.
+import { CameraControls } from '@react-three/drei';
+import { Canvas, type ThreeEvent } from '@react-three/fiber';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import type { PublicAlbum } from '../catalog/schema.ts';
+import { encodeShare } from '../crates/share.ts';
+import { deleteCrate, removeFromCrate, renameCrate, toggleFavorite } from '../crates/storage.ts';
+import type { CratesPanelProps } from '../ui/CratesPanel.tsx';
+import { Plant, useShopMaterials } from './Decor.tsx';
+import { BW } from './geometry.ts';
+import { aimAtDig, BinBox, DigBin, RoomLights, TexturedDigBin, WithMaterials, type Placed } from './ShopScene.tsx';
+
+const PER_BIN = 48;
+const FAVORITES = 'favorites';
+const typing = (t: EventTarget | null) => t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON'].includes(t.tagName));
+
+function Floor() {
+  const m = useShopMaterials();
+  return <mesh position={[0, -0.15, 0]} receiveShadow material={m.floor}><boxGeometry args={[14, 0.3, 10]} /></mesh>;
+}
+
+export default function CrateStage({ data, update, byId, place, onPlace, onOpenRecord, onClose }: CratesPanelProps) {
+  const ref = useRef<HTMLDialogElement>(null);
+  const controls = useRef<CameraControls>(null);
+  const mouse = useRef({ x: 0.5, y: 0.5 });
+  const drag = useRef<{ y: number; moved: boolean } | null>(null);
+  const lastWheel = useRef(0);
+  const [shown, setShown] = useState(false);
+  const [renaming, setRenaming] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const crates = [{ id: FAVORITES, name: 'Favorites', records: data.favorites }, ...data.crates];
+  const current = crates.find((c) => c.id === place.crate) ?? crates.find((c) => c.records.length) ?? crates[0]!;
+  const records = current.records.map((id) => byId.get(id)).filter((r): r is PublicAlbum => !!r);
+  const index = Math.min(place.crate === current.id ? place.index : 0, Math.max(0, records.length - 1));
+  const page = Math.floor(index / PER_BIN);
+  const pages = Math.max(1, Math.ceil(records.length / PER_BIN));
+  const sel = records.length ? index % PER_BIN : -1;
+  const bin: Placed = { key: `${current.id}:${page}`, x: 0, z: 0, w: BW, bin: { section: current.id, index: page, label: current.name, records: records.slice(page * PER_BIN, (page + 1) * PER_BIN) } };
+  const record = records[index] ?? null;
+  const go = (i: number) => { setShown(false); onPlace({ crate: current.id, index: Math.max(0, Math.min(records.length - 1, i)) }); };
+
+  useEffect(() => {
+    const d = ref.current!;
+    if (!d.open) d.showModal?.();
+    const cancel = (e: Event) => { e.preventDefault(); if (shown) setShown(false); else onClose(); };
+    d.addEventListener('cancel', cancel);
+    return () => d.removeEventListener('cancel', cancel);
+  }, [onClose, shown]);
+
+  useEffect(() => { if (controls.current) aimAtDig(controls.current, bin, sel, shown); });
+
+  useEffect(() => {
+    const key = (e: KeyboardEvent) => {
+      if (typing(e.target) || e.altKey || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); go(index + 1); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(index - 1); }
+      if ((e.key === 'Enter' || e.key === ' ') && record) { e.preventDefault(); setShown((s) => !s); }
+    };
+    document.addEventListener('keydown', key);
+    return () => document.removeEventListener('keydown', key);
+  });
+
+  const box = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = box.current!;
+    const wheel = (e: WheelEvent) => {
+      e.preventDefault();
+      if (performance.now() - lastWheel.current < 90 || Math.abs(e.deltaY) < 2) return;
+      lastWheel.current = performance.now();
+      go(index + (e.deltaY > 0 ? 1 : -1));
+    };
+    el.addEventListener('wheel', wheel, { passive: false });
+    return () => el.removeEventListener('wheel', wheel);
+  });
+
+  const pick = (i: number, e: ThreeEvent<MouseEvent>) => {
+    if (e.delta > 6 || drag.current?.moved) return;
+    e.stopPropagation();
+    if (i === sel) setShown((s) => !s);
+    else go(page * PER_BIN + i);
+  };
+  const remove = () => {
+    if (!record) return;
+    setShown(false);
+    update((d) => (current.id === FAVORITES ? toggleFavorite(d, record.id) : removeFromCrate(d, current.id, record.id)));
+  };
+  const shareUrl = `${window.location.origin}/?shared=${encodeShare({ name: current.name, records: current.records })}`;
+  const copy = async () => {
+    try { await navigator.clipboard.writeText(shareUrl); setCopied(current.id); } catch { setCopied(`${current.id}:manual`); }
+  };
+
+  const ghost = 'rounded-full border border-white/30 bg-[#1a1411]/70 px-5 py-2.5 text-sm text-[#f3e6cf] backdrop-blur hover:bg-white/10 disabled:opacity-40';
+  const solid = 'rounded-full bg-[#f3e6cf] px-5 py-2.5 text-sm font-semibold text-[#1a1411] hover:bg-white';
+  return (
+    <dialog ref={ref} aria-labelledby="crates-title" className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-hidden bg-[#1a1411] p-0 text-[#f3e6cf] backdrop:bg-black/60">
+      <div
+        ref={box}
+        className="absolute inset-0"
+        style={{ touchAction: 'none' }}
+        onPointerMove={(e) => {
+          mouse.current = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight };
+          if (drag.current) {
+            const dy = e.clientY - drag.current.y;
+            if (Math.abs(dy) >= 26) { go(index + (dy < 0 ? 1 : -1)); drag.current = { y: e.clientY, moved: true }; }
+          }
+        }}
+        onPointerDown={(e) => { drag.current = { y: e.clientY, moved: false }; }}
+        onPointerUp={() => { setTimeout(() => { drag.current = null; }, 0); }}
+      >
+        <Canvas shadows dpr={[1, 2]} camera={{ position: [1.2, 2.1, 2.8], fov: 40, near: 0.05, far: 60 }}>
+          <color attach="background" args={['#1a1411']} />
+          <fog attach="fog" args={['#1a1411', 6, 16]} />
+          <CameraControls ref={controls} makeDefault enabled={false} />
+          <RoomLights dim={shown} />
+          <spotLight position={[0.5, 5, 1.5]} angle={0.55} penumbra={0.8} decay={1.4} intensity={60} color="#ffc27a" castShadow />
+          <Suspense fallback={null}>
+            <WithMaterials>
+              <Floor />
+              <Plant position={[-2.1, 0, -1.2]} lush scale={0.8} />
+              {bin.bin.records.length ? (
+                <Suspense fallback={<DigBin p={bin} sel={sel} shown={shown} maps={[]} mouse={mouse} onPick={pick} />}>
+                  <TexturedDigBin key={bin.key} p={bin} sel={sel} shown={shown} mouse={mouse} onPick={pick} />
+                </Suspense>
+              ) : <BinBox w={BW} kind="walnut" />}
+            </WithMaterials>
+          </Suspense>
+        </Canvas>
+      </div>
+
+      {/* Header: title, crate tabs, close */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 flex flex-col items-center gap-3 p-4 sm:p-6">
+        <div className="flex w-full items-start justify-between">
+          <div>
+            <h2 id="crates-title" className="font-serif text-3xl font-bold">My crates</h2>
+            <p className="text-sm text-[#f3e6cf]/70">Saved in this browser only.</p>
+          </div>
+          <button type="button" onClick={onClose} aria-label="Close" className="pointer-events-auto grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-[#1a1411]/70 backdrop-blur hover:bg-white/10"><span aria-hidden="true">×</span></button>
+        </div>
+        <nav aria-label="Your crates" className="pointer-events-auto max-w-full">
+          <ul className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-white/15 bg-[#1a1411]/70 p-1 backdrop-blur">
+            {crates.map((c) => (
+              <li key={c.id}>
+                <button type="button" aria-pressed={c.id === current.id} onClick={() => { setRenaming(false); setShown(false); onPlace({ crate: c.id, index: 0 }); }}
+                  className="whitespace-nowrap rounded-full px-3.5 py-1.5 text-sm hover:bg-white/10 aria-pressed:bg-[#cdb27a] aria-pressed:text-[#1a1411]">
+                  {c.name} <span className="opacity-60">{c.records.length}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        {current.id !== FAVORITES && (
+          <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-4 text-sm">
+            {renaming ? (
+              <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); setRenaming(false); }}>
+                <input aria-label={`Rename ${current.name}`} defaultValue={current.name} maxLength={60} autoFocus onChange={(e) => update((d) => renameCrate(d, current.id, e.target.value))} className="rounded-full border border-white/30 bg-[#1a1411] px-3 py-1 text-[#f3e6cf]" />
+                <button type="submit" className="underline-offset-4 hover:underline">Done</button>
+              </form>
+            ) : (
+              <>
+                <button type="button" onClick={copy} className="underline-offset-4 hover:underline">{copied === current.id ? 'Link copied' : 'Copy share link'}</button>
+                <button type="button" onClick={() => setRenaming(true)} className="opacity-80 hover:opacity-100">Rename</button>
+                <button type="button" onClick={() => update((d) => deleteCrate(d, current.id))} className="opacity-80 hover:opacity-100">Delete</button>
+              </>
+            )}
+            {copied === `${current.id}:manual` && <input readOnly value={shareUrl} aria-label="Share link" className="w-full rounded border border-white/20 bg-[#1a1411] px-2 py-1 text-xs" onFocus={(e) => e.target.select()} />}
+          </div>
+        )}
+      </div>
+
+      {!records.length && (
+        <p className="pointer-events-none absolute inset-x-0 top-1/2 px-6 text-center font-serif text-2xl [text-shadow:0_2px_12px_rgb(0_0_0/0.8)]">
+          {current.id === FAVORITES ? 'Nothing in here yet. Open a record and tap the heart.' : 'Nothing in here yet. Open a record and tap Add to crate.'}
+        </p>
+      )}
+
+      {/* Footer: the record you're on, and what you can do with it */}
+      {record && (
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 p-4 sm:p-6">
+          <div className="pointer-events-none text-center [text-shadow:0_2px_12px_rgb(0_0_0/0.8)]">
+            <p className={shown ? 'text-lg' : 'text-sm opacity-80'}>{record.artist}</p>
+            <p className={`font-serif font-bold ${shown ? 'text-4xl' : 'text-2xl'}`}>{record.title}</p>
+            <p className="mt-1 text-xs opacity-70">{index + 1} of {records.length}{pages > 1 ? ` · bin ${page + 1} of ${pages}` : ''}</p>
+          </div>
+          <p role="status" className="sr-only">{`${record.title} by ${record.artist}, ${index + 1} of ${records.length}`}</p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {shown ? (
+              <>
+                <button type="button" onClick={() => onOpenRecord(record)} className={solid}>Open album</button>
+                <button type="button" onClick={() => setShown(false)} className={ghost}>Put back</button>
+                <button type="button" onClick={remove} className={ghost}>Remove</button>
+              </>
+            ) : (
+              <>
+                <button type="button" onClick={() => go(index - 1)} disabled={index === 0} className={ghost}>Back</button>
+                <button type="button" onClick={() => setShown(true)} className={solid}>Show</button>
+                <button type="button" onClick={() => go(index + 1)} disabled={index >= records.length - 1} className={ghost}>Flip</button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </dialog>
+  );
+}

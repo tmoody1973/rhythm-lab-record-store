@@ -1,6 +1,6 @@
 // "My crates": the visitor's favorites and crates as wooden crates to dig through, one tab per crate,
 // with rename, delete and share links for their own crates.
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import { encodeShare } from '../crates/share.ts';
 import { deleteCrate, removeFromCrate, renameCrate, toggleFavorite, type VisitorData } from '../crates/storage.ts';
@@ -9,6 +9,7 @@ import { CrateDig } from './CrateDig.tsx';
 export type CratePlace = { crate: string | null; index: number };
 const FAVORITES = 'favorites';
 
+export type CratesPanelProps = Props;
 type Props = {
   data: VisitorData;
   update: (f: (d: VisitorData) => VisitorData) => void;
@@ -22,7 +23,15 @@ type Props = {
 const typing = (t: EventTarget | null) =>
   t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName));
 
-export function CratesPanel({ data, update, byId, place, onPlace, onOpenRecord, onClose }: Props) {
+// SPIKE: the 3D crate (shop's walnut bin + cratedigger dig) when the browser can draw 3D; this flat dig otherwise.
+const CrateStage = lazy(() => import('../shop/CrateStage.tsx'));
+const has3D = () => typeof window !== 'undefined' && 'WebGLRenderingContext' in window;
+
+export function CratesPanel(props: Props) {
+  return has3D() ? <Suspense fallback={null}><CrateStage {...props} /></Suspense> : <FlatCratesPanel {...props} />;
+}
+
+function FlatCratesPanel({ data, update, byId, place, onPlace, onOpenRecord, onClose }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   const [copied, setCopied] = useState<string | null>(null);
   const [renaming, setRenaming] = useState<string | null>(null);
