@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import "@fontsource/libre-caslon-text/400.css";
+@import "@fontsource/libre-caslon-text/700.css";
+@import "@fontsource/inter-tight/400.css";
+@import "@fontsource/inter-tight/500.css";
+@import "@fontsource/inter-tight/700.css";
+
+/* Tokens sampled from docs/design/*.png (see docs/superpowers/plans/2026-10-19-website.md). */
+@theme {
+  --color-wall: #ede4d5;
+  --color-paper: #efe9dd;
+  --color-card: #f3efe8;
+  --color-chip: #f4e9d7;
+  --color-line: #e7dcce;
+  --color-forest: #364c43;
+  --color-forest-ink: #1a2d25;
+  --color-ink: #131718;
+  --color-ink-soft: #444342;
+  --color-walnut: #693c1e;
+  --font-serif: "Libre Caslon Text", Georgia, serif;
+  --font-sans: "Inter Tight", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-wall);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
