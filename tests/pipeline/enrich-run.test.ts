@@ -6,7 +6,7 @@ import type { PublicAlbum } from '../../src/catalog/schema.ts';
 import { EnrichmentFileSchema } from '../../src/catalog/enrichment.ts';
 import { AuthError } from '../../pipeline/enrich/http.ts';
 import type { Candidate } from '../../pipeline/enrich/match.ts';
-import { pilotSample, runEnrichment, writeOutputs, type EnrichSource } from '../../pipeline/enrich/run.ts';
+import { pilotSample, runEnrichment, writeBlocker, writeOutputs, type EnrichSource } from '../../pipeline/enrich/run.ts';
 
 const rec = (n: number, songCount: number, kind: 'album' | 'track' = 'album'): PublicAlbum => ({
   id: `bandcamp:${kind}:${n}`, kind, bandcampId: n, title: `Title ${n}`, artist: `Artist ${n}`, genre: null, cover: null, songCount, durationSec: 100,
@@ -72,5 +72,15 @@ describe('writeOutputs', () => {
     expect(Object.keys(written.entries).sort()).toEqual(['bandcamp:album:1', 'bandcamp:album:2']);
     expect(readFileSync(overrides, 'utf8')).toBe(before);
     expect(readdirSync(dir).filter((f) => f.includes('.tmp-'))).toEqual([]);
+  });
+});
+
+describe('writeBlocker', () => {
+  test('a run with every source healthy may write', () => {
+    expect(writeBlocker({ disabled: [] }, null)).toBeNull();
+  });
+  test('a run where a source was switched off, or limited with --only, must not overwrite published data', () => {
+    expect(writeBlocker({ disabled: ['apple'] }, null)).toMatch(/apple/);
+    expect(writeBlocker({ disabled: [] }, 'discogs')).toMatch(/--only/);
   });
 });

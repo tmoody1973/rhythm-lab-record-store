@@ -32,10 +32,11 @@ export function createSourceFetcher(opts: Opts) {
   async function send(url: string): Promise<Response | null> {
     const wait = last + opts.minIntervalMs - now();
     if (wait > 0) await sleep(wait);
+    const headers = opts.headers(); // outside the try: a config error must surface, not be retried as a network error
     last = now();
     stats.requests++;
     try {
-      return await fetchImpl(url, { headers: opts.headers() });
+      return await fetchImpl(url, { headers });
     } catch {
       return null; // network error: retried like a 503
     }

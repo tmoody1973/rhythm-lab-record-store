@@ -8,7 +8,7 @@ import { appleSource, appleToken } from './apple.ts';
 import { discogsSource } from './discogs.ts';
 import { createSourceFetcher } from './http.ts';
 import { musicbrainzSource } from './musicbrainz.ts';
-import { pilotSample, runEnrichment, writeOutputs, type EnrichSource } from './run.ts';
+import { pilotSample, runEnrichment, writeBlocker, writeOutputs, type EnrichSource } from './run.ts';
 
 const say = (line: string) => process.stdout.write(line + '\n');
 const env = (k: string) => {
@@ -57,10 +57,32 @@ if (!sources.length) {
   process.exit(1);
 }
 
+// Fail fast on setup problems instead of discovering them one slow retry at a time.
+const REQUIRED: Record<string, string[]> = {
+  apple: ['APPLE_TEAM_ID', 'APPLE_KEY_ID', 'APPLE_PRIVATE_KEY_PATH'],
+  musicbrainz: ['MUSICBRAINZ_CONTACT'],
+  discogs: ['DISCOGS_KEY', 'DISCOGS_SECRET'],
+};
+const missing = sources.flatMap((s) => REQUIRED[s.name]!.filter((k) => !process.env[k]));
+if (missing.length) {
+  say(`REFUSED: missing ${missing.join(', ')} in .env.local`);
+  process.exit(1);
+}
+if (sources.some((s) => s.name === 'apple')) {
+  try {
+    await appleSource(fetchers.apple).check();
+  } catch (e) {
+    say(`REFUSED: Apple Music rejected the setup (${(e as Error).message}). Check the MusicKit key, Key ID and Team ID.`);
+    process.exit(1);
+  }
+}
+
 const started = Date.now();
 say(`Enriching ${records.length} records${pilot ? ' (pilot)' : ''} from ${sources.map((s) => s.name).join(', ')}…`);
 const result = await runEnrichment(records, sources, overrides, say);
-await writeOutputs(result, 'public', 'data');
+const blocker = writeBlocker(result.stats, only);
+if (blocker) say(`NOT WRITTEN: ${blocker}.`);
+else await writeOutputs(result, 'public', 'data');
 
 say('');
 say(`records: ${result.stats.records}; published: ${result.stats.published}; for review: ${result.review.length}`);
@@ -68,4 +90,5 @@ say(`published fields: ${Object.entries(result.stats.perField).map(([f, n]) => `
 if (result.stats.disabled.length) say(`switched off: ${result.stats.disabled.join(', ')}`);
 if (Object.keys(result.stats.errors).length) say(`errors: ${JSON.stringify(result.stats.errors)}`);
 for (const [n, f] of Object.entries(fetchers)) say(`${n}: ${JSON.stringify(f.stats())}`);
-say(`elapsed ${Math.round((Date.now() - started) / 1000)}s → public/enrichment.json, data/enrichment-review.md`);
+say(`elapsed ${Math.round((Date.now() - started) / 1000)}s${blocker ? '' : ' → public/enrichment.json, data/enrichment-review.md'}`);
+if (blocker) process.exitCode = 1;

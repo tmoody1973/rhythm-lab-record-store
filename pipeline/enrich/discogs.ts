@@ -18,7 +18,7 @@ function split(title: string): { artist: string; title: string } {
 function releaseFields(rel: any) {
   const label = rel?.labels?.[0];
   return {
-    label: label?.name || undefined,
+    label: label?.name ? String(label.name).replace(/\s*\(\d+\)$/, '') : undefined, // "Brainfeeder (2)" → "Brainfeeder"
     catalogNumber: label?.catno && label.catno.toLowerCase() !== 'none' ? label.catno : undefined,
     releaseDate: date(rel?.released) ?? (rel?.year ? String(rel.year) : undefined),
     styles: rel?.styles?.length ? rel.styles : undefined,

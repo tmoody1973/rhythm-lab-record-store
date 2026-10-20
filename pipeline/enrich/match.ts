@@ -2,9 +2,9 @@
 // - high   = exact normalized artist + title AND track count equal to the record's songCount
 // - medium = exact normalized artist + title, but track count differs/unknown, or a one-song record
 // - low    = anything else (ignored)
-// A field is published when the high matches agree on it, or (with only medium matches) when two or
-// more sources agree. Disagreement publishes nothing and lands in the review list.
-import { BANDCAMP_URL, FIELDS, type Enriched, type EnrichedFields, type Overrides } from '../../src/catalog/enrichment.ts';
+// A field is published when every usable source that has it agrees, and either one of them is high or two or
+// more agree. Any disagreement (even 2-against-1, even high vs medium) publishes nothing and goes to review.
+import { BANDCAMP_URL, EnrichedSchema, FIELDS, type Enriched, type EnrichedFields, type Overrides } from '../../src/catalog/enrichment.ts';
 import type { PublicAlbum } from '../../src/catalog/schema.ts';
 
 export type Candidate = { source: 'apple' | 'musicbrainz' | 'discogs'; artist: string; title: string; trackCount: number | null; fields: Partial<EnrichedFields> };
@@ -52,9 +52,11 @@ function sameKey(field: string, v: unknown): string {
 
 /** Databases write "no value" in different ways (MusicBrainz: "[none]"); none of them is a value. */
 const PLACEHOLDER = /^\[?\s*(none|n\/?a|no label|unknown|-+)\s*\]?$/i;
-const valid = (field: string, v: unknown) =>
+/** A value is usable only if it is present, not a placeholder, and passes the published format (so it can't crash the write). */
+const valid = (field: (typeof FIELDS)[number], v: unknown) =>
   v !== undefined && v !== null && v !== '' && !(typeof v === 'string' && PLACEHOLDER.test(v.trim()))
-  && (field !== 'bandcampUrl' || BANDCAMP_URL.test(String(v)));
+  && (field !== 'bandcampUrl' || BANDCAMP_URL.test(String(v)))
+  && EnrichedSchema.shape[field].safeParse(v).success;
 
 export function gate(record: PublicAlbum, best: Candidate[], overrides?: Overrides): { published: Enriched | null; review: ReviewEntry[] } {
   const scored = best.map((c) => ({ c, level: confidence(record, c) })).filter((x) => x.level !== 'low');
@@ -68,12 +70,10 @@ export function gate(record: PublicAlbum, best: Candidate[], overrides?: Overrid
       .filter(({ c }) => valid(field, c.fields[field]))
       .map(({ c, level }) => ({ source: c.source, value: c.fields[field], high: level === 'high', key: sameKey(field, c.fields[field]) }));
     if (!values.length) continue;
-    const pool = values.some((v) => v.high) ? values.filter((v) => v.high) : values;
     const groups = new Map<string, typeof values>();
-    for (const v of pool) groups.set(v.key, [...(groups.get(v.key) ?? []), v]);
-    const ranked = [...groups.values()].sort((a, b) => b.length - a.length);
-    const top = ranked[0]!;
-    const decided = pool[0]!.high ? ranked.length === 1 : top.length >= 2 && (ranked[1]?.length ?? 0) < top.length;
+    for (const v of values) groups.set(v.key, [...(groups.get(v.key) ?? []), v]);
+    const top = [...groups.values()][0]!;
+    const decided = groups.size === 1 && (top.some((v) => v.high) || top.length >= 2);
     if (!decided) {
       review.push({ field, values: values.map(({ source, value }) => ({ source, value })) });
       continue;

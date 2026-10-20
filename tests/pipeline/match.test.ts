@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import type { PublicAlbum } from '../../src/catalog/schema.ts';
+import { EnrichedSchema } from '../../src/catalog/enrichment.ts';
 import { confidence, gate, normalize, type Candidate } from '../../pipeline/enrich/match.ts';
 
 const album: PublicAlbum = {
@@ -58,11 +59,30 @@ describe('gate', () => {
   test('two medium matches that agree publish the agreed field only', () => {
     const r = gate(album, [
       cand('apple', { trackCount: 23, fields: { label: 'International Anthem', releaseDate: '2018-10-12' } }),
-      cand('musicbrainz', { trackCount: 23, fields: { label: 'Nonesuch' } }),
+      cand('musicbrainz', { trackCount: 23, fields: {} }),
       cand('discogs', { trackCount: 23, fields: { label: 'international anthem' } }),
     ]);
     expect(r.published).toEqual({ label: 'International Anthem', sources: ['apple', 'discogs'] });
     expect(r.review.map((x) => x.field)).toContain('releaseDate');
+  });
+  test('any disagreement publishes nothing — not even a 2-against-1 majority', () => {
+    const r = gate(album, [
+      cand('apple', { trackCount: 23, fields: { label: 'International Anthem' } }),
+      cand('musicbrainz', { trackCount: 23, fields: { label: 'Nonesuch' } }),
+      cand('discogs', { trackCount: 23, fields: { label: 'International Anthem' } }),
+    ]);
+    expect(r.published).toBeNull();
+    expect(r.review.map((x) => x.field)).toEqual(['label']);
+  });
+  test('a high match does not override a disagreeing medium match', () => {
+    const r = gate(album, [cand('apple', { fields: { label: 'Sony' } }), cand('musicbrainz', { trackCount: 9, fields: { label: 'International Anthem' } })]);
+    expect(r.published).toBeNull();
+    expect(r.review).toContainEqual({ field: 'label', values: [{ source: 'apple', value: 'Sony' }, { source: 'musicbrainz', value: 'International Anthem' }] });
+  });
+  test('values that fail the published format are dropped, never crash the run', () => {
+    const r = gate(album, [cand('discogs', { fields: { label: 'Real Label', releaseDate: '0', artistCountry: 'Germany', styles: [''] as string[] } })]);
+    expect(r.published).toEqual({ label: 'Real Label', sources: ['discogs'] });
+    expect(() => EnrichedSchema.parse(r.published)).not.toThrow();
   });
   test('label spellings with company words agree, and the shortest spelling is published', () => {
     const r = gate(album, [

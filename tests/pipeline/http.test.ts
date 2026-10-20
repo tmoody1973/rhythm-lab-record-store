@@ -77,3 +77,17 @@ describe('createSourceFetcher', () => {
     for (const f of files) expect(readFileSync(join(h.cacheDir, f), 'utf8')).not.toMatch(/SECRET/);
   });
 });
+
+test('a configuration error (headers() throws) fails immediately: no request, no retry sleeps', async () => {
+  let fetched = 0;
+  const slept: number[] = [];
+  const f = createSourceFetcher({
+    name: 'apple', minIntervalMs: 0, cacheDir: mkdtempSync(join(tmpdir(), 'cfg-')),
+    headers: () => { throw new Error('Missing APPLE_KEY_ID in .env.local'); },
+    fetchImpl: (async () => { fetched++; return new Response('{}'); }) as unknown as typeof fetch,
+    sleep: async (ms) => { slept.push(ms); },
+  });
+  await expect(f.getJson('https://api.test/x')).rejects.toThrow('Missing APPLE_KEY_ID');
+  expect(fetched).toBe(0);
+  expect(slept).toEqual([]);
+});

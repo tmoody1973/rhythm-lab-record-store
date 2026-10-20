@@ -79,3 +79,15 @@ describe('adapters on recorded responses', () => {
     expect(await appleSource(recorded([])).candidates(universal)).toEqual([]);
   });
 });
+
+test('Discogs label numbering like "Brainfeeder (2)" is stripped', async () => {
+  const main = { ...fx('discogs-main-release'), labels: [{ name: 'Brainfeeder (2)', catno: 'BF123' }] };
+  const f = {
+    getJson: async (url: string) => ({
+      status: 200, cached: false,
+      body: /type=master/.test(url) ? fx('discogs-master-search') : /\/masters\//.test(url) ? fx('discogs-master') : main,
+    }),
+  };
+  const [best] = await discogsSource(f).candidates(universal);
+  expect(best!.fields.label).toBe('Brainfeeder');
+});

@@ -67,6 +67,16 @@ export async function runEnrichment(
   };
 }
 
+/**
+ * Why this run must not overwrite public/enrichment.json, or null if it may. A run missing a source (switched
+ * off for bad credentials, or limited with --only) would replace good published values with thinner ones.
+ */
+export function writeBlocker(stats: { disabled: string[] }, only: string | null): string | null {
+  if (only) return `--only ${only} is a dry run; nothing is written`;
+  if (stats.disabled.length) return `${stats.disabled.join(', ')} was switched off during the run; nothing is written`;
+  return null;
+}
+
 function reviewMarkdown(review: RunResult['review']): string {
   const q = encodeURIComponent;
   const lines = ['# Enrichment review', '', 'Matches the gate would not publish on its own. To accept a value, add it to `content/overrides.json`.', ''];
