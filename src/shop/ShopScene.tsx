@@ -5,15 +5,16 @@
 // Look: the gpt-image-2 mockup (scratchpad shop-hybrid-v1.png). Not tested; not for merge as-is.
 import { CameraControls, Text, useTexture } from '@react-three/drei';
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
-import { Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { createContext, Suspense, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as THREE from 'three';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import { BASE_Y, BD, BW, CW, GAP, SLEEVE, THICK, slot as slotOf } from './geometry.ts';
 import { binsBySection, SECTIONS, type Bin, type Section } from './sections.ts';
+import { CounterDetails, DividerTabs, Door, DoorMat, ListeningDetails, Plant, Poster, Rug, Sconce, useShopMaterials, type ShopMaterials } from './Decor.tsx';
 
 const slot = (p: Placed, i: number) => slotOf(p.w, p.bin.records.length, i);
 
-const WALNUT = '#4a2c18', WALNUT_DARK = '#2b190d', BRICK = '#6b2e22', FLOOR = '#2e1d12', SLEEVE_EDGE = '#140b05';
+const BRICK = '#6b2e22', SLEEVE_EDGE = '#140b05';
 const reduced = () => typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const LAMBDA = () => (reduced() ? 60 : 6); // ≈ cratedigger's 1s Quartic.Out settle
 
@@ -34,7 +35,22 @@ function place(s: Section, bins: Bin[]): Placed[] {
   });
 }
 
-function BinBox({ w, color }: { w: number; color: string }) {
+type Mats = ShopMaterials & { green: THREE.Material; natural: THREE.Material };
+const MatsContext = createContext<Mats | null>(null);
+const useMats = () => useContext(MatsContext)!;
+function WithMaterials({ children }: { children: ReactNode }) {
+  const m = useShopMaterials();
+  const value = useMemo(() => ({
+    ...m,
+    green: new THREE.MeshStandardMaterial({ color: '#2f5d3f', roughness: 0.8 }),
+    natural: new THREE.MeshStandardMaterial({ color: '#9b7748', roughness: 0.8 }),
+  }), [m]);
+  return <MatsContext.Provider value={value}>{children}</MatsContext.Provider>;
+}
+
+type BinKind = 'walnut' | 'walnutDark' | 'green' | 'natural';
+function BinBox({ w, kind }: { w: number; kind: BinKind }) {
+  const material = useMats()[kind];
   const t = 0.06;
   const parts: [number, number, number, number, number, number][] = [
     [0, 0.06, 0, w, 0.12, BD], [0, 0.25, BD / 2 - t / 2, w, 0.5, t], [0, 0.35, -BD / 2 + t / 2, w, 0.7, t],
@@ -44,9 +60,8 @@ function BinBox({ w, color }: { w: number; color: string }) {
   return (
     <>
       {parts.map(([px, py, pz, sx, sy, sz], i) => (
-        <mesh key={i} position={[px, py, pz]} castShadow receiveShadow>
+        <mesh key={i} position={[px, py, pz]} material={material} castShadow receiveShadow>
           <boxGeometry args={[sx, sy, sz]} />
-          <meshStandardMaterial color={color} roughness={0.75} />
         </mesh>
       ))}
     </>
@@ -125,7 +140,7 @@ function DigBin({ p, sel, shown, maps, mouse, onPick }: {
   const selSlot = sel >= 0 ? slot(p, sel) : null;
   return (
     <group ref={ref} position={[p.x, 0, p.z]}>
-      <BinBox w={p.w} color={WALNUT} />
+      <BinBox w={p.w} kind="walnut" />
       {p.bin.records.map((r, i) => {
         const s = slot(p, i);
         const pose = i === sel ? (shown ? 'shown' : 'up') : selSlot && s.comp === selSlot.comp && s.j < selSlot.j ? 'forward' : 'back';
@@ -159,8 +174,10 @@ function FrontCover({ p, i }: { p: Placed; i: number }) {
 }
 
 /** A wall that fades out while the camera is on its outside, so the room always reads like an open dollhouse. */
-function Wall({ position, size, normal, color, children }: { position: [number, number, number]; size: [number, number, number]; normal: [number, number, number]; color: string; children?: ReactNode }) {
-  const mat = useRef<THREE.MeshStandardMaterial>(null!);
+function Wall({ position, size, normal, color, material, children }: { position: [number, number, number]; size: [number, number, number]; normal: [number, number, number]; color: string; material?: THREE.MeshStandardMaterial; children?: ReactNode }) {
+  const own = useMemo(() => material ?? new THREE.MeshStandardMaterial({ color, roughness: 0.95 }), [material, color]);
+  const mat = useRef(own);
+  mat.current = own;
   const kids = useRef<THREE.Group>(null!);
   const n = useMemo(() => new THREE.Vector3(...normal), [normal]);
   const p = useMemo(() => new THREE.Vector3(...position), [position]);
@@ -174,7 +191,7 @@ function Wall({ position, size, normal, color, children }: { position: [number, 
   });
   return (
     <group position={position}>
-      <mesh receiveShadow><boxGeometry args={size} /><meshStandardMaterial ref={mat} color={color} roughness={0.95} /></mesh>
+      <mesh receiveShadow material={own}><boxGeometry args={size} /></mesh>
       <group ref={kids}>{children}</group>
     </group>
   );
@@ -195,40 +212,58 @@ function BrassPlaque({ position, rotation = [0, 0, 0], label, width }: { positio
   );
 }
 
-function Room({ wall }: { wall: PublicAlbum[] }) {
+function Room({ wall, posters }: { wall: PublicAlbum[]; posters: PublicAlbum[] }) {
+  const m = useMats();
   return (
     <group>
-      <mesh position={[0, -0.15, 0]} receiveShadow><boxGeometry args={[24, 0.3, 16]} /><meshStandardMaterial color={FLOOR} roughness={0.85} /></mesh>
-      <Wall position={[0, 1.8, -8.1]} size={[24.4, 3.6, 0.2]} normal={[0, 0, -1]} color={BRICK}>
+      <mesh position={[0, -0.15, 0]} receiveShadow material={m.floor}><boxGeometry args={[24, 0.3, 16]} /></mesh>
+      <Wall position={[0, 1.8, -8.1]} size={[24.4, 3.6, 0.2]} normal={[0, 0, -1]} color={BRICK} material={m.brick}>
         <Text position={[-1.5, 1.05, 0.12]} fontSize={0.85} letterSpacing={0.08} anchorX="center">
           RHYTHM LAB
           <meshBasicMaterial color={[3.2, 1.2, 0.5]} toneMapped={false} />
         </Text>
         <pointLight position={[-1.5, 0.9, 1.2]} color="#ff7a3c" intensity={14} distance={8} decay={1.6} />
+        <Suspense fallback={null}>
+          {posters.map((r, i) => <Poster key={r.id} record={r} position={[[-9.2, -6.6, 4, 6.6][i]!, 0.55, 0.1]} />)}
+        </Suspense>
+        <Sconce position={[-7.9, 1.3, 0.1]} />
+        <Sconce position={[5.3, 1.3, 0.1]} />
       </Wall>
       <Wall position={[-12.1, 1.8, 0]} size={[0.2, 3.6, 16.4]} normal={[-1, 0, 0]} color="#2c3a31">
         <Suspense fallback={null}>
           {wall.map((r, i) => <WallCover key={r.id} record={r} y={-0.9 + Math.floor(i / 4) * 1.05} z={-2.4 + (i % 4) * 1.6} />)}
         </Suspense>
-        <BrassPlaque position={[0.13, 1.45, 0] } rotation={[0, Math.PI / 2, 0]} label="Staff picks" width={1.6} />
+        <BrassPlaque position={[0.13, 1.45, 0]} rotation={[0, Math.PI / 2, 0]} label="Staff picks" width={1.6} />
+        <Sconce position={[0.1, 1.2, -4.2]} rotation={[0, Math.PI / 2, 0]} />
+        <Sconce position={[0.1, 1.2, 4.2]} rotation={[0, Math.PI / 2, 0]} />
       </Wall>
-      <Wall position={[0, 1.8, 8.1]} size={[24.4, 3.6, 0.2]} normal={[0, 0, 1]} color="#3a2a20" />
+      <Wall position={[0, 1.8, 8.1]} size={[24.4, 3.6, 0.2]} normal={[0, 0, 1]} color="#3a2a20">
+        <Door position={[8.8, -0.65, -0.12]} />
+      </Wall>
       <Wall position={[12.1, 1.8, 0]} size={[0.2, 3.6, 16.4]} normal={[1, 0, 0]} color="#3a2a20" />
+      <group position={[-10.2, 0.006, 0]} rotation={[0, Math.PI / 2, 0]}><Rug position={[0, 0, 0]} size={[5.2, 1.8]} /></group>
+      <DoorMat position={[8.8, 0.006, 7.3]} />
       {/* Listening station, back right */}
-      <mesh position={[9.8, 0.55, -6.6]} castShadow receiveShadow><boxGeometry args={[3.4, 1.1, 1.3]} /><meshStandardMaterial color={WALNUT} /></mesh>
+      <mesh position={[9.8, 0.55, -6.6]} material={m.walnut} castShadow receiveShadow><boxGeometry args={[3.4, 1.1, 1.3]} /></mesh>
       {[9, 10.6].map((x) => (
         <mesh key={x} position={[x, 1.15, -6.6]} castShadow><cylinderGeometry args={[0.42, 0.42, 0.08, 32]} /><meshStandardMaterial color="#151515" roughness={0.3} /></mesh>
       ))}
+      <ListeningDetails position={[9.8, 0, -6.6]} />
       <BrassPlaque position={[9.8, 0.75, -5.94]} label="Listening station" width={2} />
       {/* Counter by the door */}
-      <mesh position={[10.4, 0.55, 3]} castShadow receiveShadow><boxGeometry args={[1.4, 1.1, 3]} /><meshStandardMaterial color={WALNUT} /></mesh>
+      <mesh position={[10.4, 0.55, 3]} material={m.walnut} castShadow receiveShadow><boxGeometry args={[1.4, 1.1, 3]} /></mesh>
       <mesh position={[10.4, 1.3, 2.4]} castShadow><boxGeometry args={[0.6, 0.4, 0.5]} /><meshStandardMaterial color="#1d1d1d" /></mesh>
-      {[[-11, -7.2], [11.2, -7.6], [-11.2, 7.2], [3.2, 6.6]].map(([x, z]) => (
-        <group key={`${x},${z}`} position={[x!, 0, z!]}>
-          <mesh position={[0, 0.3, 0]} castShadow><cylinderGeometry args={[0.32, 0.26, 0.6, 16]} /><meshStandardMaterial color="#8a4b2a" /></mesh>
-          <mesh position={[0, 1, 0]} castShadow><sphereGeometry args={[0.6, 12, 12]} /><meshStandardMaterial color="#2f5a35" roughness={0.9} /></mesh>
-        </group>
-      ))}
+      <CounterDetails position={[10.4, 1.1, 3]} />
+      <Suspense fallback={null}>
+        <Plant position={[-11.1, 0, -7.2]} lush />
+        <Plant position={[-11.2, 0, -3.9]} lush turn={1.2} />
+        <Plant position={[-11.2, 0, 3.9]} turn={0.4} />
+        <Plant position={[-11.1, 0, 7.1]} lush turn={2.1} />
+        <Plant position={[7.5, 0, -7.2]} turn={0.9} />
+        <Plant position={[11.25, 1.1, -6.95]} scale={0.7} />
+        <Plant position={[3.2, 0, 6.6]} turn={2.6} />
+        <Plant position={[10.4, 0, 7.2]} lush scale={0.8} />
+      </Suspense>
     </group>
   );
 }
@@ -270,6 +305,9 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
   const placedBySection = useMemo(() => new Map(SECTIONS.map((s) => [s.id, place(s, bins.get(s.id) ?? [])])), [bins]);
   const placed = useMemo(() => [...placedBySection.values()].flat(), [placedBySection]);
   const wall = useMemo(() => albums.filter((r) => r.cover).filter((_, i) => i % 97 === 0).slice(0, 12), [albums]);
+  // Framed covers of records Tarik owns by artists he named (no Miles Davis or Tribe on Bandcamp yet).
+  const posters = useMemo(() => [/bj[öo]rk/i, /j dilla/i, /sun ra/i, /alice coltrane/i]
+    .map((re) => albums.find((r) => r.cover && re.test(r.artist))).filter((r): r is PublicAlbum => !!r), [albums]);
   const [view, setView] = useState<View>({ level: 'store' });
   const [hover, setHover] = useState<string | null>(null);
   const controls = useRef<CameraControls>(null);
@@ -277,6 +315,14 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
   const drag = useRef<{ y: number; moved: boolean } | null>(null);
   const lastWheel = useRef(0);
 
+  const tabsSkip = view.level === 'dig' ? view.bin : null;
+  // A white A–Z card every 8 sleeves, riding the sleeve tops at their lean.
+  const tabs = useMemo(() => placed.filter((p) => p.key !== tabsSkip).flatMap((p) => p.bin.records.flatMap((r, i) => {
+    const s = slot(p, i);
+    if (s.j === 0 || s.j % 8) return [];
+    const letter = /^[a-z]/i.test(r.artist) ? r.artist[0]!.toUpperCase() : '#';
+    return [{ x: p.x + s.x - 0.3, y: BASE_Y + 0.96 * Math.cos(s.back), z: p.z + s.z - 0.96 * Math.sin(s.back) + 0.008, rx: -s.back, letter }];
+  })), [placed, tabsSkip]);
   const section = view.level === 'store' ? null : SECTIONS.find((s) => s.id === view.section)!;
   const digging = view.level === 'dig' ? placed.find((p) => p.key === view.bin)! : null;
   const sel = view.level === 'dig' ? view.sel : -1;
@@ -385,11 +431,12 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
             enabled={view.level !== 'dig'}
             minPolarAngle={0.2}
             maxPolarAngle={1.32}
-            minDistance={2.5}
+            minDistance={view.level === 'store' ? 10 : 3}
             maxDistance={42}
           />
           <RoomLights dim={shown} />
-          <Room wall={wall} />
+          <Suspense fallback={null}><WithMaterials>
+          <Room wall={wall} posters={posters} />
           {SECTIONS.map((s) => {
             const ps = placedBySection.get(s.id)!;
             const frontZ = Math.max(...ps.map((p) => p.z)) + BD / 2 + 0.03;
@@ -403,7 +450,7 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
                 <SectionLight s={s} bright={hover === s.id || section?.id === s.id} />
                 {ps.filter((p) => p.key !== digging?.key).map((p) => (
                   <group key={p.key} position={[p.x, 0, p.z]} onClick={(e) => { if (view.level !== 'store') pickBin(p, e); }}>
-                    <BinBox w={p.w} color={s.crates ? (p.bin.index % 2 ? '#2f5d3f' : '#8a6a3c') : p.bin.index % 2 ? WALNUT : WALNUT_DARK} />
+                    <BinBox w={p.w} kind={s.crates ? (p.bin.index % 2 ? 'green' : 'natural') : p.bin.index % 2 ? 'walnut' : 'walnutDark'} />
                   </group>
                 ))}
                 <BrassPlaque position={[s.x, 0.27, frontZ]} label={s.name} width={Math.max(1.4, s.name.length * 0.12 + 0.4)} />
@@ -411,6 +458,7 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
             );
           })}
           <Sleeves placed={placed} skip={digging?.key ?? null} />
+          <DividerTabs spots={tabs} />
           <Suspense fallback={null}>
             {placed.filter((p) => p.key !== digging?.key).flatMap((p) => p.bin.records.map((r, i) => ({ r, i, p })))
               .filter(({ r, i, p }) => r.cover && slot(p, i).j === 0)
@@ -421,6 +469,7 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
               <TexturedDigBin key={digging.key} p={digging} sel={sel} shown={shown} mouse={mouse} onPick={pickRecord} />
             </Suspense>
           )}
+          </WithMaterials></Suspense>
         </Canvas>
       </div>
 

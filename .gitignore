@@ -11,3 +11,4 @@ test-results/
 playwright-report/
 public/enrichment.json
 data/enrichment-review.md
+public/decor/
