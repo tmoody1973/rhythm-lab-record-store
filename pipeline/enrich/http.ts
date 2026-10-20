@@ -42,9 +42,10 @@ export function createSourceFetcher(opts: Opts) {
     }
   }
 
-  async function getJson(url: string): Promise<JsonResult> {
+  /** fresh: always ask the network and never cache the answer (for checks that must see the live response). */
+  async function getJson(url: string, { fresh = false } = {}): Promise<JsonResult> {
     const file = join(opts.cacheDir, `${createHash('sha256').update(url).digest('hex')}.json`);
-    if (existsSync(file)) {
+    if (!fresh && existsSync(file)) {
       stats.cacheHits++;
       const hit = JSON.parse(await readFile(file, 'utf8'));
       return { status: hit.status, body: hit.body, cached: true };
@@ -69,6 +70,7 @@ export function createSourceFetcher(opts: Opts) {
       } catch {
         body = null;
       }
+      if (fresh && (status === 200 || status === 404)) return { status, body, cached: false };
       if (status === 200 || status === 404) {
         await mkdir(opts.cacheDir, { recursive: true });
         const tmp = `${file}.tmp-${process.pid}`;
@@ -83,4 +85,4 @@ export function createSourceFetcher(opts: Opts) {
 }
 
 /** What adapters need from a fetcher (tests pass a fake that serves recorded responses). */
-export type SourceFetcher = { getJson(url: string): Promise<JsonResult> };
+export type SourceFetcher = { getJson(url: string, opts?: { fresh?: boolean }): Promise<JsonResult> };

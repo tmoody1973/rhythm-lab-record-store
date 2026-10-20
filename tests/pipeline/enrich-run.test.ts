@@ -115,4 +115,8 @@ describe('writeBlocker', () => {
     expect(writeBlocker({ disabled: ['apple'] }, null)).toMatch(/apple/);
     expect(writeBlocker({ disabled: [] }, 'discogs')).toMatch(/--only/);
   });
+  test('a request that still failed after its retries blocks the write (it would read as "no match")', () => {
+    expect(writeBlocker({ disabled: [] }, null, { apple: 0, musicbrainz: 2 })).toMatch(/2 musicbrainz request/);
+    expect(writeBlocker({ disabled: [] }, null, { apple: 0, musicbrainz: 0 })).toBeNull();
+  });
 });

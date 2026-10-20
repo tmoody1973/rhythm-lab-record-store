@@ -80,7 +80,7 @@ if (sources.some((s) => s.name === 'apple')) {
 const started = Date.now();
 say(`Enriching ${records.length} records${pilot ? ' (pilot)' : ''} from ${sources.map((s) => s.name).join(', ')}…`);
 const result = await runEnrichment(records, sources, overrides, say);
-const blocker = writeBlocker(result.stats, only);
+const blocker = writeBlocker(result.stats, only, Object.fromEntries(Object.entries(fetchers).map(([n, f]) => [n, f.stats().failures])));
 if (blocker) say(`NOT WRITTEN: ${blocker}.`);
 else await writeOutputs(result, 'public', 'data');
 

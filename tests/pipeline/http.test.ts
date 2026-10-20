@@ -2,6 +2,7 @@ import { mkdtempSync, readdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, test } from 'vitest';
+import { appleSource } from '../../pipeline/enrich/apple.ts';
 import { AuthError, createSourceFetcher } from '../../pipeline/enrich/http.ts';
 
 function harness(replies: (Response | (() => Response))[]) {
@@ -46,6 +47,13 @@ describe('createSourceFetcher', () => {
     expect(await h.fetcher.getJson('https://api.test/down')).toMatchObject({ status: 503 });
     expect(h.fetcher.stats().failures).toBe(1);
     expect(h.calls).toHaveLength(4); // first try + 3 retries
+  });
+
+  test("Apple's login check always reaches Apple, even after a cached success", async () => {
+    const h = harness([ok({}), new Response('', { status: 401 })]);
+    await appleSource(h.fetcher).check();
+    await expect(appleSource(h.fetcher).check()).rejects.toBeInstanceOf(AuthError);
+    expect(h.calls).toHaveLength(2);
   });
 
   test('cached responses are reused without a network call', async () => {

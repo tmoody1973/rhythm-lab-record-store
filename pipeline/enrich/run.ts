@@ -103,11 +103,14 @@ export function shareArtistCountry(
 
 /**
  * Why this run must not overwrite public/enrichment.json, or null if it may. A run missing a source (switched
- * off for bad credentials, or limited with --only) would replace good published values with thinner ones.
+ * off for bad credentials, or limited with --only) would replace good published values with thinner ones, and so
+ * would one where a request still failed after its retries (adapters read that as "no match").
  */
-export function writeBlocker(stats: { disabled: string[] }, only: string | null): string | null {
+export function writeBlocker(stats: { disabled: string[] }, only: string | null, failures: Record<string, number> = {}): string | null {
   if (only) return `--only ${only} is a dry run; nothing is written`;
   if (stats.disabled.length) return `${stats.disabled.join(', ')} was switched off during the run; nothing is written`;
+  const failed = Object.entries(failures).filter(([, n]) => n > 0).map(([s, n]) => `${n} ${s} request(s)`);
+  if (failed.length) return `${failed.join(', ')} still failed after retries; nothing is written. Run again: answers already received are cached, so only the failed ones are asked again`;
   return null;
 }
 

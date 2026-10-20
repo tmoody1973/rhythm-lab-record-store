@@ -21,7 +21,7 @@ export function appleSource(fetcher: SourceFetcher) {
   return {
     name: 'apple' as const,
     async check(): Promise<void> {
-      await fetcher.getJson(`${APPLE_BASE}/test`); // throws AuthError on 401/403
+      await fetcher.getJson(`${APPLE_BASE}/test`, { fresh: true }); // throws AuthError on 401/403; never from cache
     },
     async candidates(r: PublicAlbum): Promise<Candidate[]> {
       const term = encodeURIComponent(`${r.artist} ${r.title}`);
