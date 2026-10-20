@@ -69,7 +69,7 @@ export function AboutPage() {
             </p>
             <p>
               Tarik started the show in 2005 on Minnesota Public Radio, and it moved to Milwaukee in 2007. It's syndicated to
-              stations including WXPN in Philadelphia and WUNC in Chapel Hill.
+              stations including WXPN in Philadelphia and Vocalo in Chicago.
             </p>
             <p>
               Show prep means digging through Tarik's Bandcamp collection of about 1,200 purchases. This site opens that crate to
