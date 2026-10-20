@@ -52,7 +52,7 @@ export function AlbumDialog({ record, cratesContaining = [], note, actions, onCl
 
         <div>
           <Sleeve record={record} size="large" />
-          <p className="mt-5 text-xs uppercase tracking-[0.25em] text-ink-soft">From the collection</p>
+          <p className="mt-5 text-xs uppercase tracking-[0.25em] text-ink-soft">From Tarik's collection</p>
           <p className="mt-1 font-serif text-lg">{shelf}</p>
         </div>
 

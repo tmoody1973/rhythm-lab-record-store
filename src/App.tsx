@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { fromCompact, toCompact } from './catalog/ids.ts';
 import { useCatalog, type LoadFailure } from './catalog/load.ts';
 import type { PublicAlbum } from './catalog/schema.ts';
+import { crateMembers, cratesContaining, TARIK_CRATES, TARIK_NOTES } from './crates/curation.ts';
 import { decodeShare } from './crates/share.ts';
 import { addToCrate, createCrate } from './crates/storage.ts';
 import { useVisitor } from './crates/useVisitor.ts';
@@ -122,7 +123,16 @@ export function App() {
             <p className="mt-2 text-ink-soft">{HINTS[catalog.reason]}</p>
           </div>
         )}
-        {catalog.status === 'ready' && <Collection catalog={catalog.catalog} state={state} patch={patch} onOpen={openRecord} />}
+        {catalog.status === 'ready' && (
+          <Collection
+            catalog={catalog.catalog}
+            state={state}
+            patch={patch}
+            crates={TARIK_CRATES}
+            crateMembers={(id) => crateMembers(TARIK_CRATES, id)}
+            onOpen={openRecord}
+          />
+        )}
       </main>
       <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 pb-10 text-sm text-ink-soft sm:px-8">
         <span>A personal collection. Powered by Bandcamp.</span>
@@ -132,6 +142,8 @@ export function App() {
         <AlbumDialog
           key={open.id}
           record={open}
+          cratesContaining={cratesContaining(TARIK_CRATES, open.id)}
+          note={TARIK_NOTES[open.id] ?? null}
           onClose={close}
           actions={<RecordActions record={open} data={visitor.data} update={visitor.update} />}
         />
