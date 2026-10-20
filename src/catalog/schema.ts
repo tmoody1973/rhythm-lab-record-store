@@ -13,8 +13,9 @@ export const CoverSchema = z.object({
 });
 
 export const PublicAlbumSchema = z.object({
-  id: z.string().regex(/^bandcamp:album:\d+$/),
-  albumId: z.number().int().positive(),
+  id: z.string().regex(/^bandcamp:(album|track):\d+$/),
+  kind: z.enum(['album', 'track']), // 'track' = a single track bought on its own (Subsonic id t:<n>)
+  bandcampId: z.number().int().positive(), // Bandcamp album or track id, used for the embedded player
   title: z.string().min(1),
   artist: z.string(),
   artistKey: z.string(),

@@ -16,33 +16,40 @@ const deps = (fetchers: ImageFetcher[], d = dirs()) => ({ fetchers, ...d, onFall
 describe('ensureCover', () => {
   test('fetches, converts to 300px and 1000px WebP, and returns site paths plus palette', async () => {
     const d = deps([async () => jpeg()]);
-    const r = await ensureCover(7, 99, d);
+    const r = await ensureCover('album-7', 99, d);
     expect(r.source).toBe('subsonic');
-    expect(r.cover?.grid).toBe('/covers/7-300.webp');
-    expect(r.cover?.large).toBe('/covers/7-1000.webp');
+    expect(r.cover?.grid).toBe('/covers/album-7-300.webp');
+    expect(r.cover?.large).toBe('/covers/album-7-1000.webp');
     expect(r.cover?.dominant).toMatch(/^#[0-9a-f]{6}$/);
-    expect((await sharp(join(d.outDir, '7-300.webp')).metadata()).width).toBe(300);
-    expect((await sharp(join(d.outDir, '7-1000.webp')).metadata()).width).toBe(1000);
+    expect((await sharp(join(d.outDir, 'album-7-300.webp')).metadata()).width).toBe(300);
+    expect((await sharp(join(d.outDir, 'album-7-1000.webp')).metadata()).width).toBe(1000);
   });
 
   test('a second run uses the cache and never calls a fetcher', async () => {
     const d = dirs();
-    await ensureCover(7, 99, deps([async () => jpeg()], d));
-    const r = await ensureCover(7, 99, deps([never], d));
+    await ensureCover('album-7', 99, deps([async () => jpeg()], d));
+    const r = await ensureCover('album-7', 99, deps([never], d));
     expect(r.source).toBe('cache');
-    expect(r.cover?.grid).toBe('/covers/7-300.webp');
+    expect(r.cover?.grid).toBe('/covers/album-7-300.webp');
   });
 
   test('falls back to the second fetcher when the first has no image', async () => {
-    const r = await ensureCover(7, 99, deps([async () => null, async () => jpeg()]));
+    const r = await ensureCover('album-7', 99, deps([async () => null, async () => jpeg()]));
     expect(r.source).toBe('bandcamp');
+  });
+
+  test('a fetcher that throws counts as no image and the next one is tried', async () => {
+    const d = deps([async () => { throw new Error('getCoverArt: HTTP 500 three times in a row'); }, async () => jpeg()]);
+    const r = await ensureCover('album-7', 99, d);
+    expect(r.source).toBe('bandcamp');
+    expect(d.onFallback).toHaveBeenCalledWith('fetch:ca:99', expect.any(Error));
   });
 
   test('no image anywhere, or no cover id, gives a null cover and writes nothing', async () => {
     const d = deps([async () => null, async () => null]);
-    expect(await ensureCover(7, 99, d)).toEqual({ cover: null, source: 'none' });
-    expect(existsSync(join(d.outDir, '7-300.webp'))).toBe(false);
-    expect(await ensureCover(7, null, deps([never]))).toEqual({ cover: null, source: 'none' });
+    expect(await ensureCover('album-7', 99, d)).toEqual({ cover: null, source: 'none' });
+    expect(existsSync(join(d.outDir, 'album-7-300.webp'))).toBe(false);
+    expect(await ensureCover('album-7', null, deps([never]))).toEqual({ cover: null, source: 'none' });
   });
 });
 

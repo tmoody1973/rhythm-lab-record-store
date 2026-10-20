@@ -29,19 +29,24 @@ export function bandcampFetcher(fetchImpl: typeof fetch = fetch): ImageFetcher {
 type Deps = { fetchers: ImageFetcher[]; cacheDir: string; outDir: string; onFallback: (key: string, err: Error) => void };
 
 export async function ensureCover(
-  albumId: number, coverId: number | null, deps: Deps,
+  fileKey: string, coverId: number | null, deps: Deps,
 ): Promise<{ cover: Cover | null; source: CoverSource }> {
   if (coverId === null) return { cover: null, source: 'none' };
   const original = join(deps.cacheDir, `${coverId}.jpg`);
   const paletteFile = join(deps.cacheDir, `${coverId}.palette.json`);
-  const outputs = SIZES.map((s) => join(deps.outDir, `${albumId}-${s}.webp`));
+  const outputs = SIZES.map((s) => join(deps.outDir, `${fileKey}-${s}.webp`));
 
   let image: Buffer | null = null;
   let source: CoverSource = 'cache';
   if (existsSync(original)) image = await readFile(original);
   else {
     for (const [i, fetcher] of deps.fetchers.entries()) {
-      image = await fetcher(coverId);
+      try {
+        image = await fetcher(coverId);
+      } catch (e) {
+        deps.onFallback(`fetch:ca:${coverId}`, e as Error); // e.g. Subsonic 5xx: try the next source.
+        image = null;
+      }
       if (image) {
         source = FETCHER_SOURCES[i] ?? 'bandcamp';
         break;
@@ -65,7 +70,7 @@ export async function ensureCover(
   }
 
   return {
-    cover: { grid: `/covers/${albumId}-300.webp`, large: `/covers/${albumId}-1000.webp`, ...palette },
+    cover: { grid: `/covers/${fileKey}-300.webp`, large: `/covers/${fileKey}-1000.webp`, ...palette },
     source,
   };
 }

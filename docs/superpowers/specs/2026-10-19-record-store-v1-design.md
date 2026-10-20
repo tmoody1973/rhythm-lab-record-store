@@ -22,7 +22,7 @@ What makes it special: Tarik's curation and voice (his crates and notes) on top 
 
 ## Verified facts this design relies on (2026-10-19)
 
-- Subsonic `getAlbumList2` returns all **1,215 albums** (899 artists, ~4,287 songs) with IDs like `a:3274104668`, artist IDs `b:2239178`, cover IDs `ca:3951378974`. 90% of albums have a Bandcamp top-level genre (`electronic` 295, `r&b soul` 182, `hip hop rap` 169, `jazz` 148, `world` 52, `experimental` 50, `funk` 45, … ; 118 have none).
+- Subsonic `getAlbumList2` returns all **1,215 records** (1,088 albums `a:<n>` + 127 single-track purchases `t:<n>`, found by the first catalog run) (899 artists, ~4,287 songs) with IDs like `a:3274104668`, artist IDs `b:2239178`, cover IDs `ca:3951378974`. 90% of albums have a Bandcamp top-level genre (`electronic` 295, `r&b soul` 182, `hip hop rap` 169, `jazz` 148, `world` 52, `experimental` 50, `funk` 45, … ; 118 have none).
 - **`a:<n>` is the Bandcamp album ID** (verified on 4 records: a full album, a 1-song item "42H" by TTeo `album=2682884431`, the oldest dated purchase "New Love" by Mike Swoop from 2010 `album=2035267472`, and the package "Cuban Beat & Fantasia" `album=3961164446`; Tarik confirmed each embed showed the right record on 2026-10-19. Not recorded: whether the 1-song embed showed one track or a full parent album). First check: `https://bandcamp.com/EmbeddedPlayer/album=3274104668/size=large/` showed Edge Conditions by Jeremiah Chiu, and its title linked to `https://intlanthem.bandcamp.com/album/edge-conditions?from=embed`.
 - **`ca:<n>` is the Bandcamp public art ID** (verified on 1 album): `https://f4.bcbits.com/img/a3951378974_10.jpg` showed the Edge Conditions cover.
 - No place/country data, no record label, no canonical URL, no wishlist in Subsonic.
@@ -81,8 +81,9 @@ Reads Subsonic via the existing client (`getAlbumList2` paging; nothing else nee
 
 ```ts
 type PublicAlbum = {
-  id: string;            // 'bandcamp:album:<n>' — the cross-adapter key from BUILD-PLAN; <n> from Subsonic 'a:<n>'
-  albumId: number;       // <n>, used for the embed
+  id: string;            // 'bandcamp:album:<n>' or 'bandcamp:track:<n>' — the cross-adapter key from BUILD-PLAN
+  kind: 'album' | 'track'; // Subsonic 'a:<n>' = album; 't:<n>' = a single track bought on its own (127 of 1,215)
+  bandcampId: number;    // <n>; the player is EmbeddedPlayer/album=<n> or EmbeddedPlayer/track=<n>
   title: string;
   artist: string;
   artistKey: string;     // Subsonic 'b:<n>'
@@ -137,11 +138,11 @@ type Enriched = {
 
 - Stored in `localStorage` (wrapped in try/catch; the site works if storage is unavailable), schema-versioned.
 - Favorites (heart) and named crates (create, rename, delete, add/remove records). "My crates" opens a panel listing them.
-- **Share link:** `…/?shared=<base64url(JSON {name, ids:number[]})>` using album numbers only. Opening it shows the shared crate read-only with **"Save to my crates"**. Incoming data is validated: name length ≤ 60, escaped as text, ≤ 200 ids, ids must exist in the catalog (unknown ids dropped with a notice).
+- **Share link:** `…/?shared=<base64url(JSON {name, ids:string[]})>` using record ids in a compact form (`a<n>` / `t<n>`); bare numbers are ambiguous because album and track numbers are separate spaces. Opening it shows the shared crate read-only with **"Save to my crates"**. Incoming data is validated: name length ≤ 60, escaped as text, ≤ 200 ids, ids must exist in the catalog (unknown ids dropped with a notice).
 
 ### 5. Tarik's crates
 
-- `content/crates.json`: `[{ id, name, note, albumIds: number[] }]` in display order; `content/notes.json`: `{ [albumId]: string }` for per-record notes. Both hand-editable, validated with Zod at build.
+- `content/crates.json`: `[{ id, name, note, records: string[] }]` (catalog ids) in display order; `content/notes.json`: `{ [recordId]: string }` for per-record notes. Both hand-editable, validated with Zod at build.
 - `npm run import-crate -- "<share link>" --into <crateId>` merges a shared crate's records into one of Tarik's crates (creating it if new), never removing existing entries, and prints what changed.
 
 ## Tests
