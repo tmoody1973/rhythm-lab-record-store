@@ -8,11 +8,11 @@ import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber'
 import { Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as THREE from 'three';
 import type { PublicAlbum } from '../catalog/schema.ts';
+import { BASE_Y, BD, BW, CW, GAP, SLEEVE, THICK, slot as slotOf } from './geometry.ts';
 import { binsBySection, SECTIONS, type Bin, type Section } from './sections.ts';
 
-const BW = 2.2, BD = 1.15, GAP = 0.2, CW = 1.1;
-const SLEEVE = 0.9, BASE_Y = 0.12;
-const LEAN = Math.PI / 7; // cratedigger's push/pull angle
+const slot = (p: Placed, i: number) => slotOf(p.w, p.bin.records.length, i);
+
 const WALNUT = '#4a2c18', WALNUT_DARK = '#2b190d', BRICK = '#6b2e22', FLOOR = '#2e1d12', SLEEVE_EDGE = '#140b05';
 const reduced = () => typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const LAMBDA = () => (reduced() ? 60 : 6); // ≈ cratedigger's 1s Quartic.Out settle
@@ -32,17 +32,6 @@ function place(s: Section, bins: Bin[]): Placed[] {
     const inRow = Math.min(cols, bins.length - row * cols);
     return { bin, w, key: `${s.id}:${bin.index}`, x: s.x - ((inRow - 1) * (w + GAP)) / 2 + col * (w + GAP), z: s.z - ((rows - 1) * (BD + GAP)) / 2 + row * (BD + GAP) };
   });
-}
-
-/** Where record i of a bin stands, relative to the bin's centre: two compartments of 24 in walnut bins. */
-function slot(p: Placed, i: number) {
-  const twoUp = p.w === BW;
-  const per = twoUp ? 24 : 48;
-  const comp = twoUp ? Math.floor(i / per) : 0;
-  const j = i % per;
-  const n = twoUp ? Math.min(per, p.bin.records.length - comp * per) : p.bin.records.length;
-  const step = (BD - 0.16) / Math.max(n, 24);
-  return { comp, j, x: twoUp ? (comp === 0 ? -0.53 : 0.53) : 0, z: BD / 2 - 0.1 - j * step };
 }
 
 function BinBox({ w, color }: { w: number; color: string }) {
@@ -68,13 +57,14 @@ function BinBox({ w, color }: { w: number; color: string }) {
 function Sleeves({ placed, skip }: { placed: Placed[]; skip: string | null }) {
   const spots = useMemo(() => placed.filter((p) => p.key !== skip).flatMap((p) => p.bin.records.map((r, i) => {
     const s = slot(p, i);
-    return { x: p.x + s.x, z: p.z + s.z, color: r.cover?.dominant ?? '#c9b48a' };
+    return { x: p.x + s.x, z: p.z + s.z, lean: s.back, color: r.cover?.dominant ?? '#c9b48a' };
   })), [placed, skip]);
   const ref = useRef<THREE.InstancedMesh>(null!);
   useEffect(() => {
-    const m = new THREE.Matrix4(), q = new THREE.Quaternion().setFromEuler(new THREE.Euler(-LEAN, 0, 0)), one = new THREE.Vector3(1, 1, 1), c = new THREE.Color();
-    const up = new THREE.Vector3(0, SLEEVE / 2, 0).applyQuaternion(q);
+    const m = new THREE.Matrix4(), q = new THREE.Quaternion(), one = new THREE.Vector3(1, 1, 1), c = new THREE.Color();
     spots.forEach((s, i) => {
+      q.setFromEuler(new THREE.Euler(-s.lean, 0, 0));
+      const up = new THREE.Vector3(0, SLEEVE / 2, 0).applyQuaternion(q);
       ref.current.setMatrixAt(i, m.compose(new THREE.Vector3(s.x + up.x, BASE_Y + up.y, s.z + up.z), q, one));
       ref.current.setColorAt(i, c.set(s.color));
     });
@@ -84,15 +74,15 @@ function Sleeves({ placed, skip }: { placed: Placed[]; skip: string | null }) {
   }, [spots]);
   return (
     <instancedMesh ref={ref} args={[undefined, undefined, 1300]} castShadow>
-      <boxGeometry args={[SLEEVE, SLEEVE, 0.012]} />
+      <boxGeometry args={[SLEEVE, SLEEVE, THICK]} />
       <meshStandardMaterial roughness={0.55} />
     </instancedMesh>
   );
 }
 
 /** One record in the bin being dug: pivots on its bottom edge and eases between lean-back, fall-forward, up and shown. */
-function DigRecord({ record, map, x, z, pose, onClick }: {
-  record: PublicAlbum; map?: THREE.Texture; x: number; z: number;
+function DigRecord({ record, map, x, z, lean, pose, onClick }: {
+  record: PublicAlbum; map?: THREE.Texture; x: number; z: number; lean: { forward: number; back: number };
   pose: 'back' | 'forward' | 'up' | 'shown'; onClick: (e: ThreeEvent<MouseEvent>) => void;
 }) {
   const ref = useRef<THREE.Group>(null!);
@@ -105,7 +95,7 @@ function DigRecord({ record, map, x, z, pose, onClick }: {
   useFrame((_, dt) => {
     const g = ref.current, k = LAMBDA();
     const y = pose === 'shown' ? 0.95 : pose === 'up' ? BASE_Y + 0.18 : BASE_Y;
-    const rx = pose === 'back' ? -LEAN : pose === 'forward' ? LEAN : 0;
+    const rx = pose === 'back' ? -lean.back : pose === 'forward' ? lean.forward : 0;
     // Shown: turn to face the camera, like cratedigger's flip toward you.
     const world = g.getWorldPosition(new THREE.Vector3());
     const ry = pose === 'shown' ? Math.atan2(camera.position.x - world.x, camera.position.z - world.z) - (g.parent?.rotation.y ?? 0) : 0;
@@ -114,9 +104,9 @@ function DigRecord({ record, map, x, z, pose, onClick }: {
     g.rotation.y = THREE.MathUtils.damp(g.rotation.y, ry, k, dt);
   });
   return (
-    <group ref={ref} position={[x, BASE_Y, z]} rotation={[-LEAN, 0, 0]}>
+    <group ref={ref} position={[x, BASE_Y, z]} rotation={[-lean.back, 0, 0]}>
       <mesh position={[0, SLEEVE / 2, 0]} material={mats} castShadow onClick={onClick}>
-        <boxGeometry args={[SLEEVE, SLEEVE, 0.012]} />
+        <boxGeometry args={[SLEEVE, SLEEVE, THICK]} />
       </mesh>
     </group>
   );
@@ -139,7 +129,7 @@ function DigBin({ p, sel, shown, maps, mouse, onPick }: {
       {p.bin.records.map((r, i) => {
         const s = slot(p, i);
         const pose = i === sel ? (shown ? 'shown' : 'up') : selSlot && s.comp === selSlot.comp && s.j < selSlot.j ? 'forward' : 'back';
-        return <DigRecord key={r.id} record={r} map={maps[i]} x={s.x} z={s.z} pose={pose} onClick={(e) => onPick(i, e)} />;
+        return <DigRecord key={r.id} record={r} map={maps[i]} x={s.x} z={s.z} lean={s} pose={pose} onClick={(e) => onPick(i, e)} />;
       })}
     </group>
   );
@@ -158,8 +148,8 @@ function FrontCover({ p, i }: { p: Placed; i: number }) {
   const tex = useTexture(r.cover!.grid);
   tex.colorSpace = THREE.SRGBColorSpace;
   const s = slot(p, i);
-  const q = new THREE.Euler(-LEAN, 0, 0);
-  const c = new THREE.Vector3(0, SLEEVE / 2, 0.008).applyEuler(q);
+  const q = new THREE.Euler(-s.back, 0, 0);
+  const c = new THREE.Vector3(0, SLEEVE / 2, THICK / 2 + 0.002).applyEuler(q);
   return (
     <mesh position={[p.x + s.x + c.x, BASE_Y + c.y, p.z + s.z + c.z]} rotation={q}>
       <planeGeometry args={[SLEEVE, SLEEVE]} />

@@ -21,7 +21,7 @@ export const SECTIONS: Section[] = [
   { id: 'rock-pop-alt', name: 'Rock, Pop & Alt', genres: ['alternative', 'pop', 'rock', 'folk', 'punk', 'acoustic'], x: 3.6, z: 1.9, w: 7.2, d: 1.4 },
   { id: 'global', name: 'Global Sounds', genres: ['world', 'latin', 'reggae', 'devotional'], x: -6.2, z: 5.8, w: 4.8, d: 1.4 },
   { id: 'left-field', name: 'Left Field', genres: ['experimental', 'soundtrack', 'classical', 'kids'], x: -0.6, z: 5.8, w: 4.8, d: 1.4 },
-  { id: 'fresh', name: 'Fresh Crates', genres: [], x: 6.6, z: 6, w: 3.6, d: 2.2, crates: true },
+  { id: 'fresh', name: 'Fresh Crates', genres: [], x: 6.6, z: 5.9, w: 4.8, d: 2.6, crates: true }, // crates hold 24
 ];
 
 /** Unknown genres go to Left Field; records with no genre go to Fresh Crates (the unsorted bin by the door). */
@@ -41,10 +41,11 @@ export function binsBySection(albums: PublicAlbum[]): Map<string, Bin[]> {
   const out = new Map<string, Bin[]>(SECTIONS.map((s) => [s.id, []]));
   for (const s of SECTIONS) {
     const rs = albums.filter((r) => sectionOf(r) === s.id).sort((a, b) => a.artist.localeCompare(b.artist, 'en', { sensitivity: 'base' }));
-    for (let i = 0; i < rs.length; i += PER_BIN) {
-      const chunk = rs.slice(i, i + PER_BIN);
+    const per = s.crates ? PER_BIN / 2 : PER_BIN; // a milk crate has one compartment
+    for (let i = 0; i < rs.length; i += per) {
+      const chunk = rs.slice(i, i + per);
       const [a, b] = [initial(chunk[0]!), initial(chunk.at(-1)!)];
-      out.get(s.id)!.push({ section: s.id, index: i / PER_BIN, records: chunk, label: a === b ? a : `${a}–${b}` });
+      out.get(s.id)!.push({ section: s.id, index: i / per, records: chunk, label: a === b ? a : `${a}–${b}` });
     }
   }
   return out;
