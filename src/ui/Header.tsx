@@ -10,17 +10,24 @@ function VinylMark() {
   );
 }
 
+// The logo links home; the About page reuses it.
+export function Wordmark() {
+  return (
+    <a href="/" className="flex items-center gap-3 rounded-sm text-ink no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest">
+      <VinylMark />
+      <span className="leading-tight">
+        <span className="block text-2xl font-bold tracking-wide">RHYTHM LAB</span>
+        <span className="block text-sm text-ink-soft">Tarik's record collection</span>
+      </span>
+    </a>
+  );
+}
+
 export function Header({ query = '', onQuery, onOpenCrates }: Props) {
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-3 px-4 py-3 sm:px-8">
-        <a href="/" className="flex items-center gap-3 text-ink no-underline">
-          <VinylMark />
-          <span className="leading-tight">
-            <span className="block text-2xl font-bold tracking-wide">RHYTHM LAB</span>
-            <span className="block text-sm text-ink-soft">Tarik's record collection</span>
-          </span>
-        </a>
+        <Wordmark />
         <div className="ml-auto flex w-full items-center gap-3 sm:w-auto">
           <label className="relative min-w-0 flex-1 sm:w-80">
             <input
@@ -36,6 +43,12 @@ export function Header({ query = '', onQuery, onOpenCrates }: Props) {
               <path d="M13 13l4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </label>
+          <a
+            href="/about.html"
+            className="shrink-0 rounded-full px-3 py-2 text-sm font-medium text-ink underline-offset-4 hover:bg-chip hover:underline focus-visible:outline-2 focus-visible:outline-forest"
+          >
+            About
+          </a>
           <button
             type="button"
             onClick={onOpenCrates}
