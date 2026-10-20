@@ -25,8 +25,9 @@ describe('ids', () => {
   });
   test('embed URL uses album= or track= with the site palette', () => {
     expect(embedUrl({ kind: 'track', bandcampId: 45593149 })).toBe(
-      'https://bandcamp.com/EmbeddedPlayer/track=45593149/size=large/bgcol=f3efe8/linkcol=364c43/tracklist=true/transparent=true/',
+      'https://bandcamp.com/EmbeddedPlayer/track=45593149/size=large/bgcol=f3efe8/linkcol=364c43/artwork=small/tracklist=false/transparent=true/',
     );
+    expect(embedUrl({ kind: 'album', bandcampId: 1 })).toContain('/artwork=small/tracklist=true/');
     expect(embedUrl({ kind: 'album', bandcampId: 1 })).toMatch(/^https:\/\/bandcamp\.com\/EmbeddedPlayer\/album=1\//);
   });
 });
