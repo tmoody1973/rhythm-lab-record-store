@@ -1,7 +1,7 @@
 // The 3D record shop: the site's front door (decision 11). Pure modules decide what goes where (sections, layout,
 // camera, quality); this file draws it and wires the HTML controls. Lazy-loaded from Collection.
 import { Canvas, useFrame, type ThreeEvent } from '@react-three/fiber';
-import { Suspense, useEffect, useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import type { UrlState } from '../state/url.ts';
 import { digAim, sectionAim, storeAim } from './camera.ts';
@@ -11,6 +11,7 @@ import { qualityFor } from './quality.ts';
 import { RoomLights } from './scene/Lights.tsx';
 import { BinBox, BrassPlaque, DividerTabs, FrontCovers, reducedMotion, SectionLight, Sleeves } from './scene/Bins.tsx';
 import { CameraRig } from './scene/CameraRig.tsx';
+import { DigBin } from './scene/DigBin.tsx';
 import { ShopMaterials } from './scene/Materials.tsx';
 import { Room } from './scene/Room.tsx';
 import { binsBySection, SECTIONS, type SectionId } from './sections.ts';
@@ -51,7 +52,7 @@ function useAspect() {
 const typing = (t: EventTarget | null) => t instanceof HTMLElement && (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName));
 const DRAG_PX = 6; // pointer moves beyond this are orbit drags, not clicks
 
-export default function ShopScene({ albums, state, patch, onNotice }: ShopSceneProps) {
+export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice }: ShopSceneProps) {
   const quality = useMemo(() => qualityFor(window.innerWidth, (navigator as Navigator & { deviceMemory?: number }).deviceMemory), []);
   const bins = useMemo(() => binsBySection(albums), [albums]);
   const { room, placed, sections } = useMemo(() => layoutShop(bins), [bins]);
@@ -73,20 +74,49 @@ export default function ShopScene({ albums, state, patch, onNotice }: ShopSceneP
   const go = (sectionId: string | null, binIndex: number | null) => { setHover(null); patch({ section: sectionId, bin: binIndex }, { push: true }); };
   const clicked = (e: ThreeEvent<MouseEvent>) => { if (e.delta > DRAG_PX) return false; e.stopPropagation(); return true; };
 
+  // Digging (cratedigger): wheel, vertical drag, arrows or buttons move the standing record; Show lifts it.
+  const n = bin?.bin.records.length ?? 0;
+  const current = bin && sel >= 0 ? bin.bin.records[sel]! : null;
+  const step = (d: 1 | -1) => { if (shown) setShown(false); else setSel((v) => stepSel(v, d, n)); };
+  const toggleShow = () => { setSel((v) => (v < 0 ? stepSel(v, 1, n) : v)); setShown((v) => !v); };
+  const mouse = useRef({ x: 0.5, y: 0.5 });
+  const drag = useRef<{ y: number; moved: boolean } | null>(null);
+  const lastWheel = useRef(0);
+  const root = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape' || typing(e.target) || document.querySelector('dialog[open]')) return;
-      if (shown) setShown(false);
-      else if (bin) patch({ bin: null });
-      else if (section) patch({ section: null, bin: null });
+      if (typing(e.target) || document.querySelector('dialog[open]') || e.altKey || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      if (e.key === 'Escape') {
+        if (shown) setShown(false);
+        else if (bin) patch({ bin: null });
+        else if (section) patch({ section: null, bin: null });
+        return;
+      }
+      if (!bin) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); step(1); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); step(-1); }
+      if ((e.key === 'Enter' || e.key === ' ') && !(e.target instanceof HTMLButtonElement)) { e.preventDefault(); toggleShow(); }
     };
     document.addEventListener('keydown', key);
     return () => document.removeEventListener('keydown', key);
-  }, [shown, bin, section, patch]);
+  });
+  useEffect(() => {
+    const el = root.current!;
+    const wheel = (e: WheelEvent) => {
+      if (!bin) return; // elsewhere the wheel moves the camera
+      e.preventDefault();
+      if (performance.now() - lastWheel.current < 90 || Math.abs(e.deltaY) < 2) return;
+      lastWheel.current = performance.now();
+      step(e.deltaY > 0 ? 1 : -1);
+    };
+    el.addEventListener('wheel', wheel, { passive: false });
+    return () => el.removeEventListener('wheel', wheel);
+  });
 
   const aim = bin ? digAim(bin, sel, shown, aspect) : section ? sectionAim(sections.get(section.id)!, aspect) : storeAim(room, aspect);
   const count = (id: SectionId) => (bins.get(id) ?? []).reduce((n, b) => n + b.records.length, 0);
-  const hint = bin ? 'Scroll, drag or use the arrow keys to dig · Esc steps back' : section ? 'Pick a bin · drag to look around · Esc steps back' : 'Drag to walk around · scroll to step closer · click a section';
+  const hint = current ? <span data-testid="dig-caption">{current.title} — {current.artist} · {sel + 1} of {n}</span> : bin ? 'Scroll, drag or use the arrow keys to dig · Esc steps back' : section ? 'Pick a bin · drag to look around · Esc steps back' : 'Drag to walk around · scroll to step closer · click a section';
 
   useEffect(() => { document.body.style.cursor = hover ? 'pointer' : ''; return () => { document.body.style.cursor = ''; }; }, [hover]);
 
@@ -94,7 +124,23 @@ export default function ShopScene({ albums, state, patch, onNotice }: ShopSceneP
   const lost = (e: Event) => { e.preventDefault(); give3DUp(); onNotice(GAVE_UP_NOTICE); patch({ view: 'grid' }); };
 
   return (
-    <div data-testid="shop" data-ready={ready} data-reduced-motion={String(reducedMotion())} className="fixed inset-0 z-0 bg-[#1a1411]">
+    <div
+      ref={root}
+      data-testid="shop"
+      data-ready={ready}
+      data-reduced-motion={String(reducedMotion())}
+      className="fixed inset-0 z-0 bg-[#1a1411]"
+      style={{ touchAction: bin ? 'none' : undefined }}
+      onPointerMove={(e) => {
+        mouse.current = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight };
+        if (drag.current && bin) {
+          const dy = e.clientY - drag.current.y;
+          if (Math.abs(dy) >= 26) { step(dy < 0 ? 1 : -1); drag.current = { y: e.clientY, moved: true }; }
+        }
+      }}
+      onPointerDown={(e) => { if (bin && e.target instanceof HTMLCanvasElement) drag.current = { y: e.clientY, moved: false }; }}
+      onPointerUp={() => { setTimeout(() => { drag.current = null; }, 0); }}
+    >
       <Canvas
         frameloop="demand"
         shadows
@@ -106,7 +152,7 @@ export default function ShopScene({ albums, state, patch, onNotice }: ShopSceneP
         <fog attach="fog" args={['#1a1411', 40, 70]} />
         {import.meta.env.DEV && <FrameCounter />}
         <CameraRig aim={aim} interactive={!bin} minDistance={section ? 3 : 10} />
-        <RoomLights dim={false} quality={quality} />
+        <RoomLights dim={shown} quality={quality} />
         <ShopMaterials room={room}>
           <Suspense fallback={null}><Room room={room} quality={quality} /></Suspense>
           {SECTIONS.map((s) => {
@@ -121,7 +167,7 @@ export default function ShopScene({ albums, state, patch, onNotice }: ShopSceneP
                 onClick={(e) => { if (!section && clicked(e)) go(s.id, null); }}
               >
                 <SectionLight rect={rect} bright={hover === s.id || section?.id === s.id} />
-                {ps.map((p) => (
+                {ps.filter((p) => p.key !== bin?.key).map((p) => (
                   <group key={p.key} position={[p.x, 0, p.z]} onClick={(e) => { if (section && clicked(e)) go(s.id, p.bin.index); }}>
                     <BinBox w={p.w} kind={s.crates ? (p.bin.index % 2 ? 'green' : 'natural') : p.bin.index % 2 ? 'walnut' : 'walnutDark'} />
                   </group>
@@ -130,9 +176,19 @@ export default function ShopScene({ albums, state, patch, onNotice }: ShopSceneP
               </group>
             );
           })}
-          <Sleeves placed={placed} skip={null} />
-          <Suspense fallback={null}><DividerTabs placed={placed} skip={null} /></Suspense>
-          <Suspense fallback={null}><FrontCovers placed={placed} skip={null} /></Suspense>
+          <Sleeves placed={placed} skip={bin?.key ?? null} />
+          <Suspense fallback={null}><DividerTabs placed={placed} skip={bin?.key ?? null} /></Suspense>
+          <Suspense fallback={null}><FrontCovers placed={placed} skip={bin?.key ?? null} /></Suspense>
+          {bin && (
+            <DigBin
+              p={bin}
+              sel={sel}
+              shown={shown}
+              mouse={mouse}
+              textured
+              onPick={(i) => { if (drag.current?.moved) return; if (i === sel) setShown((v) => !v); else { setSel(i); setShown(false); } }}
+            />
+          )}
         </ShopMaterials>
       </Canvas>
       <ShopOverlay
@@ -165,10 +221,28 @@ export default function ShopScene({ albums, state, patch, onNotice }: ShopSceneP
           </>
         }
         footer={bin && (
-          <div className="flex items-center gap-2">
-            <button type="button" onClick={() => setSel((v) => stepSel(v, -1, bin.bin.records.length))} className={GHOST}>Previous</button>
-            <button type="button" onClick={() => { setSel((v) => Math.max(0, v)); setShown((v) => !v); }} className={SOLID}>Show</button>
-            <button type="button" onClick={() => setSel((v) => stepSel(v, 1, bin.bin.records.length))} className={GHOST}>Next</button>
+          <div className="flex flex-col items-center gap-3">
+            {shown && current && (
+              <div className="pointer-events-none text-center text-[#f3e6cf] [text-shadow:0_2px_12px_rgb(0_0_0/0.8)]">
+                <p className="text-lg">{current.artist}</p>
+                <p className="font-serif text-4xl font-bold">{current.title}</p>
+              </div>
+            )}
+            <p role="status" className="sr-only">{current ? `${current.title} by ${current.artist}, ${sel + 1} of ${n}` : ''}</p>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {shown && current ? (
+                <>
+                  <button type="button" onClick={() => onOpenRecord(current)} className={SOLID}>Open album</button>
+                  <button type="button" onClick={() => setShown(false)} className={GHOST}>Put back</button>
+                </>
+              ) : (
+                <>
+                  <button type="button" onClick={() => step(-1)} className={GHOST}>Previous</button>
+                  <button type="button" onClick={toggleShow} className={SOLID}>Show</button>
+                  <button type="button" onClick={() => step(1)} className={GHOST}>Next</button>
+                </>
+              )}
+            </div>
           </div>
         )}
       />

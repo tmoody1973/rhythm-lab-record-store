@@ -1,7 +1,7 @@
 // The HTML layer over the shop: everything you can do in 3D has a button here too (spec: accessibility).
 import type { ReactNode } from 'react';
 
-type Props = { hint: string; onGrid: () => void; top?: ReactNode; footer?: ReactNode };
+type Props = { hint: ReactNode; onGrid: () => void; top?: ReactNode; footer?: ReactNode };
 
 export function ShopOverlay({ hint, onGrid, top, footer }: Props) {
   return (

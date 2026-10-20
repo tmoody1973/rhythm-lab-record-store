@@ -82,3 +82,58 @@ test('a hand-edited link to a section or bin that does not exist opens the whole
   await expect(page).toHaveURL(/[?&]section=jazz$/);
   expect(errors).toEqual([]);
 });
+
+async function openFirstJazzBin(page: Page) {
+  await offline(page);
+  await page.goto('/?section=jazz&bin=0');
+  await expect(page.locator('[data-testid="shop"][data-ready="true"]')).toBeVisible();
+  return page.getByRole('status');
+}
+
+test('digging: Next and the arrow keys step through the bin; the status names the standing record', async ({ page }) => {
+  const status = await openFirstJazzBin(page);
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await expect(status).toHaveText(/, 1 of 3$/);
+  await page.keyboard.press('ArrowRight');
+  await expect(status).toHaveText(/, 2 of 3$/);
+  await page.keyboard.press('ArrowLeft');
+  await expect(status).toHaveText(/, 1 of 3$/);
+});
+
+test('mashing Next never leaves the bin, and the caption matches the status', async ({ page }) => {
+  const status = await openFirstJazzBin(page);
+  const next = page.getByRole('button', { name: 'Next', exact: true });
+  for (let i = 0; i < 60; i++) await next.click({ delay: 0 });
+  await expect(status).toHaveText(/, 3 of 3$/);
+  const title = (await status.textContent())!.split(' by ')[0]!;
+  await expect(page.getByTestId('dig-caption')).toContainText(title);
+});
+
+test('Alt/⌘ + arrow is left to the browser', async ({ page }) => {
+  const status = await openFirstJazzBin(page);
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await expect(status).toHaveText(/, 1 of 3$/);
+  await page.keyboard.press('Alt+ArrowRight');
+  await page.keyboard.press('Meta+ArrowRight');
+  await expect(status).toHaveText(/, 1 of 3$/);
+});
+
+test('Show, then Open album opens that record; closing it leaves you where you were', async ({ page }) => {
+  const status = await openFirstJazzBin(page);
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await page.getByRole('button', { name: 'Show', exact: true }).click();
+  const title = (await status.textContent())!.split(' by ')[0]!;
+  await page.getByRole('button', { name: 'Open album' }).click();
+  const album = page.getByRole('dialog', { name: title });
+  await expect(album).toBeVisible();
+  await album.getByRole('button', { name: 'Close' }).click();
+  await expect(album).toBeHidden();
+  await expect(status).toHaveText(/, 1 of 3$/);
+  await expect(page.getByRole('button', { name: 'Put back' })).toBeVisible();
+});
+
+test('with reduced motion the shop says so (sleeves snap instead of easing)', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await openFirstJazzBin(page);
+  await expect(page.getByTestId('shop')).toHaveAttribute('data-reduced-motion', 'true');
+});
