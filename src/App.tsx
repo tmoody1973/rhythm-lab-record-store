@@ -166,10 +166,10 @@ export function App() {
           />
         )}
       </main>
-      <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 pb-10 text-sm text-ink-soft sm:px-8">
+      {state.view !== 'store' && <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 px-4 pb-10 text-sm text-ink-soft sm:px-8">
         <span>A personal collection. Powered by Bandcamp.</span>
         <span>Album art © its owners.{credits.length > 0 && ` Metadata: ${credits.join(', ')}.`}</span>
-      </footer>
+      </footer>}
       {open && (
         <AlbumDialog
           key={open.id}

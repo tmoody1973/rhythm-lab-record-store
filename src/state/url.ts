@@ -2,8 +2,8 @@
 // so filters, sort, page and the open record survive reloads, Back, and sharing.
 import { SORT_KEYS, type Query, type SortKey } from '../catalog/query.ts';
 
-export type UrlState = Query & { record: string | null; shared: string | null };
-export const DEFAULT_STATE: UrlState = { q: '', genres: [], crate: null, country: null, sort: 'artist-asc', page: 1, record: null, shared: null };
+export type UrlState = Query & { record: string | null; shared: string | null; view: 'grid' | 'store' };
+export const DEFAULT_STATE: UrlState = { q: '', genres: [], crate: null, country: null, sort: 'artist-asc', page: 1, record: null, shared: null, view: 'grid' };
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -25,6 +25,7 @@ export function parseUrl(search: string): UrlState {
     // Kept as given (when short) so the UI can say "that record link didn't match anything".
     record: record && record.length <= 24 ? record : null,
     shared: shared && shared.length <= 16_000 ? shared : null,
+    view: p.get('view') === 'store' ? 'store' : 'grid',
   };
 }
 
@@ -38,6 +39,7 @@ export function toSearch(s: UrlState): string {
   if (s.page !== 1) p.set('page', String(s.page));
   if (s.record) p.set('record', s.record);
   if (s.shared) p.set('shared', s.shared);
+  if (s.view === 'store') p.set('view', 'store');
   const out = p.toString();
   return out ? `?${out}` : '';
 }

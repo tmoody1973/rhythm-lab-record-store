@@ -7,8 +7,6 @@ import type { UrlState } from '../state/url.ts';
 import { ChipRow } from './ChipRow.tsx';
 import { LetterStrip, Pagination, SortSelect } from './Controls.tsx';
 import { RecordCard } from './RecordCard.tsx';
-import { BinDialog } from '../shop/BinDialog.tsx';
-import type { Bin } from '../shop/sections.ts';
 
 // SPIKE: the 3D shop loads only when someone picks Store.
 const ShopScene = lazy(() => import('../shop/ShopScene.tsx'));
@@ -48,10 +46,6 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
   const page = Math.min(state.page, pages);
   const visible = pageSlice(sorted, page);
   const [focusId, setFocusId] = useState<string | null>(null);
-  const [view, setView] = useState<'grid' | 'store'>('grid');
-  const [dig, setDig] = useState<{ bin: Bin; section: string; index: number; open: boolean } | null>(null);
-  // A record opened from a bin hides the bin; closing the record brings the bin back at the same sleeve.
-  useEffect(() => { if (!state.record && dig && !dig.open) setDig({ ...dig, open: true }); }, [state.record]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!focusId) return;
@@ -68,6 +62,18 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
   const toggleGenre = (slug: string) =>
     patch({ genres: state.genres.includes(slug) ? state.genres.filter((g) => g !== slug) : [...state.genres, slug] });
   const start = sorted.length ? (page - 1) * PER_PAGE + 1 : 0;
+  const viewSwitch = (['store', 'grid'] as const).map((v) => (
+    <button key={v} type="button" aria-pressed={state.view === v} onClick={() => patch({ view: v })} className="rounded-full px-4 py-1.5 text-sm capitalize text-ink aria-pressed:bg-forest aria-pressed:text-card">{v}</button>
+  ));
+
+  if (state.view === 'store') {
+    const toggle = <div className="flex rounded-full border border-ink/25 bg-card p-1" role="group" aria-label="View">{viewSwitch}</div>;
+    return (
+      <Suspense fallback={<p className="fixed inset-0 grid place-items-center bg-[#1a1411] text-[#f3e6cf]">Opening the shop…</p>}>
+        <ShopScene albums={catalog.albums} onOpenRecord={(r) => onOpen?.(r, document.activeElement as HTMLButtonElement)} toggle={toggle} />
+      </Suspense>
+    );
+  }
 
   return (
     <>
@@ -79,30 +85,11 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
         <div className="flex items-center gap-4">
           <span className="text-sm text-ink-soft">{fmt(catalog.count)} records</span>
           <div className="flex rounded-full border border-ink/25 bg-card p-1" role="group" aria-label="View">
-            {(['store', 'grid'] as const).map((v) => (
-              <button key={v} type="button" aria-pressed={view === v} onClick={() => setView(v)} className="rounded-full px-4 py-1.5 text-sm capitalize text-ink aria-pressed:bg-forest aria-pressed:text-card">{v}</button>
-            ))}
+            {viewSwitch}
           </div>
         </div>
       </section>
 
-      {view === 'store' ? (
-        <>
-          <Suspense fallback={<div className="mt-8 grid h-[72vh] min-h-[460px] place-items-center rounded-3xl bg-[#171210] text-[#f3e6cf]">Opening the shop…</div>}>
-            <ShopScene albums={catalog.albums} onOpenBin={(bin, section) => setDig({ bin, section, index: 0, open: true })} />
-          </Suspense>
-          {dig?.open && (
-            <BinDialog
-              bin={dig.bin}
-              section={dig.section}
-              index={dig.index}
-              onIndex={(index) => setDig({ ...dig, index })}
-              onOpen={(r) => { setDig({ ...dig, open: false }); onOpen?.(r, document.activeElement as HTMLButtonElement); }}
-              onClose={() => setDig(null)}
-            />
-          )}
-        </>
-      ) : (<>
       <div className="mt-8">
         <ChipRow
           crates={crates}
@@ -153,7 +140,6 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
       )}
 
       <Pagination page={page} pages={pages} onPage={(p) => { patch({ page: p }); window.scrollTo?.({ top: 0 }); }} />
-      </>)}
     </>
   );
 }
