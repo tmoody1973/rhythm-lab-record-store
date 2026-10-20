@@ -4,12 +4,12 @@ import { useCatalog, useEnrichment, type LoadFailure } from './catalog/load.ts';
 import type { PublicAlbum } from './catalog/schema.ts';
 import { crateMembers, cratesContaining, TARIK_CRATES, TARIK_NOTES } from './crates/curation.ts';
 import { decodeShare } from './crates/share.ts';
-import { addToCrate, createCrate } from './crates/storage.ts';
+import { addToCrate, createCrate, loadLastCrate, saveLastCrate } from './crates/storage.ts';
 import { useVisitor } from './crates/useVisitor.ts';
 import { useAppState } from './state/useAppState.ts';
 import { AlbumDialog } from './ui/AlbumDialog.tsx';
 import { Collection } from './ui/Collection.tsx';
-import { CratesPanel } from './ui/CratesPanel.tsx';
+import { CratesPanel, type CratePlace } from './ui/CratesPanel.tsx';
 import { Header } from './ui/Header.tsx';
 import { RecordActions } from './ui/RecordActions.tsx';
 import { SharedBanner } from './ui/SharedBanner.tsx';
@@ -44,6 +44,8 @@ export function App() {
   }, [enrichment]);
   const [notice, setNotice] = useState<string | null>(null);
   const [cratesOpen, setCratesOpen] = useState(false);
+  const [cratePlace, setCratePlace] = useState<CratePlace>(() => ({ crate: loadLastCrate(), index: 0 }));
+  const backToCrates = useRef(false); // the open record came from "My crates": closing it returns there
   const pushed = useRef(false); // true when the open record added a history entry (so Back closes it)
   const lastOpened = useRef<string | null>(null);
   const opener = useRef<HTMLElement | null>(null); // the control that opened the pop-up, for focus return
@@ -78,6 +80,13 @@ export function App() {
       return;
     }
     pushed.current = false;
+    if (backToCrates.current) {
+      backToCrates.current = false;
+      lastOpened.current = null;
+      opener.current = null;
+      setCratesOpen(true);
+      return;
+    }
     if (lastOpened.current) {
       const back = opener.current?.isConnected ? opener.current : document.querySelector<HTMLElement>(`[data-id="${lastOpened.current}"]`);
       back?.focus();
@@ -85,6 +94,8 @@ export function App() {
       opener.current = null;
     }
   }, [open]);
+
+  const closeCrates = useCallback(() => setCratesOpen(false), []);
 
   const openRecord = useCallback((r: PublicAlbum) => {
     const active = document.activeElement;
@@ -99,6 +110,16 @@ export function App() {
     patch({ record: null });
     if (wasPushed) window.history.back(); // drop the entry we added, so Back/Forward stay tidy
   }, [patch]);
+
+  const moveCratePlace = useCallback((p: CratePlace) => {
+    setCratePlace(p);
+    if (p.crate) saveLastCrate(p.crate);
+  }, []);
+  const openFromCrates = useCallback((r: PublicAlbum) => {
+    backToCrates.current = true;
+    setCratesOpen(false);
+    openRecord(r);
+  }, [openRecord]);
 
   const saveShared = () => {
     if (!shared?.ok) return;
@@ -161,7 +182,7 @@ export function App() {
         />
       )}
       {cratesOpen && (
-        <CratesPanel data={visitor.data} update={visitor.update} byId={byId} onOpenRecord={openRecord} onClose={() => setCratesOpen(false)} />
+        <CratesPanel data={visitor.data} update={visitor.update} byId={byId} place={cratePlace} onPlace={moveCratePlace} onOpenRecord={openFromCrates} onClose={closeCrates} />
       )}
     </>
   );

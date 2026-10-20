@@ -44,8 +44,8 @@ test('add to a new crate from the pop-up, then find it under My crates', async (
   await user.click(within(dialog).getByRole('button', { name: 'Close' }));
   await user.click(screen.getByRole('button', { name: /my crates/i }));
   const panel = screen.getByRole('dialog', { name: 'My crates' });
-  expect(within(panel).getByText('Late Night')).toBeInTheDocument();
-  expect(within(panel).getByText('Universal Beings')).toBeInTheDocument();
+  expect(within(panel).getByRole('button', { name: 'Late Night', pressed: true })).toBeInTheDocument();
+  expect(within(panel).getByRole('heading', { name: 'Universal Beings' })).toBeInTheDocument();
   expect(saved().crates[0]).toMatchObject({ name: 'Late Night', records: [universal.id] });
 });
 
@@ -89,4 +89,80 @@ test('closing a record opened from the shared banner returns focus to that banne
   await user.click(within(screen.getByRole('dialog', { name: 'Universal Beings' })).getByRole('button', { name: 'Close' }));
   await new Promise((r) => setTimeout(r, 30));
   expect(document.activeElement).toBe(opener);
+});
+
+// "My crates" as a wooden crate you dig through (agreed with Tarik 2026-10-20, mockup A).
+function seed(lateNight: string[] = [days.id, universal.id]) {
+  window.localStorage.setItem('rl-record-store:visitor', JSON.stringify({
+    schemaVersion: 1,
+    favorites: [universal.id, days.id],
+    crates: [{ id: 'late-night', name: 'Late Night', records: lateNight }, { id: 'empty', name: 'Empty', records: [] }],
+  }));
+}
+async function openCrates() {
+  const user = userEvent.setup();
+  render(<App />);
+  await user.click(await screen.findByRole('button', { name: /my crates/i }));
+  return { user, panel: screen.getByRole('dialog', { name: 'My crates' }) };
+}
+const front = (panel: HTMLElement) => within(panel).getByRole('heading', { level: 3 });
+
+test('My crates opens on Favorites and digs with Flip, Back and the arrow keys', async () => {
+  seed();
+  const { user, panel } = await openCrates();
+  expect(within(panel).getByRole('button', { name: 'Favorites', pressed: true })).toBeInTheDocument();
+  expect(front(panel)).toHaveTextContent('Universal Beings');
+  expect(panel).toHaveTextContent('1 of 2');
+  await user.click(within(panel).getByRole('button', { name: 'Flip' }));
+  expect(front(panel)).toHaveTextContent('Days As Echoes');
+  expect(within(panel).getByRole('status')).toHaveTextContent('Days As Echoes by Misha Panfilov Sound Combo, 2 of 2');
+  expect(within(panel).getByRole('button', { name: 'Flip' })).toBeDisabled();
+  await user.keyboard('{ArrowLeft}');
+  expect(front(panel)).toHaveTextContent('Universal Beings');
+  await user.keyboard('{ArrowRight}');
+  expect(front(panel)).toHaveTextContent('Days As Echoes');
+  await user.click(within(panel).getByRole('button', { name: 'Back' }));
+  expect(front(panel)).toHaveTextContent('Universal Beings');
+});
+
+test('Open album from the crate; closing it returns to the same sleeve', async () => {
+  seed();
+  const { user, panel } = await openCrates();
+  await user.click(within(panel).getByRole('button', { name: 'Flip' }));
+  await user.click(within(panel).getByRole('button', { name: 'Open album' }));
+  const album = screen.getByRole('dialog', { name: 'Days As Echoes' });
+  await user.click(within(album).getByRole('button', { name: 'Close' }));
+  const again = await screen.findByRole('dialog', { name: 'My crates' });
+  expect(front(again)).toHaveTextContent('Days As Echoes');
+  expect(again).toHaveTextContent('2 of 2');
+});
+
+test('switching crates, and My crates reopens on the last crate used', async () => {
+  seed();
+  const { user, panel } = await openCrates();
+  await user.click(within(panel).getByRole('button', { name: 'Late Night' }));
+  expect(front(panel)).toHaveTextContent('Days As Echoes');
+  expect(panel).toHaveTextContent('1 of 2');
+  await user.click(within(panel).getByRole('button', { name: 'Close' }));
+  await user.click(screen.getByRole('button', { name: /my crates/i }));
+  expect(within(screen.getByRole('dialog', { name: 'My crates' })).getByRole('button', { name: 'Late Night', pressed: true })).toBeInTheDocument();
+  expect(window.localStorage.getItem('rl-record-store:last-crate')).toBe('late-night');
+});
+
+test('Remove takes the front record out; an empty crate says how to fill it', async () => {
+  seed([days.id]);
+  const { user, panel } = await openCrates();
+  await user.click(within(panel).getByRole('button', { name: 'Late Night' }));
+  await user.click(within(panel).getByRole('button', { name: 'Remove' }));
+  expect(panel).toHaveTextContent(/nothing in here yet/i);
+  expect(saved().crates[0].records).toEqual([]);
+});
+
+test('arrow keys do not flip while renaming a crate', async () => {
+  seed();
+  const { user, panel } = await openCrates();
+  await user.click(within(panel).getByRole('button', { name: 'Late Night' }));
+  await user.click(within(panel).getByRole('button', { name: 'Rename' }));
+  await user.type(within(panel).getByRole('textbox', { name: 'Rename Late Night' }), '{ArrowRight}{ArrowRight}');
+  expect(panel).toHaveTextContent('1 of 2');
 });
