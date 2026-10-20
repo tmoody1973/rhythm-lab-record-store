@@ -3,7 +3,6 @@
 import { Clone, Text, useGLTF, useTexture } from '@react-three/drei';
 import { useMemo } from 'react';
 import * as THREE from 'three';
-import type { PublicAlbum } from '../catalog/schema.ts';
 
 const D = '/decor/';
 
@@ -38,15 +37,16 @@ export function Plant({ position, scale = 1, lush = false, turn = 0 }: { positio
   return <Clone object={scene} position={position} scale={(lush ? 2.2 : 6.4) * scale} rotation={[0, turn, 0]} castShadow receiveShadow />;
 }
 
-/** A framed print with a little picture light. */
-export function Poster({ record, position, rotation = [0, 0, 0], size = 1.15 }: { record: PublicAlbum; position: [number, number, number]; rotation?: [number, number, number]; size?: number }) {
-  const tex = useTexture(record.cover!.large);
+/** A framed 2:3 print with a little brass picture light. Tribute posters live in public/posters/. */
+export function Poster({ url, position, rotation = [0, 0, 0], width = 0.95 }: { url: string; position: [number, number, number]; rotation?: [number, number, number]; width?: number }) {
+  const tex = useTexture(url);
   tex.colorSpace = THREE.SRGBColorSpace;
+  const h = width * 1.5;
   return (
     <group position={position} rotation={rotation}>
-      <mesh position={[0, 0, 0.02]} castShadow><boxGeometry args={[size + 0.12, size + 0.12, 0.04]} /><meshStandardMaterial color="#141110" roughness={0.4} /></mesh>
-      <mesh position={[0, 0, 0.045]}><planeGeometry args={[size, size]} /><meshStandardMaterial map={tex} roughness={0.45} emissive="#ffffff" emissiveMap={tex} emissiveIntensity={0.12} /></mesh>
-      <mesh position={[0, size / 2 + 0.12, 0.12]}><boxGeometry args={[0.36, 0.05, 0.08]} /><meshStandardMaterial color="#b8955a" metalness={0.7} roughness={0.3} /></mesh>
+      <mesh position={[0, 0, 0.02]} castShadow><boxGeometry args={[width + 0.1, h + 0.1, 0.04]} /><meshStandardMaterial color="#141110" roughness={0.4} /></mesh>
+      <mesh position={[0, 0, 0.045]}><planeGeometry args={[width, h]} /><meshStandardMaterial map={tex} roughness={0.45} emissive="#ffffff" emissiveMap={tex} emissiveIntensity={0.12} /></mesh>
+      <mesh position={[0, h / 2 + 0.1, 0.12]}><boxGeometry args={[0.32, 0.05, 0.08]} /><meshStandardMaterial color="#b8955a" metalness={0.7} roughness={0.3} /></mesh>
     </group>
   );
 }

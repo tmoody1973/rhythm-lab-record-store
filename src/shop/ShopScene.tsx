@@ -212,7 +212,10 @@ function BrassPlaque({ position, rotation = [0, 0, 0], label, width }: { positio
   );
 }
 
-function Room({ wall, posters }: { wall: PublicAlbum[]; posters: PublicAlbum[] }) {
+// Typographic tribute posters (gpt-image-2, Tarik's pick 2026-10-20): no faces, logos or album art.
+const POSTERS: [string, number][] = [['miles-davis', -10.4], ['bjork', -8.1], ['tribe-called-quest', 3.3], ['j-dilla', 5.6], ['sun-ra', 8.9], ['alice-coltrane', 10.9]];
+
+function Room({ wall }: { wall: PublicAlbum[] }) {
   const m = useMats();
   return (
     <group>
@@ -224,10 +227,11 @@ function Room({ wall, posters }: { wall: PublicAlbum[]; posters: PublicAlbum[] }
         </Text>
         <pointLight position={[-1.5, 0.9, 1.2]} color="#ff7a3c" intensity={14} distance={8} decay={1.6} />
         <Suspense fallback={null}>
-          {posters.map((r, i) => <Poster key={r.id} record={r} position={[[-9.2, -6.6, 4, 6.6][i]!, 0.55, 0.1]} />)}
+          {POSTERS.map(([slug, x], i) => <Poster key={slug} url={`/posters/${slug}.webp`} position={[x, i < 4 ? 0.5 : 0.75, 0.1]} />)}
         </Suspense>
-        <Sconce position={[-7.9, 1.3, 0.1]} />
-        <Sconce position={[5.3, 1.3, 0.1]} />
+        <Sconce position={[-9.25, 1.35, 0.1]} />
+        <Sconce position={[4.45, 1.35, 0.1]} />
+        <Sconce position={[9.9, 1.55, 0.1]} />
       </Wall>
       <Wall position={[-12.1, 1.8, 0]} size={[0.2, 3.6, 16.4]} normal={[-1, 0, 0]} color="#2c3a31">
         <Suspense fallback={null}>
@@ -305,9 +309,6 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
   const placedBySection = useMemo(() => new Map(SECTIONS.map((s) => [s.id, place(s, bins.get(s.id) ?? [])])), [bins]);
   const placed = useMemo(() => [...placedBySection.values()].flat(), [placedBySection]);
   const wall = useMemo(() => albums.filter((r) => r.cover).filter((_, i) => i % 97 === 0).slice(0, 12), [albums]);
-  // Framed covers of records Tarik owns by artists he named (no Miles Davis or Tribe on Bandcamp yet).
-  const posters = useMemo(() => [/bj[öo]rk/i, /j dilla/i, /sun ra/i, /alice coltrane/i]
-    .map((re) => albums.find((r) => r.cover && re.test(r.artist))).filter((r): r is PublicAlbum => !!r), [albums]);
   const [view, setView] = useState<View>({ level: 'store' });
   const [hover, setHover] = useState<string | null>(null);
   const controls = useRef<CameraControls>(null);
@@ -436,7 +437,7 @@ export default function ShopScene({ albums, onOpenRecord, toggle }: Props) {
           />
           <RoomLights dim={shown} />
           <Suspense fallback={null}><WithMaterials>
-          <Room wall={wall} posters={posters} />
+          <Room wall={wall} />
           {SECTIONS.map((s) => {
             const ps = placedBySection.get(s.id)!;
             const frontZ = Math.max(...ps.map((p) => p.z)) + BD / 2 + 0.03;
