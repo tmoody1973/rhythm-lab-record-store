@@ -45,6 +45,11 @@ export function findPageUrl(html: string, kind: Kind): string | null {
   return new RegExp(`https://[a-z0-9-]+\\.bandcamp\\.com/${kind}/[a-z0-9-]+`).exec(html)?.[0] ?? null;
 }
 
+/** Node's fetch gives up on endless redirects; Bandcamp does that to cookie-less visitors on some pages. */
+export function isRedirectLoop(e: unknown): boolean {
+  return e instanceof Error && /redirect count exceeded/.test(String((e.cause as Error | undefined)?.message));
+}
+
 let last = 0;
 /** Polite GET: spaced GAP_MS apart, 429/5xx retried with backoff. Reads only until `done` says stop. */
 async function get(url: string, done: (soFar: string) => boolean, maxBytes: number): Promise<{ status: number; body: string }> {
@@ -53,7 +58,11 @@ async function get(url: string, done: (soFar: string) => boolean, maxBytes: numb
     if (wait > 0) await delay(wait);
     last = Date.now();
     let res: Response;
-    try { res = await fetch(url); } catch { res = new Response(null, { status: 599 }); }
+    try { res = await fetch(url); } catch (e) {
+      // 310 is ours: the page only loads with cookies, which this project never keeps. An answer, cached.
+      if (isRedirectLoop(e)) return { status: 310, body: '' };
+      res = new Response(null, { status: 599 });
+    }
     if ((res.status === 429 || res.status >= 500) && attempt < 3) { await delay(5000 * 2 ** attempt); continue; }
     if (!res.ok || !res.body) return { status: res.status, body: '' };
     const reader = res.body.getReader();

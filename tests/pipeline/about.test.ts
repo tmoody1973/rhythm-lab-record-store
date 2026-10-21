@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { findPageUrl, parseAboutPage } from '../../pipeline/about.ts';
+import { findPageUrl, isRedirectLoop, parseAboutPage } from '../../pipeline/about.ts';
 
 const page = (ld: unknown) =>
   `<html><head><script type="application/ld+json">${JSON.stringify(ld)}</script></head><body><div class="tralbum-about">x</div></body></html>`;
@@ -38,4 +38,10 @@ test("finds the record's own page link in the player page, matching album or tra
   expect(findPageUrl(html, 'album')).toBe('https://intlanthem.bandcamp.com/album/edge-conditions');
   expect(findPageUrl(html, 'track')).toBe('https://intlanthem.bandcamp.com/track/way-in');
   expect(findPageUrl('nothing here', 'album')).toBeNull();
+});
+
+test('a redirect loop (a page that wants cookies) is an answer, not a network error to retry', () => {
+  expect(isRedirectLoop(new TypeError('fetch failed', { cause: new Error('redirect count exceeded') }))).toBe(true);
+  expect(isRedirectLoop(new TypeError('fetch failed', { cause: new Error('getaddrinfo ENOTFOUND') }))).toBe(false);
+  expect(isRedirectLoop('nope')).toBe(false);
 });
