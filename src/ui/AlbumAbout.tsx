@@ -16,7 +16,7 @@ export function AlbumAbout({ about }: { about: About }) {
       <h3 id="album-about" className="text-xs uppercase tracking-[0.25em] text-ink-soft">About this record</h3>
       {description && (
         <>
-          <p className={`mt-3 whitespace-pre-line font-serif text-[1.0625rem] leading-relaxed sm:text-lg ${long && !open ? 'line-clamp-4' : ''}`}>
+          <p className={`mt-3 whitespace-pre-line text-base leading-7 ${long && !open ? 'line-clamp-4' : ''}`}>
             {description}
           </p>
           {long && (
