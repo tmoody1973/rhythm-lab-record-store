@@ -1,6 +1,6 @@
 // The 3D record shop: the site's front door (decision 11). Pure modules decide what goes where (sections, layout,
 // camera, quality); this file draws it and wires the HTML controls. Lazy-loaded from Collection.
-import { Canvas, useFrame, type ThreeEvent } from '@react-three/fiber';
+import { addTail, Canvas, useFrame, type ThreeEvent } from '@react-three/fiber';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Vector3 } from 'three';
 import type { PublicAlbum } from '../catalog/schema.ts';
@@ -38,9 +38,12 @@ const SOLID = 'min-h-11 rounded-full bg-[#f3e6cf] px-5 py-2.5 text-sm font-semib
 export const GAVE_UP_NOTICE = "The 3D shop stopped working in this browser, so here's the grid.";
 
 /** Development builds expose frames drawn, camera position and GPU textures, so tests can check idle, recentring and memory. */
+type ProbeWindow = { __rlFrames?: number; __rlCamera?: number[]; __rlTextures?: number; __rlDeltas?: number[]; __rlIdle?: boolean; __rlScreenOf?: (name: string) => number[] | null };
 function DevProbe() {
+  useEffect(() => addTail(() => { (window as unknown as ProbeWindow).__rlIdle = true; }), []); // R3F's "the loop stopped"
   useFrame(({ camera, gl, scene, size }, delta) => {
-    const w = window as unknown as { __rlFrames?: number; __rlCamera?: number[]; __rlTextures?: number; __rlDeltas?: number[]; __rlScreenOf?: (name: string) => number[] | null };
+    const w = window as unknown as ProbeWindow;
+    w.__rlIdle = false;
     w.__rlFrames = (w.__rlFrames ?? 0) + 1;
     w.__rlDeltas = [...(w.__rlDeltas ?? []).slice(-199), delta];
     w.__rlCamera = camera.position.toArray();
