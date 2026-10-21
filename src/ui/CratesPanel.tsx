@@ -1,6 +1,7 @@
 // "My crates": the visitor's favorites and crates as wooden crates to dig through, one tab per crate,
 // with rename, delete and share links for their own crates.
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { event, report3DTrouble } from '../analytics.ts';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import { encodeShare } from '../crates/share.ts';
 import { deleteCrate, removeFromCrate, renameCrate, toggleFavorite, type VisitorData } from '../crates/storage.ts';
@@ -32,8 +33,8 @@ export function CratesPanel(props: Props) {
   const [use3D, setUse3D] = useState(has3D);
   if (!use3D) return <FlatCratesPanel {...props} />;
   return (
-    <Fallback3D onFail={() => setUse3D(false)}>
-      <Suspense fallback={null}><CrateStage {...props} onLost={() => setUse3D(false)} /></Suspense>
+    <Fallback3D onFail={() => { report3DTrouble('crashed'); setUse3D(false); }}>
+      <Suspense fallback={null}><CrateStage {...props} onLost={() => { report3DTrouble('crashed'); setUse3D(false); }} /></Suspense>
     </Fallback3D>
   );
 }
@@ -123,7 +124,7 @@ function FlatCratesPanel({ data, update, byId, place, onPlace, onOpenRecord, onC
               </form>
             ) : (
               <>
-                <button type="button" onClick={() => copy(current.id, url)} className="text-forest hover:underline">{copied === current.id ? 'Link copied' : 'Copy share link'}</button>
+                <button type="button" onClick={() => { event('Share Link Copied', { records: current.records.length }); copy(current.id, url); }} className="text-forest hover:underline">{copied === current.id ? 'Link copied' : 'Copy share link'}</button>
                 <button type="button" onClick={() => setRenaming(current.id)} className="text-ink-soft hover:text-ink">Rename</button>
                 <button type="button" onClick={() => update((d) => deleteCrate(d, current.id))} className="text-ink-soft hover:text-ink">Delete</button>
               </>

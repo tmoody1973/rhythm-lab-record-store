@@ -21,6 +21,7 @@ import { binsBySection, SECTIONS, toBins, type Bin } from './sections.ts';
 import { STAFF_PICKS } from './staffPicks.ts';
 import { ShopOverlay } from './ShopOverlay.tsx';
 import { give3DUp } from './support.ts';
+import { event, report3DTrouble } from '../analytics.ts';
 
 export type ShopSceneProps = {
   albums: PublicAlbum[];
@@ -110,6 +111,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
   const go = (sectionId: string | null, binIndex: number | null) => {
     setHover(null);
     if (sectionId === null && !section) { setRecenter((n) => n + 1); return; } // already in the whole shop: just re-centre
+    if (sectionId && sectionId !== state.section) event('Section Entered', { section: sectionId });
     patch({ section: sectionId, bin: binIndex }, { push: true });
   };
   const clicked = (e: ThreeEvent<MouseEvent>) => { if (e.delta > DRAG_PX) return false; e.stopPropagation(); return true; };
@@ -162,7 +164,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
   if (import.meta.env.DEV) (window as unknown as { __rlAim?: number[] }).__rlAim = aim.position; // tests compare the camera to its aim
 
   // The GPU gave up (driver reset, sleep/wake…): don't show a black page — hand over to the grid for this visit.
-  const lost = (e: Event) => { if (!alive.current) return; e.preventDefault(); give3DUp(); onNotice(GAVE_UP_NOTICE); patch({ view: 'grid' }); };
+  const lost = (e: Event) => { if (!alive.current) return; e.preventDefault(); give3DUp(); report3DTrouble('crashed'); onNotice(GAVE_UP_NOTICE); patch({ view: 'grid' }); };
 
   return (
     <div
@@ -238,7 +240,7 @@ export default function ShopScene({ albums, state, patch, onOpenRecord, onNotice
       </Canvas>
       <ShopOverlay
         hint={hint}
-        onGrid={() => patch({ view: 'grid' })}
+        onGrid={() => { event('View Switched', { to: 'grid' }); patch({ view: 'grid' }); }}
         top={
           <>
             <nav aria-label="Shop sections" className="max-w-full">
