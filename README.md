@@ -107,7 +107,7 @@ docs/                build plan, specs, plans, decisions, design mockups, report
 
 ## Ground rules this project keeps
 
-- Only Bandcamp's official Subsonic service or Tarik's own files. No scraping, no browser cookies, no undocumented endpoints.
+- Only Bandcamp's official Subsonic service or Tarik's own files, with one exception: `npm run about` reads each record's public album page once for its description, credits and tags ([decision 008](docs/decisions/008-read-bandcamp-album-pages-for-notes.md)). No browser cookies, no logged-in pages, no undocumented endpoints.
 - Credentials never appear in code, logs, the catalog, or git. A `check-secrets` command verifies that after every run.
 - Read-only access to Bandcamp: no playlist writes, no audio downloads.
 - Album artwork belongs to its owners. Covers aren't committed to this repo; the site credits and links back to Bandcamp.
@@ -122,8 +122,8 @@ docs/                build plan, specs, plans, decisions, design mockups, report
 
 ## Deploy
 
-Vercel builds the site from GitHub: every pull request gets a preview link, and every merge to `main` (after CI passes) goes live. The build runs `npm run decor && npm run build` (see `vercel.json`): it fetches the CC0 decor from Poly Haven, then builds into `dist/`. The catalog, credits and covers are committed in `public/`; refresh them locally (`npm run catalog`, `npm run enrich`), run `npm run check-secrets`, and open a pull request. Why: [decision 007](docs/decisions/007-deploy-from-github-to-vercel.md).
+Vercel builds the site from GitHub: every pull request gets a preview link, and every merge to `main` (after CI passes) goes live. The build runs `npm run decor && npm run build` (see `vercel.json`): it fetches the CC0 decor from Poly Haven, then builds into `dist/`. The catalog, credits and covers are committed in `public/`; refresh them locally (`npm run catalog`, `npm run enrich`, `npm run about`), run `npm run check-secrets`, and open a pull request. Why: [decision 007](docs/decisions/007-deploy-from-github-to-vercel.md).
 
 ## License
 
-[MIT](LICENSE) © 2026 Tarik Moody. Album artwork (`public/covers/`), music and Bandcamp's player are not covered by this license; the artwork belongs to its artists and labels and is shown only to identify each record.
+[MIT](LICENSE) © 2026 Tarik Moody. Album artwork (`public/covers/`), album notes (`public/about/`), music and Bandcamp's player are not covered by this license; the artwork and notes belong to their artists and labels and are shown only to identify and introduce each record, with a link back to Bandcamp.

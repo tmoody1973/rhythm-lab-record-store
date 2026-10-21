@@ -1,10 +1,12 @@
 // The album pop-up from docs/design/rhythm-lab-album-modal.png. Native <dialog> (focus trap, Escape, inert page);
 // the Bandcamp iframe exists only while the dialog is mounted, so closing stops playback.
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useAbout } from '../catalog/about.ts';
 import type { Enriched } from '../catalog/enrichment.ts';
 import { genreOf } from '../catalog/genres.ts';
 import { embedHeight, embedUrl } from '../catalog/ids.ts';
 import type { PublicAlbum } from '../catalog/schema.ts';
+import { AlbumAbout } from './AlbumAbout.tsx';
 import { Sleeve } from './RecordCard.tsx';
 
 /** "International Anthem · 2018 · IARC 0022" from whatever enrichment published. */
@@ -25,6 +27,7 @@ export function AlbumDialog({ record, cratesContaining = [], note, enriched, act
   const [loaded, setLoaded] = useState(false);
   const titleId = `dialog-title-${record.bandcampId}`;
   const src = embedUrl(record);
+  const about = useAbout(record.id);
 
   useEffect(() => {
     const d = ref.current!;
@@ -59,7 +62,8 @@ export function AlbumDialog({ record, cratesContaining = [], note, enriched, act
       </div>
       <div className="grid gap-8 p-5 sm:p-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:p-10">
 
-        <div>
+        {/* Pinned on wide screens, so the cover stays beside a long About while it scrolls. */}
+        <div className="md:sticky md:top-10 md:self-start">
           <Sleeve record={record} size="large" />
           <p className="mt-5 text-xs uppercase tracking-[0.25em] text-ink-soft">From Tarik's collection</p>
           <p className="mt-1 font-serif text-lg">{shelf}</p>
@@ -87,6 +91,8 @@ export function AlbumDialog({ record, cratesContaining = [], note, enriched, act
               Player not loading? Listen on Bandcamp
             </a>
           </div>
+
+          {about && <AlbumAbout about={about} />}
 
           {enriched?.bandcampUrl && (
             <a

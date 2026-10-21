@@ -16,6 +16,7 @@
     "catalog": "node --env-file=.env.local pipeline/catalog.ts",
     "import-crate": "node pipeline/import-crate.ts",
     "enrich": "node --env-file=.env.local pipeline/enrich/index.ts",
+    "about": "node pipeline/about.ts",
     "check-secrets": "node --env-file=.env.local scripts/check-secrets.mts",
     "decor": "node scripts/fetch-decor.mts"
   },
