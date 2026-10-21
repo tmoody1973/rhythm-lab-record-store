@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const KEYS = ['SUBSONIC_PASSWORD', 'SUBSONIC_USER', 'APPLE_TEAM_ID', 'APPLE_KEY_ID', 'DISCOGS_KEY', 'DISCOGS_SECRET', 'MUSICBRAINZ_CONTACT'];
-const PATHS = ['out', 'data/.cache/enrich', 'data/enrichment-review.md', 'tests/fixtures/enrich', 'public/enrichment.json', 'public/catalog.json', 'docs/ENRICHMENT-COVERAGE.md'];
+const PATHS = ['out', 'data/.cache/enrich', 'data/enrichment-review.md', 'tests/fixtures/enrich', 'public/enrichment.json', 'public/catalog.json', 'public/about', 'data/.cache/about', 'docs/ENRICHMENT-COVERAGE.md'];
 
 const secrets = KEYS.map((k) => process.env[k]).filter((v): v is string => !!v && v.length >= 6);
 if (secrets.length < 5) {
