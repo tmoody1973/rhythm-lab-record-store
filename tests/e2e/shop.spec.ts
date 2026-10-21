@@ -215,10 +215,15 @@ test('after the shop sits idle, Next eases the records instead of jumping (Tarik
   await offline(page);
   await page.goto('/?section=jazz&bin=0');
   await ready(page);
-  let last = await frames(page);
-  await expect.poll(async () => { await page.waitForTimeout(1500); const now = await frames(page); const d = now - last; last = now; return d; }, { timeout: 45_000, intervals: [0] }).toBe(0);
-  await page.evaluate(() => { (window as unknown as { __rlDeltas: number[] }).__rlDeltas = []; });
-  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  // Press Next only while R3F's loop is stopped, checking and pressing in one page task so no frame slips in between
+  // (a late font load can start a burst of frames right after a "looks idle" check on a slow machine).
+  await expect.poll(() => page.evaluate(() => {
+    const w = window as unknown as { __rlIdle?: boolean; __rlDeltas: number[] };
+    if (!w.__rlIdle) return false;
+    w.__rlDeltas = [];
+    [...document.querySelectorAll('button')].find((b) => b.textContent === 'Next')!.click();
+    return true;
+  }), { timeout: 45_000 }).toBe(true);
   await page.waitForTimeout(1500);
   const deltas = await page.evaluate(() => (window as unknown as { __rlDeltas: number[] }).__rlDeltas);
   expect(deltas.length).toBeGreaterThan(0);
