@@ -2,7 +2,7 @@
 
 > Tarik Moody's Bandcamp collection as a record shop you can browse: genre crates, real album art, and Bandcamp's own player.
 
-**Live:** https://rhythm-lab-record-store.vercel.app — a 3D record shop with all 1,215 records (real covers and colours), a cover grid one tap away, album pop-ups with Bandcamp's player, and visitor crates with share links.
+**Live:** https://records.rhythmlabradio.com — a 3D record shop with all 1,215 records (real covers and colours), a cover grid one tap away, album pop-ups with Bandcamp's player, and visitor crates with share links.
 
 ## What this is
 
