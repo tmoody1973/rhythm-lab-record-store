@@ -1,6 +1,7 @@
 // The album pop-up from docs/design/rhythm-lab-album-modal.png. Native <dialog> (focus trap, Escape, inert page);
 // the Bandcamp iframe exists only while the dialog is mounted, so closing stops playback.
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { event, recordLabel } from '../analytics.ts';
 import { useAbout } from '../catalog/about.ts';
 import type { Enriched } from '../catalog/enrichment.ts';
 import { genreOf } from '../catalog/genres.ts';
@@ -28,6 +29,7 @@ export function AlbumDialog({ record, cratesContaining = [], note, enriched, act
   const titleId = `dialog-title-${record.bandcampId}`;
   const src = embedUrl(record);
   const about = useAbout(record.id);
+  const toBandcamp = (link: 'open-button' | 'player-fallback' | 'notes') => () => event('Bandcamp Clicked', { record: recordLabel(record), link });
 
   useEffect(() => {
     const d = ref.current!;
@@ -87,18 +89,19 @@ export function AlbumDialog({ record, cratesContaining = [], note, enriched, act
                 onLoad={() => setLoaded(true)}
               />
             </div>
-            <a href={src} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block px-1 text-sm text-forest underline-offset-4 hover:underline">
+            <a href={src} target="_blank" rel="noopener noreferrer" onClick={toBandcamp('player-fallback')} className="mt-2 inline-block px-1 text-sm text-forest underline-offset-4 hover:underline">
               Player not loading? Listen on Bandcamp
             </a>
           </div>
 
-          {about && <AlbumAbout about={about} />}
+          {about && <AlbumAbout about={about} onBandcamp={toBandcamp('notes')} />}
 
           {enriched?.bandcampUrl && (
             <a
               href={enriched.bandcampUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={toBandcamp('open-button')}
               className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl border border-ink/50 px-5 py-3 hover:bg-chip focus-visible:outline-2 focus-visible:outline-forest"
             >
               Open on Bandcamp <span aria-hidden="true">↗</span>

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { event, recordLabel, report3DTrouble } from './analytics.ts';
 import { fromCompact, toCompact } from './catalog/ids.ts';
 import { useCatalog, useEnrichment, type LoadFailure } from './catalog/load.ts';
 import type { PublicAlbum } from './catalog/schema.ts';
@@ -52,6 +53,7 @@ export function App() {
   const pushed = useRef(false); // true when the open record added a history entry (so Back closes it)
   const lastOpened = useRef<string | null>(null);
   const opener = useRef<HTMLElement | null>(null); // the control that opened the pop-up, for focus return
+  const linked = useRef(state.record); // a record already in the URL at page load arrived by link
 
   const byId = useMemo(
     () => new Map(catalog.status === 'ready' ? catalog.catalog.albums.map((a) => [a.id, a]) : []),
@@ -75,6 +77,18 @@ export function App() {
     setNotice(shared.reason === 'too-large' ? 'That share link has too many records (the limit is 200).' : 'That share link is broken.');
     patch({ shared: null });
   }, [shared, patch]);
+
+  useEffect(() => {
+    if (!open || linked.current !== state.record) return;
+    linked.current = null;
+    event('Record Opened', { record: recordLabel(open), from: 'link' });
+  }, [open, state.record]);
+  useEffect(() => {
+    if (shared?.ok) event('Shared Crate', { action: 'opened', records: shared.records.length });
+  }, [shared]);
+  useEffect(() => {
+    if (state.view === 'store' && !has3D()) report3DTrouble('unsupported');
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps -- once, for the page as it first loads
 
   // When the pop-up goes away (button, Escape, or browser Back), return focus to its card.
   useEffect(() => {
@@ -100,13 +114,15 @@ export function App() {
 
   const closeCrates = useCallback(() => setCratesOpen(false), []);
 
-  const openRecord = useCallback((r: PublicAlbum) => {
+  const openRecord = useCallback((r: PublicAlbum, from: 'crates' | 'shared' | null = null) => {
+    event('Record Opened', { record: recordLabel(r), from: from ?? (inShop ? 'shop' : 'grid') });
+    linked.current = null;
     const active = document.activeElement;
     opener.current = active instanceof HTMLElement && active !== document.body ? active : null;
     setNotice(null);
     pushed.current = true;
     patch({ record: toCompact(r.id) }, { push: true });
-  }, [patch]);
+  }, [patch, inShop]);
 
   const close = useCallback(() => {
     const wasPushed = pushed.current;
@@ -121,11 +137,12 @@ export function App() {
   const openFromCrates = useCallback((r: PublicAlbum) => {
     backToCrates.current = true;
     setCratesOpen(false);
-    openRecord(r);
+    openRecord(r, 'crates');
   }, [openRecord]);
 
   const saveShared = () => {
     if (!shared?.ok) return;
+    event('Shared Crate', { action: 'saved', records: shared.records.length });
     visitor.update((d) => {
       const withCrate = createCrate(d, shared.name);
       const id = withCrate.crates.at(-1)!.id;
@@ -150,7 +167,7 @@ export function App() {
             dropped={shared.dropped}
             onSave={saveShared}
             onDismiss={() => patch({ shared: null })}
-            onOpen={openRecord}
+            onOpen={(r) => openRecord(r, 'shared')}
           />
         )}
         </div>
@@ -169,7 +186,7 @@ export function App() {
             crates={TARIK_CRATES}
             crateMembers={(id) => crateMembers(TARIK_CRATES, id)}
             enrichment={enrichment}
-            onOpen={openRecord}
+            onOpen={(r) => openRecord(r)}
             onNotice={setNotice}
             staffPicks={staffPicksOf(TARIK_CRATES, byId)}
           />

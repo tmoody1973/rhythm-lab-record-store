@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { event, report3DTrouble } from '../analytics.ts';
 import { genreChips } from '../catalog/genres.ts';
 import { applyQuery, firstIndexForLetter, letters, pageCount, pageOf, pageSlice, PER_PAGE } from '../catalog/query.ts';
 import type { EnrichmentMap } from '../catalog/load.ts';
@@ -46,6 +47,15 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
     if (covered < catalog.albums.length * COUNTRY_MIN_SHARE) return [];
     return [...counts.keys()].map((code) => ({ code, name: regionName(code), n: counts.get(code)! })).sort((a, b) => a.name.localeCompare(b.name));
   }, [catalog, enrichment]);
+  // One Search event when typing stops: whether anything matched, never what was typed. A search
+  // already in the link the page opened with is someone else's search, so it doesn't count.
+  const loadedQ = useRef<string | null>(state.q);
+  useEffect(() => {
+    if (!state.q || state.q === loadedQ.current) return;
+    loadedQ.current = null;
+    const t = setTimeout(() => event('Search', { results: sorted.length ? 'some' : 'none' }), 800);
+    return () => clearTimeout(t);
+  }, [state.q]); // eslint-disable-line react-hooks/exhaustive-deps
   const pages = pageCount(sorted.length);
   const page = Math.min(state.page, pages);
   const visible = pageSlice(sorted, page);
@@ -72,7 +82,7 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
     return (
       <>
         <h1 className="sr-only">Rhythm Lab record shop</h1>
-        <Fallback3D onFail={() => { onNotice("The 3D shop couldn't start in this browser, so here's the grid."); patch({ view: 'grid' }); }}>
+        <Fallback3D onFail={() => { report3DTrouble('crashed'); onNotice("The 3D shop couldn't start in this browser, so here's the grid."); patch({ view: 'grid' }); }}>
           <Suspense fallback={<p className="fixed inset-0 grid place-items-center bg-[#1a1411] text-[#f3e6cf]">Opening the shop…</p>}>
             <ShopScene albums={catalog.albums} state={state} patch={patch} onOpenRecord={(r) => onOpen?.(r, document.activeElement as HTMLButtonElement)} onNotice={onNotice} staffPicks={staffPicks} />
           </Suspense>
@@ -91,7 +101,7 @@ export function Collection({ catalog, state, patch, crates = [], crateMembers = 
         <div className="flex items-center gap-4">
           <span className="text-sm text-ink-soft">{fmt(catalog.count)} records</span>
           <div className="flex rounded-full border border-ink/25 bg-card p-1" role="group" aria-label="View">
-            <button type="button" disabled={!can3D} title={can3D ? undefined : "This browser can't show the 3D shop"} onClick={() => patch({ view: 'store' })} className="rounded-full px-4 py-1.5 text-sm text-ink hover:bg-chip disabled:text-ink/40 disabled:hover:bg-transparent">Store</button>
+            <button type="button" disabled={!can3D} title={can3D ? undefined : "This browser can't show the 3D shop"} onClick={() => { event('View Switched', { to: 'store' }); patch({ view: 'store' }); }} className="rounded-full px-4 py-1.5 text-sm text-ink hover:bg-chip disabled:text-ink/40 disabled:hover:bg-transparent">Store</button>
             <button type="button" aria-pressed="true" className="rounded-full bg-forest px-4 py-1.5 text-sm text-card">Grid</button>
           </div>
         </div>

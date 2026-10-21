@@ -19,6 +19,7 @@ import { ShopMaterials, useDecor, useMats } from './scene/Materials.tsx';
 import { Plant } from './scene/Room.tsx';
 import { qualityFor } from './quality.ts';
 import { give3DUp } from './support.ts';
+import { event } from '../analytics.ts';
 import { SteadyClock } from './scene/steadyClock.ts';
 import { toBins } from './sections.ts';
 
@@ -115,6 +116,7 @@ export default function CrateStage({ data, update, byId, place, onPlace, onOpenR
   };
   const shareUrl = `${window.location.origin}/?shared=${encodeShare({ name: current.name, records: current.records })}`;
   const copy = async () => {
+    event('Share Link Copied', { records: current.records.length });
     try { await navigator.clipboard.writeText(shareUrl); setCopied(current.id); } catch { setCopied(`${current.id}:manual`); }
   };
 

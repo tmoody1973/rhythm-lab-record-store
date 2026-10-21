@@ -1,5 +1,6 @@
 // "Add to crate" and the heart, in the album pop-up (docs/design/rhythm-lab-album-modal.png).
 import { useState } from 'react';
+import { event, recordLabel } from '../analytics.ts';
 import type { PublicAlbum } from '../catalog/schema.ts';
 import { addToCrate, createCrate, removeFromCrate, toggleFavorite, type VisitorData } from '../crates/storage.ts';
 
@@ -10,7 +11,10 @@ export function RecordActions({ record, data, update }: Props) {
   const [name, setName] = useState('');
   const favorite = data.favorites.includes(record.id);
 
+  const crateAction = (action: 'favorite' | 'add-to-crate' | 'new-crate') => event('Crate Action', { action, record: recordLabel(record) });
+
   const create = () => {
+    crateAction('new-crate');
     update((d) => {
       const withCrate = createCrate(d, name);
       return addToCrate(withCrate, withCrate.crates.at(-1)!.id, record.id);
@@ -33,7 +37,7 @@ export function RecordActions({ record, data, update }: Props) {
           type="button"
           aria-pressed={favorite}
           aria-label="Save to favorites"
-          onClick={() => update((d) => toggleFavorite(d, record.id))}
+          onClick={() => { if (!favorite) crateAction('favorite'); update((d) => toggleFavorite(d, record.id)); }}
           className="grid h-12 w-12 place-items-center rounded-full border border-ink/40 hover:bg-chip focus-visible:outline-2 focus-visible:outline-forest"
         >
           <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
@@ -52,7 +56,10 @@ export function RecordActions({ record, data, update }: Props) {
                   <input
                     type="checkbox"
                     checked={c.records.includes(record.id)}
-                    onChange={(e) => update((d) => (e.target.checked ? addToCrate(d, c.id, record.id) : removeFromCrate(d, c.id, record.id)))}
+                    onChange={(e) => {
+                      if (e.target.checked) crateAction('add-to-crate');
+                      update((d) => (e.target.checked ? addToCrate(d, c.id, record.id) : removeFromCrate(d, c.id, record.id)));
+                    }}
                     className="h-4 w-4 accent-forest"
                   />
                   {c.name}
